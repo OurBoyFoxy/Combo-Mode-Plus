@@ -1,0 +1,12 @@
+snake changes:
+
+short hop height increased
+
+fair:
+removed momentum shift
+
+down b:
+c4 now sticks to the opponent without falling off or transfering onto snake
+c4 will stick to the opponent for 30 seconds before falling off
+the animation for sticking a c4 to the opponent is now 1.5x faster
+the endlag on detonating c4 is now increased, .5x slower (this does not affect startup)

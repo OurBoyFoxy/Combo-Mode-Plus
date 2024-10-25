@@ -1,0 +1,43 @@
+sheik changes:
+
+jab:
+removed rapid jab
+jab 1 angle:70<361 (now jab resets)
+jab 2 iasa:18<25
+
+
+dash attack:
+iasa: 41<35
+sweetspot damage:7<9
+angle:60<75
+
+ftilt:
+iasa:22<25
+bkb:20<45
+kbg:100<80
+damage:5<8
+hitlag multiplier reverted back to .5
+sdi multiplier:1<1.2
+
+up tilt:
+iasa:36<30
+
+dtilt:
+damage:8<10
+
+dsmash:
+slowed down, .8x multipler
+sweetspot damage:13<16
+kbg:80<90
+
+fair:
+damage:9<12
+bkb:0<10
+
+bair:
+sourspot damage:11<13
+sweetspot damage:12<14
+
+up air:
+sweetspot angle:70<90
+kbg:100<125

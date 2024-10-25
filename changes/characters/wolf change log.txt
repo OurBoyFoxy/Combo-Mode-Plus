@@ -1,0 +1,11 @@
+wolf changes:
+
+dash attack:
+angles:50/361<80
+
+nair:
+fixed the hitboxes with no knockback
+
+side b:
+sweetspot angle:270<361
+kbg:80<100

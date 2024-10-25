@@ -1,0 +1,51 @@
+dedede changes:
+
+up b height buffed
+
+jet hammer charges faster lol
+
+buffed air mobility
+
+jab:
+multihit removed
+jab 1 sped up 1.3x
+jab 1 angles:361<70/80/100
+jab 2 damage:5<7
+jab 2 bkb:20<50
+
+dash attack:
+sped up 1.2x
+
+ftilt:
+initial hit damage:6<9
+late hit damage:4<6
+bkb:20<40
+
+uptilt:
+kbg:120<100
+
+fsmash:
+sped up 1.2x (end lag slowed to .8 to compensate)
+
+fair:
+damage:15<17
+
+up air:
+multihit: all angles changed to 270
+sdi multiplier:1<.5
+final hit angle:70<80
+
+dair:
+final hit angle:70<75
+kbg:140<90
+sdi multiplier:1<.5
+
+
+d throw:
+angle:20<80
+removed set knockback
+kbg:60
+bkb:90
+
+up throw:
+kbg:72<50

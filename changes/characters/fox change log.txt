@@ -1,0 +1,23 @@
+fox changes:
+
+fair:
+removed momentum shifting
+
+up air:
+kbg:100<120
+
+dair:
+hitlag multiplier:1<.85
+bkb:33<15
+damage:3<2
+(these changes remove dair psuedo infinite)
+
+d throw:
+angle:60<75
+kbg:100<60
+
+down special:
+can now jump cancel when grounded
+angle (grounded opponents):10<80
+kbg(grounded opponents):30<70
+aerial opponents are still launched at 10 degrees

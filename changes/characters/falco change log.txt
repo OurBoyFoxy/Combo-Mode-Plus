@@ -1,0 +1,19 @@
+falco changes:
+
+shorthop reduced slightly + aerial laser startup slowed to remove double laser
+
+fsmash:
+damage:15<17
+hitlag:.5<1.5
+kbg:88<92
+
+fair:
+sped up 1.2x
+bkb:0<25
+
+bair:
+sweetspot damage:13<15
+
+upair:
+removed sourspot
+angles:68/80<75   

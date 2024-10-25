@@ -1,0 +1,21 @@
+ganon changes:
+
+run speed:1.16<1.36
+
+side special:
+can now cancel the ground and air version into a grounded attack much faster after grab connects
+
+up tilt:
+windboxes removed, entire mid length of move sped up x4.5
+
+jab:
+sped up 1.3x
+
+nair:
+swapped hitbox id's on 0 and 2
+
+bair:
+sweetspot damage:16<17
+
+fair:
+fixed the iasa so it functions properly (iasa 45)

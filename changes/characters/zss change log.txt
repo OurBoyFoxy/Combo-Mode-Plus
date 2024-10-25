@@ -1,0 +1,22 @@
+zss changes:
+
+removed items on match start
+
+short hop reduced 1.988<1.65
+
+neutral b:
+duration of projectile increased
+
+up b:
+snaps to edge much faster
+edge grab length increased
+
+dash attack:
+angle:361<75
+
+up tilt:
+iasa:46<31
+
+fsmash:
+tipper hitbox damage:6<13
+tipper hitbox kbg:100<120

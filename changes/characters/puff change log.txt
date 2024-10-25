@@ -1,0 +1,18 @@
+jigglypuff changes:
+
+short hop vertical height:1.12<1.2
+air mobility buffed
+
+jumpsquat:5<4
+
+down b:
+size increased
+damage: 15<20
+angle:88<90
+
+dair:
+startup slowed .7x (this + short hop are infinite prevention)
+now has skb (5)
+aerial opponent angle:30<270
+sdi multiplier:1.2<1
+multihits:8<7

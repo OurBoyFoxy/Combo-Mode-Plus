@@ -1,0 +1,39 @@
+squirtle changes:
+
+run speed:1.35<1.67
+
+dash attack:
+angle:110<361
+damage:9<11
+late hit damage:7<9
+iasa:42<35
+
+f tilt:
+trip rate:0<1 (now has a 100% trip rate, see luigi d tilt for details about mechanics)
+
+up tilt:
+damage:6<8
+
+d tilt:
+final hit:65<100
+iasa:37<30
+
+upsmash:
+sweetspot:13<16
+
+d smash:
+damage:11<12
+
+nair:
+size initial hit:5<7
+size late hit:3<5.5
+
+fair:
+angle:45<55
+
+dair:
+final hit angle:30<85
+bkb:70<30
+
+up throw:
+kbg:75<35

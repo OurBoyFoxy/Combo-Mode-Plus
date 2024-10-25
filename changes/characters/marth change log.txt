@@ -1,0 +1,41 @@
+marth changes:
+
+dash attack:
+tipper angle:45<100
+tipper bkb:80<60
+iasa:50<40
+
+d tilt:
+no longer halts momentum out of a dash
+
+f smash:
+tipper hitbox priority adjusted, should be more consistent
+
+fair:
+tipper now takes priority
+mid hitbox size increased
+tipper angle:361<65
+non tipper damage:10<9
+tipper damage:13<11
+kbg:80<70
+iasa:34<30
+
+dair:
+tipper hitbox now takes priority
+
+up air:
+damage:13<12
+kbg:80<60
+
+f throw:
+angle:50<55
+
+upthrow:
+bkb:80<60
+kbk:120<100
+
+dthrow:
+angle:135<120
+
+side b:
+gives better aerial lift

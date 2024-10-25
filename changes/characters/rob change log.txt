@@ -1,0 +1,39 @@
+rob changes:
+
+dash attack:
+sweetspot damage:6<8
+sourspot damage:5<7
+knockback growth:50<70
+
+d smash:
+final hit bkb:90<60
+
+upair:
+multihit angle:96<365
+
+dair:
+removed initial momentum stall
+
+nair:
+startup sped up 1.5x
+
+upsmash:
+sweetspot damage:14<17
+
+d tilt:
+iasa:15<18
+angle:361<55
+damage:5<6
+bkb:2<25
+
+side special:
+sped up 1.5x
+angle:361<80
+grounded side b can now be canceled into attacks
+(this move still sucks lol)
+
+down b:
+gyro charges faster (90<70)
+
+neutral b:
+sped up 1.5

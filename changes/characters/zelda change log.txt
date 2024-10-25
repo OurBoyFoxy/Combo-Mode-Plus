@@ -1,0 +1,44 @@
+zelda changelog:
+
+double jump height increased (.86<1)
+
+jab:
+sped up 1.2x
+multihit angle:361<270
+
+dash attack:
+switched hitbox angles
+
+f tilt:
+iasa:40<30
+
+up tilt:
+sped up 1.2x
+iasa:48<39 (even sooner with 1.2x speed)
+
+f smash:
+hitlag multiplier:1<.5 (can you believe this move already has a .5 sdi multiplier)
+multihit angles all made 270
+
+nair:
+multihit angles all made 90
+skb:75<25
+
+fair/bair:
+sweetspot hitbox larger:1.7<3.2
+sweetspot active frames:1<2
+
+dair:
+sweetspot size:1.7<4.5
+sweetspot duration:1<3
+sweetspot can now hit grounded opponents
+
+neutral b:
+can now be canceled into attacks when grounded
+angle:10<100
+
+side b:
+projectile moves much faster and can be turned much faster
+
+grab:
+sped up 1.3x

@@ -1,0 +1,18 @@
+game and watch changes:
+
+dair:
+removed stall and fall
+sourspot angle:60<270
+sweetspot duration:1<4
+
+dtilt:
+angle:361<80
+
+d throw:
+angle:270<80
+bkb:80<90
+
+bair:
+multihit lowered to just 1 hit into final hit
+final hit damage:3<12
+final hit kbg:170<100

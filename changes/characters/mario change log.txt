@@ -1,0 +1,32 @@
+mario changes:
+
+dash attack:
+made the hitboxes on both sourspots larger (sourspot late hit dash attack was literally unhittable before)
+sweetspot angle:110<100
+late hit sweetspot angle:120<110
+
+d tilt:
+iasa:35<26
+
+d smash:
+kbg:73<105
+
+upsmash:
+damage:14<16
+kbg:90<100
+
+fair:
+all angles are now 270, keeps sourpsots damage and knockback
+iasa:60<46
+
+nair:
+initial hit damage:10<12
+late hit damage:5<7
+kbg:100<110
+
+up air:
+angle:45<55
+
+dair:
+multihit hitbox id 1 size:7<5
+multihit hitbox id 1 angle:94<270

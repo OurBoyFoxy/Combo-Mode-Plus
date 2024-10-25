@@ -1,0 +1,33 @@
+ivysaur change log:
+
+horizontal airspeed has been increased
+
+grab:
+active frames:13-14<9-12
+fixed range
+
+dair:
+sweetspot damage:8<12
+sweetspot hitbox size increased
+
+bair:
+1st hit damage:2<3
+2nd hit damage:3<5
+2nd hit kbg:160<130
+2nd hit bkb:10<5
+iasa:45<39
+
+d smash:
+damage:8<12
+kbg:80<90
+
+Up special:
+sweetspot priority changed from 4<0
+range to grab edge increased
+reaches the edge must faster
+ivysaur no longer goes into special fall after use
+added more endlag
+
+side special:
+razor leaves last longer (50<60)
+removed rng angles

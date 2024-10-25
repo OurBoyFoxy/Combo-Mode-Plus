@@ -1,0 +1,39 @@
+luigi changes:
+
+run speed:1.34<1.45
+
+dash attack:
+sped up 1.3X
+final hit damage:2<4
+sdi multiplier on multihit:1.6<.5
+multihit bkb:1<5
+
+dtilt:
+hitbox id 0 matches all other hitbox angles (361<270)
+iasa:35<28
+trip rate:.3<1. (move now has a 100% trip rate, should be noted that will only trip for as long as the move doesn't launch and trip cannot combo into itself, i.e. this should not cause infinites)
+
+upsmash:
+sweetspot damage:15<18
+sourspot damage:12<15
+
+fair:
+damage:10<12
+
+bair:
+now has a prominent sweetspot on initial hit
+sweetspot damage:12<16
+kbg:100<110
+
+dair:
+hitbox id 0 angle:361<270
+
+upair:
+angle:55<65
+
+up b:
+sweetspot size:2<5
+sweetspot active frames:1<3
+
+down b:
+final hitbox active frames:1<4

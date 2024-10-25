@@ -1,0 +1,23 @@
+Ike changes:
+
+side b:
+ike can now jump out of the dash
+
+dtilt:
+sped up 1.2x
+iasa:55<41 (probably more like 37 with the speed modifier)
+sourspot angle:361:270
+
+up tilt:
+iasa:51<40
+
+f smash:
+sped up 1.2x on startup
+endlag slowed by .8x
+
+d smash:
+1st hit damage:13<16
+1st hit kbg:100<110
+
+dair:
+sweetspot duration:2<3

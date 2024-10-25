@@ -1,0 +1,8 @@
+kirby changes:
+
+air speed increased
+
+side special:
+aerial side special sped up 1.2x
+aerial side special angle:55<30
+sweetspot damage:17<19

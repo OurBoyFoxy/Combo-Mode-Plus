@@ -1,0 +1,8 @@
+Donkey kong changes:
+
+cargo throw:
+up throw kbg:30<100
+up throw bkb:90<60
+f throw sped up 1.3x
+b throw kbg:50<30
+b throw angle:55<60

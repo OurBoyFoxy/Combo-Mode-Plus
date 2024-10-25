@@ -1,0 +1,16 @@
+ness changes:
+
+djc restored
+
+fair:
+angle:361<365
+
+bair:
+sweetspot damage:15<18
+
+up air:
+kbg:109<75
+bkb:13<35
+
+down throw:
+angle:70<90
