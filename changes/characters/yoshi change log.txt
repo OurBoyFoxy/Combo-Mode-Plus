@@ -28,3 +28,7 @@ grounded down b hit when descending:
 damage:14<19
 kbg:60<75
 aerial hit kbg:60<75
+__________________________________________________________
+rev 2 changes:
+
+yoshi now has a parry. shield startup + release has invincibility and can be jump canceled.

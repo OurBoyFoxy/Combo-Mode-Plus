@@ -30,3 +30,8 @@ angle:45<55
 dair:
 multihit hitbox id 1 size:7<5
 multihit hitbox id 1 angle:94<270
+________________________________________________________________________________
+rev 2 changes:
+
+up air:
+angle:55<50

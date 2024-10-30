@@ -16,3 +16,11 @@ bair:
 multihit lowered to just 1 hit into final hit
 final hit damage:3<12
 final hit kbg:170<100
+__________________________________________________________________
+rev 2 changes:
+
+dair:
+removed a bug where the meteor hit of his dair was lasting the entire length of the move.
+dair now functions properly:
+spike hitbox:1-4
+sourspot:5<23

@@ -24,7 +24,18 @@ dair:
 dair vs grounded opponents now meteors (70<270)
 
 up air:
-iasa:39<47
+iasa:47<39
 
 up throw:
 kbg:140<90
+_______________________________________________________________________________
+rev 2 changes:
+
+nair:
+sped up 1.2x
+
+bair:
+first hit angle:270<365
+
+f smash:
+first hit all angles changed to 365 (hits connect much better)

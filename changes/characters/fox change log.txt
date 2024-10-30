@@ -21,3 +21,8 @@ can now jump cancel when grounded
 angle (grounded opponents):10<80
 kbg(grounded opponents):30<70
 aerial opponents are still launched at 10 degrees
+_________________________________________________________________________
+rev 2 changes:
+
+down b:
+shine is no longer invincible on startup.

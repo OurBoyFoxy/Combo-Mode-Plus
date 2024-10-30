@@ -60,3 +60,14 @@ neutral special:
 release startup sped up 1.5x
 endlag slowed down .7x + iasa 36<40
 max damage multiplier:.75<.7
+_____________________________________________________________________________
+rev 2 changes:
+
+dash attack:
+kbg:40<60
+
+up tilt:
+kbg:55<70
+
+up air:
+kbg:45<70

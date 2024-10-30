@@ -37,3 +37,7 @@ bkb:70<30
 
 up throw:
 kbg:75<35
+____________________________________________________________________________
+rev 2 changes:
+
+run speed didn't save before, is now properly 1.67

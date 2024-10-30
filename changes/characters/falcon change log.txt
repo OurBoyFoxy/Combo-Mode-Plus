@@ -22,3 +22,9 @@ first hit angles:82/78/74<65
 first hit skb:55<65
 first hit sdi multiplier:1<.4
 2nd hit angle:361<50
+____________________________________________________________
+rev 2 changes:
+
+nair:
+first hit angles:65<80
+2nd hit sped up 1.2x

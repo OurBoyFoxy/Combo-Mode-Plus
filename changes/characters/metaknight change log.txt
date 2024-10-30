@@ -1,0 +1,44 @@
+metaknight changes:
+
+Metaknight wasn't touched yet in Rev 1 of combo mode+ and i decided to just do something with him to complete the roster.
+chester can change him if he wants later.
+
+Rev 2:
+
+number of jumps reduced (6<4)
+jump height increased
+
+d tilt:
+no longer halts momentum 
+iasa:15<22
+angle:361<57
+bkb:15<30
+damage:4/5/6/7<6
+
+up tilt:
+initial hit kbg:120<90
+later hit kbg:145<90
+bkb:35<55
+damage:6/7/8<7
+
+fsmash:
+endlag slowed .6x
+
+dsmash:
+endlag slowed .6x
+
+up smash:
+2nd hit angles all made 365
+final hit kbg:145<100
+bkb:62<55
+final hit damage:4<6
+
+up air:
+iasa:14<25
+damage:6<8
+kbg:125<100
+
+neutral b:
+hitbox sizes:5<3
+endlag slowed .7x
+max horizontal speed:2<1.3

@@ -19,3 +19,19 @@ sweetspot damage:16<17
 
 fair:
 fixed the iasa so it functions properly (iasa 45)
+_______________________________________________________________________________
+rev 2 changes:
+
+ganon has his P+ dash and run animation
+
+his run speed buff wasn't saved previously so now his run speed is properly 1.36
+
+initital dash speed:1.3<1.5
+
+d smash:
+first hit now matches 2nd hit, move is no longer a multihit
+damage:14<16
+2nd hit kbg:75<90
+
+d throw:
+angle:65<75

@@ -1,17 +1,20 @@
 combo mode+ changelog overview:
+
+when reading all character stat changes, the format is "old<new"
+there's an image in the folder to help visualise this concept to those who struggle to understand.
 _______________________________________________________________________________
-Universal changes (same as vanilla combo mode):
+rev 2 Universal changes:
 
-All characters jump heights are restored, universally increased by .2
-(shorthops remain unchanged)
+grabs across the board have been buffed and made a standardized 6 frames.
 
-Semi-standardized jumpsquat, any character with a jumpsquat over 5 has been lowered to 5.
+as well, weight dependent throw speeds have been removed, throws will always remain the same speed.
 
-meteor canceling is removed.
+finally, jump cancel grab is back, albeit a bit crazy on some characters (falcon/sonic).
 
-all 3 pokemon trainer pokemon (ivy/squirtle/zard) have stamina and type weakness removed.
+stages are officially unfrozen, as i've ported in some P+ stuff and we now have a much more functional FD, Lylat, and Pokemon stadium. this means stages like smashville won't be jank anymore.
+current downside, i haven't figured out a way to modify Warioware to have no transformations yet, and unfrozen stages means Delphino is no longer a viable stage pick.
 
-some characters have still had their up b's fixed even if it's not mentioned in their combo mode+ changes
+MK and Diddy have been tweaked, you can read their changelogs in their text files.
 _________________________________________________________________________________
 Currently unchanged/unfinished characters:
 
@@ -23,16 +26,7 @@ Olimar: Every single pikmin olimar can use has different stats that all indiviua
 
 Zero Suit Samus: 2 things. first of all, all attacks using her plasma whip count as a projectile and not an attack?? this makes it annoying to find all of her attacks proper hitboxes. and second, ZSS is a very nearly unplayed character and i think i need to play her more before i change her further. she still has some changes.
 
-Metaknight: Chester wants to balance MK. i was thinking of balancing him myself and then just letting chester overwrite whatever changes i made, but i decided to just leave MK alone to get the first build of combo mode+ out sooner.
-
 Wario: I totally could rework this character, but i don't want to right now. i hate this fat ugly farting piece of shit. i don't wanna give him awesome combos, he's fucking stupid.
 
-Diddy Kong: Having trouble fixing his up b. trying to work on it but don't wanna hold up everything while i figure this out then rework his kit.
+pikachu: Previously i forgot to mention i haven't changed pikachu, just haven't gotten to it and the character is very underplayed so i haven't touched him.
 _________________________________________________________________________________
-Rewok/rebelance philosphy:
-I did not try to perfectly balance combo mode+, i think doing that on my first attempt would be nearly impossible.
-what i did try to do was give every character functional moves, reasonable frame data, and realistic kill confirms and followups.
-some characters that had very linear gameplans i tried to rework to be more diverse.
-this includes top/high tier characters. not everything is a buff, some things are meant to emphasize a new approach to gameplay.
-some things might be OP, some things might suck, i'm not positive. this is the first run of combo mode+ so go easy on it.
-and please, for the love of god, actually get into a match and play vs a real human opponent before you hop into training/against a bot and start saying something is overpowered or needs nerfed.

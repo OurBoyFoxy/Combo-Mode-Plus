@@ -36,3 +36,26 @@ upsmash:
 reduced multihits from 6<3
 final hit damage:3<7
 kbg:152<120
+_______________________________________________________________________________
+rev 2 changes:
+
+sonic has some P+ moves now.
+
+new moves:
+up tilt
+fair
+
+up tilt:
+changes from P+
+kbg:100<80
+damage:11/9<10
+sourspot angle:60<80
+
+fair:
+same as P+, works good
+
+up air:
+first hit angle:100<365
+
+down tilt:
+bkb:30<60
