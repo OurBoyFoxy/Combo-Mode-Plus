@@ -39,3 +39,25 @@ first hit angle:270<365
 
 f smash:
 first hit all angles changed to 365 (hits connect much better)
+_______________________________________________________________________________
+rev 3 changes:
+
+JC grab carries momentum now
+all glide related animations have been sped up
+
+up special:
+removed multihits before strong final hit
+final hit is now the duration of the move.
+active frames:12-28
+damage:4<12
+kbg:150<110
+
+bair:
+removed multihit, gave first hit damage to 2nd hit.
+damage:7/9 < 12/14
+kbg:130<100
+
+
+f smash:
+removed multihit, gave the initial hits damage to the final hit.
+damage:17<22

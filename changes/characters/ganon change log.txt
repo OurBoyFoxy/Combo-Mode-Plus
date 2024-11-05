@@ -35,3 +35,12 @@ damage:14<16
 
 d throw:
 angle:65<75
+_______________________________________________________________________________
+rev 3 changes:
+
+up tilt:
+ganon has a completely new uptilt repurposing his swing tilt animation.
+it's now an uppercut.
+bkb:30
+kbg:100
+damage:11

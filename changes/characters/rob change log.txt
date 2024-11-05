@@ -36,4 +36,4 @@ down b:
 gyro charges faster (90<70)
 
 neutral b:
-sped up 1.5
+sped up 1.5x

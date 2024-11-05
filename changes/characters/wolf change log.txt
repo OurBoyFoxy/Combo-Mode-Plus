@@ -9,3 +9,11 @@ fixed the hitboxes with no knockback
 side b:
 sweetspot angle:270<361
 kbg:80<100
+_______________________________________________________________________
+rev 3 changes:
+
+down b:
+removed invincibility on all 10 frames
+hitboxes first active frame:8<5
+shine is now attack cancelable
+unlike fox and falco, wolf can cancel his ground and aerial reflector.

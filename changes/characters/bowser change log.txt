@@ -55,3 +55,22 @@ added skb to 1st hit (30)
 removed sourspots on 2nd hit
 2nd hit hitbox id0 size:7.3<9
 hitlag:1.2<1.3
+___________________________________________________________________________
+rev 3 changes:
+
+f smash:
+removed multihit, first hit damage has been given to 2nd hit sweetspot
+hitbox id0 damage:23<32
+kbg:90<75
+
+d tilt:
+fixed hitboxes, now actually cover his hands.
+both hits meant to combo into eachother now.
+first hit trip rate:.3<1
+firt hit damage:14<6
+first hit angle:361<270
+2nd hit bkb:12<30
+
+fair:
+kbg:80<95
+damage:14/12/11<15/14/13

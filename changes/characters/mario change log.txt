@@ -35,3 +35,19 @@ rev 2 changes:
 
 up air:
 angle:55<50
+_______________________________________________________________________________
+rev 3 changes:
+
+dair:
+now has P+ dair animation and new dair properties
+angle vs grounded opponents:270
+angle vs aerial opponents:80
+final hit angle:80
+
+fair:
+sweetspot damage:13<16
+bkb:20<50
+kbg:80<60
+
+d tilt:
+damage:5/7<8

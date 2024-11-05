@@ -7,7 +7,7 @@ gravity:.0625<.095
 terminal velocity:1.2<1.4
 double jump:.85<1
 jump:2.4<2.6
-short hop:1.54<1.74
+short hop:1.54<1.79
 
 up throw:
 bkb:50<70
@@ -71,3 +71,37 @@ kbg:55<70
 
 up air:
 kbg:45<70
+_______________________________________________________________________________
+rev 3 changes:
+
+up b:
+fixed the move so you can now properly ride the wall without lucario bonking his cute little head like an asshole.
+
+dash attack:
+Lucario now has ultimate lucario dash attack animation, giving it more range.
+initial hit angle:100<75
+iasa:30<34
+
+up air:
+also has ultimate animation just because it looks cool.
+
+down air:
+new animation using his trophy item throw animation, new properties.
+the move no longer stalls lucario and is instead a more typical spike.
+bkb:30
+kbg:80
+damage:15 (18 with multiplier)
+
+back air:
+damage:12<15 (with multiplier comes out to 18)
+kbg:100<110
+
+back throw:
+kbg:60<45
+
+down throw:
+kbg:50<45
+
+neutral special:
+endlag slowned down .7x < .9x
+iasa:40<38

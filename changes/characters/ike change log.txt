@@ -6,7 +6,7 @@ ike can now jump out of the dash
 dtilt:
 sped up 1.2x
 iasa:55<41 (probably more like 37 with the speed modifier)
-sourspot angle:361:270
+sourspot angle:361<270
 
 up tilt:
 iasa:51<40
@@ -21,3 +21,8 @@ d smash:
 
 dair:
 sweetspot duration:2<3
+______________________________________________________________________________
+rev 3 changes:
+
+f tilt:
+iasa:56<43

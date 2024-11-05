@@ -6,7 +6,7 @@ air mobility buffed
 jumpsquat:5<4
 
 down b:
-size increased
+hitbox size increased
 damage: 15<20
 angle:88<90
 

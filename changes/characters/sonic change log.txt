@@ -59,3 +59,14 @@ first hit angle:100<365
 
 down tilt:
 bkb:30<60
+_______________________________________________________________________________
+rev 3 changes:
+
+grab:
+no longer carries his momentum when jump canceled.
+
+up smash:
+no longer a multihit.
+damage:14
+bkb:37
+kbg:110

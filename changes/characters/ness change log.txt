@@ -14,3 +14,13 @@ bkb:13<35
 
 down throw:
 angle:70<90
+______________________________________________________________
+rev 3 changes:
+
+up smash:
+ness has a new upsmash, a headbutt like mario's.
+damage:18
+bkb:35
+kbg:90
+at the moment, i cannot get charging to function properly on the move.
+it can be charged but it won't increase damage.

@@ -62,3 +62,12 @@ removed slowdown on detonate endlag
 damage:17<15
 angle:80<90
 kbg:90<80
+_________________________________________________________________________________
+rev 3 changes:
+
+down b:
+c4 sticks to enemy for 12 seconds instead of 30
+
+jab:
+jab 2 angle:80<95
+can now cancel jab 2 into specials

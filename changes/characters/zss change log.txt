@@ -20,3 +20,44 @@ iasa:46<31
 fsmash:
 tipper hitbox damage:6<13
 tipper hitbox kbg:100<120
+_______________________________________________________________________________
+rev 3 changes:
+
+d smash:
+startup sped up 1.2
+endlag slowed .7x
+iasa:21<26
+
+f smash:
+damage on every hitbox made 13
+
+fair:
+added skb on first hit (20)
+sped up between hits 1.3x
+first hit angle:361<80
+
+nair:
+angle:50<60
+
+grab:
+sped up 1.2x and endlag sped up 2x
+
+up throw:
+iasa:55<30
+angle:73<85
+
+dair:
+angle vs grounded opponents:361<275
+bkb vs grounded opponents:35<40
+added skb on grounded opponents (20)
+angle vs aerial opponents:275<10
+kbg vs grounded opponents:90<50
+can now be special canceled
+damage:5/4<9
+
+up b:
+sped up 1.2x
+changed hitboxes to make the spike more consistent
+
+down b:
+can now double jump out of the flip

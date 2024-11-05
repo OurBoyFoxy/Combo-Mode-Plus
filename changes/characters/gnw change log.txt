@@ -22,5 +22,8 @@ rev 2 changes:
 dair:
 removed a bug where the meteor hit of his dair was lasting the entire length of the move.
 dair now functions properly:
-spike hitbox:1-4
-sourspot:5<23
+spike hitbox:11-15
+sourspot:15<38
+_______________________________________________________________________________
+rev 3 changes:
+d tilt active frames: 5-15 < 5-10

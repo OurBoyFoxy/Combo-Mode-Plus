@@ -24,3 +24,11 @@ angle:110<90
 up b:
 removed sourspots, damage all made 16
 kbg:72<82
+___________________________________________________________________________
+rev 3 changes:
+
+down b:
+bomb pull has been sped up 1.4x
+
+side b:
+all rang throws/catches sped up 1.4x

@@ -32,3 +32,17 @@ nair:
 all multihits changed to 365 angle
 skb:70<50
 final hit:361<55
+_______________________________________________________________________________
+rev 3 changes:
+
+up tilt:
+pit has a new up tilt based off marth's up tilt animation.
+damage:10
+angle:100
+bkb:35
+kbg:85
+
+fair:
+startup slowed .6x
+damage:13/14/15<15
+kbg:82<110

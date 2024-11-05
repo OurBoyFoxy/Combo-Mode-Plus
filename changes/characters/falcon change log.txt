@@ -28,3 +28,19 @@ rev 2 changes:
 nair:
 first hit angles:65<80
 2nd hit sped up 1.2x
+_________________________________________________________________
+rev 3 changes:
+
+fixed a bug where falcon could cancel his dodges into attacks
+
+side b:
+damage:7<10
+bkb:100<80
+kbg:52<75
+
+d throw:
+sped up 1.2x
+
+fair:
+sweetspot duration:1<2
+initial hitbox id 1 now matches id 0

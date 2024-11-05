@@ -26,3 +26,21 @@ rev 2 changes:
 
 down b:
 shine is no longer invincible on startup.
+__________________________________________________________________________
+rev 3 changes:
+
+dair:
+first active frame:4<5
+startup slowed .8x
+bkb:15<25
+
+down b:
+startup slowed .6x
+shine is reworked. it is no longer jump cancelable but is now cancelable by ground actions such as crouching, dashing, walking, etc. it cannot be canceled in the air.
+angle:80<10
+skb:30
+bkb:30
+damage:5<3
+
+up throw:
+endlag sped up 1.5x
