@@ -12,6 +12,24 @@ we have more new codes in place! behind the scenes this is a massive code overha
 
 lastly, more general changes to character balance and a semi-universal multijump fix.
 still no changes to Wario, Peach, Olimar, and Ice climbers.
+
+characters that got changed this patch:
+-bowser
+-zard
+-ddd
+-fox
+-kirby
+-link
+-lucario
+-luigi
+-mario
+-metaknight
+-ness
+-pit
+-puff
+-sheik
+-snake
+-toon link
 _________________________________________________________________________________
 the future of combo mode:
 as great as Roy being in combo mode finally is, this is only the beginning!
