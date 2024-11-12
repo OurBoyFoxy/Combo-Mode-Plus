@@ -74,3 +74,24 @@ first hit angle:361<270
 fair:
 kbg:80<95
 damage:14/12/11<15/14/13
+_______________________________________________________________________________
+rev 4 changes:
+
+side b:
+can no longer be manipulated to move left and right(forgot to mention in last patch)
+angle:100<361
+damage:18<20
+kbg:50<60
+
+down smash:
+added invincibility on frames 4-9
+sped up 1.3x
+added skb to multihits (30)
+
+down b:
+aerial animation sped up 1.4x
+landing hitbox angle:76<361
+
+nair:
+sped up 1.2x
+iasa:48<40

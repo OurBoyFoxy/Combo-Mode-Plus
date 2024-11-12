@@ -68,3 +68,6 @@ up special:
 kbg:110<95
 bkb:70<65
 damage:12<11
+
+up air:
+angle:85<80

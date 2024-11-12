@@ -14,7 +14,7 @@ bkb:13<35
 
 down throw:
 angle:70<90
-______________________________________________________________
+______________________________________________________________________________________
 rev 3 changes:
 
 up smash:
@@ -24,3 +24,21 @@ bkb:35
 kbg:90
 at the moment, i cannot get charging to function properly on the move.
 it can be charged but it won't increase damage.
+_______________________________________________________________________________________
+rev 4 changes:
+
+still no fix on charging up smash :(
+
+bair:
+sweetspot kbg:100<115
+bkb:16<25
+
+d throw:
+sped up 1.3x
+
+up throw:
+bkb:105<75
+
+dash attack:
+sped up 1.3x
+hit 1+2 hitbox sizes:5<6

@@ -32,3 +32,22 @@ bomb pull has been sped up 1.4x
 
 side b:
 all rang throws/catches sped up 1.4x
+________________________________________________________________________________________
+rev 4 changes:
+
+dash attack:
+kbg:70<60
+bkb:50<60
+
+up tilt:
+kbg:122<100
+bkb:30<45
+damage:9<11
+
+fair:
+first hit bkb:5<30
+first hit damage:9<12
+2nd hit damage:12<14
+
+bair:
+2nd hit angle:361<57

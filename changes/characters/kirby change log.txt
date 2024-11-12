@@ -6,3 +6,20 @@ side special:
 aerial side special sped up 1.2x
 aerial side special angle:55<30
 sweetspot damage:17<19
+_________________________________________________________________________________________
+rev 4 changes:
+
+multijumps fixed.
+
+up air:
+startup+endlag sped up 1.3x
+
+fair:
+final hit angle:361<55
+
+dair:
+added skb (10)
+bkb:20<25
+
+f throw:
+angle:56<97

@@ -1,3 +1,9 @@
-roy changes:
+Roy changes:
+_________________________________________________________________________________
+rev 4 changes:
 
-his existance
+Roy is built off a combination of an old school "roy in brawl" mod and a "pm roy in brawl" mod. this was necessary for his files to function properly.
+
+he has been adjusted to feel more natural in brawl's engine, and been slightly rebalanced and reworked from PM.
+
+across the board he has less damage on his moves and a bit more endlag on some ground moves as compared to PM/P+.
