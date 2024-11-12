@@ -105,3 +105,9 @@ kbg:50<45
 neutral special:
 endlag slowned down .7x < .9x
 iasa:40<38
+________________________________________________________________________________
+rev 4 changes:
+
+bair:
+damage:15<13 (with multiplier it is now actually 15)
+kbg:110<105
