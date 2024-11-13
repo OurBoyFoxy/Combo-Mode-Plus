@@ -1,7 +1,0 @@
-Dr.Mario alts
-
-0 = neutral
-1 = red
-2 = blue
-3 = green
-4 = black
