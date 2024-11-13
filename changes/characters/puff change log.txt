@@ -11,8 +11,22 @@ damage: 15<20
 angle:88<90
 
 dair:
-startup slowed .7x (this + short hop are infinite prevention)
+startup slowed .7x (this + short hop buff are infinite prevention)
 now has skb (5)
 aerial opponent angle:30<270
 sdi multiplier:1.2<1
 multihits:8<7
+_________________________________________________________________________________
+rev 4 changes:
+
+multijump buffed
+
+up smash:
+startup + move sped up 1.3x, endlag slowed .8x
+kbg:100<120
+
+bair:
+hitbox id0 z offset:12<15 (more range)
+
+up throw:
+bkb:110<80

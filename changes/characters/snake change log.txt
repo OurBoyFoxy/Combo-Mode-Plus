@@ -70,4 +70,32 @@ c4 sticks to enemy for 12 seconds instead of 30
 
 jab:
 jab 2 angle:80<95
-can now cancel jab 2 into specials
+can now cancel jab 2 into down b
+______________________________________________________________________________________
+rev 4 changes:
+
+down b:
+c4 now sticks to the opponent for 20 seconds.
+kbg:80<85
+bkb:40<45
+
+jab:
+jab 1 can once again jab reset. (angle:80<361)
+
+f tilt:
+hitbox id1 on first hit bkb:50<10
+
+f smash:
+kbg:60<40
+
+down smash:
+sped up 1.7x
+
+dair:
+sped up 1.3x
+first 3 hits all skb made 40 on hitbox id 0/1
+final hit hitbox id0 angle:361<280
+final hit hitbox id0 kbg:110<80
+multihit hitbox id1 angle:80<365
+multihit damage:6/5<4
+final hit damage:12<9

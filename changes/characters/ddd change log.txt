@@ -57,3 +57,36 @@ shield size increased (12<16)
 runs faster (1.22<1.35)
 
 increased horizontal air speed
+____________________________________________________________________________
+rev 4 changes:
+
+multijumps buffed
+
+buffed his air mobility even more.
+
+up tilt:
+iasa:40<34
+
+up air:
+sped up 1.3x
+hitbox id1/2 angle:270<365
+hitbox id2/3 angle:270<80
+final hit kbg:130<140
+final hit damage:5<7
+
+dair:
+sped up 1.1x
+
+d smash:
+startup + move sped up 1.3x
+
+f smash:
+startup sped: 1.2x < 1.3x
+
+up smash:
+startup sped up 1.2x
+kbg:96<105
+
+up b:
+all landing animations sped up
+can now grab the edge out of up b

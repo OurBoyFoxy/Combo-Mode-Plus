@@ -46,3 +46,18 @@ fair:
 startup slowed .6x
 damage:13/14/15<15
 kbg:82<110
+_________________________________________________________________________________
+rev 4 changes:
+
+up b verticality buffed.
+multijumps buffed.
+
+dair:
+kbg:40<60
+
+up air:
+multihit slowed .8x
+hitbox id 0 angle:90<365
+
+down b:
+minimum amount of time shield must be held out lowered+endlag slowed 1.6x

@@ -61,3 +61,13 @@ kbg:130<100
 f smash:
 removed multihit, gave the initial hits damage to the final hit.
 damage:17<22
+________________________________________________________________________________
+rev 4 changes:
+
+up special:
+kbg:110<95
+bkb:70<65
+damage:12<11
+
+up air:
+angle:85<80
