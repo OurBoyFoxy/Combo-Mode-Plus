@@ -1,0 +1,7 @@
+~~~Roy~~~
+
+game ID: 0x3F
+announcer call: Marth Wiimote 0x19BE
+cosmetic ID: 0x70
+sound bank: 0x14D
+Sawnd file: 340
