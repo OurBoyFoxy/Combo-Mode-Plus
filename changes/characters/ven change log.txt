@@ -1,0 +1,35 @@
+Ven changes:
+__________________________________________________________________________________________
+rev 5 changes:
+
+Ven is now a member of combo mode's roster!
+Ven differs from Roy in many ways, some subtle and some not so subtle.
+you'll find Ven's most obvious difference is that instead of fire, he has ice! this serves a practical purpose we'll get into later.
+
+Why did we add Ven to combo mode? well, we couldn't decide whether we wanted to add PM roy or Melee roy into combo mode. After a bit of thought, we decided "why not both" and decided that Ven would serve as a more traditional "Melee Roy", albeit still with a slight twist of his own.
+
+differences from Roy: (CM Roy means "combo mode Roy")
+
+Since Ven is based off classic melee Roy, he is once again a more direct Marth clone. This means no PM Roy f tilt, up tilt, d smash, nair, or bair. As well, his aerials have been nerfed, doing less damage than CM Roy's across the board.
+In a similar fashion to melee Roy, you'll find many of Ven's moves are slightly slower, having more endlag and startup. He also runs a bit slower.
+Unlike melee, you'll find that Ven's moves at least all function as they should, with no horrible or missing hitboxes. As well, despite being nerfed from Roy's, Ven's aerials are still not quite as weak as melee Roy's.
+
+Some stand out moves you may find more familiar are d smash and dair.
+D smash has been given back its iconic "21% frame 6" status, and i tried to take extra care to ensure it's still killing at about 120% (character and stage will obviously make this vary)
+For dair, the tipper once again takes the most priority and juggles, while the hilt launches at the sakurai angle again. The body of course is still the meteor, but is larger and easier to hit than on CM Roy.
+
+What are some positive changes in Ven's favor? well, he can act faster out of his throws, and his up throw has been restored as an eventual kill throw as reference to melee Roy and keeping with his more vertical KO power theme.
+His specials are also generally buffed. his side-b has set knockback on the first hit, decreased sdi multiplier, more damage, and is able to cancel his swings faster.
+he has combo potiential off of side b 1, and can cancel side b up 3 into attacks. his side b up 2 also has better combo potiential and faster endlag.
+his side b up 4 is a very scary vertical kill move.
+
+without a doubt, Ven's most significant and obvious difference from any version of Roy is his use of ice rather than fire.
+Ven keeps all the same elemental moves as melee Roy, those being: 
+-up smash
+-down/neutral/up b
+-the final hits of side b (as well as 3rd hit down)
+he does not get PM roy's elemental nair, d smash, or dair spike.
+Because ice actually has a unique effect on hit, Ven was a bit odd to balance, aside from the obvious fact of being frozen, ice moves don't really abide by knockback angles like normal, they have a very vertical knockback, I believe they're coded this way intentionally to help prevent you from being frozen at low percent and falling to your death.
+I was inspired by this and decided to lean into it, so you may find yourself getting more KO's off the top with Ven's special moves!
+I tried my best to balance them in a way to prevent them from freezing you for too long. I'm thankful melee Roy only has a few moves that actually have elemental affects, it made this balancing task much easier. None of Ven's freezing moves are good for comboing, they are for kills exclusivley.
+Reverse up B is no longer an instant KO but a rebalanced move with actual base knockback and knockback growth. this means the move is no longer locked to being used exclusivley against floaties, but rather a genuine kill move you can build a gameplay around. Neutral b is much the same, ending combos in this move will result in your opponent being launched up, frozen.

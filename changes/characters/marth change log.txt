@@ -39,3 +39,8 @@ angle:135<120
 
 side b:
 gives better aerial lift
+___________________________________________________________________________________
+rev 5 changes:
+
+marth now uses a "PM marth in brawl" mod as a base, and has been modified further to fit more into combo mode.
+he keeps his brawl animations, which is mostly noticable for neutral/side b.

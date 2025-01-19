@@ -6,4 +6,22 @@ Roy is built off a combination of an old school "roy in brawl" mod and a "pm roy
 
 he has been adjusted to feel more natural in brawl's engine, and been slightly rebalanced and reworked from PM.
 
-across the board he has less damage on his moves and a bit more endlag on some ground moves as compared to PM/P+.
+across the board he generally has less damage on his moves and a bit more endlag on some moves compared to PM/P+.
+___________________________________________________________________________________
+rev 5 changes:
+
+d tilt:
+sweetspot angle: 80 < 71
+hilt damage made consistent: 10/12 < 10
+
+fair:
+sweetspot angle: 50 < 47
+
+bair:
+sweetspot damage: 16 < 15
+kbg: 100 < 97
+
+up air:
+angle: 80 < 70
+damage: 10 < 9
+kbg: 40 < 60

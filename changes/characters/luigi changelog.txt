@@ -42,3 +42,11 @@ rev 4 changes:
 
 initial dash speed:1.28<1.5
 crawl speed increased: .7/.4 < 1.2
+____________________________________________________________________________________
+rev 5 changes:
+
+jab:
+can now cancel jab 2 into specials
+
+dash attack:
+can special cancel before the final hit

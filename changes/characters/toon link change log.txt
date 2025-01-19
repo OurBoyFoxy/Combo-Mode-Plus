@@ -27,7 +27,7 @@ ______________________________________________________________________________
 rev 4 changes:
 
 f smash:
-now uses his P+ forward smash animation  with new stats, it's a single hit.
+now uses his P+ forward smash animation with new stats, it's a single hit.
 damage:17
 bkb:10
 kbg:110
@@ -53,3 +53,7 @@ sped up 1.4x
 
 side b/down b:
 all bomb pull and rang throw animations sped up 1.5x
+___________________________________________________________________________________
+rev 5 changes:
+
+fixed his animation, didn't actually update his animation file in rev 4

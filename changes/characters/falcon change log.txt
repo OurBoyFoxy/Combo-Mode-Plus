@@ -44,3 +44,21 @@ sped up 1.2x
 fair:
 sweetspot duration:1<2
 initial hitbox id 1 now matches id 0
+_________________________________________________________________________
+rev 5 changes:
+
+f smash:
+has his ult animation and some improved range
+
+up tilt:
+brand new elbow up tilt, based off his smash 64 up smash
+angle:80
+damage:10
+bkb:50
+kbg:80
+
+up throw:
+end lag sped up 1.4x
+
+down b:
+endlag sped up 1.5x

@@ -44,3 +44,14 @@ it's now an uppercut.
 bkb:30
 kbg:100
 damage:11
+_________________________________________________________________________________
+rev 5 changes:
+
+side b:
+if ganon still has his double jump during an aerial grab he can jump out of it.
+
+down b:
+landing lag now sped up 2x
+grounded damage:12/10<17
+grounded kbg:70<80
+aerial late hit angle:80<290

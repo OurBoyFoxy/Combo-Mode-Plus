@@ -61,3 +61,10 @@ hitbox id 0 angle:90<365
 
 down b:
 minimum amount of time shield must be held out lowered+endlag slowed 1.6x
+___________________________________________________________________________________
+rev 5 changes:
+
+up b verticality buffed even more.
+
+side b:
+can now cancel into attacks

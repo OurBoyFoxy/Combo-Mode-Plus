@@ -51,3 +51,23 @@ first hit damage:9<12
 
 bair:
 2nd hit angle:361<57
+___________________________________________________________________________
+rev 5 changes:
+
+double jump increased:.9<.95
+jump buffed:2.46<2.5
+
+jab:
+jab 2 can now cancel into grab/special
+
+f smash:
+first hit now made to link into 2nd, both hits sped up 1.2
+first hit damage:15/14<10
+
+d smash:
+sped up 1.2x
+
+dair:
+sweetspot duration:1<5
+sweespot id0 size:5.2<6.5
+late hit angle:361<270

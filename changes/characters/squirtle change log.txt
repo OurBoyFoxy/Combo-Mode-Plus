@@ -41,3 +41,28 @@ ____________________________________________________________________________
 rev 2 changes:
 
 run speed didn't save before, is now properly 1.67
+_______________________________________________________________________________
+rev 5 changes:
+
+side b:
+startup sped up 1.2x
+can now cancel into attacks
+angle:80<361
+kbg:50<30
+damage:3<6
+
+up b:
+final hit damage:3<8
+final hit kbg:130<140
+sped up 1.3x
+
+up smash:
+first hit damage:16<18
+first hit kbg:87<93
+
+d smash:
+startup sped up 1.35x
+damage:12<14
+
+f smash:
+damage:14<17

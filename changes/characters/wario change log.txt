@@ -1,0 +1,49 @@
+wario changes:
+________________________________________________________________________________
+rev 5 changes:
+
+jab:
+added iasa to 2nd hit:32
+
+dash attack:
+added iasa:37
+sweetspot damage:7<10
+sourspot damage:5<7
+late hit angle:120<100
+
+up tilt:
+sped up startup 1.3x
+added iasa:30
+damage:10<13
+sourspot damage:6<9
+
+d tilt:
+iasa:34<26
+damage:8<11
+
+f smash:
+removed super armor
+added momentum to give it more range
+iasa:41<51
+
+d smash:
+sped up hitboxes 1.4x, endlag 1.9x
+
+fair:
+added iasa:28
+
+dair:
+final hit angle:361<270
+kbg:180<90
+
+bair:
+damage:10<15
+
+d throw:
+end lag sped up 1.6x
+
+neutral b:
+minimum hold time:20<1
+
+up b:
+vertical height buffed

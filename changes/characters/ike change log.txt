@@ -26,3 +26,10 @@ rev 3 changes:
 
 f tilt:
 iasa:56<43
+_____________________________________________________________________________
+rev 5 changes:
+
+side b:
+attack endlag sped up 1.7x
+startup sped up 1.4x
+added iasa frame 40

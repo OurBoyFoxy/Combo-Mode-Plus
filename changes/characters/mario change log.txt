@@ -59,3 +59,9 @@ bkb:20<35
 
 bair:
 initial hit kbg:95<115
+_____________________________________________________________________________________
+rev 5 changes:
+
+dair:
+fixed a bug where the final hit lingered the entire duration of the endlag.
+slowed down .8x

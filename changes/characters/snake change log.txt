@@ -99,3 +99,67 @@ final hit hitbox id0 kbg:110<80
 multihit hitbox id1 angle:80<365
 multihit damage:6/5<4
 final hit damage:12<9
+_________________________________________________________________________________________
+rev 5 changes:
+
+increased air mobility
+run speed: 1.35<1.45
+increased double jump horizontal mobility
+jump height increased
+
+jab:
+jab 1 startup slowed .85x
+input windows for the jabs:30<40
+jab 2 angle:95<120
+jab 1 endlag slowed .7
+jab 1 can now cancel into specials just like jab 2
+jab 1 sdi multiplier:1<0
+jab 3 kbg:115<85
+
+dash attack:
+slowed down:.6x<.5x
+late hit angle:110<75
+hitbox sizes: all increased by 2
+iasa:35<38
+
+f tilt:
+2nd hit input window: 30<25
+startup slowdown reduced:.5<.6
+damage:6<7
+added iasa to first hit, iasa 30
+made hitbox id3 same as id0
+
+up tilt:
+initial hit damage:10<11
+
+d tilt:
+damage:9<10
+kbg:100<75
+
+f smash:
+slowed .9x
+bkb:100<75
+kbg:40<65
+
+up air:
+iasa:36<29
+
+fair:
+sweetspot angle:269<281
+sourspot size:4<5
+sourspot angle:80<70
+sourspot kbg:100<95
+
+up throw:
+bkb:64<75
+kbg:60<40
+
+d throw:
+sped up 1.5x
+
+up b:
+can now snap the ledge
+can now instantly cancel up b with attacks
+
+down b:
+can now cancel c4 detonate into attacks before the explosion

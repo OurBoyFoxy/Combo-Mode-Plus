@@ -17,3 +17,7 @@ removed invincibility on all 10 frames
 hitboxes first active frame:8<5
 shine is now attack cancelable
 unlike fox and falco, wolf can cancel his ground and aerial reflector.
+___________________________________________________________________________
+rev 5 changes:
+
+wolf now has his ult idle animation. this is done to make him a larger target and be easier to hit.

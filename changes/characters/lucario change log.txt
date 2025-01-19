@@ -35,7 +35,7 @@ d tilt:
 kbg:130<30
 angle:60<80
 bkb:28<75
-hitbox sixes:4<5.5
+hitbox sizes:4<5.5
 
 up tilt:
 kbg:130<55
@@ -111,3 +111,29 @@ rev 4 changes:
 bair:
 damage:15<13 (with multiplier it is now actually 15)
 kbg:110<105
+_____________________________________________________________________________________
+rev 5 changes:
+
+f smash:
+sweet + sourspot damage made equal: 16/14 < 15
+endlag slowed more:.9x < .8x
+reduced range, z axis offset: 19 < 16
+hitbox duration: 8 < 5
+
+up smash:
+sourspot hitbox duration: 18 < 5
+
+fair:
+hitbox duration: 13 < 5
+angle: 50 < 45
+
+bair:
+sourspot duration: 11 < 4
+
+d smash:
+startup sped up 1.5x
+endlag slowed down .8x
+
+d tilt:
+active frames: 7 < 4
+angle:80<71

@@ -11,7 +11,7 @@ iasa:56<41
 bkb:120<80
 
 uptilt:
-iasa:51<43
+iasa:51<40
 hitbox duration:8-13<6-13
 kbg:97<70
 
@@ -95,3 +95,12 @@ landing hitbox angle:76<361
 nair:
 sped up 1.2x
 iasa:48<40
+________________________________________________________________________________
+rev 5 changes:
+
+d tilt:
+made a single hit.
+angle:25
+damage:11
+bkb:20
+kbg:100

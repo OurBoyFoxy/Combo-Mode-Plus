@@ -49,3 +49,34 @@ rev 4 changes:
 
 up smash:
 kbg:96<115
+______________________________________________________________________________________
+rev 5 changes:
+
+short hop increased:2.485<2.5
+
+jab:
+removed rapid jab
+jab 2 can cancel into grab and specials
+
+fair:
+has a new 2 hit fair.
+
+bair:
+damage:15<17
+kbg:85<90
+
+f smash:
+kbg:96<112
+damage:15<16
+bkb:10<15
+
+up tilt:
+strong hit bkb:22<35
+weak hit bkb:18<25
+
+nair:
+angle:361<50
+
+down b:
+damage:3<4
+bkb vs grounded opponents:30<35

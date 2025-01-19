@@ -71,3 +71,24 @@ damage:12<11
 
 up air:
 angle:85<80
+___________________________________________________________________________________
+rev 5 changes:
+
+fair:
+now has his P+ fair animation with unique properties.
+
+sourspot:
+damage:14
+angle:70
+bkb:35
+kbg:90
+
+sweetspot:
+damage:18
+angle:361
+bkb:40
+kbg:80
+
+Dair:
+range nerfed, hitbox id1/2 size:8<6 y offset:-7<-3
+hitbox id2 angle: 361<270
