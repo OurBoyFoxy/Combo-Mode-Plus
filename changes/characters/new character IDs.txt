@@ -5,3 +5,11 @@ announcer call: Marth Wiimote 0x19BE
 cosmetic ID: 0x70
 sound bank: 0x14D
 Sawnd file: 340
+
+~~~Ven~~~
+
+game ID: 0x41
+announcer call: Wario Wiimote
+cosmetic ID: 0x72
+sound bank: 0x14F
+Sawnd file: 342
