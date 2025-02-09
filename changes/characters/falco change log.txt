@@ -41,3 +41,18 @@ hitbox size:3<5
 
 dair:
 late hit angle:361<80
+_________________________________________________________________________________
+rev 6 changes:
+
+up smash:
+endlag sped up 1.35x
+
+d smash:
+kbg:70<90
+
+bair:
+sweetspot bkb:0<30
+sweetspot kbg:103<115
+
+dair:
+sourspot angle:80<290

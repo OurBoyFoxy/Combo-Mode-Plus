@@ -71,3 +71,11 @@ dair:
 sweetspot duration:1<5
 sweespot id0 size:5.2<6.5
 late hit angle:361<270
+_______________________________________________________________________________________
+rev 6 changes:
+
+f smash:
+1st hit angle:80<365
+can now jump cancel 1st hit
+1st hit bkb:25<33
+1st hit trip rate:0<1

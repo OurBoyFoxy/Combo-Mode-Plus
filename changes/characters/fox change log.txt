@@ -80,3 +80,8 @@ angle:361<50
 down b:
 damage:3<4
 bkb vs grounded opponents:30<35
+________________________________________________________________________________________
+rev 6 changes:
+
+down b:
+hitbox size:6<7.5

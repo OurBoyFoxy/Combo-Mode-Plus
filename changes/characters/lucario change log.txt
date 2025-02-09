@@ -137,3 +137,13 @@ endlag slowed down .8x
 d tilt:
 active frames: 7 < 4
 angle:80<71
+________________________________________________________________________________________
+rev 6 changes:
+
+jab:
+jab 1+2 angles all made 365
+jab 2 can cancel into specials
+
+side special:
+kbg:83<50
+angle:53<65

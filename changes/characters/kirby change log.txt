@@ -23,3 +23,15 @@ bkb:20<25
 
 f throw:
 angle:56<97
+_______________________________________________________________________________________
+rev 6 changes:
+
+fair:
+hit 1+2 angles all made 365
+move sped up 1.2x
+
+up b:
+cancel cancel the landing into attacks
+
+down b:
+sped up 1.6x

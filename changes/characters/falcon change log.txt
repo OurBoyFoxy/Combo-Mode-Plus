@@ -62,3 +62,8 @@ end lag sped up 1.4x
 
 down b:
 endlag sped up 1.5x
+_______________________________________________________________________
+rev 6 changes:
+
+f smash:
+fixed bug where if hitting a shield, falcon would slide

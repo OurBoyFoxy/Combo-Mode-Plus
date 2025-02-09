@@ -30,3 +30,43 @@ hitbox id0 z offset:12<15 (more range)
 
 up throw:
 bkb:110<80
+_____________________________________________________________________________
+rev 6 changes:
+
+up tilt:
+hitbox id0 size:4<6
+kbg:120<90
+bkb:40<60
+
+d tilt:
+given set kb
+trip rate:.35<1
+sped up 1.2x
+
+f smash:
+sped up 1.2x
+
+up smash:
+startup + move sped up 1.4x
+
+fair:
+iasa:37<33
+sped up 1.1x
+
+bair:
+startup slowed .5x
+damage:12<16
+kbg:90<100
+
+up air:
+iasa:37<29
+kbg:100<70
+bkb:30<45
+
+dair:
+sdi multiplier:1<.5
+angle vs air opponent:270<365
+added iasa:29
+
+side b:
+sped up 1.3x

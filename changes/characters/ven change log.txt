@@ -33,3 +33,7 @@ Because ice actually has a unique effect on hit, Ven was a bit odd to balance, a
 I was inspired by this and decided to lean into it, so you may find yourself getting more KO's off the top with Ven's special moves!
 I tried my best to balance them in a way to prevent them from freezing you for too long. I'm thankful melee Roy only has a few moves that actually have elemental affects, it made this balancing task much easier. None of Ven's freezing moves are good for comboing, they are for kills exclusivley.
 Reverse up B is no longer an instant KO but a rebalanced move with actual base knockback and knockback growth. this means the move is no longer locked to being used exclusivley against floaties, but rather a genuine kill move you can build a gameplay around. Neutral b is much the same, ending combos in this move will result in your opponent being launched up, frozen.
+_________________________________________________________________________________________
+rev 6 changes:
+
+fixed fire effects on taunt and counter.

@@ -1,0 +1,13 @@
+doctor mario changes:
+______________________________________________________________
+rev 6 changes:
+
+Doc is now a part of combo mode, and mostly what you expect.
+he has a blend of melee doctor mario and ult doctor mario.
+
+he has his ult stomp, killing up b, and the tornado back for down b.
+
+he is slower than mario, both in the air and on the ground, but has much greater kill power and has high damage.
+
+not many quirky gimmicks to him, he's about what you would expect.
+the only major quirk worth mention is that he has the melee mario wall jump out of up b.

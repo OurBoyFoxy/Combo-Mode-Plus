@@ -24,7 +24,7 @@ kbg:80<90
 Up special:
 sweetspot priority changed from 4<0
 range to grab edge increased
-reaches the edge must faster
+reaches the edge much faster
 ivysaur no longer goes into special fall after use
 added more endlag
 

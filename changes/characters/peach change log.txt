@@ -1,0 +1,42 @@
+Peach changes:
+_______________________________________________________________________________
+rev 6 changes:
+
+buffed air mobility and double jump
+
+dash attack:
+first hit angle:361<365
+2nd hit damage:4<7
+move sped up 1.2x after 1st hit
+
+up tilt:
+angle:60<90
+
+d tilt:
+sped up 1.2x, given more end lag to compensate
+hitbox id 1/0 size:5.1<5.8
+
+up smash:
+damage on hitbox id 0:15<17
+id 1/0 kbg:100<110
+
+d smash:
+added a final hit that launches at 73 degrees
+multihits now have set kb:10
+multihit sdi multiplier:1<.4
+multihit angle:145<365
+endlag sped up 1.25x
+
+fair:
+kbg:68<78
+bkb:60<65
+
+up air:
+hitbox id 2 angle:361<90
+bkb:0<35
+kbg:100<80
+end lag spend up 1.4x
+
+dair:
+multihit sped up 1.3x
+last hit+endlag slowed .9x

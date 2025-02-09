@@ -47,3 +47,8 @@ minimum hold time:20<1
 
 up b:
 vertical height buffed
+________________________________________________________________________________________
+rev 6 changes:
+
+f smash:
+fixed bug where if hitting a shield, wario would slide
