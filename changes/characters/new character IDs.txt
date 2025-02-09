@@ -13,3 +13,19 @@ announcer call: Wario Wiimote
 cosmetic ID: 0x72
 sound bank: 0x14F
 Sawnd file: 342
+
+~~~ Little Mac ~~~
+
+game ID: 0x42
+announcer call: Wario Wiimote
+cosmetic ID: 0x73
+sound bank: 0x150
+Sawnd file: 343
+
+~~~ Mewtwo ~~~
+
+game ID: 0x43
+announcer call: Lucario Wiimote
+cosmetic ID: 0x74
+sound bank: 0x151
+Sawnd file: 344
