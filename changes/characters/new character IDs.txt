@@ -4,7 +4,12 @@ game ID: 0x3F
 announcer call: Marth Wiimote 0x19BE
 cosmetic ID: 0x70
 sound bank: 0x14D
-Sawnd file: 340
+Sawnd file: 14D
+results file: Z50.brstm
+
+~~~Dr. Mario~~~
+game ID: 0x40
+cosmetic ID: 0x71
 
 ~~~Ven~~~
 
@@ -12,7 +17,7 @@ game ID: 0x41
 announcer call: Wario Wiimote
 cosmetic ID: 0x72
 sound bank: 0x14F
-Sawnd file: 342
+Sawnd file: 14F
 
 ~~~ Little Mac ~~~
 
@@ -20,7 +25,8 @@ game ID: 0x42
 announcer call: Wario Wiimote
 cosmetic ID: 0x73
 sound bank: 0x150
-Sawnd file: 343
+Sawnd file: 150
+results file: Z51.brstm
 
 ~~~ Mewtwo ~~~
 
@@ -28,4 +34,5 @@ game ID: 0x43
 announcer call: Lucario Wiimote
 cosmetic ID: 0x74
 sound bank: 0x151
-Sawnd file: 344
+Sawnd file: 151
+results file: Z52.brstm
