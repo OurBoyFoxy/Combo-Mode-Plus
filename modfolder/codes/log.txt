@@ -120,6 +120,8 @@ Source/LegacyTE/Masquerade.asm
 	Individual Costume Final Smash Works for All Costume IDs [Kapedani]
 	[Legacy TE] Set Masquerade Costume Count to Zero to have up to 50 costumes v1.1a [DukeItOut]
 	[Brawl-Themed P+] Stage Select Screen Supports 50CC [QuickLava]
+Source/LegacyTE/CSSCustomControls.asm
+	CSS Custom Controls V2.0 [Fracture, DukeItOut]
 Team Colour Shade Check Fix (BrawlEx) [ds22, Sammi Husky]
 SFX Fade Fix PMEXv0.5 [ds22, PyotrLuzhin]
 Source/Project+/CSE.asm
@@ -135,10 +137,8 @@ Source/Project+/SFXExpand.asm
 ZSS Jumbo Screen Name Fix [ds22]
 [Project+] Roy Counter Fix [ds22] 
 Snake's U-Smash can Have Horizontal Velocity [Magus]
-Source/Project+/EffectCommands.asm
-	PSA command 11210X00 sets next GFX anim index [Eon, DukeItOut]
-Source/Project+/Attributes.asm
-	On the Fly Attribute Modification (Item Crash Fix) [codes, Mawootad, DukeItOut]
+Source/Project+/CStick.asm
+	C-stick Smash Fixes + functional tilt stick (reverse ftilt included) [camelot, Eon]
 BOOST.txt
 	[Legacy TE] Extra null pointer catch [Fracture]
 	Source/Project+/StageFiles.asm
@@ -255,6 +255,19 @@ BOOST.txt
 	Source/P+Ex/VariableParameter.asm
 		Move Hitbox And Hitbox Decleration allow Size and position to be specified with a variable [Eon]
 		Graphic effects accept variable arguments for rotation and rand elements [Eon]
+	Source/ComboMode+/Engine.asm
+		[ComboMode+] No Landing Lag
+		[ComboMode+] Gravity P1-P4
+		[ComboMode+] Kill Hitstun Cancel
+		[ComboMode+] Dash Cancelling
+		[ComboMode+] No Fast Fall C Stick
+		[ComboMode+] Dash Dancing
+		[ComboMode+] Smash 64 Hitstun
+		[ComboMode+] No Challenger Approaching
+		[ComboMode+] RCO Fix
+		[ComboMode+] Instant Aerial Fix
+		[ComboMode+] PT No Force Swap
+		Boot Directly to CSS v5.3 (Hold Shield for Training, Z for Target Smash) [PyotrLuzhin, SammiHusky, QuickLava]
 	Source/Extras/Console.asm
 		480p Pixel Fix Patch [leseratte, Eon]
 	Source/Extras/More.asm

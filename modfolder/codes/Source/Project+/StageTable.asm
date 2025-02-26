@@ -15,10 +15,20 @@ Stage Select Screen Table Data
 .GOTO->SkipStageTables
 
 TABLE_1:
-	byte[31] |
+	byte[10] |
 0x00, | # Battlefield
 0x01, | # Final Destination
 0x02, | # Delfino Plaza
+0x15, | # WarioWare, Inc.
+0x0E, | # Lylat Cruise
+0x0F, | # Pokémon Stadium 2
+0x1A, | # Smashville
+0x1C, | # Green Hill Zone
+0x1D, | # Pictochat
+0x23  | # Green Greens
+
+TABLE_2:
+	byte[34] |
 0x03, | # Luigi's Mansion
 0x04, | # Mushroomy Kingdom
 0x05, | # Mario Circuit
@@ -29,14 +39,10 @@ TABLE_1:
 0x0B, | # Frigate Orpheon
 0x0C, | # Yoshi's Island (Brawl)
 0x0D, | # Halberd
-0x0E, | # Lylat Cruise
-0x0F, | # Pokémon Stadium 2
 0x10, | # Spear Pillar
 0x11, | # Port Town Aero Dive
 0x14, | # Castle Siege
-0x15, | # WarioWare, Inc.
 0x16, | # Distant Planet
-0x1A, | # Smashville
 0x19, | # New Pork City
 0x12, | # Summit
 0x17, | # Skyworld
@@ -46,10 +52,7 @@ TABLE_1:
 0x1D, | # Pictochat
 0x1E, | # Hanenbow
 0x1B, | # Shadow Moses Island
-0x1C  | # Green Hill Zone
-
-TABLE_2:
-	byte[10] |
+0x1C, | # Green Hill Zone
 0x1F, | # Temple
 0x20, | # Yoshi's Island (Melee)
 0x21, | # Jungle Japes
@@ -85,8 +88,8 @@ half[43] |	# Stage Count + 2
 SkipStageTables:
 .RESET
 
-byte 31 @ $806B929C # Page 1
-byte 10 @ $806B92A4 # Page 2
+byte 10 @ $806B929C # Page 1
+byte 34 @ $806B92A4 # Page 2
 byte 00 @ $80496002 # Page 3 (Unused)
 byte 00 @ $80496003 # Page 4 (Unused)
 byte 00 @ $80496004 # Page 5 (Unused)

@@ -709,6 +709,7 @@ hastyScroll:
 }
 
 .include Source/LegacyTE/Masquerade.asm
+!.include Source/LegacyTE/CSSCustomControls.asm # This breaks us, frustratingly
 
 ###################################
 Team Colour Shade Check Fix (BrawlEx) [ds22, Sammi Husky]
@@ -763,7 +764,8 @@ Snake's U-Smash can Have Horizontal Velocity [Magus]
 * 48000008 C0049560
 * 60000000 00000000
 
-.include Source/Project+/EffectCommands.asm
-.include Source/Project+/Attributes.asm
+!.include Source/Project+/EffectCommands.asm # hold off for now, breaks with controls
+!.include Source/Project+/Attributes.asm     # hold off for now, breaks with controls
 
+.include Source/Project+/CStick.asm
 .include BOOST.txt

@@ -124,61 +124,6 @@
 * 7C0802A6 00000000
 
 ###################################
-[ComboMode+] C stick fix
-###################################
-* 065410A0 00000078
-* 00000006 00000030
-* 00000000 0000000F
-* 00000000 00000030
-* 00000006 00000000
-* 00000006 00000007
-* 00000005 000003FA
-* 00000000 00000004
-* 00000005 00000C56
-* 00000002 805410E8
-* 02010200 80FABAF4
-* 000A0200 805410A0
-* 000B0400 805410C0
-* 02010200 805410B0
-* 000F0000 00000000
-* 00080000 00000000
-* 06FB29CC 00000008
-* 00070100 805410E0
-* 06541120 00000068
-* 00000000 0000002D
-* 00000006 00000000
-* 00000006 00000007
-* 00000005 000003FA
-* 00000000 00000001
-* 00000005 00000C58
-* 00000002 80541158
-* 02010200 80FABAF4
-* 000A0200 805410A0
-* 000B0400 80541130
-* 02010200 80541120
-* 000F0000 00000000
-* 00080000 00000000
-* 06FC2498 00000008
-* 00070100 80541150
-* 06541190 00000070
-* 00000000 00000027
-* 00000006 00000000
-* 00000006 00000007
-* 00000005 000003F4
-* 00000000 00000004
-* 00000005 00000C4F
-* 00000002 805411C8
-* 02010200 80FABAF4
-* 000A0200 805410A0
-* 000B0400 805411A0
-* 05000000 00000000
-* 02010200 80541190
-* 000F0000 00000000
-* 00080000 00000000
-* 06FB203C 00000008
-* 00070100 805411C0
-
-###################################
 [ComboMode+] Tech window extender
 ###################################
 * 04B88EB8 00000014
@@ -268,54 +213,77 @@
 * 0417F36C 01000000
 * E0000000 80008000
 
-###################################
-[Legacy TE] Boot Directly to CSS v4  [PyotrLuzhin]
-###################################
-* 066DD5F8 00000008
-* 38951B54 38A00000
-* C202D3A0 00000005
-* 7F64DB78 3CA08042
-* 60A50A40 7C042800
-* 40820014 38A00003
-* 98BC02A5 98BC02B1
-* 3BC00000 00000000
-* 04078E14 48000010
-
-###################################
-[ComboMode+] Fast Menus
-###################################
-* 0469D424 FC000040
-* 045A2034 41C00000
-* 065A2240 00000008
-* 00000E01 041402FF
-* 066A1ED8 00000008
-* 3F000000 40600000
-* 066A1EEC 00000008
-* 40B00000 41080000
-* C26A021C 00000005
-* 56E80675 4082000C
-* 56E8035B 41A20014
-* 38A5FFFC 2C05FFFF
-* 40A00008 38A0FFFF
-* 90BA0044 00000000
-* C26A039C 00000005
-* 56E80675 4082000C
-* 56E8035B 41A20014
-* 38A50004 7C05E800
-* 41A00008 38BDFFFF
-* 90BA0044 00000000
-* 0469F600 7C002051
-* C2695264 00000002
-* 901C01C8 807C01E4
-* 60000000 00000000
-* 06674534 00000010
-* 389C0000 38A00014
-* 4B98FDFD 38000005
-* 0667B790 00000018
-* 00000002 00000004
-* 00000000 00000001
-* 00000003 00000000
-* 0469B82C 4800000C
-* 046781E4 60000000
-* 0469B868 7C731B78
-* 046A1014 3F800000
+#############################################################################################################
+Boot Directly to CSS v5.3 (Hold Shield for Training, Z for Target Smash) [PyotrLuzhin, SammiHusky, QuickLava]
+# v5.2 - Added Hold Z to Boot to Target Smash!
+#      - The port which triggers the code now properly controls the CSS upon arrival.
+# v5.3 - Wiimote-based controllers properly get control of CSS when special inputs are activated.
+#      - First comments pass.
+#############################################################################################################
+HOOK @ $806DD5F8
+{
+    li r11, 0                            # Initialize port ID iterator for coming loop.
+    LOOP_START:
+        lis r12, 0x805B                  # \ 
+        ori r12, r12, 0xa684             # / Set up base pointer to input masks.
+                                         
+    GAMECUBE:                          
+    li r10, 0x00                     # Set controller type offset to 0x00, for GCC.       
+        mulli r4, r11, 0x40              # Multiply port ID by 0x40 to index to the desired input data.
+        lwzx r0, r12, r4                 # Load current button mask.
+        rlwinm. r5, r0, 0, 25, 26        # If R or L pressed...
+        bne boot_training                # ... boot to Training.
+        rlwinm. r5, r0, 0, 27, 27        # Otherwise, if Z pressed...
+        bne boot_targets                 # ... boot to Target Smash.
+                                         
+    WIIMOTE_CHECK_SUBTYPE:                          
+    li r10, 0x04                     # Set controller type offset to 0x04, for Wiimote based controllers.                      
+        addi r12, r12, 0x100             # Push forwards to Wii Controller data?
+        lwz r4, 0x3c(r12)                # Grab controller type.
+        cmpwi r4, 3                      # If 3...
+        beq WIICHUCK                     # skip down to Wiimote + Nunchuck section.
+        mulli r4, r11, 0x40              # Otherwise, once again get offset to desired port's inputs...
+        lwzx r0, r12, r4                 # ... and load its button mask.
+        rlwinm. r0, r0, 0, 25, 26        # If R or L pressed...
+        bne boot_training                # ... boot to Training.
+        b LOOP_BACK                      # Otherwise, skip past the WiiChuck bit and prepare to loop again.
+    WIICHUCK:                            
+        mulli r4, r11, 0x40              # Get offset to desired port inputs...
+        lwzx r0, r12, r4                 # ... load its button mask.
+        rlwinm. r0, r0, 0, 27, 27        # If Z is pressed ...
+        bne boot_training                # ... boot to Training.
+    LOOP_BACK:                           
+        addi r11, r11, 1                 # Add 1 to the current port number...
+        cmpwi r11, 4                     # ... compare that against 4...
+        blt LOOP_START                   # ... and if it's less than that there're still controllers to check, continue loop.
+                                         
+    boot_vs:                             # If we've checked every port and found no special mode input...
+        addi r4, r21, 0x1B54             # ... then redirect r4 to "sqVsMelee" @ $80701B54 instead of "sqBoot".
+        li r5, 0                         # Zero r5...
+        b %END%                          # ... and exit.
+                                         
+    boot_training:                       #
+        addi r4, r20, -0x3f0             # Redirect r4 to "sqTraining" @ $80701870 instead of "sqBoot".
+        b set_active_controller          # Skip down to setting active controller.
+        
+    boot_targets:
+        addi r4, r20, -0x418             # Redirect r4 to "sqTargetBreak" @ $80701848 instead of "sqBoot".
+        
+    set_active_controller:
+        lwz r12, -0x4340(r13)            # Get pointer to g_GameGlobal...
+        lwz r12, 0x1C(r12)               # ... then gmSetRule.
+add r10, r11, r10                # Add controller type offset to the current port ID so Wiimote Controller IDs line up correctly...
+        stw r10, 0x24(r12)               # ... then write that ID over the spot read by gmGetMenuDecisionPad so it'll control CSS!
+il r5, 0                         # Zero r5 before exiting.
+}
+HOOK @ $8002D3A0
+{
+  mr r4, r27
+  lis r5, 0x8042;    ori r5, r5, 0xA40
+  cmpw r4, r5;        bne- %END%
+  li r5, 0x3
+  stb r5, 0x2A5(r28);    stb r5, 0x2B1(r28)
+  li r30, 0x0
+}
+op b 0x10 @ $80078E14
+op nop    @ $806DD5FC
