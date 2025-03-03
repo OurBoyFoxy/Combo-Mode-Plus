@@ -326,7 +326,7 @@ buryNormal:
 .include Source/Project+/Articles.asm
 !.include Source/Project+/CodeMenu.asm
 .include Source/Project+/CompressPAC.asm
-.include Source/Project+/FilePatchCode.asm
+.include Source/ComboMode+/FilePatchCode.asm
 .include Source/P+Ex/WaveIDIntercept.asm
 .include Source/Project+/IndependentSub.asm
 .include Source/Project+/TrainingMode.asm
