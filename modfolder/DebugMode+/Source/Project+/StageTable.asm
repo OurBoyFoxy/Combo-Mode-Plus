@@ -23,12 +23,12 @@ TABLE_1:
 0x0E, | # Lylat Cruise
 0x0F, | # Pokémon Stadium 2
 0x1A, | # Smashville
-0x1C, | # Green Hill Zone
-0x1D, | # Pictochat
-0x23  | # Green Greens
+0x0C, | # Yoshi's Island (Brawl)
+0x20, | # Yoshi's Island (Melee)
+0x2C  | # Snowman's Land
 
 TABLE_2:
-	byte[34] |
+	byte[33] |
 0x03, | # Luigi's Mansion
 0x04, | # Mushroomy Kingdom
 0x05, | # Mario Circuit
@@ -54,7 +54,6 @@ TABLE_2:
 0x1B, | # Shadow Moses Island
 0x1C, | # Green Hill Zone
 0x1F, | # Temple
-0x20, | # Yoshi's Island (Melee)
 0x21, | # Jungle Japes
 0x22, | # Onett
 0x25, | # Corneria
@@ -70,7 +69,7 @@ TABLE_5:	# Unused
 
 TABLE_STAGES:
 # Table of icon<->stage slot associations
-half[43] |	# Stage Count + 2
+half[45] |	# Stage Count + 2
 | # OLD SLOTS
 0x0101, 0x0202, 0x0303, 0x0404, | # Battlefield, Final Destination, Delfino Plaza, Luigi's Mansion
 0x0505, 0x0606, 0x0707, 0x0808, | # Mushroomy Kingdom, Mario Circuit, 75m, Rumble Falls
@@ -82,15 +81,18 @@ half[43] |	# Stage Count + 2
 0x231D, 0x241E, 0x251F, 0x2932, | # Green Hill Zone, Pictochat, Hanenbow, Temple
 0x2A33, 0x2B34, 0x2C35, 0x2D36, | # Yoshi's Story (Melee), Jungle Japes, Onett, Green Greens
 0x2F37, 0x3038, 0x3139, 0x323A, | # Rainbow Cruise, Corneria, Big Blue, Brinstar
-0x2E3B, 0xFF64, 0xFF64			| # Pokémon Stadium, NOTHING, NOTHING
+0x2E3B, 0xFF64, 0xFF64, 0x373C, | # Pokemon Stadium 2, NOTHING, NOTHING, Training Room
+| # NEW SLOTS
+0x4023							| # Snowman's Land, 
+
 
 
 SkipStageTables:
 .RESET
 
 byte 10 @ $806B929C # Page 1
-byte 34 @ $806B92A4 # Page 2
+byte 33 @ $806B92A4 # Page 2
 byte 00 @ $80496002 # Page 3 (Unused)
 byte 00 @ $80496003 # Page 4 (Unused)
 byte 00 @ $80496004 # Page 5 (Unused)
-byte 41 @ $800AF673 # Stage Count
+byte 43 @ $800AF673 # Stage Count
