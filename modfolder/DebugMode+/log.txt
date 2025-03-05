@@ -82,7 +82,7 @@ Source/Project+/CompressPAC.asm
 	Character Costumes are decompressed in the Network Heap [Kapedani, DukeItOut]
 	Bowser and Giga Bowser Can Be Compressed [DukeItOut]
 	Only New Characters Need a Spy Costume Added [DukeItOut]
-Source/Project+/FilePatchCode.asm
+Source/ComboMode+/FilePatchCode.asm
 	File Patch Code REDUX v0.95 [Sammi Husky]
 	Source/P+Ex/ReplacementSoundbankEngine.asm
 		[Project+] RSBE v1.40 (/Project+/pf/sfx, can load soundbank clones for stages and items) (requires CSSLE) [InternetExplorer, DukeItOut, QuickLava, Kapedani]
@@ -203,6 +203,13 @@ BOOST.txt
 		Song Title Displays On Pause Screen [Eon]
 	Source/Project+/Collision.asm
 		Raycast ignores Nonetype collision [Eon]
+	Source/Project+/Physics.asm
+		Momentum Shifts Revert Physics [DukeItOut]
+		Jumps Calculate One Frame Earlier [DukeItOut]
+	Source/Project+/UCF.asm
+		[Project+] UCF with Melee threshold 2.1 [Fracture, Eon]
+	Source/ProjectM/ThrowRelease.asm
+		ThrowN Fix and Throw Release Points v1.1c (Throw Animation Fix) [Magus]
 	Source/P+Ex/AllStar.asm
 		All-Star Rest Area Stock Display Cap[Desi]
 	Source/P+Ex/Angle.asm
