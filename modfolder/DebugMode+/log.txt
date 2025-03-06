@@ -204,12 +204,33 @@ BOOST.txt
 	Source/Project+/Collision.asm
 		Raycast ignores Nonetype collision [Eon]
 	Source/Project+/Physics.asm
-		Momentum Shifts Revert Physics [DukeItOut]
 		Jumps Calculate One Frame Earlier [DukeItOut]
 	Source/Project+/UCF.asm
 		[Project+] UCF with Melee threshold 2.1 [Fracture, Eon]
+	Source/ProjectM/CSS.asm
+		CSS Selections Preserved in VS Mode [Magus]
+		CSS Record Display Fix [ds22]
+		CSS Fixes for Samus/ZSS and Zelda/Shiek v2.2 [spunit262]
+		CSS Fixes for Giga and Company v2 [spunit262]
+		CSS ASM
+		Hold Shield for Special Fighter [ds22]
+		Independent Pokemon CSS Slots
+		Special Fighter CSS slots + CSS HRC Fix (Modular) [ds22, DukeItOut]
+	Source/ProjectM/Glide.asm
+		Glide Input is Now Hold Down and Hold Jump [Shanus]
+	Source/ProjectM/TrainingMode.asm
+		[Project+] Custom Training Mode AI Options based on Stop + Random DI [Eon, PyotrLuzhin]
 	Source/ProjectM/ThrowRelease.asm
 		ThrowN Fix and Throw Release Points v1.1c (Throw Animation Fix) [Magus]
+	Source/ProjectM/Powershield.asm
+		No Powershield Buffering and Powershield Reflect v4.1 [Shanus, Magus]
+	Source/ProjectM/Psa.asm
+		[Project+] C-stick Functions Correctly During Crawl 2.1 [Eon]
+	Source/ProjectM/Misc.asm
+		Grab During Jumpsquat (Jump-Canceled Grabs) v3.0 [Shanus, Magus]
+		Grab Has Priority over Roll v1.2 [Shanus]
+		Teching Now has SFX [Standardtoaster, Magus]
+		Z now triggers aerials instead of air dodge v1.2 [Shanus, Wind Owl]
 	Source/P+Ex/AllStar.asm
 		All-Star Rest Area Stock Display Cap[Desi]
 	Source/P+Ex/Angle.asm
@@ -293,6 +314,10 @@ BOOST.txt
 		[ComboMode+] Unknown
 		[ComboMode+] Tripping Rate is 0 V2 [ds22, KirbyIsCool] from discord
 		Boot Directly to CSS v5.3 (Hold Shield for Training, Z for Target Smash) [PyotrLuzhin, SammiHusky, QuickLava]
+		Fast Menus [No idea]
+	Source/ComboMode+/Momentum.asm
+		MOMENTUM CAPTURE V4.4 [PHANTOM WINGS, SPUNIT262]
+		MOMENTUM CAPTURE DATA
 	Source/Extras/Console.asm
 		480p Pixel Fix Patch [leseratte, Eon]
 	Source/Extras/More.asm
