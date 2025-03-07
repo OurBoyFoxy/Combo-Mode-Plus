@@ -15,3 +15,12 @@ unlike P+, no armor properties and cannot roll offstage with it.
 
 cargo throw:
 up throw kbg:100<50
+____________________________________________________________________________
+rev 7 changes:
+
+side b:
+hitbox id 2 now matches 1&0
+added iasa:51
+
+up b:
+finally buffed the vertical height
