@@ -24,7 +24,7 @@ TABLE_1:
 0x0F, | # Pokémon Stadium 2
 0x1A, | # Smashville
 0x0C, | # Yoshi's Island (Brawl)
-0x20, | # Yoshi's Island (Melee)
+0x20, | # Yoshi's Story (Melee)
 0x2C  | # Snowman's Land
 
 TABLE_2:

@@ -709,7 +709,7 @@ hastyScroll:
 }
 
 .include Source/LegacyTE/Masquerade.asm
-.include Source/LegacyTE/CSSCustomControls.asm # This breaks us, frustratingly
+.include Source/LegacyTE/CSSCustomControls.asm
 
 ###################################
 Team Colour Shade Check Fix (BrawlEx) [ds22, Sammi Husky]

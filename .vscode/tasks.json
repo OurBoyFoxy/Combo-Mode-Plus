@@ -16,6 +16,21 @@
           "isDefault": true
         },
         "problemMatcher": []
+      },
+      {
+        "label": "Build Release SD Card with VSD Sync",
+        "type": "shell",
+        "command": "powershell",
+        "args": [
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "make_release.ps1"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        }
       }
     ]
   }

@@ -16,6 +16,17 @@ op blt- 0x34	   @ $8018CFC8
 .include Source/Project+/Pause.asm
 .include Source/Project+/Collision.asm
 
+.include Source/Project+/Physics.asm
+.include Source/Project+/UCF.asm
+
+.include Source/ProjectM/CSS.asm
+.include Source/ProjectM/Glide.asm
+.include Source/ProjectM/TrainingMode.asm
+.include Source/ProjectM/ThrowRelease.asm
+.include Source/ProjectM/Powershield.asm
+.include Source/ProjectM/Psa.asm
+.include Source/ProjectM/Misc.asm
+
 .include Source/P+Ex/AllStar.asm
 .include Source/P+Ex/Angle.asm
 .include Source/P+Ex/CustomEnding.asm
@@ -32,6 +43,7 @@ op blt- 0x34	   @ $8018CFC8
 .include Source/P+Ex/VariableParameter.asm
 
 .include Source/ComboMode+/Engine.asm
+.include Source/ComboMode+/Momentum.asm
 
 .include Source/Extras/Console.asm	
 
