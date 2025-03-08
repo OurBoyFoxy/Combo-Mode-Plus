@@ -37,3 +37,51 @@ ________________________________________________________________________________
 rev 6 changes:
 
 fixed fire effects on taunt and counter.
+________________________________________________________________________________________
+rev 7 changes:
+
+initial dash speed:1.4<1.7
+
+buffed air mobility
+
+fixed fire effect on entry
+
+side b:
+can now cancel side b up 3 into attacks more consistently
+adjusted speeds so the timing for the attacks is more consistent
+side 3 sweetspot damage:9<11
+side 3 tipper damage:7<9
+
+up b:
+late hit damage:10<5
+late hit no longer freezes
+removed the ability for freezer to hit more than once
+
+down b:
+can now cancel the counter with attacks on the ground
+
+f smash:
+first active frame:9<7
+
+up tilt:
+first active frame:6<5
+
+d tilt:
+hilt damage made a consistent 12
+tipper damage:6<8
+
+d smash:
+sweetspot kbg:80<85
+sweetspot bkb:30<35
+tipper angle:361<30
+
+jab:
+sweetspot damage:6<8
+tipper damage:4<6
+
+fair:
+endlag sped up:1.1
+
+bair:
+damage:9<13
+kbg:100<110

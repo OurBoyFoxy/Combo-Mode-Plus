@@ -92,3 +92,30 @@ kbg:80
 Dair:
 range nerfed, hitbox id1/2 size:8<6 y offset:-7<-3
 hitbox id2 angle: 361<270
+______________________________________________________________________________________
+rev 7 changes:
+
+fair:
+startup sped up:.65x<.75x
+sweetspot bkb:40<45
+sweetspot kbg:80<85
+
+bair:
+sweetspot damage:14<16
+sweetspot bkb:30<35
+
+dash attack:
+sped up 1.25x after first hit
+added more momentum on startup
+
+d smash:
+can now hit aerial opponents
+
+f smash:
+startup sped up 1.25x
+
+f tilt:
+sped up 1.2x
+
+up b:
+final hit kbg:95<105

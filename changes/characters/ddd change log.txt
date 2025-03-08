@@ -90,3 +90,30 @@ kbg:96<105
 up b:
 all landing animations sped up
 can now grab the edge out of up b
+__________________________________________________________________________
+rev 7 changes:
+
+fucked with side b probability so now he throws hella gordos 
+
+min inhale time:20<5
+
+dair:
+multihit angles all made 365
+sdi multiplier:1<.5
+endlag sped up 1.3x
+final hit active frames:1<3
+
+jab:
+jab 2 kbg:50<70
+bkb:50<60
+
+f tilt:
+angle:65<40
+
+up smash:
+iasa:61<48
+endlag sped up 1.3x
+
+nair:
+sweetspot angle:60<70
+endlag sped up 1.3x

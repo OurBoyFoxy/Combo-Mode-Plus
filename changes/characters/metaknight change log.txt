@@ -58,7 +58,6 @@ bkb:30<45
 nair:
 sweetspot duration:2 < 5
 
-
 bair:
 sped up 1.3x
 
@@ -80,3 +79,27 @@ turning speed:3 < 1.5
 
 down b:
 startup sped up 1.3x
+_________________________________________________________________________________________
+rev 7 changes:
+
+d tilt:
+reworked slowdown on d tilt, startup slowed .3x and rest of move left 1x
+
+up tilt:
+endlag sped up 1.3x
+
+f tilt:
+1st and 2nd hit all angles made 365
+final hit angle all made 80
+sped up englag 1.4x
+
+up smash:
+first hit damage:3<4
+firt hit angle:90/115<270
+first hit bkb all made 10, skb all made 10
+2nd hit damage:2<3
+final hit kbg:100<115
+endlag sped up 1.3x
+
+neutral special:
+multihit angle:all made 361

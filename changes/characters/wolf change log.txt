@@ -31,3 +31,32 @@ angle:361<365
 
 up throw:
 kbg:110<85
+________________________________________________________________________________
+rev 7 changes:
+
+now has ult run animation and f smash.
+
+f smash:
+new values:
+damage:17
+angle:361
+bkb:50
+kbg:75
+
+d smash:
+sweetspot damage:14<16
+sourspot damage:12<14
+2nd hit unchanged
+
+dash attack:
+added momentum to startup
+
+nair:
+startup slowed .5x
+rest sped up 1.4x
+
+fair:
+endlag sped up 1.55
+
+down b:
+can now only cancel into attacks after hitbox comes out

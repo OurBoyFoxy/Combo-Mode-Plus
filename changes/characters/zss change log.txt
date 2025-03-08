@@ -61,3 +61,15 @@ changed hitboxes to make the spike more consistent
 
 down b:
 can now double jump out of the flip
+_____________________________________________________________________________________________
+rev 7 changes:
+
+f smash:
+now has ultimate f smash, however this one is much stronger
+
+down b:
+kick now has no landing lag
+can now also double jump out grounded version
+
+neutral b:
+can now be landing canceled

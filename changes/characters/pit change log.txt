@@ -68,3 +68,27 @@ up b verticality buffed even more.
 
 side b:
 can now cancel into attacks
+________________________________________________________________________________________
+rev 7 changes:
+
+up b:
+now has heavy armor, breaks from 13% damage
+now has a momentum boost at the start up the move
+
+up air:
+now a single hit
+
+fair:
+sped up startup:.6x<.85x
+
+dash attack:
+bkb:20<55
+kbg:100<80
+endlag sped up 1.2x
+
+side b:
+can no longer attack cancel side b
+
+neutral b:
+base damage:5<8
+bkb:11<25

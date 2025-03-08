@@ -70,3 +70,21 @@ added iasa:29
 
 side b:
 sped up 1.3x
+________________________________________________________________________________________
+rev 7 changes:
+
+up smash:
+endlag sped up:.8x<1.2x
+
+down special:
+can be canceled after the first hitbox
+
+dash attack:
+sweetspot kbg:100<120
+
+d tilt:
+removed skb
+kbg:30<50
+bkb:15<35
+
+can cancel airdodge into attacks

@@ -56,3 +56,26 @@ sweetspot kbg:103<115
 
 dair:
 sourspot angle:80<290
+______________________________________________________________________________________
+rev 7 changes:
+
+bair:
+bkb:30<15
+kbg:115<110
+
+dash attack:
+late hit angle:40<55
+
+up tilt:
+between hits sped up 1.4x
+bkb of first hit:0<25
+
+d tilt:
+iasa:28<25
+kbg:90<125
+
+nair:
+bkb:0<25
+final hit angle:361<55
+multihits sped up 1.25x
+endlag slowed .85x

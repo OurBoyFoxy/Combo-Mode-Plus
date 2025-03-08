@@ -11,7 +11,7 @@ iasa:56<41
 bkb:120<80
 
 uptilt:
-iasa:51<40
+iasa:51<43
 hitbox duration:8-13<6-13
 kbg:97<70
 
@@ -95,12 +95,37 @@ landing hitbox angle:76<361
 nair:
 sped up 1.2x
 iasa:48<40
-________________________________________________________________________________
-rev 5 changes:
+_____________________________________________________________________________
+rev 7 changes:
+
+now has 12% armor on crouch
 
 d tilt:
-made a single hit.
-angle:25
-damage:11
-bkb:20
-kbg:100
+startup slowdown:.7x<.8
+iasa:32<28
+angle:25<55
+
+d smash:
+hitbox sizes all increased by 3
+sdi multiplier:1<.5
+hitbox id 2+3 angle:190<365
+
+bair:
+iasa:50<43
+endlag sped up 1.2x
+
+f tilt:
+down angled angle:361<30
+up angled anle:361<65
+up angled sped up 1.25
+
+jab:
+jab 1 sped up 1.35
+jab 1 hitbox id 0 angle:30<75
+
+down b:
+can cancel the rise into attacks or double jump
+sped up 1.3
+
+up smash:
+has 14% heavy armor during initial hit of the move and charge

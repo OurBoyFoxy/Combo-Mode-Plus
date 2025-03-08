@@ -66,3 +66,11 @@ damage:12<14
 
 f smash:
 damage:14<17
+________________________________________________________________________________________
+rev 7 changes:
+
+jab:
+jab 1+2 angle:361<70
+
+side b:
+removed hitbox on move, still can be attack canceled and double jump canceled

@@ -79,3 +79,12 @@ f smash:
 can now jump cancel 1st hit
 1st hit bkb:25<33
 1st hit trip rate:0<1
+______________________________________________________________________________________
+rev 7 changes:
+
+jab:
+swapped all hitboxes id's to reverse
+hitbox id 2+3 angle:361<100
+
+dair:
+fixed bug where moves would multihit

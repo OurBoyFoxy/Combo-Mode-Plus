@@ -50,3 +50,37 @@ can now cancel jab 2 into specials
 
 dash attack:
 can special cancel before the final hit
+________________________________________________________________________________________
+rev 7 changes:
+
+run speed:1.45<1.57
+buffed ground to air momentum
+
+d tilt:
+added set knockback:10
+sped up endlag 1.2x
+angle:270<361
+
+d smash:
+front hit angle:120<52
+back hit angle:70<120
+endlag sped up 1.3x
+iasa:35<30
+
+fair:
+damage:12<15
+
+neutral b:
+can now landing cancel
+fireballs last longer:50<75
+hitlag:1<2
+
+down b:
+removed multihit on ground version
+endlag sped up 1.35x
+
+nair:
+sped up 1.2x after initial hit
+
+side b:
+can cancel ending into specials or jump

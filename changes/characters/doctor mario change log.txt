@@ -11,3 +11,41 @@ he is slower than mario, both in the air and on the ground, but has much greater
 
 not many quirky gimmicks to him, he's about what you would expect.
 the only major quirk worth mention is that he has the melee mario wall jump out of up b.
+____________________________________________________________________________
+rev 7 changes:
+
+buffed air mobility
+increased traction:.06<.07
+
+jab:
+jab 1 hitbox id 2 angle:361<80
+endlag slowed .8x
+
+up tilt:
+angle:70<76
+damage:9<12
+
+dash attack:
+sweetspot bkb:70<80
+sweetspot kbg:50<35
+sweetspot damage:11<13
+sourspot bkb:45<65
+sourspot damage:9<10
+
+up b:
+can no longer hit the sourspot after the sweetspot
+
+side b:
+can cancel into attacks
+
+up air:
+bkb:9<25
+kbg:100<85
+
+dair:
+startup sped up:.9x<1.2x
+bkb:60<75
+kbg:50<80
+
+d tilt:
+damage:10<12

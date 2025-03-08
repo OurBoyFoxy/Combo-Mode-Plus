@@ -44,3 +44,43 @@ rev 5 changes:
 
 marth now uses a "PM marth in brawl" mod as a base, and has been modified further to fit more into combo mode.
 he keeps his brawl animations, which is mostly noticable for neutral/side b.
+_______________________________________________________________________________________
+rev 7 changes:
+
+side b:
+aerial dancing blade hitbox frame:5<4
+side b 1 bkb:55<25
+side b 1 added skb:10
+
+d tilt:
+angle:30<50
+iasa:22<18
+bkb:all made 60
+kbg:40<35
+
+up smash:
+iasa:42<40
+end lag sped up 1.35x
+
+f smash:
+sourspot kbg:70<80
+
+up tilt:
+kbg: all made 125
+first active frame:6<5
+
+fair:
+sourspot angle:361<55
+
+up air:
+sweetspot kbg:70<55
+sourspot kbg:70<60
+
+up throw:
+kbg:90<75
+bkb:60<55
+end lag sped up 1.3x
+
+neutral b:
+uncharged damage:7<12
+active frames:12<5

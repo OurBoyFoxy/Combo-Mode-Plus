@@ -64,3 +64,65 @@ charge time reduced
 
 side b:
 sped up 1.3x
+______________________________________________________________________________________
+rev 7 changes:
+
+up smash:
+has P+ ice upsmash animation and new properties
+
+dash attack:
+endlag sped up 1.2x
+
+run speed:
+1.445<1.73
+
+buffed double jump and air mobility
+
+up b height buffed
+
+rolls sped up 1.3x
+
+up tilt:
+sped up 1.3x
+
+d tilt:
+restored iasa to 40 but sped up endlag 1.5
+kbg:60<45
+
+f tilt:
+angle:361<62
+end lag sped up 1.3x
+damage:7/8<11
+
+d smash:
+intial hit angle:70<25
+intial hit bkb:90<60
+intial hit kbg:50<70
+
+nair:
+sweetspot damage:9<13
+sweetspot kbg:80<100
+
+fair:
+endlag sped up:.7x<.9x
+
+neutral b:
+duration:70<150
+uncharged shot speed:1.5<.7
+charged speed:2.65<3.4
+hitlag multiplier on all but uncharged:1<2.5
+uncharged hitlag multiplier:1<1.8
+
+side b:
+sped up:1.3x<1.5x
+homing missle duration:110<170
+buffed homing ability
+homing missile hitlag multiplier:1<1.6
+homing missile damage:5<7
+smash missile duration:72<100
+smash missile acceleration frame:10<30
+smash missile speed and acceleration buffed
+smash missile damage:10<12
+smash missile hitlag multplier:1<1.5
+smash missile angle:55<30
+smash missile kbg:65<80

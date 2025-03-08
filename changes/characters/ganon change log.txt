@@ -55,3 +55,56 @@ landing lag now sped up 2x
 grounded damage:12/10<17
 grounded kbg:70<80
 aerial late hit angle:80<290
+_____________________________________________________________________________________
+rev 7 changes:
+
+buffed air mobility
+
+neutral special:
+sped up 1.2x
+
+f tilt:
+sped up 1.2x
+
+d tilt:
+sped up 1.2x
+
+jab:
+startup sped up 2x, rest of move still sped up 1.3x
+
+dash attack:
+sped up 1.2x
+angle:105/100<80
+
+bair:
+kbg:85<95
+
+side b:
+sped up 1.2x
+
+nair:
+endlag sped up 1.4x
+iasa:45<40
+
+dair:
+endlag sped up 1.3x
+iasa:45<40
+
+up tilt:
+removed a .8x slowdown on endlag
+
+fair:
+sourspot damage:15<17
+sweetspot damage:18<19
+endlag sped up 1.4x
+
+up b:
+startup sped up 1.8x, rest sped up 1.1x
+can cancel release into a double jump or another special
+
+grab:
+range buffed, size buffed
+
+up throw:
+kbg:106<85
+endlag sped up 1.35x

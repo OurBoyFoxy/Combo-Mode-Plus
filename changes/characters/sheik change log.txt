@@ -50,3 +50,34 @@ dair:
 sped up 1.2x
 stall and fall removed :(
 angle:70<80
+_________________________________________________________________________________________
+rev 7 changes:
+
+buffed air mobility
+
+jab:
+jab 1 angle:361<55
+jab 2 angle:70<55
+jab 2 kbg:40<65
+jab 2 iasa:25<22
+jab 2 damage:3<4
+
+neutral b:
+needles angle all made 270
+kbg:34<25
+bkb:24<25
+travel faster and last longer
+endlag sped up 1.3x
+can double jump out of aerial version
+
+nair:
+angle:361<55
+
+d smash:
+startup slowed .5x, rest of move reverted to 1x
+sweetspot angle:40<30
+sweetspot kbg:90<95
+sweetspot bkb:35<40
+
+fair:
+angle:30<25

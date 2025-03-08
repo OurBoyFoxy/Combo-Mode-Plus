@@ -25,3 +25,15 @@ up air:
 angle: 80 < 70
 damage: 10 < 9
 kbg: 40 < 60
+
+___________________________________________________________________________________
+rev 7 changes:
+
+d tilt:
+angle:71<75
+
+bair:
+kbg:97<105
+
+neutral b:
+damage uncharged:10<12

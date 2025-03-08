@@ -65,3 +65,42 @@ rev 5 changes:
 dair:
 fixed a bug where the final hit lingered the entire duration of the endlag.
 slowed down .8x
+_______________________________________________________________________________________
+rev 7 changes:
+
+nair:
+sweetspot damage:12<14
+sweetspot bkb:20<35
+
+bair:
+sweetspot damage:12<15
+iasa:34<29
+
+dair:
+removed slow down on startup, only on endlag
+
+fair:
+angle:270<295
+
+up air:
+iasa:30<24
+
+up tilt:
+damage:7<9
+
+up smash:
+added iasa:29
+
+f smash:
+all angles made the same
+swapped hitbox id 0/2
+sweetspot kbg:90<100
+
+side b:
+buffed as recovery tool
+
+up b:
+can now cancel the grounded version with movement
+initial hit skb:130<90
+added bkb:20
+damage:5<7

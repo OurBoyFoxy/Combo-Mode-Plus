@@ -37,3 +37,25 @@ gyro charges faster (90<70)
 
 neutral b:
 sped up 1.5x
+_________________________________________________________________________________________
+rev 7:
+
+buffed air mobility
+
+up tilt:
+first hit bkb:0<35
+first hit damage:3<5
+2nd hit hitbox sizes all +1.5
+
+d smash:
+multihit angle:170<365
+
+bair:
+damage:11<17
+bkb:30<0
+
+neutral b:
+sped up charge times
+can now angle it more
+super charged damage:9<12
+kbg:70<80

@@ -67,3 +67,11 @@ rev 6 changes:
 
 f smash:
 fixed bug where if hitting a shield, falcon would slide
+______________________________________________________________________________
+rev 7 changes:
+
+d tilt:
+endlag sped up 1.25x
+
+f smash:
+first active frame:7<6

@@ -33,3 +33,46 @@ side b:
 attack endlag sped up 1.7x
 startup sped up 1.4x
 added iasa frame 40
+_______________________________________________________________________________
+rev 7 changes:
+
+buffed air mobility 
+
+run speed:
+1.371<1.5
+
+dash attack:
+startup sped up 1.2x, rests sped up 1.1x
+iasa:51<47
+sweetspot damage:8<13
+sourtspot damage:7<11
+
+f tilt:
+sped up 1.2x
+
+up tilt:
+startup sped up 1.2x, rest sped up 1.1
+iasa:40<42
+
+d tilt:
+sped up:1.2x<1.3x
+
+nair:
+sped up 1.2x
+damage:9<11
+added iasa:47
+
+fair:
+damage:13<15
+added iasa:51
+sped up 1.15x
+first active frame:18<17
+
+bair:
+added iasa:42
+
+up smash:
+startup sped up 1.3x
+
+d smash:
+angles all made 361

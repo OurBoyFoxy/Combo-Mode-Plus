@@ -52,3 +52,28 @@ rev 6 changes:
 
 f smash:
 fixed bug where if hitting a shield, wario would slide
+________________________________________________________________________________________
+rev 7 changes:
+
+run speed:1.35<1.55
+
+up b can now snap edge earlier
+
+has PM bair, d smash, and dair animation and unique properties
+
+jab:
+fixed a bug where his jab 2 had no end lag, now is actually iasa frame 32
+jab 1 angle:60<270
+jab 1 given skb:10
+bkb:15<25
+
+fair:
+angle:361<55
+
+down b:
+charges faster
+full charge damage:40<30
+kbg:30<55
+
+f tilt:
+sped up 1.2x

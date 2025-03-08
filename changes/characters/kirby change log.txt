@@ -35,3 +35,8 @@ cancel cancel the landing into attacks
 
 down b:
 sped up 1.6x
+__________________________________________________________________________________
+rev 7:
+
+jab:
+angle:361<80

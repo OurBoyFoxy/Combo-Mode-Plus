@@ -40,3 +40,28 @@ end lag spend up 1.4x
 dair:
 multihit sped up 1.3x
 last hit+endlag slowed .9x
+_________________________________________________________________________________
+rev 7 changes:
+
+dash attack:
+no longer a multihit
+endlag sped up 1.3x
+first hit angle:365<75
+2nd hit angle:65<361
+1st hit kbg:50<80
+
+f tilt:
+endlag sped up 1.2x
+
+nair:
+late hit angle:361<55
+endlag sped up 1.2x
+
+up tilt:
+sped up 1.2x
+
+bair:
+endlag sped up 1.2x
+
+down b:
+sped up turnip pull 1.2x

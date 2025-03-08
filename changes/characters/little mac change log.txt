@@ -1,0 +1,89 @@
+little mac changes:
+____________________________________________________________________________________
+rev 6 changes:
+
+Little mac joins combo mode!
+
+i was excited to try my hand at balancing mac's gimmick of being strong on the ground and weak in the air. I attempted to design mac to be a technical character, needing to utilize cancels to make the most of his kit.
+
+mac's primary gimmick is his dodge cancel - you can cancel his dodges into attacks, making for some very good evasive, fast, burst movement.
+
+as a semi "bug" i'm trying to work out, his jab combo really only consistenly works if you hold "A" rather than tapping it.
+
+he can double jump out of his side b, so be sure when recovering to side b first, then double jump, you'll get to use another side b/up b!
+this also means you can end a combo in side b offstage and live if you still have double jump!
+
+his f tilt has a unique mechanic. the first hit trips, and can be canceled into specials. this is important because counter (down b) can both cancel into attacks. this means you can confirm a lot of moves (including smash attacks) off of first hit side b cancels.
+______________________________________________________________________________________
+rev 7 changes:
+
+weight:
+68<89
+
+made slightly larger
+
+can now instantly cancel drop shield into movement and attacks
+
+forward roll cancel frame:9<7
+
+airdodge:
+endlag sped up 1.4x
+
+down b:
+can't attack cancel until frame 15
+
+neutral b:
+can no longer attack cancel
+
+jab:
+all jab sdi multiplier:1<.4
+jab 3 first active frame:7<5
+jab 1 startup sped up 2x
+jab 1 bkb:25<35
+jab 2 startup sped up 1.5x
+
+up tilt:
+first active frame:7<4
+
+dash attack:
+bkb:35<50
+
+d tilt:
+angle:65<75
+
+f tilt:
+2nd hit hitbox size:6<7
+added momentum boost between 1st and 2nd hit
+first hit damage:4<6
+startup sped up:1.6<1.8
+
+f smash:
+damage:19<21
+
+d smash:
+bkb:20<30
+
+up air:
+endlag sped up 1.4
+
+up b:
+sped up:1.4x<1.5x
+multihits reduced and sdi multiplier:.8<.2
+can now cancel with a double jump
+
+side b:
+damage:15<16
+angle:365<35
+kbg:75<83
+
+neutral b:
+ko punch sdi multiplier:1.5<.2
+haymaker startup sped up 1.4x
+lvl 1 haymaker charge attack sped up 1.3x
+
+up throw:
+kbg:30<70
+bkb:80<50
+
+d throw:
+angle:65<75
