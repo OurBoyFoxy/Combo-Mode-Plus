@@ -75,3 +75,44 @@ endlag sped up 1.25x
 
 f smash:
 first active frame:7<6
+_________________________________________________________________________________________
+rev 8 changes:
+
+up throw:
+bkb:70<50
+kbg:105<90
+
+d throw:
+angle:65<69
+
+nair:
+first hit active frames:2<6
+2nd hit active frames:2<9
+first hit damage:4<5
+
+fair:
+late hit damage:3<6
+iasa:40<34
+sweetspot duration:2<3
+
+dair:
+damage:14<16
+
+dash attack:
+damage:8<10
+late hit damage:6<8
+
+d smash:
+first hit kbg:85<100
+
+d tilt:
+damage:10<12
+can now slide with his d tilt out of run
+
+side b:
+sped up 1.2x
+
+up air:
+endlag sped up 1.2x
+
+can now walljump out of up b and side b

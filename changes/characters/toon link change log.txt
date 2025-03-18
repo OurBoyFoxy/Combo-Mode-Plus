@@ -57,3 +57,37 @@ ________________________________________________________________________________
 rev 5 changes:
 
 fixed his animation, didn't actually update his animation file in rev 4
+_____________________________________________________________________________________
+rev 8 changes:
+
+run speed:1.65<1.77
+dash speed:1.5<1.9
+
+nair:
+now has clone of link nair with his own values
+
+dair:
+angles both made 90
+damage:16<19
+bkb:40<50
+kbg:80<85
+after first hit sped up 1.35x
+
+up air:
+kbg:110<75
+
+dash attack:
+added more momentum/range
+angle:361<95
+endlag sped up 1.2x
+iasa:40<31
+bkb:35<50
+kbg:100<80
+
+d tilt:
+angle:65<80
+bkb:20<55
+
+fair:
+bkb:22<35
+damage:13<15

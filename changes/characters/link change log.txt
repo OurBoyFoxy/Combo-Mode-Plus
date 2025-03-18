@@ -88,3 +88,13 @@ hitbox id 2+3 angle:361<100
 
 dair:
 fixed bug where moves would multihit
+__________________________________________________________________________________________
+rev 8 changes:
+
+up b:
+charge time:60<20
+charged damage multiplier:1.6<1.25
+buffed air vertical lift
+buffed horizontal drift
+startup sped up 2x
+faf:4<3

@@ -197,3 +197,9 @@ forward roll startup sped up 1.2x + cancelable frame 16
 
 neutral b:
 startup sped up:1.5x<1.85x
+_____________________________________________________________________________________
+rev 8 changes:
+
+jab:
+angle:365<80
+startup sped up 1.3x

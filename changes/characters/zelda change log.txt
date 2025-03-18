@@ -48,7 +48,7 @@ rev 7 changes:
 run speed:1.224<1.35
 
 jab:
-multihit angle:270<265
+multihit angle:270<365
 
 dash attack:
 sweetspot id0 kbg:70<90
@@ -97,3 +97,35 @@ up b:
 grounded up b hitbox angle:361<270
 added skb:10
 can now cancel the move after 10 frames
+_________________________________________________________________________________________
+rev 8 changes:
+
+buffed air mobility
+
+jab:
+sped up startup 2.3x
+adjust active frames on multihit
+final hit angle:361<55
+final hit damage:2<4
+bkb:10<25
+
+f tilt:
+angle:110<100
+
+grab:
+startup sped up 1.9
+dash grab faf:11<5
+dash grab active frames:2<7
+
+f smash:
+multihit angle:270
+
+fair:
+sourspot angle:361<55
+iasa:40<32
+
+bair:
+iasa:36<29
+
+dair:
+iasa:45<37
