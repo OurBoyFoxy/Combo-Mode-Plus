@@ -27,6 +27,12 @@ Get-ChildItem -Path $srcPath -File -Recurse | Where-Object { $_.Name -notin $ign
     Copy-Item -LiteralPath $_.FullName -Destination $destPath -Force
 }
 
+# Remove path to debug stuff in ComboMode+ RSBE01.txt
+$rsbePath = ".\modfolder\ComboMode+\RSBE01.txt"
+
+# Read the file, filter out the line, and write the remaining lines back to the file
+(Get-Content $rsbePath) | Where-Object { $_ -ne '.include Source/Extras/DebugMode/includeDebug.asm' } | Set-Content $rsbePath
+
 Write-Output "Completed Copy into ComboMode+"
 
 # ################
