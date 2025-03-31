@@ -64,3 +64,8 @@ can now move horizontally during move
 
 side special:
 sped up 1.2x
+______________________________________________________________________________________
+rev 8 changes:
+
+bair:
+startup slowed more

@@ -73,3 +73,40 @@ can now also double jump out grounded version
 
 neutral b:
 can now be landing canceled
+___________________________________________________________________________________________
+rev 8 changes:
+
+neutral b:
+sped up 1.2x in the air
+
+dash attack:
+first hit angle:75<65
+
+f tilt:
+down angle trip rate:.6<1
+up/neutral damage:6<9
+up angle:361<60
+
+up tilt:
+2nd hit damage:6<8
+first hit added skb:10
+
+d tilt:
+damage:6<9
+
+f smash:
+2nd hit damage:12<13
+2nd hit kbg:109<115
+
+d smash:
+removed slowdown on endlag
+damage:11<12
+
+up b:
+added iasa:34
+
+side b:
+sped up 1.3x
+
+down b:
+can cancel into specials

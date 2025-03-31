@@ -104,3 +104,8 @@ can now cancel the grounded version with movement
 initial hit skb:130<90
 added bkb:20
 damage:5<7
+________________________________________________________________________________________
+rev 8 changes:
+
+up b:
+can now wall jump out of up b

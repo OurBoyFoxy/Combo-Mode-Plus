@@ -87,3 +87,14 @@ bkb:80<50
 
 d throw:
 angle:65<75
+_____________________________________________________________________________________________
+rev 8 changes:
+
+neutral b:
+ko punch hitbox sizes:15<7
+
+dair:
+bkb:15<30
+kbg:50<25
+
+can no longer jump cancel up b in the air, can only cancel it if done from the ground

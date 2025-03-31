@@ -60,3 +60,33 @@ endlag sped up 1.55
 
 down b:
 can now only cancel into attacks after hitbox comes out
+______________________________________________________________________________________
+rev 8 changes:
+
+run speed:1.4<1.57
+
+dair:
+sped up endlag 1.3 + added iasa 50
+hitbox id 1 moved higher
+hitbox duration:2<4
+
+up air:
+faf:7<6
+
+dash attack:
+faf:11<8
+
+up tilt:
+faf:7<6
+
+d tilt:
+damage:6<8
+angle:361<0
+iasa:28<25
+
+bair:
+sweetspot damage:13<15
+
+d throw:
+iasa:51<40
+kbg:86<80

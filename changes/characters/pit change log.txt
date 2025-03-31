@@ -92,3 +92,23 @@ can no longer attack cancel side b
 neutral b:
 base damage:5<8
 bkb:11<25
+____________________________________________________________________________________
+rev 8 changes:
+
+side b:
+can now cancel into grab after 16 frames
+
+up tilt:
+active frames:5<8
+angle:110<95
+
+grab:
+range buffed +1.5
+
+nair:
+reworked multihit, now only has 3 hits and is sped up 1.5x, endlag slowed .9x
+added bkb to multihit:25
+multihit damage:1<2
+
+up b:
+armor:13<14
