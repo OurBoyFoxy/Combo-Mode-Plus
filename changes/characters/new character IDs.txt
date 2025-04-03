@@ -41,12 +41,19 @@ results file: Z52.brstm
 
 game ID: 0x44
 announcer call: ???
-cosmetic ID: 
+cosmetic ID: 0x75
 sound bank: 0x152 (was 241)
 
 ~~~ Shadow ~~~
 
 game ID: 0x45
 announcer call: ???
-cosmetic ID: 
+cosmetic ID: 0x76
 sound bank: 
+
+~~~ Lucina ~~~
+
+game ID: 0x46
+announcer call: ???
+cosmetic ID: 0x77
+sound bank:
