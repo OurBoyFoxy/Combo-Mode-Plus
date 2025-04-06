@@ -183,22 +183,23 @@ notValid:
   fadds f2, f8, f7	
 }
 
-################################################
-SCD Bottom Point Initialization Fix v2.0 [Magus]
-################################################
-HOOK @ $80739AE8
-{
-  lwz r12, 0x1C(r23)
-  lwz r12, 0x28(r12)
-  lwz r12, 0x10(r12)
-  lbz r12, 0x08(r12)
-  cmpwi r12, 0x2
-  bne+ loc_0x1C
-  lfs f1, 0x08(r31)
+# ################################################
+# SCD Bottom Point Initialization Fix v2.0 [Magus]
+# ################################################
+# This breaks us, causes weird issue with low knockback ground collisions, e.g. lucina dtilt fox shine
+# HOOK @ $80739AE8
+# {
+#   lwz r12, 0x1C(r23)
+#   lwz r12, 0x28(r12)
+#   lwz r12, 0x10(r12)
+#   lbz r12, 0x08(r12)
+#   cmpwi r12, 0x2
+#   bne+ loc_0x1C
+#   lfs f1, 0x08(r31)
 
-loc_0x1C:
-  stfs f1, 0(r25)
-}
+# loc_0x1C:
+#   stfs f1, 0(r25)
+# }
 
 ####################################
 Ground Stabilization Fix [DukeItOut]
