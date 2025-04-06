@@ -5,6 +5,7 @@ announcer call: Marth Wiimote 0x19BE
 cosmetic ID: 0x70
 sound bank: 0x14D
 Sawnd file: 14D
+JOJI offset: 340
 results file: Z50.brstm
 
 ~~~Dr. Mario~~~
@@ -18,6 +19,7 @@ announcer call: Wario Wiimote
 cosmetic ID: 0x72
 sound bank: 0x14F
 Sawnd file: 14F
+JOJI offset: 342
 
 ~~~ Little Mac ~~~
 
@@ -26,6 +28,7 @@ announcer call: Wario Wiimote
 cosmetic ID: 0x73
 sound bank: 0x150
 Sawnd file: 150
+JOJI offset: 343
 results file: Z51.brstm
 
 ~~~ Mewtwo ~~~
@@ -35,4 +38,28 @@ announcer call: Lucario Wiimote
 cosmetic ID: 0x74
 sound bank: 0x151
 Sawnd file: 151
+JOJI offset: 344
 results file: Z52.brstm
+
+~~~ Greninja ~~~
+
+game ID: 0x44
+announcer call: ???
+cosmetic ID: 0x75
+sound bank: 0x152 (was 241)
+JOJI offset: 345
+
+~~~ Shadow ~~~
+
+game ID: 0x45
+announcer call: ???
+cosmetic ID: 0x76
+sound bank: 0x153
+JOJI offset: 346
+
+~~~ Lucina ~~~
+
+game ID: 0x46
+announcer call: ???
+cosmetic ID: 0x77
+sound bank:

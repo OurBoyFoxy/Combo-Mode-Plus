@@ -324,8 +324,9 @@ buryNormal:
 
 .include Source/Project+/Articles.asm
 !.include Source/Project+/CodeMenu.asm
-.include Source/Project+/BigHeadMode.asm
-.include Source/Project+/RandomAngleMode.asm
+!.include Source/Project+/BigHeadMode.asm
+!.include Source/Project+/RandomAngleMode.asm
+.include Source/Project+/Memory.asm
 .include Source/Project+/CompressPAC.asm
 .include Source/Project+/IndependentSub.asm
 .include Source/Project+/TrainingMode.asm
