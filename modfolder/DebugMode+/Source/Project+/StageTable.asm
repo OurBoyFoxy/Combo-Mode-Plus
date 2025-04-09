@@ -46,13 +46,12 @@ TABLE_2:
 0x28  | # Pokémon Stadium
 
 TABLE_3:
-	byte[22] |
+	byte[21] |
 0x03, | # Luigi's Mansion
 0x04, | # Mushroomy Kingdom
 0x05, | # Mario Circuit
 0x07, | # Rumble Falls
 0x08, | # Pirate Ship
-0x0C, | # Yoshi's Island (Brawl)
 0x10, | # Spear Pillar
 0x11, | # Port Town Aero Dive
 0x16, | # Distant Planet
@@ -99,7 +98,7 @@ SkipStageTables:
 
 byte 12 @ $806B929C # Page 1
 byte 13 @ $806B92A4 # Page 2
-byte 22 @ $80496002 # Page 3
+byte 21 @ $80496002 # Page 3
 byte 00 @ $80496003 # Page 4 (Unused)
 byte 00 @ $80496004 # Page 5 (Unused)
 byte 47 @ $800AF673 # Stage Count
