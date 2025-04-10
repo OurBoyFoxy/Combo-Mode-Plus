@@ -742,6 +742,8 @@ SFX Fade Fix PMEXv0.5 [ds22, PyotrLuzhin]
 .include Source/Project+/ResultsMusic.asm
 .include Source/Project+/SFXExpand.asm
 
+.include Source/Project+/YoshiEggs.asm
+
 ################################
 ZSS Jumbo Screen Name Fix [ds22]
 ################################
