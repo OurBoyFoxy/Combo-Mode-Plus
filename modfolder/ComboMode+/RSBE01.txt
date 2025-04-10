@@ -317,7 +317,6 @@ buryNormal:
 
 .include Source/ProjectM/CloneEngine.asm
 .include Source/ProjectM/CustomAI.asm
-
 !.include Source/ProjectM/SpecialModes/Rules.asm
 
 .include Source/LegacyTE/ASLHelper.asm
@@ -325,12 +324,17 @@ buryNormal:
 
 .include Source/Project+/Articles.asm
 !.include Source/Project+/CodeMenu.asm
+!.include Source/Project+/BigHeadMode.asm
+!.include Source/Project+/RandomAngleMode.asm
+.include Source/Project+/Memory.asm
 .include Source/Project+/CompressPAC.asm
-.include Source/ComboMode+/FilePatchCode.asm
-.include Source/P+Ex/WaveIDIntercept.asm
 .include Source/Project+/IndependentSub.asm
 .include Source/Project+/TrainingMode.asm
 .include Source/Project+/VictoryCamera.asm
+
+.include Source/ComboMode+/FilePatchCode.asm
+
+.include Source/P+Ex/WaveIDIntercept.asm
 
 ##########################################################
 Custom Requirements v1.3 (ProjectM) [Magus, Sammi-Husky]
@@ -738,6 +742,8 @@ SFX Fade Fix PMEXv0.5 [ds22, PyotrLuzhin]
 .include Source/Project+/ResultsMusic.asm
 .include Source/Project+/SFXExpand.asm
 
+.include Source/Project+/YoshiEggs.asm
+
 ################################
 ZSS Jumbo Screen Name Fix [ds22]
 ################################
@@ -764,8 +770,8 @@ Snake's U-Smash can Have Horizontal Velocity [Magus]
 * 48000008 C0049560
 * 60000000 00000000
 
-.include Source/Project+/EffectCommands.asm # hold off for now, breaks with controls
-.include Source/Project+/Attributes.asm     # hold off for now, breaks with controls
+.include Source/Project+/EffectCommands.asm
+.include Source/Project+/Attributes.asm
 
 .include Source/Project+/CStick.asm
 
