@@ -742,6 +742,11 @@ SFX Fade Fix PMEXv0.5 [ds22, PyotrLuzhin]
 .include Source/Project+/ResultsMusic.asm
 .include Source/Project+/SFXExpand.asm
 
+###############################################################
+[Legacy TE] Peach costumes no longer use a FitEntry [DukeItOut]
+###############################################################
+uint8_t 0x0 @ $80AD803C
+
 .include Source/Project+/YoshiEggs.asm
 
 ################################
