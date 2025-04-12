@@ -5,6 +5,8 @@
 op cmplwi r0, 0x30 @ $8018CFC4
 op blt- 0x34	   @ $8018CFC8
 
+.include Source/LegacyTE/LoadFlags.asm
+
 .include Source/Project+/StageFiles.asm
 .include Source/Project+/CustomRequirements.asm
 .include Source/Project+/Timeout.asm
@@ -41,6 +43,7 @@ op blt- 0x34	   @ $8018CFC8
 .include Source/P+Ex/SoundbankFix.asm
 .include Source/P+Ex/Subspace.asm
 .include Source/P+Ex/VariableParameter.asm
+
 
 .include Source/ComboMode+/Engine.asm
 .include Source/ComboMode+/Momentum.asm
