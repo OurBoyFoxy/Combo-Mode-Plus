@@ -108,3 +108,13 @@ range buffed, size buffed
 up throw:
 kbg:106<85
 endlag sped up 1.35x
+_____________________________________________________________________________________
+rev 8 changes:
+
+side b:
+landing aerial side b now restores your double jump if you used it, meaning you can always jump out of air side b when it connects now
+grounded side b now sped up 1.35x
+after connecting you can now act out of it with anything rather than just attacks
+
+down b:
+aerial down b restored double jump again

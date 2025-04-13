@@ -126,3 +126,9 @@ smash missile damage:10<12
 smash missile hitlag multplier:1<1.5
 smash missile angle:55<30
 smash missile kbg:65<80
+_______________________________________________________________________________________
+rev 8 changes:
+
+up smash:
+endlag sped up more
+kbg:85<110

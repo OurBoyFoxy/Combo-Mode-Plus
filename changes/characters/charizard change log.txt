@@ -119,3 +119,15 @@ sped up 1.2x
 
 up b:
 final hit kbg:95<105
+__________________________________________________________________________________________
+rev 8 changes:
+
+bair:
+now has his smash 4 animation and some new properties
+this new bair is slower but has much more range, the sourspot has combo potential while the sweetspot kills as strong as old bair
+
+up b:
+added fire hit effect
+
+up tilt:
+adjusted hitboxes to better cover the animation

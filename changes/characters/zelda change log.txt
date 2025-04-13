@@ -118,14 +118,30 @@ dash grab faf:11<5
 dash grab active frames:2<7
 
 f smash:
-multihit angle:270
+multihit angle:270<90
+removed down time between multihits
 
 fair:
 sourspot angle:361<55
 iasa:40<32
+sourspot bkb:5<45
 
 bair:
 iasa:36<29
+sourspot bkb:5<45
 
 dair:
 iasa:45<37
+sourspot trip rate:0<1
+
+d throw:
+sped up 1.2x
+angle:105<90
+
+side b:
+startup+endlag sped up 1.2x
+no longer puts zelda into special fall
+can double jump out of aerial end lag
+
+up b:
+sped up 1.2x

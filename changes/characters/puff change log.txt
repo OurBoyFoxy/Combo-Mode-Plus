@@ -88,3 +88,32 @@ kbg:30<50
 bkb:15<35
 
 can cancel airdodge into attacks
+___________________________________________________________________________________
+rev 8 changes:
+
+air mobility buffed heavily
+
+d tilt:
+sped up 1.3x
+
+f smash:
+iasa:51<44
+startup sped up:1.2<1.3
+
+bair:
+removed slowdown on startup
+
+up air:
+sped up 1.3x
+
+dair:
+multihit sped up 1.2x
+iasa:29<24
+multihit amount:7<9
+
+down b:
+sped up 1.2x
+
+up b:
+hitboxes stay active the whole move
+sped up 1.2x

@@ -59,3 +59,20 @@ sped up charge times
 can now angle it more
 super charged damage:9<12
 kbg:70<80
+_________________________________________________________________________________________
+rev 8 changes:
+
+dair:
+sped up 1.2x
+reworked momentum shift slightly
+
+fair:
+sweetspot kbg:90<110
+
+f smash:
+startup sped up 1.2
+damage on all hitboxes:+3
+kbg:95<100
+
+dash attack:
+kbg:70<55

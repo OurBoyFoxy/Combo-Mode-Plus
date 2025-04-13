@@ -83,3 +83,7 @@ rev 7 changes:
 
 f smash:
 bkb:60<40
+______________________________________________________________________________
+rev 8 changes:
+
+Lucas has been ported from P+ and rebalanced for combo mode. he has been given back many CM values while keeping P+ abilities, specials, and moves

@@ -103,3 +103,32 @@ endlag sped up 1.3x
 
 neutral special:
 multihit angle:all made 361
+_____________________________________________________________________________________________
+rev 8 changes:
+
+up air:
+iasa:25<16
+
+bair:
+final hit damage:4<6
+bkb:30<40
+kbg:175<180
+
+jab:
+can now cancel into specials/grabs/attacks
+
+f smash:
+kbg:99<110
+
+d smash:
+kbg:93<110
+
+nair:
+kbg:100<115
+
+dair:
+kbg:60<40
+
+up b:
+damage:9<15
+angle:80/70<40

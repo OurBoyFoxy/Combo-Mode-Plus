@@ -117,3 +117,54 @@ endlag sped up 1.3x
 nair:
 sweetspot angle:60<70
 endlag sped up 1.3x
+________________________________________________________________________________________
+rev 8 changes:
+
+made larger
+
+f smash:
+startup sped up:1.3<1.5
+removed startup sourspot
+ending sourspot damage:5<15
+ending sourspot bkb:100<75
+
+up smash:
+startup sped up:1.2<1.35
+damage:14<17
+faf:13<11
+
+dair:
+startup sped up:1.1<1.25
+sped up multihit 1.3x
+
+up air:
+sped up multihit 1.5
+
+d throw:
+bkb:90<80
+kbg:60<35
+
+side b:
+sped up 1.2x
+
+nair:
+late his size:5<8
+
+jab:
+jab 1+2 sped up 1.5
+made both hits active for longer
+
+dash attack:
+sped up:1.2<1.4
+
+f tilt:
+after first hit sped up 1.2x
+damage:9<11
+
+fair:
+sped up 1.2x
+faf:16<15
+bkb:15<30
+
+bair:
+angle:361<35

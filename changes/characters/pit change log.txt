@@ -96,7 +96,7 @@ ________________________________________________________________________________
 rev 8 changes:
 
 side b:
-can now cancel into grab after 16 frames
+can now cancel grab and attacks
 
 up tilt:
 active frames:5<8
@@ -111,4 +111,6 @@ added bkb to multihit:25
 multihit damage:1<2
 
 up b:
-armor:13<14
+air armor:13<14
+removed windbox on startup
+grounded up b startup now has a 20% armor state for the first 12 frames where he can also cancel into attack/grab

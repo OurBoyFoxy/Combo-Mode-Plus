@@ -90,11 +90,37 @@ angle:65<75
 _____________________________________________________________________________________________
 rev 8 changes:
 
+little mac has a massive animation and model overhaul. this does affect some moves somewhat but he largely plays the same.
+
+up smash:
+new changes removes his massive slide when up smashing out of run
+
 neutral b:
-ko punch hitbox sizes:15<7
+KO punch hitbox sizes:15<7
+KO punch massivley rebalanced
+damage:35<23
+bkb:130<90
+kbg:30<45
 
 dair:
 bkb:15<30
 kbg:50<25
 
 can no longer jump cancel up b in the air, can only cancel it if done from the ground
+
+f tilt:
+first hit angle:361<290
+no longer jab locks
+between hits sped up 1.3x
+
+up b:
+kbg:100<80
+
+jab:
+jab 3 damage:6<5
+
+up tilt:
+damage:9<8
+
+d tilt:
+damage:11<9

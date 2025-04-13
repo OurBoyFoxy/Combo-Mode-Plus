@@ -85,3 +85,8 @@ endlag sped up:1.1
 bair:
 damage:9<13
 kbg:100<110
+_____________________________________________________________________________
+rev 8 changes:
+
+fair:
+fixed active frames

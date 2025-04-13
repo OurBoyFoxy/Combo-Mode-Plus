@@ -90,3 +90,28 @@ rev 7 changes:
 
 down b:
 angle:10<20
+________________________________________________________________________________
+rev 8 changes:
+
+increased fall speed and gravity
+
+up air:
+first hit sdi multiplier:1<.2
+between hits sped up 1.5x
+2nd hit damage:11<13
+kbg:120<125
+
+up smash:
+damage:17<18
+
+jab:
+jab 3 is now low angled f tilt
+
+down b:
+hitbox size:6<10
+startup:3<5
+
+f tilt:
+side damage:6<8
+down angle damage:361<60
+side angle:361<20

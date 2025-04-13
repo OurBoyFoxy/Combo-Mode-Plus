@@ -77,3 +77,29 @@ kbg:30<55
 
 f tilt:
 sped up 1.2x
+___________________________________________________________________________________
+rev 8 changes:
+
+f tilt:
+startup sped up 1.35x
+
+fair:
+sweetspot damage:7<10
+sweetspot kbg:100<120
+late hit bkb:15<30
+
+up tilt:
+accidentally did not correctly speed up move before lol, startup sped up 1.3x
+
+upsmash:
+addeed skb to multihits:10
+endlag sped up 1.3x
+
+d throw:
+angle:130<110
+
+dair:
+can now double jump out of dair after 26 frames
+
+neutral b:
+after grabbing someone with chomp, you can cancel it into attacks

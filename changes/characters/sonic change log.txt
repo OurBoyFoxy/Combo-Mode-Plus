@@ -100,3 +100,42 @@ spike hitbox bkb:50<25
 
 dair:
 spike sweetspot duration:7<2
+________________________________________________________________________________________
+rev 8 changes:
+
+buffed air mobility + falls faster
+buffed run acceleration
+
+jab:
+removed slowdown on endlag
+
+dash attack:
+removed slowdown on startup
+sped up endlag:1.4<1.5
+
+fair:
+removed slowdown on startup
+iasa:42<39
+bkb:25<40
+kbg:76<80
+
+up air:
+sped up 1.2x
+
+d throw:
+sped up endlag 1.6x
+base knockback:80<60
+angle:30<55
+
+nair:
+has a new double kick nair (from mod melee 2)
+
+dair:
+startup sped up 1.3x
+
+d tilt:
+bkb:30<50
+iasa:25<21
+
+grab:
+resorted slide when doinbg jc grab

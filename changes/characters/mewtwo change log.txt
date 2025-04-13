@@ -45,3 +45,64 @@ startup sped up 1.3x
 down special:
 sped up 1.3x
 now uses "paralyze" effect instead of "stun"
+_______________________________________________________________________________________
+rev 8 changes:
+
+when in the air, you can now float after using your double jump
+
+all hitboxes using his tail increased
+
+removed hurtboxes on his tail, all tail attacks are now disjoints
+
+adjusted edge grab values
+
+weight:97<109
+
+neutral b:
+sped up 1.4x
+
+up b:
+endlag sped up 2x
+startup slowed .5x, intangibility added on last 8 frames
+now cancels upon landing, no landing lag
+
+down b:
+damage:1<7
+
+side b:
+angle:87<361
+damage:10<15
+kbg:64<80
+startup sped up 1.5x, rest sped up 1.3x
+
+d throw:
+endlag sped up 1.5x
+angle:69<80
+
+fair:
+damage:13<16
+massive range buff
+
+up throw:
+bkb:100<60
+kbg:70<120
+
+up smash:
+sped up multihit 1.6x
+iasa:61<50
+
+bair:
+removed all sped mods
+hitbox id0 angle (tip of tail):361<105
+
+up air:
+endlag sped up 1.25x
+
+nair:
+final hit angle:55<60
+
+dash attack:
+startup sped up
+
+up tilt:
+tipper angles:65<90

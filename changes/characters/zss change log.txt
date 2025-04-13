@@ -76,11 +76,16 @@ can now be landing canceled
 ___________________________________________________________________________________________
 rev 8 changes:
 
+buffed air mobility and ground to air momentum
+
 neutral b:
 sped up 1.2x in the air
 
 dash attack:
 first hit angle:75<65
+iasa:32<28
+damage:7<9
+late hit damage:5<7
 
 f tilt:
 down angle trip rate:.6<1
@@ -95,10 +100,13 @@ d tilt:
 damage:6<9
 
 f smash:
+sped up between hits
 2nd hit damage:12<13
 2nd hit kbg:109<115
+first hit bkb increased, will now launch out of stun
 
 d smash:
+sped up startup 1.4x
 removed slowdown on endlag
 damage:11<12
 
@@ -106,7 +114,27 @@ up b:
 added iasa:34
 
 side b:
-sped up 1.3x
+no longer a multihit, just the strong final hit with improved hitboxes
 
 down b:
 can cancel into specials
+
+dair:
+now trips
+angle:270<361
+
+fair:
+sped up between hits 2.3x
+2nd hit kbg:105<115
+
+nair:
+angle:60<70
+
+bair:
+damage:13<15
+kbg:100<105
+
+up smash:
+copy pasted P+ upsmash values lol
+
+d throw and up throw sped up 1.3x

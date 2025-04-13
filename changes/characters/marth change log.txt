@@ -84,3 +84,24 @@ end lag sped up 1.3x
 neutral b:
 uncharged damage:7<12
 active frames:12<5
+__________________________________________________________________________________________
+rev 8 changes:
+
+neutral b:
+base damage:12<15
+now has melee neutral b animation while in the air, startup+move sped up 1.2x endlag slowed .6x
+
+f smash:
+sped up endlag 1.2x
+given his PM animation, which may look the same but actually makes a major difference in tipper hitbox placement, making things like tipper f smashing through plats for more consistent
+
+d smash:
+sped up endlag 1.3x
+
+nair:
+first hit now has 10 skb
+first hit bkb:30<41
+between multihits sped up 1.4x
+
+bair:
+kbg:70<95

@@ -40,3 +40,7 @@ rev 7:
 
 jab:
 angle:361<80
+___________________________________________________________________________________________
+rev 8:
+
+Kirby has been ported from P+ and rebalanced for combo mode. he has been given back many CM values while keeping P+ abilities, specials, and moves

@@ -98,3 +98,16 @@ buffed air vertical lift
 buffed horizontal drift
 startup sped up 2x
 faf:4<3
+
+grab:
+sped up 1.25x
+up throw bkb:24<55
+up throw kbg:230<150
+d throw kbg:90<60
+d throw iasa:50<43
+
+up tilt:
+sped up 1.15x after startup
+
+dash attack:
+endlag sped up 1.15x

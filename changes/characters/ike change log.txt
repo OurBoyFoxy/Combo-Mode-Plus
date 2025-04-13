@@ -76,3 +76,8 @@ startup sped up 1.3x
 
 d smash:
 angles all made 361
+____________________________________________________________________________________
+rev 8 changes:
+
+dash attack:
+fixed active frames on move, comes out a frame earlier and lasts longer

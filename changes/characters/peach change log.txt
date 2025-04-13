@@ -65,3 +65,24 @@ endlag sped up 1.2x
 
 down b:
 sped up turnip pull 1.2x
+________________________________________________________________________________
+rev 8 changes:
+
+dash attack:
+sped up between hits 2x
+added skb to first hit:10
+first hit damage:11<8
+2nd hit angle:361<80
+2nd hit kbg:125<90
+
+d smash:
+endlag sped up 1.6
+final hit angle:78<10
+added skb to final hit:10
+
+dair:
+multihit angle:70<365
+sped up multihit 1.5x
+
+nair:
+endlag sped up 1.5x

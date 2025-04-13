@@ -24,3 +24,31 @@ added iasa:51
 
 up b:
 finally buffed the vertical height
+__________________________________________________________________________
+rev 8 changes:
+
+down b:
+startup sped up 1.5x
+angles all made 90
+endlag sped up 1.9x
+bkb:84<100
+
+nair:
+hitbox sizes all +2
+angle:361<55
+endlag sped up 1.2x
+
+fair:
+sped up 1.1x
+damage:16<19
+bkb:20<35
+kbg:100<105
+
+neutral b:
+bkb:10<50
+
+d tilt:
+trip rate:.4<1
+
+up tilt:
+iasa:39<31

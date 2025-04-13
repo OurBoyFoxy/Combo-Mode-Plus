@@ -163,3 +163,8 @@ can now instantly cancel up b with attacks
 
 down b:
 can now cancel c4 detonate into attacks before the explosion
+_______________________________________________________________________________________________
+rev 8 changes:
+
+f smash:
+move now has same hitbox vs air and ground opponents

@@ -79,3 +79,44 @@ bkb:0<25
 final hit angle:361<55
 multihits sped up 1.25x
 endlag slowed .85x
+_____________________________________________________________________________________________
+rev 8 changes:
+
+increased gravity+fall speed to be closer to fox
+
+run speed:1.43<1.56
+
+jab:
+removed rapid jab and instead goes into f tilt for jab 3
+can cancel jab 2 into grab
+
+f tilt:
+faf:6<5
+active frames:3<5
+bkb:0<30
+kbg:100<80
+
+nair:
+now has fox nair
+
+uptilt:
+now has melee style PM up tilt
+
+neutral b:
+removed slowdown on aerial startup
+
+f smash:
+startup sped up 1.2x
+
+d throw:
+angle:50<67
+bkb:45<60
+kbg:130<100
+
+fair:
+multihits more frequent, damage:3<1
+final hit damage:3<5
+
+up air:
+angle:75<80
+faf:10<9

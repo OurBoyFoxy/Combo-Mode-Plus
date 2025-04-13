@@ -84,3 +84,58 @@ sped up 1.2x after initial hit
 
 side b:
 can cancel ending into specials or jump
+___________________________________________________________________________________________
+rev 8 changes:
+
+now has a psuedo-wavedash, cancel jumpsquat by hitting shield and luigi will burst forward
+
+f tilt:
+low angle f tilt iasa:32<27
+low angle f tilt sped up 1.5x
+other angles iasa:34<30
+endlag sped up 1.7x
+bkb:2<40
+can now cancel f tilt with jump
+
+dair:
+now a multihit
+
+up air:
+angle:65<80
+endlag sped up 1.3x
+iasa:30<25
+kbg:100<60
+bkb:0<20
+
+f smash:
+startup sped up 1.8x
+
+upsmash:
+startup sped up 1.3x
+can now slide during up smash
+
+d smash:
+no longer makes luigi slide
+all angles made 361
+startup sped up 1.3x
+kbg:80<100
+
+d throw:
+angle:80<90
+bkb:75<90
+kbg:30<20
+
+up tilt:
+bkb:30<60
+kbg:123<50
+sped up 1.3x
+
+nair:
+sped up after initial hit 1.6x
+iasa:46<39
+
+down b:
+can now cancel into attacks
+
+up b:
+aerial up b now as strong as grounded up b

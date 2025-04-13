@@ -74,3 +74,9 @@ jab 1+2 angle:361<70
 
 side b:
 removed hitbox on move, still can be attack canceled and double jump canceled
+_______________________________________________________________________________________
+rev 8 changes:
+
+fair:
+kbg:94<110
+bkb:30<35

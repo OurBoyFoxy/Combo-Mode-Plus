@@ -69,3 +69,33 @@ rev 8 changes:
 
 bair:
 startup slowed more
+
+up b:
+removed slowdown on endlag in air
+
+neutral b:
+can cancel into attacks
+
+f tilt:
+can cancel multihit into specials
+
+dash attack:
+iasa:44<40
+endlag sped up 1.3x
+
+f smash:
+damage:16<18
+
+d smash:
+damage:12<14
+startup sped up 1.4x
+
+nair:
+final hit angle:361<60
+
+fair:
+angles all made 75
+
+d throw:
+kbg:50<20
+bkb:83<95
