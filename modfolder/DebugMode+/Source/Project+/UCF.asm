@@ -110,9 +110,9 @@ enableUCFShielddrop:
 #these are PSA scalars so they are in reality the intended value * 60000
 #changes them to scalars from variable
   li r0, 1
-#-0.8 spotdodge sensitivity
+#-0.85 spotdodge sensitivity
   lis r4, 0xFFFF
-  ori r4, r4, 0x4480
+  ori r4, r4, 0x3F34
 
   lis r3, 0x80FB
   ori r3, r3, 0x0804
@@ -120,9 +120,9 @@ enableUCFShielddrop:
   stw r0, 0x0(r3)
   stw r4, 0x4(r3)
 
-#-0.675 - plat drop sensitivity
+#-0.625 - plat drop sensitivity
   lis r4, 0xFFFF
-  ori r4, r4, 0x61CC
+  ori r4, r4, 0x7024
 
   lis r3, 0x80FB
   ori r3, r3, 0x0A44
