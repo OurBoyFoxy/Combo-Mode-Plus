@@ -1430,619 +1430,704 @@ op lwz r4, 0x5D00(r4)	@ $800AF6E0
 # SSS Stage Lists and Alt Stage Display [DukeItOut, Kapedani]
 # ###########################################################
 
-# .alias muSelectStageSwitch__selectRandom		= 0x806b74f0
-# .alias muSelectStageSwitch__dispPreview			= 0x806b6ab4
-# .alias g_muSelectStageFileTask					= 0x806BB388
-# .alias muSelectStageFileTask__deleteAllFileData	= 0x806b8768
-# .alias MuStageTblAcces_GetStageKind				= 0x806b8f50
-# .alias muMenu__exchangeMuStageKindToSrStageKind	= 0x800af614
-# .alias MuObject__setFrameNode					= 0x800b7798
-# .alias g_gfPadSystem							= 0x805A0040
-# .alias gfPadSystem__getSysPadStatus				= 0x8002ae48
-# .alias MuObject__changeClrAnimN					= 0x800b50cc
-# .alias g_sndSystem                  		 	= 0x805A01D0
-# .alias sndSystem__playSE             			= 0x800742b0
-# .alias g_GameGlobal                 			= 0x805a00E0
-# .alias sprintf									= 0x803f89fc
-# .alias strcat 									= 0x803fa384
-# .alias __memfill                    			= 0x8000443c
+.alias muSelectStageSwitch__selectRandom		= 0x806b74f0
+.alias muSelectStageSwitch__dispPreview			= 0x806b6ab4
+.alias g_muSelectStageFileTask					= 0x806BB388
+.alias muSelectStageFileTask__deleteAllFileData	= 0x806b8768
+.alias MuStageTblAcces_GetStageKind				= 0x806b8f50
+.alias muMenu__exchangeMuStageKindToSrStageKind	= 0x800af614
+.alias MuObject__setFrameNode					= 0x800b7798
+.alias g_gfPadSystem							= 0x805A0040
+.alias gfPadSystem__getSysPadStatus				= 0x8002ae48
+.alias MuObject__changeClrAnimN					= 0x800b50cc
+.alias g_sndSystem                  		 	= 0x805A01D0
+.alias sndSystem__playSE             			= 0x800742b0
+.alias g_GameGlobal                 			= 0x805a00E0
+.alias sprintf									= 0x803f89fc
+.alias strcat 									= 0x803fa384
+.alias __memfill                    			= 0x8000443c
 
-# .alias PAGE_INDEX						= 0x8049601E
-# .alias STAGELIST_STAGEKIND				= 0x806AEE19
-# .alias STAGELIST_TYPE					= 0x806AEE1A
-# .alias STAGELIST_FOLDER_NAME			= 0x806AEE1E
-# .alias STAGELIST_FILE_NAME				= 0x80423674
-# .alias _pf               				= 0x80507b70
-# .alias MOD_FOLDER        				= 0x80406920
-# .alias STAGE_FOLDER 					= 0x8053EFE4
-# .alias ASL_BUTTON						= 0x800B9EA0
-# .alias STAGE_STRIKE_TABLE				= 0x806AEDFA
-# .alias RSS_HAZARD_DATA					= 0x806AEDBE
-# .alias RSS_EXDATA_BONUS					= 0x806AEE18
-# .alias CURRENT_PAGE						= 0x80496000
-# .alias MUSIC_SELECT_STEP				= 0x80002810
+.alias PAGE_INDEX						= 0x8049601E
+.alias STAGELIST_STAGEKIND				= 0x806AEE19
+.alias STAGELIST_TYPE					= 0x806AEE1A
+.alias STAGELIST_FOLDER_NAME			= 0x806AEE1E
+.alias STAGELIST_FILE_NAME				= 0x80423674
+.alias _pf               				= 0x80507b70
+.alias MOD_FOLDER        				= 0x80406920
+.alias STAGE_FOLDER 					= 0x8053EFE4
+.alias ASL_BUTTON						= 0x800B9EA0
+.alias STAGE_STRIKE_TABLE				= 0x806AEDFA
+.alias RSS_HAZARD_DATA					= 0x806AEDBE
+.alias RSS_EXDATA_BONUS					= 0x806AEE18
+.alias CURRENT_PAGE						= 0x80496000
+.alias MUSIC_SELECT_STEP				= 0x80002810
 
-# .macro lbd(<reg>, <addr>)
-# {
-#     .alias  temp_Lo = <addr> & 0xFFFF
-#     .alias  temp_Hi_ = <addr> / 0x10000
-#     .alias  temp_r = temp_Lo / 0x8000
-#     .alias  temp_Hi = temp_Hi_ + temp_r
-#     lis     <reg>, temp_Hi
-#     lbz     <reg>, temp_Lo(<reg>)
-# }
-# .macro lbdu(<reg1>, <reg2>, <addr>)
-# {
-#     .alias  temp_Lo = <addr> & 0xFFFF
-#     .alias  temp_Hi_ = <addr> / 0x10000
-#     .alias  temp_r = temp_Lo / 0x8000
-#     .alias  temp_Hi = temp_Hi_ + temp_r
-#     lis     <reg2>, temp_Hi
-#     lbzu    <reg1>, temp_Lo(<reg2>)
-# }
-# .macro lwd(<reg>, <addr>)
-# {
-#     .alias  temp_Lo = <addr> & 0xFFFF
-#     .alias  temp_Hi_ = <addr> / 0x10000
-#     .alias  temp_r = temp_Lo / 0x8000
-#     .alias  temp_Hi = temp_Hi_ + temp_r
-#     lis     <reg>, temp_Hi
-#     lwz     <reg>, temp_Lo(<reg>)
-# }
-# .macro sbd(<reg1>, <reg2>, <addr>)
-# {
-#     .alias  temp_Lo = <addr> & 0xFFFF
-#     .alias  temp_Hi_ = <addr> / 0x10000
-#     .alias  temp_r = temp_Lo / 0x8000
-#     .alias  temp_Hi = temp_Hi_ + temp_r
-#     lis     <reg2>, temp_Hi
-#     stb     <reg1>, temp_Lo(<reg2>)
-# }
-# .macro sbdu(<reg1>, <reg2>, <addr>)
-# {
-#     .alias  temp_Lo = <addr> & 0xFFFF
-#     .alias  temp_Hi_ = <addr> / 0x10000
-#     .alias  temp_r = temp_Lo / 0x8000
-#     .alias  temp_Hi = temp_Hi_ + temp_r
-#     lis     <reg2>, temp_Hi
-#     stbu     <reg1>, temp_Lo(<reg2>)
-# }
-# .macro swd(<storeReg>, <addrReg>, <addr>)
-# {
-#     .alias  temp_Lo = <addr> & 0xFFFF
-#     .alias  temp_Hi_ = <addr> / 0x10000
-#     .alias  temp_r = temp_Lo / 0x8000
-#     .alias  temp_Hi = temp_Hi_ + temp_r
-#     lis     <addrReg>, temp_Hi
-#     stw     <storeReg>, temp_Lo(<addrReg>)
-# }
-# .macro lwi(<reg>, <val>)
-# {
-#     .alias  temp_Hi = <val> / 0x10000
-#     .alias  temp_Lo = <val> & 0xFFFF
-#     lis     <reg>, temp_Hi
-#     ori     <reg>, <reg>, temp_Lo
-# }
-# .macro call(<addr>)
-# {
-#   %lwi(r12, <addr>)
-#   mtctr r12
-#   bctrl    
-# }
-# .macro branch(<addr>)
-# {
-#     %lwi(r12, <addr>)
-#     mtctr r12
-#     bctr
-# }
+.macro lbd(<reg>, <addr>)
+{
+    .alias  temp_Lo = <addr> & 0xFFFF
+    .alias  temp_Hi_ = <addr> / 0x10000
+    .alias  temp_r = temp_Lo / 0x8000
+    .alias  temp_Hi = temp_Hi_ + temp_r
+    lis     <reg>, temp_Hi
+    lbz     <reg>, temp_Lo(<reg>)
+}
+.macro lbdu(<reg1>, <reg2>, <addr>)
+{
+    .alias  temp_Lo = <addr> & 0xFFFF
+    .alias  temp_Hi_ = <addr> / 0x10000
+    .alias  temp_r = temp_Lo / 0x8000
+    .alias  temp_Hi = temp_Hi_ + temp_r
+    lis     <reg2>, temp_Hi
+    lbzu    <reg1>, temp_Lo(<reg2>)
+}
+.macro lwd(<reg>, <addr>)
+{
+    .alias  temp_Lo = <addr> & 0xFFFF
+    .alias  temp_Hi_ = <addr> / 0x10000
+    .alias  temp_r = temp_Lo / 0x8000
+    .alias  temp_Hi = temp_Hi_ + temp_r
+    lis     <reg>, temp_Hi
+    lwz     <reg>, temp_Lo(<reg>)
+}
+.macro sbd(<reg1>, <reg2>, <addr>)
+{
+    .alias  temp_Lo = <addr> & 0xFFFF
+    .alias  temp_Hi_ = <addr> / 0x10000
+    .alias  temp_r = temp_Lo / 0x8000
+    .alias  temp_Hi = temp_Hi_ + temp_r
+    lis     <reg2>, temp_Hi
+    stb     <reg1>, temp_Lo(<reg2>)
+}
+.macro sbdu(<reg1>, <reg2>, <addr>)
+{
+    .alias  temp_Lo = <addr> & 0xFFFF
+    .alias  temp_Hi_ = <addr> / 0x10000
+    .alias  temp_r = temp_Lo / 0x8000
+    .alias  temp_Hi = temp_Hi_ + temp_r
+    lis     <reg2>, temp_Hi
+    stbu     <reg1>, temp_Lo(<reg2>)
+}
+.macro swd(<storeReg>, <addrReg>, <addr>)
+{
+    .alias  temp_Lo = <addr> & 0xFFFF
+    .alias  temp_Hi_ = <addr> / 0x10000
+    .alias  temp_r = temp_Lo / 0x8000
+    .alias  temp_Hi = temp_Hi_ + temp_r
+    lis     <addrReg>, temp_Hi
+    stw     <storeReg>, temp_Lo(<addrReg>)
+}
+.macro lwi(<reg>, <val>)
+{
+    .alias  temp_Hi = <val> / 0x10000
+    .alias  temp_Lo = <val> & 0xFFFF
+    lis     <reg>, temp_Hi
+    ori     <reg>, <reg>, temp_Lo
+}
+.macro call(<addr>)
+{
+  %lwi(r12, <addr>)
+  mtctr r12
+  bctrl    
+}
+.macro branch(<addr>)
+{
+    %lwi(r12, <addr>)
+    mtctr r12
+    bctr
+}
 
-# HOOK @ $806b0aa4	# muSelectStageTask::__ct
-# {
-# 	stb r31, 0x44(r29)	# Original operation
-# 	stb r31, 0x45(r29)	# Initialize 0x45 field for stage hazard on/off
-# 	stb r31, 0x46(r29)	# Initialize 0x46 field for all hazards default/on/off
-# }
+HOOK @ $806b0aa4	# muSelectStageTask::__ct
+{
+	stb r31, 0x44(r29)	# Original operation
+	stb r31, 0x45(r29)	# Initialize 0x45 field for stage hazard on/off
+	stb r31, 0x46(r29)	# Initialize 0x46 field for all hazards default/on/off
+}
 
-# HOOK @ $806b1300	# muSelectStageTask::initProcWithScreen
-# {
-# 	lfs	f1, 0x0(r30)	# \
-# 	lwz r3, 0x80(r26)	# |
-# 	lwz r3, 0x14(r3)	# | 
-# 	lwz r3, 0xc(r3)		# |
-# 	lwz r12, 0x0(r3)	# | this->previewMuObject->modelAnim->SetUpdateRate(0.0)
-# 	lwz r12, 0x28(r12)	# |
-# 	mtctr r12			# |
-# 	bctrl 				# /
-# 	%lwd(r12, MUSIC_SELECT_STEP)	# \
-# 	cmpwi r12, 0x7					# | check if returning from MyMusic
-# 	bne+ end						# /
-# 	%lbd(r12, RSS_EXDATA_BONUS)
-# 	srawi r3, r12, 6
-# 	andi. r0, r12, 0xC0
-# 	beq+ end
-# 	lis r8, 0x806B
-# 	ori r4, r8, 0x93B3	# SelmapRandom
-# 	andi. r3, r3, 0x02
-# 	stb r3, 0x46(r26)	# store all hazards  
-# 	beq+ changeRandomClr
-# 	ori r4, r8, 0x93B9	# Random
-# changeRandomClr:
-# 	lwz r3, 0x1FC(r26)
-# 	%call(MuObject__changeClrAnimN)
-# end:
-# 	lwz	r3, 0x40(r26)	# Original operation
-# }
+HOOK @ $806b1300	# muSelectStageTask::initProcWithScreen
+{
+	lfs	f1, 0x0(r30)	# \
+	lwz r3, 0x80(r26)	# |
+	lwz r3, 0x14(r3)	# | 
+	lwz r3, 0xc(r3)		# |
+	lwz r12, 0x0(r3)	# | this->previewMuObject->modelAnim->SetUpdateRate(0.0)
+	lwz r12, 0x28(r12)	# |
+	mtctr r12			# |
+	bctrl 				# /
+	%lwd(r12, MUSIC_SELECT_STEP)	# \
+	cmpwi r12, 0x7					# | check if returning from MyMusic
+	bne+ end						# /
+	%lbd(r12, RSS_EXDATA_BONUS)
+	srawi r3, r12, 6
+	andi. r0, r12, 0xC0
+	beq+ end
+	lis r8, 0x806B
+	ori r4, r8, 0x93B3	# SelmapRandom
+	andi. r3, r3, 0x02
+	stb r3, 0x46(r26)	# store all hazards  
+	beq+ changeRandomClr
+	ori r4, r8, 0x93B9	# Random
+changeRandomClr:
+	lwz r3, 0x1FC(r26)
+	%call(MuObject__changeClrAnimN)
+end:
+	lwz	r3, 0x40(r26)	# Original operation
+}
 
-# string "%s%s%s%sstagelist/%02X_%s/" @ $806AEE1E 
+string "%s%s%s%sstagelist/%02X_%s/" @ $806AEE1E 
 
-# HOOK @ $806b6b38	# muSelectStageTask::dispPreview
-# {
-# 	%lwd(r12, MUSIC_SELECT_STEP)	# \
-# 	cmpwi r12, 0x7					# | check if returning from MyMusic
-# 	bne+ notMusicSelect				# /
-# 	%lwd(r12, g_GameGlobal)	# \
-# 	lwz	r12, 0x14(r12)		# | g_GameGlobal->selStageData->hazard
-# 	lbz r3, 0x25(r12)		# /
-# 	b forceHazard 
-# notMusicSelect:
-# 	lbz r3, 0x46(r29)	# \ check if mixed hazards
-# 	cmpwi r3, 0x1		# /
-# 	srawi r3, r3, 1		# shift bit to the right so that all hazards = 0x0, no hazards = 0x1
-# 	bne+ forceHazard 	
-# 	subi r3, r28, 0x2
-# 	%lbd (r4, CURRENT_PAGE)
-# 	%call(muSelectStageSwitch__selectRandom)	# get if hazard from hazard switch
-# forceHazard:
-# 	lis r12, 0x806B
-# 	ori r4, r12, 0x94EC	# MenSelMapCursorB
-# 	cmpwi r3, 0x0
-# 	bne+ noHazard
-# 	ori r4, r12, 0x94EF # SelMapCursorB
-# noHazard:
-# 	stb r3, 0x45(r29)	# Set hazard in unused field in muSelectStageTask
-# 	lwz	r3, 0x204(r29)	# this->menSelmapCursorB
-# 	%call(MuObject__changeClrAnimN)
-# 	subic. r5, r28, 2 # Original operation
-# }
+HOOK @ $806b6b38	# muSelectStageTask::dispPreview
+{
+	%lwd(r12, MUSIC_SELECT_STEP)	# \
+	cmpwi r12, 0x7					# | check if returning from MyMusic
+	bne+ notMusicSelect				# /
+	%lwd(r12, g_GameGlobal)	# \
+	lwz	r12, 0x14(r12)		# | g_GameGlobal->selStageData->hazard
+	lbz r3, 0x25(r12)		# /
+	b forceHazard 
+notMusicSelect:
+	lbz r3, 0x46(r29)	# \ check if mixed hazards
+	cmpwi r3, 0x1		# /
+	srawi r3, r3, 1		# shift bit to the right so that all hazards = 0x0, no hazards = 0x1
+	bne+ forceHazard 	
+	subi r3, r28, 0x2
+	%lbd (r4, CURRENT_PAGE)
+	%call(muSelectStageSwitch__selectRandom)	# get if hazard from hazard switch
+forceHazard:
+	lis r12, 0x806B
+	ori r4, r12, 0x94EC	# MenSelMapCursorB
+	cmpwi r3, 0x0
+	bne+ noHazard
+	ori r4, r12, 0x94EF # SelMapCursorB
+noHazard:
+	stb r3, 0x45(r29)	# Set hazard in unused field in muSelectStageTask
+	lwz	r3, 0x204(r29)	# this->menSelmapCursorB
+	%call(MuObject__changeClrAnimN)
+	subic. r5, r28, 2 # Original operation
+}
 
-# HOOK @ $806b6930	# muSelectStageTask::pointPointerEditList
-# {
-# 	lwz	r25, 0x1C8(r24)	# Original operation
-# 	mr r3, r25 
-# 	lis r10, 0x806B
-# 	ori r4, r10, 0x93F0	# MenSelmapEdit0002_TopN
-# 	lbz r12, 0x45(r29)
-# 	cmpwi r12, 0
-# 	bne+ notHazard
-# 	ori r4, r10, 0x93F3	# SelmapEdit0002_TopN
-# notHazard:
-# 	%call(MuObject__changeClrAnimN)
-# }
+HOOK @ $806b6930	# muSelectStageTask::pointPointerEditList
+{
+	lwz	r25, 0x1C8(r24)	# Original operation
+	mr r3, r25 
+	lis r10, 0x806B
+	ori r4, r10, 0x93F0	# MenSelmapEdit0002_TopN
+	lbz r12, 0x45(r29)
+	cmpwi r12, 0
+	bne+ notHazard
+	ori r4, r10, 0x93F3	# SelmapEdit0002_TopN
+notHazard:
+	%call(MuObject__changeClrAnimN)
+}
 
-# op stwu r1, -0x90(r1) @ $806b626c
-# op stw r0, 0x94(r1) @ $806b6274
-# HOOK @ $806b6564	# muSelectStageTask::pointPointer
-# {	
-# 	%lwd (r3, g_gfPadSystem)
-# 	lwz r4, 0x278(r30)
-# 	addi r5, r1, 0x40
-# 	%call (gfPadSystem__getSysPadStatus)
-# 	li r28, 0x0
-# 	lwz r12, 0x44(r1)
-# 	andi. r0, r12, 0x0040	# \ Check if L
-# 	bne+ isL				# /
-# 	andi. r0, r12, 0x0020	# \ Check if R
-# 	beq- setFrame			# /
-# isR:
-# 	li r28, 0x52
-# 	b setFrame
-# isL:
-# 	li r28, 0x4c
-# setFrame:
-# 	lis r0, 0x4330			# \
-# 	stw r0, 0x40(r1)		# |
-# 	xoris r0, r12, 0x8000	# | 
-# 	stw r0, 0x44(r1)		# | convert to input to float
-# 	lfd f0, 0x40(r1)		# |
-# 	lfd f1, 0x10(r29)		# |
-# 	fsubs f1, f0, f1		# /
-# 	lwz r3, 0x80(r30)	# this->previewMuObject
-# 	%call (MuObject__setFrameNode)
+op stwu r1, -0x90(r1) @ $806b626c
+op stw r0, 0x94(r1) @ $806b6274
+HOOK @ $806b6564	# muSelectStageTask::pointPointer
+{	
+	%lwd (r3, g_gfPadSystem)
+	lwz r4, 0x278(r30)
+	addi r5, r1, 0x40
+	%call (gfPadSystem__getSysPadStatus)
+	li r28, 0x0
+	lwz r12, 0x44(r1)
+	andi. r0, r12, 0x0040	# \ Check if L
+	bne+ isL				# /
+	andi. r0, r12, 0x0020	# \ Check if R
+	beq- setFrame			# /
+isR:
+	li r28, 0x52
+	b setFrame
+isL:
+	li r28, 0x4c
+setFrame:
+	lis r0, 0x4330			# \
+	stw r0, 0x40(r1)		# |
+	xoris r0, r12, 0x8000	# | 
+	stw r0, 0x44(r1)		# | convert to input to float
+	lfd f0, 0x40(r1)		# |
+	lfd f1, 0x10(r29)		# |
+	fsubs f1, f0, f1		# /
+	lwz r3, 0x80(r30)	# this->previewMuObject
+	%call (MuObject__setFrameNode)
 
-# 	lwz r9, 0x244(r30)	
-# 	lwz r10, 0x228(r30)	# get page	
-# 	cmplwi r9, 0x36
-# 	beq+ checkForSetHazard
-# 	cmpwi r10, 0x2			# \ check for custom page
-# 	beq- checkForSetHazard 	# /
-# 	lwz r12, 0x248(r30)	# \
-# 	cmplwi r12, 0x35	# |
-# 	bge- dontSetHazard	# | Check if pointing to a stage
-# 	cmplwi r9, 0x35		# |
-# 	bge- dontSetHazard	# /
-# checkForSetHazard:
-# 	lwz r12, 0x4C(r1)
-# 	andi. r0, r12, 0x0010		# 0x0010 # Gamecube Z
-# 	bne+ setHazard  
-# 	rlwinm. r0, r12, 0, 10, 10	# 0x00200000	# Classic Controller ZL/ZR
-# 	beq+ dontSetHazard 
-# setHazard:
-# 	lis r8, 0x806B
-# 	li r11, 0
-# 	cmpwi r10, 0x2 
-# 	bne+ dontResetPointerIndex	
-# 	stw r11, 0x244(r30)		# reset pointer index on custom page so cursors can change colour
-# 	b notRandom
-# dontResetPointerIndex:
-# 	cmplwi r9, 0x36
-# 	bne+ notRandom
-# 	lbz r11, 0x46(r30)
-# 	subi r11, r11, 0x1
-# 	cmpwi r11, 0x1
-# 	beq+ defaultHazards
-# 	cmpwi r11, 0x0
-# 	beq+ allHazards
-# noHazards:	
-# 	li r11, 0x2
-# 	ori r4, r8, 0x93B9	# Random
-# 	b selectedRandomClr
-# defaultHazards:
-# 	ori r4, r8, 0x93B0	# MenSelmapRandom
-# 	b selectedRandomClr
-# allHazards:
-# 	ori r4, r8, 0x93B3	# SelmapRandom
-# selectedRandomClr:
-# 	stb r11, 0x46(r30)
-# 	lwz r3, 0x1FC(r30)
-# 	b changeClr
-# notRandom:
-# 	lwz	r3, 0x204(r30)
-# 	ori r4, r8, 0x94EF	# SelMapCursorB
-# 	lbz r12, 0x45(r30)
-# 	cmpwi r12, 0
-# 	bne+ hazard
-# 	li r11, 1
-# 	ori r4, r8, 0x94EC	# MenSelMapCursorB
-# hazard:
-# 	stb r11, 0x45(r30) 
-# changeClr:
-# 	%call(MuObject__changeClrAnimN)
-# 	lwz r10, 0x228(r30)		# \
-# 	cmpwi r10, 0x2			# | check for custom page
-# 	bne- notCustomPage 		# /
-# 	lwz r3, 0x1FC(r30)
-# 	lbz r12, 0x45(r30)	# get hazard setting
-# 	lis r8, 0x806B
-# 	ori r4, r8, 0x93B9	# Random
-# 	cmpwi r12, 0
-# 	bne+ changeRandomClr
-# 	ori r4, r8, 0x93B3	# SelmapRandom
-# changeRandomClr:
-# 	%call(MuObject__changeClrAnimN)
-# 	lfs f1, 0x0(r29)	# \
-# 	lwz r3, 0x1FC(r30)	# |
-# 	lwz r3, 0x14(r3)	# |
-# 	lwz r3, 0x18(r3)	# |
-# 	lwz r12, 0x0(r3)	# | this->menSelmapRandom->modelAnim->anmObjMatClrRes->setUpdateRate(0.0)
-# 	lwz r12, 0x28(r12)	# |
-# 	mtctr r12			# |
-# 	bctrl 				# /
-# notCustomPage:
-# 	li r4, 0x24                 # play scroll sound
-#     %lwd (r3, g_sndSystem)      # \
-#     li r5, -0x1                 # |
-#     li r6, 0x0                  # | g_sndSystem->playSE(0x24, -0x1, 0x0, 0x0, -0x1);
-#     li r7, 0x0                  # |
-#     li r8, -0x1                 # |
-#     %call (sndSystem__playSE)   # /
-# dontSetHazard:
+	lwz r9, 0x244(r30)	
+	lwz r10, 0x228(r30)	# get page	
+	cmplwi r9, 0x36
+	beq+ checkForSetHazard
+	cmpwi r10, 0x2			# \ check for custom page
+	beq- checkForSetHazard 	# /
+	lwz r12, 0x248(r30)	# \
+	cmplwi r12, 0x35	# |
+	bge- dontSetHazard	# | Check if pointing to a stage
+	cmplwi r9, 0x35		# |
+	bge- dontSetHazard	# /
+checkForSetHazard:
+	lwz r12, 0x4C(r1)
+	andi. r0, r12, 0x0010		# 0x0010 # Gamecube Z
+	bne+ setHazard  
+	rlwinm. r0, r12, 0, 10, 10	# 0x00200000	# Classic Controller ZL/ZR
+	beq+ dontSetHazard 
+setHazard:
+	lis r8, 0x806B
+	li r11, 0
+	cmpwi r10, 0x2 
+	bne+ dontResetPointerIndex	
+	stw r11, 0x244(r30)		# reset pointer index on custom page so cursors can change colour
+	b notRandom
+dontResetPointerIndex:
+	cmplwi r9, 0x36
+	bne+ notRandom
+	lbz r11, 0x46(r30)
+	subi r11, r11, 0x1
+	cmpwi r11, 0x1
+	beq+ defaultHazards
+	cmpwi r11, 0x0
+	beq+ allHazards
+noHazards:	
+	li r11, 0x2
+	ori r4, r8, 0x93B9	# Random
+	b selectedRandomClr
+defaultHazards:
+	ori r4, r8, 0x93B0	# MenSelmapRandom
+	b selectedRandomClr
+allHazards:
+	ori r4, r8, 0x93B3	# SelmapRandom
+selectedRandomClr:
+	stb r11, 0x46(r30)
+	lwz r3, 0x1FC(r30)
+	b changeClr
+notRandom:
+	lwz	r3, 0x204(r30)
+	ori r4, r8, 0x94EF	# SelMapCursorB
+	lbz r12, 0x45(r30)
+	cmpwi r12, 0
+	bne+ hazard
+	li r11, 1
+	ori r4, r8, 0x94EC	# MenSelMapCursorB
+hazard:
+	stb r11, 0x45(r30) 
+changeClr:
+	%call(MuObject__changeClrAnimN)
+	lwz r10, 0x228(r30)		# \
+	cmpwi r10, 0x2			# | check for custom page
+	bne- notCustomPage 		# /
+	lwz r3, 0x1FC(r30)
+	lbz r12, 0x45(r30)	# get hazard setting
+	lis r8, 0x806B
+	ori r4, r8, 0x93B9	# Random
+	cmpwi r12, 0
+	bne+ changeRandomClr
+	ori r4, r8, 0x93B3	# SelmapRandom
+changeRandomClr:
+	%call(MuObject__changeClrAnimN)
+	lfs f1, 0x0(r29)	# \
+	lwz r3, 0x1FC(r30)	# |
+	lwz r3, 0x14(r3)	# |
+	lwz r3, 0x18(r3)	# |
+	lwz r12, 0x0(r3)	# | this->menSelmapRandom->modelAnim->anmObjMatClrRes->setUpdateRate(0.0)
+	lwz r12, 0x28(r12)	# |
+	mtctr r12			# |
+	bctrl 				# /
+notCustomPage:
+	li r4, 0x24                 # play scroll sound
+    %lwd (r3, g_sndSystem)      # \
+    li r5, -0x1                 # |
+    li r6, 0x0                  # | g_sndSystem->playSE(0x24, -0x1, 0x0, 0x0, -0x1);
+    li r7, 0x0                  # |
+    li r8, -0x1                 # |
+    %call (sndSystem__playSE)   # /
+dontSetHazard:
 
-# 	%lwd (r12, g_muSelectStageFileTask)
-# 	cmpwi r12, 0x0	# \ check if g_muSelectStageFileTask exists (i.e. is this MyMusic)
-# 	beq- end		# /
+	%lwd (r12, g_muSelectStageFileTask)
+	cmpwi r12, 0x0	# \ check if g_muSelectStageFileTask exists (i.e. is this MyMusic)
+	beq- end		# /
 
-# 	cmpwi r31, 0x35
-# 	%lbdu (r10, r31, STAGELIST_TYPE)
-# 	bne+ dontLoadStageBuilderStages
-# 	lbz r11, 0x605A(r30)
-# 	cmpwi r11, 0xff 
-# 	bne+ dontLoadStageBuilderStages	
-# 	cmpwi r10, 0x0
-# 	beq+ dontLoadStageBuilderStages
+	cmpwi r31, 0x35
+	%lbdu (r10, r31, STAGELIST_TYPE)
+	bne+ dontLoadStageBuilderStages
+	lbz r11, 0x605A(r30)
+	cmpwi r11, 0xff 
+	bne+ dontLoadStageBuilderStages	
+	cmpwi r10, 0x0
+	beq+ dontLoadStageBuilderStages
 	
-# 	lbz r11, 0x58(r12)
-# 	andi. r0, r11, 0x40
-# 	beq+ dontLoadStageBuilderStages
-# 	andi. r11, r11, 0xBF
-# 	stb r11, 0x58(r12)
-# 	lbz r11, 0x48(r12)
-# 	andi. r11, r11, 0xBF
-# 	stb r11, 0x48(r12)
+	lbz r11, 0x58(r12)
+	andi. r0, r11, 0x40
+	beq+ dontLoadStageBuilderStages
+	andi. r11, r11, 0xBF
+	stb r11, 0x58(r12)
+	lbz r11, 0x48(r12)
+	andi. r11, r11, 0xBF
+	stb r11, 0x48(r12)
 
-# 	li r11, 0x0 
-# 	stb r11, -0x1(r31)
-# 	stb r11, 0x0(r31)
+	li r11, 0x0 
+	stb r11, -0x1(r31)
+	stb r11, 0x0(r31)
 
-# dontLoadStageBuilderStages:
-# 	lwz r3, 0x228(r30)	# \
-# 	cmplwi r3, 0x1		# | check if page 2
-# 	bgt- end			# /
-# 	lwz r11, 0x248(r30)
-# 	cmpwi r11, 0x0
-# 	blt- end
-# 	rlwinm r0, r3, 3, 0, 28
-# 	add r4, r30, r0
-# 	lbz r0, 0x230(r4)
-# 	cmplw r11, r0
-# 	blt- loc_notCustom
-# 	li r3, 0x29
-# loc_notCustom:
-# 	lwz r4, 0x22c(r4)
-# 	lbzx r4, r4, r11
-# 	%call (MuStageTblAcces_GetStageKind)
-# 	%call (muMenu__exchangeMuStageKindToSrStageKind)
-# 	cmpwi r28, 0x0	# \ check if holding L/R
-# 	beq- end		# /	
-# 	lbz r9, -0x1(r31)
-# 	cmpw r3, r9
-# 	bne+ changeStageList
-# 	lbz r10, 0x0(r31)
-# 	cmpw r10, r28
-# 	beq- end
+dontLoadStageBuilderStages:
+	lwz r3, 0x228(r30)	# \
+	cmplwi r3, 0x1		# | check if page 2
+	bgt- end			# /
+	lwz r11, 0x248(r30)
+	cmpwi r11, 0x0
+	blt- end
+	rlwinm r0, r3, 3, 0, 28
+	add r4, r30, r0
+	lbz r0, 0x230(r4)
+	cmplw r11, r0
+	blt- loc_notCustom
+	li r3, 0x29
+loc_notCustom:
+	lwz r4, 0x22c(r4)
+	lbzx r4, r4, r11
+	%call (MuStageTblAcces_GetStageKind)
+	%call (muMenu__exchangeMuStageKindToSrStageKind)
+	cmpwi r28, 0x0	# \ check if holding L/R
+	beq- end		# /	
+	lbz r9, -0x1(r31)
+	cmpw r3, r9
+	bne+ changeStageList
+	lbz r10, 0x0(r31)
+	cmpw r10, r28
+	beq- end
 	
-# changeStageList:
-# 	%lwd (r12, g_muSelectStageFileTask)
-# 	lbz r10, 0x58(r12)
-# 	andi. r0, r10, 0x40
-# 	beq+ end
-# 	andi. r10, r10, 0xBF
-# 	stb r10, 0x58(r12)
-# 	lbz r10, 0x48(r12)
-# 	andi. r10, r10, 0xBF
-# 	stb r10, 0x48(r12)
+changeStageList:
+	%lwd (r12, g_muSelectStageFileTask)
+	lbz r10, 0x58(r12)
+	andi. r0, r10, 0x40
+	beq+ end
+	andi. r10, r10, 0xBF
+	stb r10, 0x58(r12)
+	lbz r10, 0x48(r12)
+	andi. r10, r10, 0xBF
+	stb r10, 0x48(r12)
 
-# 	stb r3, -0x1(r31)
-# 	stb r28, 0x0(r31)
+	stb r3, -0x1(r31)
+	stb r28, 0x0(r31)
 
-# end:
-# 	lwz r0, 0x94(r1)
-# }
-# op addi	r1, r1, 0x90 @ $806b657c
+end:
+	lwz r0, 0x94(r1)
+}
+op addi	r1, r1, 0x90 @ $806b657c
 
-# HOOK @ $806b5c60	# muSelectStageTask::buttonProc
-# {	
-# 	stw	r3, 0x258(r29)	# Original operation
-# 	lwz r10, 0x134(r1)		# get input mask
-# 	andi. r0, r10, 0x1000	# \ Check if start is pressed
-# 	beq+ %end% 				# /
-# 	li r11, 0x4c			# \
-# 	andi. r0, r10, 0x0040	# | Check if L
-# 	bne+ displayStageList	# /
-# 	li r11, 0x52			# \
-# 	andi. r0, r10, 0x0020	# \ Check if R
-# 	beq- %end%				# /
-# displayStageList:
-# 	%lwd (r12, g_muSelectStageFileTask)
-# 	cmpwi r12, 0x0	# \ check if g_muSelectStageFileTask exists (i.e. is this MyMusic)
-# 	beq- %end%		# /
-# 	lbz r10, 0x58(r12)					# \
-# 	andi. r0, r10, 0x40					# | Check if loaded
-# 	beq- notReady						# /
-# 	lwz r0, 0x60(r12)
-# 	cmpwi r0, 0x0
-# 	beq+ notReady
+HOOK @ $806b5c60	# muSelectStageTask::buttonProc
+{	
+	stw	r3, 0x258(r29)	# Original operation
+	lwz r10, 0x134(r1)		# get input mask
+	andi. r0, r10, 0x1000	# \ Check if start is pressed
+	beq+ %end% 				# /
+	li r11, 0x4c			# \
+	andi. r0, r10, 0x0040	# | Check if L
+	bne+ displayStageList	# /
+	li r11, 0x52			# \
+	andi. r0, r10, 0x0020	# \ Check if R
+	beq- %end%				# /
+displayStageList:
+	%lwd (r12, g_muSelectStageFileTask)
+	cmpwi r12, 0x0	# \ check if g_muSelectStageFileTask exists (i.e. is this MyMusic)
+	beq- %end%		# /
+	lbz r10, 0x58(r12)					# \
+	andi. r0, r10, 0x40					# | Check if loaded
+	beq- notReady						# /
+	lwz r0, 0x60(r12)
+	cmpwi r0, 0x0
+	beq+ notReady
 
-# 	%lbdu (r10, r12, STAGELIST_STAGEKIND)	# \ 
-# 	cmpw r3, r10							# | Check if loaded stagelist is same as selected stage kind
-# 	bne+ notReady							# /
-# 	lbz r10, 0x1(r12)
-# 	cmpw r11, r10
-# 	bne+ notReady
-# ready:
-# 	mr r3, r29									# \
-# 	li r4, 0x35									# | set preview to 0x35 (page button) to make preview not appear in stage builder page
-# 	%call (muSelectStageSwitch__dispPreview)	# /
-# 	lwz r4, 0x228(r29)		# \
-# 	stb r4, 0x605A(r29)		# | go to stage builder 
-# 	li r4, 0x2				# |
-# 	%branch (0x806b5940)	# /
-# notReady:
-# 	%branch (0x806b6000)
-# }
+	%lbdu (r10, r12, STAGELIST_STAGEKIND)	# \ 
+	cmpw r3, r10							# | Check if loaded stagelist is same as selected stage kind
+	bne+ notReady							# /
+	lbz r10, 0x1(r12)
+	cmpw r11, r10
+	bne+ notReady
+ready:
+	mr r3, r29									# \
+	li r4, 0x35									# | set preview to 0x35 (page button) to make preview not appear in stage builder page
+	%call (muSelectStageSwitch__dispPreview)	# /
+	lwz r4, 0x228(r29)		# \
+	stb r4, 0x605A(r29)		# | go to stage builder 
+	li r4, 0x2				# |
+	%branch (0x806b5940)	# /
+notReady:
+	%branch (0x806b6000)
+}
 
-# HOOK @ $806b1fb0	# muSelectStageTask::dispPage
-# {
-# 	lwz r3, 0x1FC(r26)	# \
-# 	cmpwi r3, 0x0		# | check if this->menSelmapRandom == NULL
-# 	beq+ end			# /
-# 	lis r10, 0x806B
-# 	cmpwi r27, 2			
-# 	beq+ isNotCustomPage
-# 	lbz r11, 0x46(r26)
-# 	cmpwi r11, 0x1
-# 	beq+ defaultHazards
-# 	cmpwi r11, 0x0
-# 	beq+ allHazards
-# noHazards:	
-# 	ori r4, r10, 0x93B9	# Random
-# 	b changeClr
-# defaultHazards:
-# 	ori r4, r10, 0x93B0	# MenSelmapRandom
-# 	b changeClr
-# allHazards:
-# 	ori r4, r10, 0x93B3	# SelmapRandom
-# 	b changeClr
-# isNotCustomPage:
-# 	ori r4, r10, 0x93B9	# Random
-# 	lbz r12, 0x45(r26)
-# 	cmpwi r12, 0
-# 	bne+ changeClr
-# 	ori r4, r10, 0x93B3	# SelmapRandom
-# changeClr:
-# 	%call(MuObject__changeClrAnimN)
-# 	lfs f1, 0x0(r16)	# \
-# 	lwz r3, 0x1FC(r26)	# |
-# 	lwz r3, 0x14(r3)	# |
-# 	lwz r3, 0x18(r3)	# |
-# 	lwz r12, 0x0(r3)	# | this->menSelmapRandom->modelAnim->anmObjMatClrRes->setUpdateRate(0.0)
-# 	lwz r12, 0x28(r12)	# |
-# 	mtctr r12			# |
-# 	bctrl 				# /
-# end:
-# 	lwz	r0, 0x40(r26)	# Original operation
-# }
+HOOK @ $806b1fb0	# muSelectStageTask::dispPage
+{
+	lwz r3, 0x1FC(r26)	# \
+	cmpwi r3, 0x0		# | check if this->menSelmapRandom == NULL
+	beq+ end			# /
+	lis r10, 0x806B
+	cmpwi r27, 2			
+	beq+ isNotCustomPage
+	lbz r11, 0x46(r26)
+	cmpwi r11, 0x1
+	beq+ defaultHazards
+	cmpwi r11, 0x0
+	beq+ allHazards
+noHazards:	
+	ori r4, r10, 0x93B9	# Random
+	b changeClr
+defaultHazards:
+	ori r4, r10, 0x93B0	# MenSelmapRandom
+	b changeClr
+allHazards:
+	ori r4, r10, 0x93B3	# SelmapRandom
+	b changeClr
+isNotCustomPage:
+	ori r4, r10, 0x93B9	# Random
+	lbz r12, 0x45(r26)
+	cmpwi r12, 0
+	bne+ changeClr
+	ori r4, r10, 0x93B3	# SelmapRandom
+changeClr:
+	%call(MuObject__changeClrAnimN)
+	lfs f1, 0x0(r16)	# \
+	lwz r3, 0x1FC(r26)	# |
+	lwz r3, 0x14(r3)	# |
+	lwz r3, 0x18(r3)	# |
+	lwz r12, 0x0(r3)	# | this->menSelmapRandom->modelAnim->anmObjMatClrRes->setUpdateRate(0.0)
+	lwz r12, 0x28(r12)	# |
+	mtctr r12			# |
+	bctrl 				# /
+end:
+	lwz	r0, 0x40(r26)	# Original operation
+}
 
-# HOOK @ $806b5684	# muSelectStageTask::buttonProc
-# {
-# 	li r5, -1	# Original operation
-# 	lbz r12, 0x605A(r29)	# \
-# 	cmpwi r12, 0xff			# |
-# 	beq+ notStagelistPage 	# | return to previous page
-# 	lbz r4, 0x605A(r29)		# |
-# 	stb r5, 0x605A(r29)		# |
-# 	%branch (0x806b5940)	# /
-# notStagelistPage:
-# 	%lwi(r10, STAGE_STRIKE_TABLE)   # \
-#     li r12, 0						# |
-# loopThroughStrikes:					# |
-# 	lhzx r0, r10, r12				# |
-# 	cmpwi r0, 0						# | check if any stages are striked
-# 	bne+ clearStageStrikes			# |
-# 	addi r12, r12, 0x2				# |
-# 	cmpwi r12, 0x1e 				# |
-# 	blt- loopThroughStrikes			# |
-# 	b %end%							# |
-# clearStageStrikes:					# /
-# 	%branch(0x806b56a0)		# Don't back out if no stages are strike				
-# }
+HOOK @ $806b5684	# muSelectStageTask::buttonProc
+{
+	li r5, -1	# Original operation
+	lbz r12, 0x605A(r29)	# \
+	cmpwi r12, 0xff			# |
+	beq+ notStagelistPage 	# | return to previous page
+	lbz r4, 0x605A(r29)		# |
+	stb r5, 0x605A(r29)		# |
+	%branch (0x806b5940)	# /
+notStagelistPage:
+	%lwi(r10, STAGE_STRIKE_TABLE)   # \
+    li r12, 0						# |
+loopThroughStrikes:					# |
+	lhzx r0, r10, r12				# |
+	cmpwi r0, 0						# | check if any stages are striked
+	bne+ clearStageStrikes			# |
+	addi r12, r12, 0x2				# |
+	cmpwi r12, 0x1e 				# |
+	blt- loopThroughStrikes			# |
+	b %end%							# |
+clearStageStrikes:					# /
+	%branch(0x806b56a0)		# Don't back out if no stages are strike				
+}
 
-# HOOK @ $806b58e8	# muSelectStageTask::buttonProc
-# {
-# 	lwz	r4, 0x228(r29)	# Original operation
-# 	lbz r12, 0x605A(r29)	# \
-# 	cmpwi r12, 0xff			# |
-# 	beq+ %end% 				# | return to previous page
-# 	li r12, 0xff			# |
-# 	lbz r4, 0x605A(r29)		# |
-# 	stb r12, 0x605A(r29)	# |
-# 	%branch (0x806b5940)	# /
-# }
-# HOOK @ $806b0e8c	# muSelectStageTask::exit
-# {
-# 	stw	r0, -0x4C78(r31)	# Original operation
-# 	%sbdu (r0, r12, STAGELIST_TYPE)	# \ reset stagelist
-# 	stb r0, -0x1(r12)				# /
-# }
+HOOK @ $806b58e8	# muSelectStageTask::buttonProc
+{
+	lwz	r4, 0x228(r29)	# Original operation
+	lbz r12, 0x605A(r29)	# \
+	cmpwi r12, 0xff			# |
+	beq+ %end% 				# | return to previous page
+	li r12, 0xff			# |
+	lbz r4, 0x605A(r29)		# |
+	stb r12, 0x605A(r29)	# |
+	%branch (0x806b5940)	# /
+}
+HOOK @ $806b0e8c	# muSelectStageTask::exit
+{
+	stw	r0, -0x4C78(r31)	# Original operation
+	%sbdu (r0, r12, STAGELIST_TYPE)	# \ reset stagelist
+	stb r0, -0x1(r12)				# /
+}
 
-# HOOK @ $8003b91c	# gfCollectionIO::_processList
-# {
-# 	addi r3, r1, 0x48	# Original operation
-# 	cmpwi r25, 0x3	# \ check if retrieving stagelist
-# 	bne+ %end%		# /
-# 	%lbd (r10, STAGELIST_TYPE)	# \
-# 	cmpwi r10, 0x0				# | check if not builder stagelist
-# 	beq+ %end%					# /
-# 	addi r3, r3, 0x1	# Mess up string so don't return custom stages from nand
-# }
-# HOOK @ $8003b944 	# gfCollectionIO::_processList
-# {
-# 	addi r3, r1, 0x48	# Original operation
-# 	cmpwi r25, 0x3	# \ check if retrieving stagelist
-# 	bne+ %end%		# /
-# 	%lbdu (r0, r10, STAGELIST_TYPE)
-# 	cmpwi r0, 0x0
-# 	beq+ %end%
-# 	%lwi (r4, STAGELIST_FOLDER_NAME)
-# 	subi r5, r13, 32060		# "sd:"
-# 	%lwi (r6, MOD_FOLDER)	# /modFolderName/
-# 	%lwi (r7, _pf)			# "pf"
-# 	%lwd (r8, STAGE_FOLDER)	# "/stage/"
-# 	lbz r9, -0x1(r10)	# stage slot
-# 	%call (sprintf)
-# 	addi r3, r1, 0x48
-# 	%lwi (r4, STAGELIST_FILE_NAME)
-# 	%call (strcat)
-# 	%branch (0x8003b99c)
-# }
-# HOOK @ $8003af24	# gfCollectionIO::_processLoad
-# {
-# 	addi r3, r1, 80		# Original operation
-# 	cmpwi r24, 0x3	# \ check if retrieving stagelist
-# 	bne+ %end%		# /
-# 	%lbdu (r0, r10, STAGELIST_TYPE)
-# 	cmpwi r0, 0x0
-# 	beq+ %end%
-# 	%lwi (r4, STAGELIST_FOLDER_NAME)
-# 	subi r5, r13, 32060		# "sd:"
-# 	%lwi (r6, MOD_FOLDER)	# /modFolderName/
-# 	%lwi (r7, _pf)			# "pf"
-# 	%lwd (r8, STAGE_FOLDER)	# "/stage/"
-# 	lbz r9, -0x1(r10)	# stage slot
-# 	%call (sprintf)
-# 	%branch (0x8003af74)
-# }
+HOOK @ $8003b91c	# gfCollectionIO::_processList
+{
+	addi r3, r1, 0x48	# Original operation
+	cmpwi r25, 0x3	# \ check if retrieving stagelist
+	bne+ %end%		# /
+	%lbd (r10, STAGELIST_TYPE)	# \
+	cmpwi r10, 0x0				# | check if not builder stagelist
+	beq+ %end%					# /
+	addi r3, r3, 0x1	# Mess up string so don't return custom stages from nand
+}
+HOOK @ $8003b944 	# gfCollectionIO::_processList
+{
+	addi r3, r1, 0x48	# Original operation
+	cmpwi r25, 0x3	# \ check if retrieving stagelist
+	bne+ %end%		# /
+	%lbdu (r0, r10, STAGELIST_TYPE)
+	cmpwi r0, 0x0
+	beq+ %end%
+	%lwi (r4, STAGELIST_FOLDER_NAME)
+	subi r5, r13, 32060		# "sd:"
+	%lwi (r6, MOD_FOLDER)	# /modFolderName/
+	%lwi (r7, _pf)			# "pf"
+	%lwd (r8, STAGE_FOLDER)	# "/stage/"
+	lbz r9, -0x1(r10)	# stage slot
+	%call (sprintf)
+	addi r3, r1, 0x48
+	%lwi (r4, STAGELIST_FILE_NAME)
+	%call (strcat)
+	%branch (0x8003b99c)
+}
+HOOK @ $8003af24	# gfCollectionIO::_processLoad
+{
+	addi r3, r1, 80		# Original operation
+	cmpwi r24, 0x3	# \ check if retrieving stagelist
+	bne+ %end%		# /
+	%lbdu (r0, r10, STAGELIST_TYPE)
+	cmpwi r0, 0x0
+	beq+ %end%
+	%lwi (r4, STAGELIST_FOLDER_NAME)
+	subi r5, r13, 32060		# "sd:"
+	%lwi (r6, MOD_FOLDER)	# /modFolderName/
+	%lwi (r7, _pf)			# "pf"
+	%lwd (r8, STAGE_FOLDER)	# "/stage/"
+	lbz r9, -0x1(r10)	# stage slot
+	%call (sprintf)
+	%branch (0x8003af74)
+}
 
-# HOOK @ $806b3a14	# muSelectStageTask::editListCompare
-# {
-# 	mr r4, r31	# Original operation
-# 	%lbd (r12, STAGELIST_TYPE)	# \
-# 	cmpwi r12, 0x0				# | check if not builder stagelist
-# 	beq+ %end%					# /
-# 	mr r4, r3	# \ reverse filename comparison so it gets listed in ascending order
-# 	mr r3, r31	# /
-# }
-# HOOK @ $806b4580	# muSelectStageTask::selectingProc
-# {
-# 	lwz	r6, 0x6068(r27)		# Original operation
-# 	%lbd (r12, STAGELIST_TYPE)	# \
-# 	cmpwi r12, 0x0				# | check if not builder stagelist
-# 	beq+ %end%					# /
-# 	li r11, 0x0							# \
-# 	stw r11, 0x6140(r27)				# | Skip waiting for loading	
-# 	%branch (0x806b4648)				# /
-# }
+HOOK @ $806b3a14	# muSelectStageTask::editListCompare
+{
+	mr r4, r31	# Original operation
+	%lbd (r12, STAGELIST_TYPE)	# \
+	cmpwi r12, 0x0				# | check if not builder stagelist
+	beq+ %end%					# /
+	mr r4, r3	# \ reverse filename comparison so it gets listed in ascending order
+	mr r3, r31	# /
+}
+HOOK @ $806b4580	# muSelectStageTask::selectingProc
+{
+	lwz	r6, 0x6068(r27)		# Original operation
+	%lbd (r12, STAGELIST_TYPE)	# \
+	cmpwi r12, 0x0				# | check if not builder stagelist
+	beq+ %end%					# /
+	li r11, 0x0							# \
+	stw r11, 0x6140(r27)				# | Skip waiting for loading	
+	%branch (0x806b4648)				# /
+}
 
-# HOOK @ $806c8f88	# scSelStage::process
-# {
-# 	lwz	r0, 0x254(r3)	# Original operation
-# 	lbz r8, 0x46(r3)	# \ 
-# 	cmpwi r8, 0x1		# |
-# 	blt+ allHazards		# | check if default/all hazards/no hazards
-# 	beq+ %end%			# /
-# allNoHazards:
-# 	li r11, 0x80
-# 	b end
-# allHazards:
-# 	li r11, 0x40
-# end:
-# 	%sbd(r11, r10, RSS_EXDATA_BONUS)
-# }
-# HOOK @ $806c8f9c	# scSelStage::process
-# {
-# 	addi r4, r30, 108	# Original operation
-# 	%lbdu (r0, r12, STAGELIST_TYPE)	
-# 	li r9, 0x8000					# \
-# 	cmpwi r0, 0x4c					# | check if L stagelist
-# 	beq- isLStagelist				# /
-# 	li r9, 0x4000					# \ 
-# 	cmpwi r0, 0x52					# | check if R stagelist
-# 	bne+ %end%						# /
-# isRStagelist:
-# 	li r11, 0x32
-# 	b isNotBuilderStagelist
-# isLStagelist:
-# 	li r11, 0x34
-# isNotBuilderStagelist:
-# 	%sbd(r11, r10, RSS_EXDATA_BONUS)
-# 	lwz	r10, 0x03AC(r31)
-# 	li r11, 0x1			# \ set as normal stage
-# 	stw r11, 0x254(r10)	# /
-# 	lwz r11, 0x258(r10) 	# get selected id	
-# 	add r11, r11, r9			# | set ASL_BUTTON = type + selectedid
-# 	%swd (r11, r8, ASL_BUTTON)	# /
-# 	lbz r11, -0x1(r12)	# \ set stagekind 
-# 	stw r11, 0x258(r10)	# /
-# }
+HOOK @ $806c8f88	# scSelStage::process
+{
+	lwz	r0, 0x254(r3)	# Original operation
+	lbz r8, 0x46(r3)	# \ 
+	cmpwi r8, 0x1		# |
+	blt+ allHazards		# | check if default/all hazards/no hazards
+	beq+ %end%			# /
+allNoHazards:
+	li r11, 0x80
+	b end
+allHazards:
+	li r11, 0x40
+end:
+	%sbd(r11, r10, RSS_EXDATA_BONUS)
+}
+HOOK @ $806c8f9c	# scSelStage::process
+{
+	addi r4, r30, 108	# Original operation
+	%lbdu (r0, r12, STAGELIST_TYPE)	
+	li r9, 0x8000					# \
+	cmpwi r0, 0x4c					# | check if L stagelist
+	beq- isLStagelist				# /
+	li r9, 0x4000					# \ 
+	cmpwi r0, 0x52					# | check if R stagelist
+	bne+ %end%						# /
+isRStagelist:
+	li r11, 0x32
+	b isNotBuilderStagelist
+isLStagelist:
+	li r11, 0x34
+isNotBuilderStagelist:
+	%sbd(r11, r10, RSS_EXDATA_BONUS)
+	lwz	r10, 0x03AC(r31)
+	li r11, 0x1			# \ set as normal stage
+	stw r11, 0x254(r10)	# /
+	lwz r11, 0x258(r10) 	# get selected id	
+	add r11, r11, r9			# | set ASL_BUTTON = type + selectedid
+	%swd (r11, r8, ASL_BUTTON)	# /
+	lbz r11, -0x1(r12)	# \ set stagekind 
+	stw r11, 0x258(r10)	# /
+}
+
+#####################################################################################
+Stage Builder Files Supports Having JPEG and RGBA8 TEX0 Images [Squidgy, Kapedani]
+# Allows for HD Textures since can't guarantee same JPEG decoding in game and outside
+#####################################################################################
+.alias memcpy 									= 0x80004338
+
+.macro lwi(<reg>, <val>)
+{
+    .alias  temp_Hi = <val> / 0x10000
+    .alias  temp_Lo = <val> & 0xFFFF
+    lis     <reg>, temp_Hi
+    ori     <reg>, <reg>, temp_Lo
+}
+.macro call(<addr>)
+{
+  %lwi(r12, <addr>)
+  mtctr r12
+  bctrl    
+}
+.macro branch(<addr>)
+{
+    %lwi(r12, <addr>)
+    mtctr r12
+    bctr
+}
+
+HOOK @ $806b8a6c	# muSelectStageFileTask::copyFileData
+{
+	lwz	r6, 0x10(r29) # Original operation
+	lwz r12,0x0(r4)		# Get first four bytes
+	%lwi(r11, 0x54455830)	# "TEX0"
+	cmpw r12, r11   # \ check if TEX0
+	bne+ %end%		# /
+	mr r3, r6			# \
+	addi r4, r4, 0x40	# | copy RGBA8
+	mr r5, r7			# |
+	%call(memcpy)		# /
+	%branch(0x806b8a74)
+}
+
+###################################################################################
+Stage Builder Files Supports Having UTF16 or UTF8 Encoded Names [Squidgy, Kapedani]
+# Allows for double the stage name length
+###################################################################################
+.macro lwi(<reg>, <val>)
+{
+    .alias  temp_Hi = <val> / 0x10000
+    .alias  temp_Lo = <val> & 0xFFFF
+    lis     <reg>, temp_Hi
+    ori     <reg>, <reg>, temp_Lo
+}
+.macro branch(<addr>)
+{
+    %lwi(r12, <addr>)
+    mtctr r12
+    bctr
+}
+
+op stb r3, 0xC(r29) @ $806b8a94	# Copy whole preview type byte from summary
+
+op andi. r12, r0, 0x1 @ $806b2bf4 # use only first bit to determine preview pic setting
+HOOK @ $806b2a98	# muSelectStageTask::dispEditLineData
+{
+	mr r4, r3	# Original operation
+	lbz r12, 0xC(r4)		# \
+	andi. r12, r12, 0x80	# | check if should use utf8 encoding
+	beq+ %end%				# /
+	lwz	r3, 0x6064(r25)	# \
+	addi r5, r4, 0x20	# |
+	addi r4, r26, 22	# | skip to printf
+	%branch(0x806b2ab4)	# /
+}
+
+op andi. r12, r0, 0x1 @ $806b6e40 #  use only first bit to determine preview pic setting
+HOOK @ $806b6db8	# muSelectStageTask::dispEditPreview
+{
+	mr r4, r3	# Original operation
+	lbz r12, 0xC(r4)		# \
+	andi. r12, r12, 0x80	# | check if should use utf8 encoding
+	beq+ %end%				# /
+	lwz	r3, 0x6064(r27)	# \
+	addi r5, r4, 0x20	# | skip to printf
+	%branch(0x806b6dd0)	# /
+}
 
 # ## TODO: Classic/All Star Mode ASL from certain range (use all L-alts?)
 # ## TODO: Also investigate random substage handling with replays
