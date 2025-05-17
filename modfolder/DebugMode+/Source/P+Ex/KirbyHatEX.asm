@@ -57,16 +57,18 @@ Kirby Hat Float Fix [dantarion]
 }	
 
 #Edit here by copy/pasting the Macro and putting in your own IDs
-HOOK @ $80A1A5B0
-{
-	%HatFloatFix(0x27, 0x11)	#Roy/Marth
-	%HatFloatFix(0x26, 0x21)	#Mewtwo/Lucario
-	%HatFloatFix(0x2A, 0x21)	#Ridley/Lucario
-	%HatFloatFix(0x28, 0x17)	#Waluigi/Pit
-	%HatFloatFix(0x40, 0x03)	#Dark Samus/Samus
-	%HatFloatFix(0x62, 0x21)	#Sceptile/Lucario
-	mulli r0, r4, 0xDC
-}
+# HOOK @ $80A1A5B0
+# {
+# 	%HatFloatFix(0x27, 0x11)	#Roy/Marth
+# 	%HatFloatFix(0x26, 0x21)	#Mewtwo/Lucario
+# 	%HatFloatFix(0x2A, 0x21)	#Ridley/Lucario
+# 	%HatFloatFix(0x28, 0x17)	#Waluigi/Pit
+# 	%HatFloatFix(0x3F, 0x11)	#Roy/Marth
+# 	%HatFloatFix(0x46, 0x11)	#Lucina/Marth
+# 	%HatFloatFix(0x4B, 0x03)	#Dark Samus/Samus
+# 	%HatFloatFix(0x62, 0x21)	#Sceptile/Lucario
+# 	mulli r0, r4, 0xDC
+# }
 
 ####################################
 KirbyID Conversion Fix for EX [Desi]
