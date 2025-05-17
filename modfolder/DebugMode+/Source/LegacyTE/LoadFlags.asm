@@ -83,5 +83,5 @@ stringEtcName:
 	ori r4, r4, 0x6FB0	# "/fighter/%s%s%s%s"
 }
 
-[Project+] Peach Uses Separate Etc Files Per Costume [KingJigglypuff, DukeItOut]
+[Project+] Peach Uses Separate Etc Files Per Costume  (ID + 0x97) [KingJigglypuff, DukeItOut]
 int8_t 0x27 @ $80AD8BA4

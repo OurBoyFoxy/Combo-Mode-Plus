@@ -64,3 +64,22 @@ announcer call: ???
 cosmetic ID: 0x77
 sound bank: 0x154 (was 399)
 JOJI offset: 347
+
+~~~ Knuckles ~~~
+game ID: 0x47
+cosmetic ID: 0x78
+sound bank: 0x155 (was 146)
+JOJI offset: 348
+
+~~~ King K Rool ~~~
+game ID: 0x48
+sound bank: 0x156 (was 203)
+
+~~~ Geno ~~~
+game ID: 0x49
+
+~~~ Sub Zero ~~~
+game ID: 0x4A
+
+~~~ Dark Samus ~~~
+game ID: 0x4B
