@@ -74,12 +74,18 @@ JOJI offset: 348
 ~~~ King K Rool ~~~
 game ID: 0x48
 sound bank: 0x156 (was 203)
+JOJI offset: 349
 
 ~~~ Geno ~~~
 game ID: 0x49
+JOJI offset: 350
 
 ~~~ Sub Zero ~~~
-game ID: 0x4A
+game ID: 0x4A (was 0x75)
+sound bank: 0x158 (was 183)
+JOJI offset: 351
 
 ~~~ Dark Samus ~~~
 game ID: 0x4B
+sound bank: 0x159 (was 183)
+JOJI offset: 352
