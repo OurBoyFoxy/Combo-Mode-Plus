@@ -749,6 +749,13 @@ uint8_t 0x0 @ $80AD803C
 
 .include Source/Project+/YoshiEggs.asm
 
+#######################################################################
+Independent Pokemon Save Data Engine + no wreck My Music v2 [spunit262]
+#######################################################################
+* 06407BD0 0000000E
+* 04030F0D 1E1B1F1B
+* 201B211B 221B0000
+
 ################################
 ZSS Jumbo Screen Name Fix [ds22]
 ################################
