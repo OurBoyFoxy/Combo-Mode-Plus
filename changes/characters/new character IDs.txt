@@ -1,7 +1,7 @@
 ~~~Roy~~~
 
 game ID: 0x3F
-announcer call: Marth Wiimote 0x19BE
+announcer call: 0x1F48
 cosmetic ID: 0x70
 sound bank: 0x14D
 Sawnd file: 14D
@@ -10,12 +10,13 @@ results file: Z50.brstm
 
 ~~~Dr. Mario~~~
 game ID: 0x40
+announcer call: 0x1F4A
 cosmetic ID: 0x71
 
 ~~~Ven~~~
 
 game ID: 0x41
-announcer call: Wario Wiimote
+announcer call: 0x1F4B
 cosmetic ID: 0x72
 sound bank: 0x14F
 Sawnd file: 14F
@@ -24,7 +25,7 @@ JOJI offset: 342
 ~~~ Little Mac ~~~
 
 game ID: 0x42
-announcer call: Wario Wiimote
+announcer call: 0x1F4E
 cosmetic ID: 0x73
 sound bank: 0x150
 Sawnd file: 150
@@ -34,7 +35,7 @@ results file: Z51.brstm
 ~~~ Mewtwo ~~~
 
 game ID: 0x43
-announcer call: Lucario Wiimote
+announcer call: 0x1F50
 cosmetic ID: 0x74
 sound bank: 0x151
 Sawnd file: 151
@@ -44,7 +45,7 @@ results file: Z52.brstm
 ~~~ Greninja ~~~
 
 game ID: 0x44
-announcer call: ???
+announcer call: 0x1F51
 cosmetic ID: 0x75
 sound bank: 0x152
 JOJI offset: 345
@@ -52,7 +53,7 @@ JOJI offset: 345
 ~~~ Shadow ~~~
 
 game ID: 0x45
-announcer call: ???
+announcer call: 0x1F52
 cosmetic ID: 0x76
 sound bank: 0x153
 JOJI offset: 346
@@ -60,37 +61,42 @@ JOJI offset: 346
 ~~~ Lucina ~~~
 
 game ID: 0x46
-announcer call: ???
+announcer call: 0x1F53
 cosmetic ID: 0x77
 sound bank: 0x154 (was 399)
 JOJI offset: 347
 
 ~~~ Knuckles ~~~
 game ID: 0x47
+announcer call: 0x1F55
 cosmetic ID: 0x78
 sound bank: 0x155 (was 146)
 JOJI offset: 348
 
 ~~~ King K Rool ~~~
 game ID: 0x48
+announcer call: 0x1F56
 cosmetic ID: 0x79
 sound bank: 0x156 (was 203)
 JOJI offset: 349
 
 ~~~ Geno ~~~
 game ID: 0x49
+announcer call: 0x1F57
 cosmetic ID: 0x7A
 sound bank: 0x157 (was 18C)
 JOJI offset: 350
 
 ~~~ Sub Zero ~~~
 game ID: 0x4A (was 0x75)
+announcer call: 0x1F58
 cosmetic ID: 0x7B
 sound bank: 0x158 (was 183)
 JOJI offset: 351
 
 ~~~ Dark Samus ~~~
 game ID: 0x4B
+announcer call: 0x1F59
 cosmetic ID: 0x7C
 sound bank: 0x159 (was 183)
 JOJI offset: 352
