@@ -31,7 +31,7 @@ HOOK @ $80952F38
 {
     %StockException (0x38, 0x32)    #Ridley
     %StockException (0x39, 0x33)    #Waluigi
-	%StockException (0x40, 0x40)    #Dark Samus
+	%StockException (0x62, 0x62)    #Sceptile
     mr r0, r4                        #BrawlEX Corps Fix v1 [ds22]
     b %END%
 }
@@ -208,7 +208,7 @@ HOOK @ $80A0AAA8
 	mtctr r12					#|
 	bctrl 						#/
 FighterIDCheck:
-    %GFXFix(0x69, 0x169)		#Samus Clone Test, ef_custom32
+    #%GFXFix(0x69, 0x169)		#Samus Clone Test, ef_custom32
     lis r4, 0x04				#If not defined, use ef_samus
 end:
 	lwz r12, 0x0(r30)
@@ -243,7 +243,7 @@ HOOK @ $80A0AB1C
 	mtctr r12						#|
 	bctrl 							#/
 HatIDCheck:
-    %GFXFix(0x40, 0x95)				#Dark Samus, ef_tautau
+    #%GFXFix(0x69, 0x169)			#Samus Clone Test, ef_custom32
     lis r4, 0x108					#If not defined, use ef_KbSamus
 end:
 	lwz r12, 0x0(r30)
@@ -681,12 +681,17 @@ Bowser Clone Fire Breath Bone Fix [KingJigglypuff]
 }
 HOOK @ $80A391F8        #Use Register 28, followed by Fighter ID and Bone ID
 {
-    %BoneIDFix(0x69, 0x21)        #Bowser Clone Test
+    #%BoneIDFix(0x69, 0x21)        #Bowser Clone Test
     li r5, 0x33                   #If not defined, use Bowser
 }
 * 06A391FC 0000000C
 * 809B00d8 38610008
 * 38C10020 00000000
+
+##########################################
+Link Final Smash Clone Pos Fix [DukeItOut]
+##########################################
+op NOP @ $808939D0
 
 ##############################################
 Clone Engine Clear Final Smash Fix [DukeItOut]
@@ -694,10 +699,8 @@ Clone Engine Clear Final Smash Fix [DukeItOut]
 # Assigns a FitFinalSpy file for use in Clear Mode.
 HOOK @ $8084D41C
 {
-    cmpwi r31, 47    # Sonic, the other character who is sometimes
-    beq+ %END%        # a blue ball and sometimes associated with transparent,
-    cmpwi r31, 64    # tentacled monsters of destruction
-    beq+ %END%        #
+    cmpwi r31, 47    # Sonic
+    beq+ %END%
     cmpwi r31, 45    # & Knuckles
 }
 
@@ -826,16 +829,16 @@ ENDINGTABLE:
 		46, 47, -1, -1, -1, 31, -1, 43, |   # 31 used by Mewtwo, 43 used by Knuckles!
     	12, -1, 39, 36, -1, 38, -1, -1, |	# 36 used by Waluigi! 39 used by Ridley!
 		-1, -1, -1, -1, -1, -1, -1, -1, |
-		45, -1, -1, -1, -1, -1, -1, -1, |	# 45 used by Dark Samus!
 		-1, -1, -1, -1, -1, -1, -1, -1, |
 		-1, -1, -1, -1, -1, -1, -1, -1, |
 		-1, -1, -1, -1, -1, -1, -1, -1, |
 		-1, -1, -1, -1, -1, -1, -1, -1, |
+		-1, -1, 30, -1, -1, -1, -1, -1, |	# 30 used by Sceptile!
 		-1, -1, -1, -1, -1, -1, -1, -1, |
 		-1, -1, -1, -1, -1, -1, -1, -1, |
 		-1, -1, -1, -1, -1, -1, -1, -1  |  
 
-# Unused slots: 14, 15, 21, 29, 30, 31*, 36*, 39*, 40*, 43*, 45*		*= Used by Project+ or P+Ex
+# Unused slots: 14, 15, 21, 29, 30*, 31*, 36*, 39*, 40*, 43*, 45		*= Used by Project+ or P+Ex
 
 ENDINGTABLESKIP:
 	.RESET
@@ -863,6 +866,8 @@ Clone Classic & All-Star Result Data V1.21 [ds22, Dantarion, DukeItOut]
 # To find more, locate figdisp.pac and rummage through the texture data
 # Convert the decimal value to hex to get the trophy ID
 ####################################################################################
+## TODO: Have a table for this
+
 .alias Roy_Slot = 0x32
 .alias Mewtwo_Slot = 0x33
 .alias Knuckles_Slot = 0x35
@@ -870,7 +875,6 @@ Clone Classic & All-Star Result Data V1.21 [ds22, Dantarion, DukeItOut]
 .alias Wario_Man_Slot = 0x2D
 .alias Ridley_Slot = 0x38
 .alias Waluigi_Slot = 0x39
-.alias Dark_Samus_Slot = 0x40
 .alias Charizard_Slot = 0x1D
 .alias Squirtle_Slot = 0x1F
 .alias Ivysaur_Slot = 0x20
@@ -885,7 +889,6 @@ Clone Classic & All-Star Result Data V1.21 [ds22, Dantarion, DukeItOut]
 .alias Ridley_Trophy = 0x184
 .alias Ridley_Trophy_AllStar = 0x186
 .alias Waluigi_Trophy = 0xFF
-.alias Dark_Samus_Trophy = 0x1E6
 .alias Charizard_Trophy = 0x75
 .alias Squirtle_Trophy = 0x75
 .alias Ivysaur_Trophy = 0x75
@@ -911,7 +914,6 @@ HOOK @ $806E29D0		# Character trophy to load for Classic
   li r29, Wario_Man_Trophy;cmpwi r28, Wario_Man_Slot;beq+ GotTrophy	# if it's Wario-Man's slot 
   li r29, Ridley_Trophy;cmpwi r28, Ridley_Slot;beq+ GotTrophy	# if it's Ridley's P+Ex slot 
   li r29, Waluigi_Trophy;cmpwi r28, Waluigi_Slot;beq+ GotTrophy	# if it's Waluigi's P+Ex slot 
-  li r29, Dark_Samus_Trophy;cmpwi r28, Dark_Samus_Slot;beq+ GotTrophy	# if it's Dark Samus' P+Ex slot 
   li r29, Sceptile_Trophy;cmpwi r28, Sceptile_Slot;beq+ GotTrophy	# if it's Sceptile's P+Ex slot 
   li r29, 0x1		# Default to Mario!!!
 GotTrophy:
@@ -930,7 +932,6 @@ HOOK @ $806E47D8	# Character trophy to load for All-Star
   li r26, Wario_Man_Trophy_AllStar;cmpwi r4, Wario_Man_Slot; beq+ GotTrophy	# if it's Wario-Man's slot 
   li r26, Ridley_Trophy_AllStar;cmpwi r4, Ridley_Slot; beq+ GotTrophy	# if it's Ridley's P+Ex slot
   li r26, Waluigi_Trophy;cmpwi r4, Waluigi_Slot; beq+ GotTrophy	# if it's Waluigi's P+Ex slot  
-  li r26, Dark_Samus_Trophy;cmpwi r4, Dark_Samus_Slot; beq+ GotTrophy	# if it's Dark Samus' P+Ex slot  
   li r26, Sceptile_Trophy;cmpwi r4, Sceptile_Slot; beq+ GotTrophy	# if it's Sceptile's P+Ex slot 
   li r26, 0x5D		# Default to Mario Finale!!!
   b GotTrophy
@@ -948,3 +949,133 @@ GotTrophy:
 BrawlEx Classic/All-Star Cosmetic ID Fix [KingJigglypuff]
 #########################################################
 op cmpwi r0, 0x80 @ $806C148C
+
+##########################################
+BrawlEx ftSlotManager Id Arrays [Kapedani]
+##########################################
+# Requires ItemEx andd KirbyHatEx due to addresses being cleared 
+
+.alias RES_IDS       =  0x80ADD348
+.alias FINAL_RES_IDS =  0x80ADD748  
+.alias KIRBY_BIN_IDS =  0x80ADDB48 
+.alias ENTRY_RES_IDS =  0x80B510F8
+.alias RESULT_RES_IDS = 0x80B514F8
+
+.alias RES_IDS_SUB = RES_IDS - 0x78
+.alias FINAL_RES_IDS_SUB = FINAL_RES_IDS - 0x154
+.alias KIRBY_BIN_IDS_SUB = KIRBY_BIN_IDS - 0x460
+.alias ENTRY_RES_IDS_SUB = ENTRY_RES_IDS - 0x230
+.alias RESULT_RES_IDS_SUB = RESULT_RES_IDS - 0x348
+
+.macro lwi(<reg>, <val>)
+{
+    .alias  temp_Hi = <val> / 0x10000
+    .alias  temp_Lo = <val> & 0xFFFF
+    lis     <reg>, temp_Hi
+    ori     <reg>, <reg>, temp_Lo
+}
+
+HOOK @ $8082b980  # ftSlotManager::__ct
+{
+  stw	r0, 0x0154(r6)  # Original operation
+  %lwi(r12, RES_IDS)
+  li r11, 768 # 256*3
+  mtctr r11
+initializeResIds:
+  stw r0, 0x0(r12)
+  addi r12, r12, 0x4
+  bdnz+ initializeResIds
+  %lwi(r12, ENTRY_RES_IDS)
+  li r11, 512 # 256*2
+  mtctr r11
+initializeEntryResIds:
+  stw r0, 0x0(r12)
+  addi r12, r12, 0x4
+  bdnz+ initializeEntryResIds
+}
+
+######### ResId #########
+CODE @ $808500c8  # ftCommonDataAccesser::getResId
+{
+    %lwi(r3, RES_IDS_SUB)
+    rlwinm r0, r4, 2, 0, 29
+}
+HOOK @ $8082cb20  # ftSlotManager::onLoaded
+{
+    %lwi(r3, RES_IDS_SUB)
+    add	r3, r3, r0  # Original operation
+}
+HOOK @ $8082b648  # ftSlotManager::isReadyRemove
+{
+    %lwi(r4, RES_IDS_SUB)
+    add	r4, r4, r0  # Original operation
+}
+
+######### FinalResId #########
+CODE @ $808500e0  # ftCommonDataAccesser::getFinalResId
+{
+    %lwi(r3, FINAL_RES_IDS_SUB)
+    rlwinm r0, r4, 2, 0, 29
+}
+HOOK @ $8082cbe8  # ftSlotManager::onLoaded
+{
+    %lwi(r3, FINAL_RES_IDS_SUB) 
+    add	r3, r3, r0  # Original operation
+}
+HOOK @ $8082b81c  # ftSlot::isExistFinalEffect
+{
+    %lwi(r4, FINAL_RES_IDS_SUB) 
+    add	r4, r4, r0  # Original operation
+}
+HOOK @ $8082b6b4  # ftSlot::isReadyRemove
+{
+    %lwi(r4, FINAL_RES_IDS_SUB) 
+    add	r4, r4, r0  # Original operation
+}
+
+######### KirbyBinId #########
+HOOK @ $8082cce0  # ftSlotManager::getKirbyBinId
+{
+    %lwi(r3, KIRBY_BIN_IDS_SUB) 
+    add	r3, r3, r0  # Original operation
+}
+HOOK @ $8082cbf8  # ftSlotManager::onLoaded
+{
+    %lwi(r3, KIRBY_BIN_IDS_SUB) 
+    add	r3, r3, r0  # Original operation
+}
+HOOK @ $8082b6f0  # ftSlot::isReadyRemove
+{
+    %lwi(r4, KIRBY_BIN_IDS_SUB) 
+    add	r4, r4, r0  # Original operation
+}
+HOOK @ $8082b79c  # ftSlot::isReadyRemove
+{
+    %lwi(r4, KIRBY_BIN_IDS_SUB) 
+    add	r4, r4, r0  # Original operation
+}
+
+######### EntryResId #########
+HOOK @ $8082cc78  # ftSlotManager::getEntryResId
+{
+    %lwi(r3, ENTRY_RES_IDS_SUB) 
+    add	r3, r3, r0  # Original operation
+}
+HOOK @ $8082cb80  # ftSlotManager::onLoaded
+{
+    %lwi(r3, ENTRY_RES_IDS_SUB) 
+    add	r3, r3, r0  # Original operation
+}
+
+######### ResultResId #########
+HOOK @ $8082ccd0  # ftSlotManager::getResultResId
+{
+    %lwi(r3, RESULT_RES_IDS_SUB) 
+    add	r3, r3, r0  # Original operation
+}
+HOOK @ $8082cbd8  # ftSlotManager::onLoaded
+{
+    %lwi(r3, RESULT_RES_IDS_SUB) 
+    add	r3, r3, r0  # Original operation
+}
+

@@ -318,6 +318,7 @@ buryNormal:
 .include Source/ProjectM/CloneEngine.asm
 .include Source/ProjectM/CustomAI.asm
 !.include Source/ProjectM/SpecialModes/Rules.asm
+.include Source/ProjectM/VariableSet.asm
 
 .include Source/LegacyTE/ASLHelper.asm
 .include Source/LegacyTE/UnboundedTeamEngine.asm
