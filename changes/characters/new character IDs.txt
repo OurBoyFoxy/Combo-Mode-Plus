@@ -101,3 +101,15 @@ cosmetic ID: 0x7C
 sound bank: 0x159 (was 183)
 JOJI offset: 352
 https://www.mediafire.com/?y9ijhr4b7832llq
+
+~~~ Sephiroth ~~~
+game ID: 0x4C
+cosmetic ID: 0x7D
+sound bank: 0x160
+JOJI offset: 353
+
+~~~ Pac Man ~~~
+game ID: 0x4D
+cosmetic ID: 0x7E
+sound bank: 0x161
+JOJI offset: 354 (was 577)
