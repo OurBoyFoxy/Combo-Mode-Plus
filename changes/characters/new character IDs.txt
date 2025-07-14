@@ -82,21 +82,21 @@ JOJI offset: 349
 
 ~~~ Geno ~~~
 game ID: 0x49
-announcer call: 0x1F57
+announcer call: 0x1F5A
 cosmetic ID: 0x7A
 sound bank: 0x157 (was 18C)
 JOJI offset: 350
 
 ~~~ Sub Zero ~~~
 game ID: 0x4A (was 0x75)
-announcer call: 0x1F58
+announcer call: 0x1F5B
 cosmetic ID: 0x7B
 sound bank: 0x158 (was 183)
 JOJI offset: 351
 
 ~~~ Dark Samus ~~~
 game ID: 0x4B
-announcer call: 0x1F59
+announcer call: 0x1F5C
 cosmetic ID: 0x7C
 sound bank: 0x159 (was 183)
 JOJI offset: 352
@@ -104,12 +104,14 @@ https://www.mediafire.com/?y9ijhr4b7832llq
 
 ~~~ Sephiroth ~~~
 game ID: 0x4C
+announcer call: 0x1F5E
 cosmetic ID: 0x7D
 sound bank: 0x160
 JOJI offset: 359 ????
 
 ~~~ Pac Man ~~~
 game ID: 0x4D
+announcer call: 0x1F5F
 cosmetic ID: 0x7E
 sound bank: 0x161
 JOJI offset: 360 (was 577)
