@@ -48,7 +48,7 @@ op b 0xC @ $801C7450	# Have locations to place the following pointers
 	.GOTO->Table_Skip
 SFX_Table:		# Table size should be (sound effect count edited + 1) * 2 (i.e. 0 SFX = 2, 1 sound = 4, etc.)
 				# SFX ID, Volume (0-127)
-	uint16_t [120] |
+	uint16_t [150] | # + 2*added lines
 	| #
 	0x4FC, 99,  | # Luigi "Aww Yeah!"
 	| #
@@ -58,6 +58,22 @@ SFX_Table:		# Table size should be (sound effect count edited + 1) * 2 (i.e. 0 S
 	0xCF2, 110, | # Pikachu Iron Tail (Medium)
 	0xCF3, 118, | # Pikachu Iron Tail (Heavy)
 	| #
+  0x1F48, 115, | # Roy Announcer
+  0x1F4A, 115, | # Doc Announcer
+  0x1F4B, 115, | # Ven Announcer
+  0x1F4E, 115, | # Little Mac Announcer
+  0x1F50, 115, | # Mewtwo Mac Announcer
+  0x1F51, 115, | # Greninja Announcer
+  0x1F52, 115, | # Shadow Announcer
+  0x1F53, 115, | # Lucina Announcer
+  0x1F55, 115, | # Knuckles Announcer
+  0x1F56, 115, | # King K Rool Announcer
+  0x1F5A, 115, | # Geno Announcer
+  0x1F5B, 115, | # Sub Zero Announcer
+  0x1F5C, 115, | # Dark Samus Announcer
+  0x1F5E, 115, | # Sephiroth Announcer
+  0x1F5F, 115, | # Pac Man Announcer
+  | #
 	0x402F, 67, | # Mewtwo Down Throw noise
 	0x4030, 69, | # Mewtwo Up/Forward Throw noise
 	0x408E, 75, | # Shadow Ball launch
