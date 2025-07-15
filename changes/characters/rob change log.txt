@@ -76,3 +76,50 @@ kbg:95<100
 
 dash attack:
 kbg:70<55
+_______________________________________________________________________________________
+rev 9:
+
+buffed air mobility and ground to air momentum
+run speed:1.5<1.65
+dash speed:1.3<1.5
+
+up air:
+added skb on multihits:10
+final hit angle:60<80
+
+dair:
+sped up:1.2x<1.35x
+hitbox id3 angle:361<270
+hitbox id3 reaches down further
+fixed active frames after speedup
+
+fair:
+sped up 1.2x
+angle:361<55
+
+d tilt:
+angle:55<68
+damage:6<8
+
+dash attack:
+active frames:2<10
+first active frame:7<5
+damage:7/8<10
+
+neutral b:
+charges faster (basically instant charge for lvl 1 laser)
+projectiles moves faster+lasts longer
+can now bounce off of all surfaces
+full charge damage never properly saved, is now actually 13, kbg 90
+endlag now slowed .9x
+
+down b:
+charges faster
+made stronger
+
+up smash:
+sweetspot damage:17<20
+
+f smash:
+endlag sped up 1.3x
+hitbox duration:2<4

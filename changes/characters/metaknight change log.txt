@@ -132,3 +132,10 @@ kbg:60<40
 up b:
 damage:9<15
 angle:80/70<40
+___________________________________________________________________________________________
+rev 9:
+
+slightly increased shorthop
+
+up smash:
+too many random minor changes to hitboxes and angles. tldr i fixed the move.

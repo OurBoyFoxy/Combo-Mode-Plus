@@ -109,3 +109,9 @@ rev 8 changes:
 
 up b:
 can now wall jump out of up b
+___________________________________________________________________________
+rev 9:
+
+nair:
+damage:14<12
+kbg:110<95

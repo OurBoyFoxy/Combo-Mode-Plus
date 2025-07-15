@@ -92,7 +92,7 @@ sped up multihit 1.6x
 iasa:61<50
 
 bair:
-removed all sped mods
+removed all speed mods
 hitbox id0 angle (tip of tail):361<105
 
 up air:
@@ -106,3 +106,19 @@ startup sped up
 
 up tilt:
 tipper angles:65<90
+______________________________________________________________________
+rev 9 changes:
+
+up air:
+kbg:80<90
+damage:12/10<10/8
+angles:75/85<69/78
+hitbox priority swapped around, tip is now lowest priorty
+tipper angle:57
+
+fair:
+kbg:113<95
+bkb:37<31
+
+up tilt:
+tipper angle:90<75

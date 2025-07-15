@@ -124,3 +124,7 @@ damage:9<8
 
 d tilt:
 damage:11<9
+_______________________________________________________________________________________
+rev 9:
+
+Massive overhaul, now uses PMEX mac as a base, tried to ensure he plays largely the same

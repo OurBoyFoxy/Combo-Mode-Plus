@@ -138,3 +138,8 @@ up smash:
 copy pasted P+ upsmash values lol
 
 d throw and up throw sped up 1.3x
+______________________________________________________________________________________________
+rev 9:
+
+fair:
+first hit angle:80<365

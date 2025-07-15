@@ -118,3 +118,28 @@ after connecting you can now act out of it with anything rather than just attack
 
 down b:
 aerial down b restored double jump again
+_______________________________________________________________________________________
+rev 9:
+
+dash attack:
+first active frame:10<8
+
+down b:
+can now double jump out of endlag sooner
+
+down b:
+damage:17<16
+kbg:80<75
+buffed hitboxes sizes to match move
+
+side b:
+aerial side b now launches the opponent upwards after landing with a grabbed opponent
+grounded side b iasa:53<49
+
+fair/bair:
+sweetspot hitlag increased to indicate landing it better
+
+up smash:
+hitbox id0/1 swapped
+id1 is now a stronger sweetspot
+startup sped up 1.4x, rest slowed .9x

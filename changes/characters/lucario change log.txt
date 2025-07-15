@@ -154,7 +154,6 @@ nair, bair, f tilt, d tilt, and fair all have ult animations now
 has PM run animation
 
 jab:
-can no longer special cancel jab 2
 sdi multiplier:1<.5
 jab 1+2 endlag slowed .8
 jab 3 input window:30<50
@@ -231,7 +230,7 @@ increased size and duration of grab hitboxes
 the move is no longer roll canceled, now pressing a or using the c stick will cancel the grab into an f smash if done before the throw
 can now grab aerial opponents with the move, using it in the air will make the angle 361 and have higher knockback
 grounded side b damage reduced
-grounded side b now has a lowknockback hitbox that appears right before the grab, making it possible to grab people off the ground from a missed tech 
+grounded side b now has a low knockback hitbox that appears right before the grab, making it possible to grab people off the ground from a missed tech 
 
 up tilt:
 iasa:33<27
@@ -244,3 +243,11 @@ now has a hitbox
 up throw:
 bkb:70<110
 kbg:80<20
+______________________________________________________________________________________
+rev 9:
+
+f smash:
+kbg:93<80
+
+f tilt:
+startup sped up:1.2x<1.4x

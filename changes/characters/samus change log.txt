@@ -132,3 +132,25 @@ rev 8 changes:
 up smash:
 endlag sped up more
 kbg:85<110
+______________________________________________________________________________________
+rev 9 changes:
+
+jab:
+jab 1 damage:3<5
+
+up tilt:
+startup sped up:1.3x<1.6x
+hitboxes slowed .85x
+
+up smash:
+2nd hit kbg:110<125
+
+bair:
+all hits made sweetspot
+
+up air:
+multihit angle:270<365
+iasa:40<48
+
+dair:
+iasa:49<38

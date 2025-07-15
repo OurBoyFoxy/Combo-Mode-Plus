@@ -168,3 +168,20 @@ rev 8 changes:
 
 f smash:
 move now has same hitbox vs air and ground opponents
+____________________________________________________________________________________________
+rev 9:
+
+slight buff to ground to air momentum
+
+run speed:1.45<1.57
+dash speed:1.1<1.35
+
+neutral b:
+this move had to be reworked due to complications. snake now pulls out a grenade and picks it up as an item while on the ground, while in the air, he pulls the grenade and drops it instantly
+
+down b:
+all c4 planting variations given same treatment as planting on enemy
+startup sped up 2x
+
+f tilt:
+can now cancel first hit f tilt into specials

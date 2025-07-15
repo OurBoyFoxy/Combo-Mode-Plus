@@ -90,3 +90,27 @@ rev 8 changes:
 
 fair:
 fixed active frames
+______________________________________________________________________________
+rev 9 changes:
+
+run speed:1.6<1.8
+buffed ground to air momentum
+
+Taking the L on this one, removed some ice hit effects. they ruin his vertical kill power.
+removed on:
+up smash
+neutral b (still freezes on full charge)
+up b
+
+neutral b:
+full charge neutral b now HEALS 10% instead of dealing it to you :D
+iasa:39<30
+kbg:160<190
+
+up b:
+bkb:100<150
+kbg:65<40
+restored ability for both hits to connect so you have to properly land sweetspot
+
+jab:
+angle:361<55

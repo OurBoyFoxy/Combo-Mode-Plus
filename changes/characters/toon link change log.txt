@@ -112,3 +112,13 @@ sped up 1.2x
 
 f smash:
 less endlag
+_____________________________________________________________________________________
+rev9:
+
+ground to air momentum buffed
+
+shorthop reduced
+
+up b:
+given P+ killing sweetspot on startup in air
+reduced vertical height

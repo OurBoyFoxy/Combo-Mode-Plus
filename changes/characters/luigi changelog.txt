@@ -139,3 +139,7 @@ can now cancel into attacks
 
 up b:
 aerial up b now as strong as grounded up b
+_______________________________________________________________________________________________
+rev 9:
+
+removed wavedash

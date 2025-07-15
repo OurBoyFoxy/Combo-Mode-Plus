@@ -83,3 +83,17 @@ sped up after 1st hit 1.3x
 
 neutral b:
 sped up
+____________________________________________________________________________________
+rev 9:
+
+fair:
+bkb:50<45
+damage:19<18
+kbg:100<95
+
+nair:
+late hit kbg:110<100
+initial hit angle:361<55
+
+down b:
+endlag sped up:1.5x<1.2x

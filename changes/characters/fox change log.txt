@@ -115,3 +115,13 @@ f tilt:
 side damage:6<8
 down angle damage:361<60
 side angle:361<20
+______________________________________________________________________________________
+rev 9:
+
+up smash:
+kbg:115<103
+bkb:30<27
+
+down b:
+increased endlag + startup
+reduced active frames on hitbox

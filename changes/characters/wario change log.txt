@@ -103,3 +103,8 @@ can now double jump out of dair after 26 frames
 
 neutral b:
 after grabbing someone with chomp, you can cancel it into attacks
+_________________________________________________________________________________________
+rev 9:
+
+up smash:
+fixed multihit

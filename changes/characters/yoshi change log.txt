@@ -44,3 +44,7 @@ rev 8:
 
 yoshi now uses P+ yoshi as a base, yoshi now finally has DJC
 of course, as usual, he has been heavily rebalanced to fit into combo mode
+______________________________________________________________________________
+rev 9:
+
+DJ has more armor

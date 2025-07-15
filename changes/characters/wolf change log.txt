@@ -111,3 +111,22 @@ bkb:40<35
 
 side b:
 damage:15<19
+______________________________________________________________________________________
+rev 9:
+
+d throw:
+bkb:30<40
+kbg:80<90
+
+down b:
+hitlag:1<2
+damage:3<8
+
+neutral b:
+sped up 1.2x
+laser hitlag:.2<.6
+
+nair:
+hitbox sizes:4<6
+bkb:25<30
+rehit rate:6<5

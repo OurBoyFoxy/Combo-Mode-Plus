@@ -44,3 +44,10 @@ ________________________________________________________________________________
 rev 8:
 
 Kirby has been ported from P+ and rebalanced for combo mode. he has been given back many CM values while keeping P+ abilities, specials, and moves
+___________________________________________________________________________________
+rev 9:
+
+d throw:
+angle:50<90
+bkb:50
+kbg:60

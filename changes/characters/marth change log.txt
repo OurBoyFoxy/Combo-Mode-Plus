@@ -105,3 +105,11 @@ between multihits sped up 1.4x
 
 bair:
 kbg:70<95
+_______________________________________________________________________________________
+rev 9:
+
+neutral b:
+fixed slowdown when going from air to ground
+
+up b:
+fixed up be being able to snap edge instantly
