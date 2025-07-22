@@ -134,3 +134,8 @@ rev 8 changes:
 
 f smash:
 fixed active frames, comes out a bit earlier
+_______________________________________________________________________________________
+rev 9.5:
+
+now built off P+ bowser with a bunch of his original combo mode values
+removed all previous armor and P+ armor

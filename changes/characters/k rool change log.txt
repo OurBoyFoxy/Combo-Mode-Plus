@@ -1,0 +1,22 @@
+K rool changes:
+_________________________________________________________________________________________________
+rev 9.5:
+
+up tilt:
+sweetspot damage:13<10
+speedup on endlag:1.2<1.1
+
+nair:
+sweetspot damage:12<10
+
+fair:
+sweetspot damage:16/14<15/13
+
+bair:
+damage:19/15<16/14
+
+side b:
+added .85 slowdown to startup
+
+up b:
+reworked hitboxes

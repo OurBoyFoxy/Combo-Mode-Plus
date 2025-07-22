@@ -8,3 +8,8 @@ no longer a multihit.
 f tilt:
 bkb:30<50
 kbg:70<60
+_________________________________________________________________________________
+rev 9.5:
+
+nair:
+multihit restored with no final hit, exclusivley a dragdown

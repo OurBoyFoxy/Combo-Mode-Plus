@@ -37,3 +37,38 @@ kbg:97<105
 
 neutral b:
 damage uncharged:10<12
+________________________________________________________________________________________________
+rev 9.5:
+
+run speed:1.67<1.75
+dash speed:1.4<1.6
+improved ground to air momentum + air mobility
+
+up tilt:
+iasa:37<33
+bkb:35<55
+kbg:75<70
+
+d tilt:
+damage:10<11
+tipper damage:6<8
+angle:75<80
+bkb:75<85
+kbg:40<20
+
+nair:
+2nd hit angle:361<55
+2nd hit kbg:80<70
+1st hit added skb:10
+
+bair:
+damage:15<16
+
+up air:
+damage:9<11
+sourspot damage:7<8
+angle:70<75
+kbg:60<50
+
+dair:
+sourspot angle:37<90

@@ -108,3 +108,57 @@ rev 9:
 
 up smash:
 fixed multihit
+____________________________________________________________________________________________
+rev 9.5:
+
+jab:
+jab 2 iasa:32<26
+
+dash attack:
+iasa:37<30
+angle:70<80
+late hit angle:100<80
+
+f tilt:
+hitbox duration:4<7
+
+up tilt:
+kbg:74<56
+first active frame:12<11
+reworked hitboxes to properly be attached to wario's hands, allows the move to hit lower and have more range
+
+d tilt:
+angle:75<90
+iasa:26<22
+bkb:50<80
+kbg:60<50
+
+nair:
+initial hit damage:9<11
+late hit damage:4<8
+angle:40/361<55
+
+fair:
+kbg:120<80
+
+bair:
+bkb:20<25
+kbg:100<108
+
+up air:
+angle:75<90
+damage:17<15
+kbg:80<60
+added iasa:27
+
+grab:
+hitbox size:4.5/3.5<6/5
+
+neutral b:
+sped up startup 2x
+increased grab hitbox size
+added hitbox that allows the move to grab opponents off missed tech
+
+down b:
+added iasa to no charge waft:25
+full charge waft hitbox size:11<18

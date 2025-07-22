@@ -168,3 +168,19 @@ bkb:15<30
 
 bair:
 angle:361<35
+____________________________________________________________________________________________________
+rev 9.5:
+
+up b:
+removed bug where he could cancel up b into attacks
+removed all armor
+
+down b:
+startup sped up 1.7x
+buffed hitboxes to match move
+air hitboxes match ground hitboxes
+first active frame:12<11
+
+up air:
+multihit damage:2<1
+final hit damage:7<9

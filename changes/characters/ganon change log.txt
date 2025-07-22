@@ -143,3 +143,13 @@ up smash:
 hitbox id0/1 swapped
 id1 is now a stronger sweetspot
 startup sped up 1.4x, rest slowed .9x
+_________________________________________________________________________________________________
+rev 9.5:
+
+run speed:1.36<1.5
+
+side b:
+grounded iasa reverted
+air first active frame:19<15
+ground first active frame:16<15
+aerial side b now has a weak hitbox on it that allows ganon to scoop opponents off a platform off a missed tech

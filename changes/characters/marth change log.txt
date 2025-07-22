@@ -113,3 +113,15 @@ fixed slowdown when going from air to ground
 
 up b:
 fixed up be being able to snap edge instantly
+____________________________________________________________________________________________
+rev 9.5:
+
+f smash:
+changed tipper and hilt priority so it should now be far easier to hit
+
+neutral b:
+now landing cancels like an aerial
+has endlag slowed down in air
+
+up b:
+reverted ledge snap change

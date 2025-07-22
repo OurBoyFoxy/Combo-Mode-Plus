@@ -114,3 +114,19 @@ restored ability for both hits to connect so you have to properly land sweetspot
 
 jab:
 angle:361<55
+_________________________________________________________________________________________
+rev 9.5:
+
+up smash:
+iasa:38<30
+
+fair + up air:
+damage:8<9
+sourspot damage:6<7
+
+dair:
+sourspot damage:7<8
+
+nair:
+2nd hit damage:7<8
+2nd hit angle:361<55

@@ -113,7 +113,7 @@ startup:3<5
 
 f tilt:
 side damage:6<8
-down angle damage:361<60
+down angle:361<60
 side angle:361<20
 ______________________________________________________________________________________
 rev 9:
@@ -125,3 +125,38 @@ bkb:30<27
 down b:
 increased endlag + startup
 reduced active frames on hitbox
+_____________________________________________________________________________________
+rev 9.5:
+
+run speed:2.08<2.2
+
+dash attack:
+damage:7/5<9/8
+
+up tilt:
+damage:8<9
+bkb:35/25<40
+kbg:110<90
+
+d tilt:
+iasa:28<22
+id0 angle:45<70
+hitbox sizes increased:3<4
+
+fair:
+first hit angle:75<365
+added skb to first hit:10
+first hit bkb:10<35
+between hits sped up 1.4x
+2nd hit active frames:2<4
+endlag slowed .85
+
+up air:
+first hit angle:92<365
+
+dair:
+multihit angle:285<365
+
+neutral b:
+lasers last much longer
+laser damage takes longer to fall off

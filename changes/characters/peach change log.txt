@@ -86,3 +86,14 @@ sped up multihit 1.5x
 
 nair:
 endlag sped up 1.5x
+_______________________________________________________________________________________
+rev 9.5:
+
+jab:
+damage:3<5
+angle:74<80
+bkb:0<30
+iasa:20<18
+
+f tilt:
+endlag sped up 1.3x

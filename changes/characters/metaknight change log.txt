@@ -139,3 +139,28 @@ slightly increased shorthop
 
 up smash:
 too many random minor changes to hitboxes and angles. tldr i fixed the move.
+__________________________________________________________________________________________
+rev 9.5:
+
+"new" jab using his f tilt 3 animation
+
+neutral b:
+reworked the move, is now a single hit kill move with a weaker late hit
+buffed some mobility
+sped up startup 2x
+can now grab ledge out of spin
+
+d tilt:
+startup slowdown:.4<.6
+damage:6<8
+moved hitboxes to properly match move
+
+up tilt:
+damage:7<9
+
+dash attack:
+damage:8/7/6<10
+id0 angle:60<70
+
+up air:
+angle:78/60<85

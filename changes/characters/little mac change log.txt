@@ -128,3 +128,15 @@ ________________________________________________________________________________
 rev 9:
 
 Massive overhaul, now uses PMEX mac as a base, tried to ensure he plays largely the same
+__________________________________________________________________________________________
+rev 9.5:
+
+down b:
+cancel frame:16<13
+
+f tilt:
+first hit angle vs aerial opponents:270<365
+
+d smash:
+reduced hitbox sizes
+reduced duration of first hit hitboxes

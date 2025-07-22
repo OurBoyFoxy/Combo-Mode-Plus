@@ -116,3 +116,64 @@ up air:
 endlag sped up 1.2x
 
 can now walljump out of up b and side b
+__________________________________________________________________________________________________
+rev 9.5:
+
+now has a super secret impracticle attack that is basically guaranteed to kill if it lands
+
+run speed:2.18<2.4
+dash speed:2.05<2.1
+
+slight ground to air buff
+
+up smash:
+startup sped up 1.2x
+between hits sped up 1.4
+
+d smash:
+startup sped up 1.3x
+rest slowed .9x
+
+fair:
+late hit damage:6<9
+late hit angle:361<50
+late hit kbg:80<60
+made sweetspot hitboxes larger than sourspot
+
+up air:
+made the tippman spike actually work
+initial hit angle:361<50
+initial hit bkb:10<35
+initial hit kbg:100<70
+
+side b:
+landing lag:20/40<15/10
+
+down b:
+endlag and landing lag sped up
+grounded sweetspot angle:45<361
+grounded sweetspot damage:13<17
+
+side b:
+damage:10<12
+kbg:75<65
+sped up 1.3x
+
+dair:
+bkb:40<55
+kbg:100<90
+
+up throw:
+bkb:50<70
+kbg:90<70
+
+nair:
+2nd hit angle:50<55
+
+jab:
+1&2 angles:80<365
+
+up tilt:
+angle:80<95
+fixed hitboxes to better match move
+endlag sped up:1.3<1.36

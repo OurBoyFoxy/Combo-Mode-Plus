@@ -86,3 +86,33 @@ rev 8 changes:
 
 jab:
 made jab 3 f-tilt
+________________________________________________________________________________________________
+rev 9.5:
+
+run speed:1.92<1.98
+buffed ground to air momentum
+
+bair:
+given P+ bair hitboxes
+
+fair:
+damage:12<13
+kbg:108<112
+
+dair:
+damage:10<12
+
+f tilt:
+damage:8<9
+
+dash attack:
+damage:9/5<11/8
+iasa:35<30
+kbg:100<65
+
+d tilt:
+angle:70<80
+iasa:30<23
+
+up air:
+now a multihit

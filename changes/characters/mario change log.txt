@@ -115,3 +115,48 @@ rev 9:
 nair:
 damage:14<12
 kbg:110<95
+________________________________________________________________________________________
+rev 9.5:
+
+nair:
+damage:12<13
+kbg:95<101
+
+d smash:
+damage:15<16
+bkb:40<42
+
+f smash:
+sweespot bkb:25<30
+sweetspot kbg:100<105
+
+up smash:
+bkb:32<45
+startup sped up 1.4x
+
+bair:
+bkb:10<17
+kbg:115<117
+
+d tilt:
+iasa:26<22
+damage:8<9
+
+up tilt:
+damage:9<10
+
+dash attack:
+damage:9/7<11<9
+
+fair:
+first active frame:16<15
+first 2 frames of startup are now a horizontal kill move as opposed to a spike
+late hit angle:295<270
+
+dair:
+angle vs grounded opponents:280<365
+
+down b:
+charges much faster and pushed mario much further
+added iasa in the air:21
+can now use this move to recover

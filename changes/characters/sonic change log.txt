@@ -139,3 +139,61 @@ iasa:25<21
 
 grab:
 resorted slide when doinbg jc grab
+________________________________________________________________________________________________
+rev 9.5:
+
+run speed:3.2<3.4
+dash speed:1.5<1.7
+
+can cancel dash into specials
+
+f smash:
+startup sped up 1.4x
+damage:15<16
+
+fair:
+hitbox id's swapped, spike takes priority
+hitbox id0 prior to spike now a kill move
+sweetspot damage:11<15
+
+bair:
+damage:15<16
+
+dair:
+startup sped up:1.3<1.5
+damage:8/7<10/8
+
+nair:
+first hit angle:363<365
+first hit bkb:40<25
+between hits sped up
+buffed hitbox sizes
+
+d smash:
+startup sped up 1.3x
+the entire duration of the move is now the strong hit
+damage:12<15
+
+up tilt:
+bkb:33<40
+kbg:80<77
+hitbox duration:6<9
+
+jab:
+can cancel jab 2 into specials
+jab angles all made 365
+
+down b:
+can now cancel into attacks
+now has a multihit on startup
+
+up b:
+can snap the ledge earlier
+
+dash attack:
+damage:6/4<9/7
+hitbox size:3<6
+endlag sped up more
+
+up air:
+new up air

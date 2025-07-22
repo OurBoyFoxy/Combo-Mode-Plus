@@ -54,3 +54,36 @@ removed multihit and made move a single hit kill move
 bkb:25
 kbg:107
 damage:16
+__________________________________________________________________________________________________
+rev 9.5:
+
+run speed: 1.553<1.63
+buffed ground to air momentum
+
+f tilt:
+sped up whole move 1.2x
+
+dash attack:
+angle:120<95
+
+up tilt:
+damage:8<9
+
+d tilt:
+damage:9<10
+
+upsmash:
+sped startup 1.3x
+removed iasa
+
+d smash:
+swapped sourspot and sweetspot priority
+
+fair:
+late hit angle:361<55
+
+up air:
+reworked to function as a proper multihit
+
+dair:
+spike hitbox duartion:1<2

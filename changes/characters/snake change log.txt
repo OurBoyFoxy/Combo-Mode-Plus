@@ -185,3 +185,18 @@ startup sped up 2x
 
 f tilt:
 can now cancel first hit f tilt into specials
+_________________________________________________________________________________________________
+rev 9.5:
+
+d smash:
+startup sped up 1.3x
+
+fair:
+sourspot damage:14<16
+sweetspot damage:15<17
+
+bair:
+swapped around sweetspot and sourspot
+
+jab:
+jab 2 angle:120<365
