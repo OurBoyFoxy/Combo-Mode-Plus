@@ -130,3 +130,11 @@ nair:
 hitbox sizes:4<6
 bkb:25<30
 rehit rate:6<5
+_________________________________________________________________________________________
+rev 9.5:
+
+run speed:1.65<1.75
+
+buffed ground to air momentum
+
+new up tilt based off P+ upsmash animation
