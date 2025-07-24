@@ -99,6 +99,7 @@ hitbox sizes:4<5
 added hitboxes vs aerial opponents, same as grounded but angle is 80
 bkb vs grounded opponents:55<90
 kbg vs grounded opponents:100<60
+first active frame:13<11
 
 f smash:
 startup sped up:1.2<1.3
@@ -127,9 +128,11 @@ damage:15<16
 
 bair:
 damage:14<17
+first active frame:7<6
 
 up air:
 damage:14<16
+first active frame:13<12
 
 side b:
 if ike has his double jump, he can jump out of this move in the air
@@ -140,3 +143,6 @@ neutral b:
 uncharged damage:10<16
 startup sped up 1.4x
 removed armor
+
+up throw:
+sped up 1.3x

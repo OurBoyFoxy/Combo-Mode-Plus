@@ -118,6 +118,8 @@ rev 9.5:
 
 f smash:
 changed tipper and hilt priority so it should now be far easier to hit
+tipper damage:20<22
+removed speedup on endlag
 
 neutral b:
 now landing cancels like an aerial

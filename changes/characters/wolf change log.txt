@@ -138,3 +138,9 @@ run speed:1.65<1.75
 buffed ground to air momentum
 
 new up tilt based off P+ upsmash animation
+
+up air:
+active frames:5<7
+
+up throw:
+kbg:110<70
