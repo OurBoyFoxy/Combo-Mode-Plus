@@ -1,13 +1,14 @@
 # Path to GCTRealMate
-$gctPath = ".\modfolder\DebugMode+\GCTRealMate.exe"
-$enterFile = ".\modfolder\DebugMode+\enter.txt"
+$gctPath = ".\modfolder\ComboMode+\GCTRealMate.exe"
+$enterFile = ".\modfolder\ComboMode+\enter.txt"
 
 if (Test-Path $gctPath) {
-    Write-Host "`n`nCreating Debug+ Codes`n"
-    Start-Process -FilePath $gctPath ".\modfolder\DebugMode+\RSBE01.txt" -RedirectStandardInput $enterFile -NoNewWindow -Wait
+    # Write-Host "`n`nCreating Debug+ Codes`n"
+    # Start-Process -FilePath $gctPath ".\modfolder\DebugMode+\RSBE01.txt" -RedirectStandardInput $enterFile -NoNewWindow -Wait
 
     Write-Host "`n`nCreating Combo+ Codes`n"
     Start-Process -FilePath $gctPath ".\modfolder\ComboMode+\RSBE01.txt" -RedirectStandardInput $enterFile -NoNewWindow -Wait
+    Start-Process -FilePath $gctPath ".\modfolder\ComboMode+\RSBEDM.txt" -RedirectStandardInput $enterFile -NoNewWindow -Wait
 } else {
     Write-Host "`nError: Cannot find GCTRealMate.exe"
 }

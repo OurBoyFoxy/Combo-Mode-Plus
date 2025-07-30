@@ -9,7 +9,7 @@ $srcPath = ".\modfolder\DebugMode+\"
 $tgtPath = ".\modfolder\ComboMode+\"
 
 # Files to ignore
-$ignoreDeleteFiles = @("StrapEn.pac", "FilePatchCode.asm")
+$ignoreDeleteFiles = @("StrapEn.pac", "StrapDebug.pac", "FilePatchCode.asm", "FilePatchCodeDebug.asm", "RSBEDM.txt")
 $ignoreCopyFiles = @("StrapEn.pac", "FilePatchCode.asm", "BOOST.GCT", "codeset.txt", "log.txt", "RSBE01.GCT")
 
 Get-ChildItem -Path $tgtPath -File -Recurse | Where-Object { $_.Name -notin $ignoreDeleteFiles } | Remove-Item -Force
