@@ -115,3 +115,9 @@ announcer call: 0x1F5F
 cosmetic ID: 0x7E
 sound bank: 0x161
 JOJI offset: 360 (was 577)
+
+~~~ Heihachi ~~~
+game ID: 0x4E
+announcer call: 0x1F60
+cosmetic ID: 0x7F
+suond bank: 0x162
