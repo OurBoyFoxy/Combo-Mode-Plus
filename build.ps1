@@ -9,6 +9,7 @@ if (Test-Path $gctPath) {
     Write-Host "`n`nCreating Combo+ Codes`n"
     Start-Process -FilePath $gctPath ".\modfolder\ComboMode+\RSBE01.txt" -RedirectStandardInput $enterFile -NoNewWindow -Wait
     Start-Process -FilePath $gctPath ".\modfolder\ComboMode+\RSBEDM.txt" -RedirectStandardInput $enterFile -NoNewWindow -Wait
+    Start-Process -FilePath $gctPath ".\modfolder\ComboMode+\BOOST.txt" -RedirectStandardInput $enterFile -NoNewWindow -Wait
 } else {
     Write-Host "`nError: Cannot find GCTRealMate.exe"
 }

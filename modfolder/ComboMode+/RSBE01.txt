@@ -788,4 +788,4 @@ Snake's U-Smash can Have Horizontal Velocity [Magus]
 
 .include Source/Project+/CStick.asm
 
-.include BOOST.txt
+.include Source/Project+/MultiGCT.asm

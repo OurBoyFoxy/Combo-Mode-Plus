@@ -71,6 +71,7 @@ uint8_t   0xA                                   @ $80507bb7
 string    "StrapEn.pac Detected, replacing.\n"  @ $80507c20 # Debug string for path match
 string    "/menu/strap/StrapEn.pac"             @ $80507c40 # Target path to compare against
 string    "/menu/strap/StrapDebug.pac"          @ $80507c60 # Replacement path
+string    "/ComboMode+/"                        @ $80507c80 # Sets path to code directory
 #################################################################
 #                         MAIN SEGMENT                          #
 #################################################################

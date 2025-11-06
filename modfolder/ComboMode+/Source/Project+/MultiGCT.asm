@@ -19,8 +19,8 @@ HOOK @ $8002D500
 	addi r3, r1, 0x60
 	lis r4, 0x8048				# \ %s%s
 	ori r4, r4, 0xEFF8			# /
-	lis r5, 0x8040				# \ Mod name folder
-	ori r5, r5, 0x6921			# /
+	lis r5, 0x8050				# \ Mod name folder
+	ori r5, r5, 0x7c80			# /
 	lis r6, 0x8055				# \ Pointer to "BOOST.GCT"
 	lwz r6, 0(r6)				# /
 	lis r12, 0x803F				# \
