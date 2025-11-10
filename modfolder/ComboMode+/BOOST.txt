@@ -14,6 +14,8 @@ op blt- 0x34	   @ $8018CFC8
 .include Source/Project+/AnimatedCSS.asm
 .include Source/Project+/Hurtbox.asm
 
+.include Source/Project+/PokeTrainer.asm
+
 .include Source/Project+/Items.asm
 .include Source/Project+/Pause.asm
 .include Source/Project+/Collision.asm
@@ -50,6 +52,9 @@ op blt- 0x34	   @ $8018CFC8
 .include Source/ComboMode+/Engine.asm
 .include Source/ComboMode+/Momentum.asm
 
-.include Source/Extras/Console.asm	
+#.include Source/Extras/Console.asm	# Only use this on a Wii or Wii U! The codes in this are necessary for the slower specifications of the actual console.
 
 .include Source/Extras/More.asm
+
+.include source/Rex/Tags.asm
+.include source/Rex/Rules.asm

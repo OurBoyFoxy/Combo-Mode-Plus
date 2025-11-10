@@ -1,5 +1,5 @@
 ############################################################################
-# RSBE01.txt    												   #
+# RSBE01.txt    												           #
 #                        												   #
 # Requires GCTRealMate and the source folder provided to assemble the GCT! #
 #																		   #
@@ -15,7 +15,15 @@
 # Enjoy your custom Brawl!!												   #
 ############################################################################
 
+#############################################################################
+######################          Backend Codes          ######################
+#############################################################################
+
 .include Source/P+Ex/Hooktype.asm
+
+.include Source/Rex/USBGecko.asm
+.include Source/Rex/RAM-EX.asm
+.include Source/Project+/MemoryLayout.asm
 
 ######################################################
 BA and BLA are usable instructions v1.3 [Eon, taukhan]
@@ -40,23 +48,6 @@ PULSE #80568100
   blr
 }
 * E2000001 80008000
-
-##################################################
-Memory Extention for FighterXResource2 [Dantarion]
-##################################################
-int 0x91E80 @ $80421B54
-int 0x91E80 @ $80421B74
-int 0x91E80 @ $80421B94
-int 0x91E80 @ $80421BB4
-int 0x91E80 @ $80421E1C
-int 0x91E80 @ $80421E3C
-int 0x91E80 @ $80421EBC
-int 0x91E80 @ $80421EDC
-
-###############################################################
-Memory Extension for CSS/SSS MenuResource (+0.79MB) [DukeItOut]
-###############################################################
-int 0x73BA00 @ $80422384
 
 #############################################################################
 Reset multipac stage lock status between Classic & All-Star matches [wiiztec]
@@ -317,25 +308,24 @@ buryNormal:
 
 .include Source/ProjectM/CloneEngine.asm
 .include Source/ProjectM/CustomAI.asm
-!.include Source/ProjectM/SpecialModes/Rules.asm
 .include Source/ProjectM/VariableSet.asm
+
+#.include Source/ProjectM/SpecialModes/Rules.asm
 
 .include Source/LegacyTE/ASLHelper.asm
 .include Source/LegacyTE/UnboundedTeamEngine.asm
 
 .include Source/Project+/Articles.asm
-!.include Source/Project+/CodeMenu.asm
-!.include Source/Project+/BigHeadMode.asm
-!.include Source/Project+/RandomAngleMode.asm
+#.include Source/Project+/CodeMenu.asm
+#.include Source/Project+/BigHeadMode.asm
+#.include Source/Project+/RandomAngleMode.asm
 .include Source/Project+/Memory.asm
 .include Source/Project+/CompressPAC.asm
+.include Source/ComboMode+/FilePatchCode.asm
+.include Source/P+Ex/WaveIDIntercept.asm
 .include Source/Project+/IndependentSub.asm
 .include Source/Project+/TrainingMode.asm
 .include Source/Project+/VictoryCamera.asm
-
-.include Source/ComboMode+/FilePatchCode.asm
-
-.include Source/P+Ex/WaveIDIntercept.asm
 
 ##########################################################
 Custom Requirements v1.3 (ProjectM) [Magus, Sammi-Husky]
@@ -743,6 +733,10 @@ SFX Fade Fix PMEXv0.5 [ds22, PyotrLuzhin]
 .include Source/Project+/ResultsMusic.asm
 .include Source/Project+/SFXExpand.asm
 
+#############################################################################
+################          Character-Specific Codes          #################
+#############################################################################
+
 ###############################################################
 [Legacy TE] Peach costumes no longer use a FitEntry [DukeItOut]
 ###############################################################
@@ -750,12 +744,82 @@ uint8_t 0x0 @ $80AD803C
 
 .include Source/Project+/YoshiEggs.asm
 
+##################################################################
+Squirtle Side-B Footstool Uses Normal Requirement 0x2713 [Magus]
+##################################################################
+* 048590C8 48000024
+* 0489F010 48000090
+
+#############################################################
+Pokemon Trainer Infinite Stamina [Phantom Wings, spunit262]
+#############################################################
+op nop @ $80A8BDAC
+
+####################################################################
+PT Pokemon Have Final Smashes & FS Characters Don't v1.1 [ds22, Eon]
+####################################################################
+#minor edit to remove random change in register use and tidy up a little
+
+#set pointers for 4 chars functions
+* 04B060DC 8081DF8C
+* 04B060E4 8081DF8C
+* 04B060EC 8081DF8C
+* 04B06114 8081DF84
+
+* 0481DF14 809D0008
+* 0481DF18 3804FFFD
+op li r0, 236 @ $8081DF84
+
+word 0x17171717 @ $80AD8BB4
+
+HOOK @ $8081DF6C
+{
+  li r0, 92
+  lwz r3, 0x8(r29)
+  cmpwi r3, 45
+  bne %end%
+  li r0, 124
+}
+
+#######################################################
+Independent Pokemon Engine HTP, Classic & MMS [ds22]
+#######################################################
+* C26DDDF4 00000006
+* 2C03001D 40A20008
+* 3860001E 2C03001F
+* 40A20008 38600020
+* 2C030021 40A20008
+* 38600022 987D0098
+* 60000000 00000000
+* C26E1178 00000006
+* 2C12001D 40A20008
+* 3A40001E 2C12001F
+* 40A20008 3A400020
+* 2C120021 40A20008
+* 3A400022 9A550098
+* 60000000 00000000
+* C295E184 00000006
+* 2C1F001D 40A20008
+* 3BE0001E 2C1F001F
+* 40A20008 3BE00020
+* 2C1F0021 40A20008
+* 3BE00022 9BE30000
+* 60000000 00000000
+
 #######################################################################
 Independent Pokemon Save Data Engine + no wreck My Music v2 [spunit262]
 #######################################################################
 * 06407BD0 0000000E
 * 04030F0D 1E1B1F1B
 * 201B211B 221B0000
+
+#####################
+Unload PT Data [ds22]
+#####################
+word[24] 0x1D, 0x1E, 0x1F, 0x1C, 0x1D, -1, -1, -1, |
+         0x1E, 0x1F, 0x1D, 0x1C, 0x1E, -1, -1, -1, |
+         0x1F, 0x1D, 0x1E, 0x1C, 0x1F, -1, -1, -1, |
+@ $80AD8428
 
 ################################
 ZSS Jumbo Screen Name Fix [ds22]
@@ -788,4 +852,5 @@ Snake's U-Smash can Have Horizontal Velocity [Magus]
 
 .include Source/Project+/CStick.asm
 
+.include Source/Community/Syringe.asm
 .include Source/Project+/MultiGCT.asm

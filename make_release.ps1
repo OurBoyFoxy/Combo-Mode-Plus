@@ -44,14 +44,18 @@ $gctPath = ".\modfolder\ComboMode+\GCTRealMate.exe"
 $enterFile = ".\modfolder\ComboMode+\enter.txt"
 
 if (Test-Path $gctPath) {
-    Write-Host "`n`nCreating Combo+ Codes`n"
+    Write-Host "`n`nCreating Combo+ Codes for RSBE01`n"
     Start-Process -FilePath $gctPath ".\modfolder\ComboMode+\RSBE01.txt" -RedirectStandardInput $enterFile -NoNewWindow -Wait
+    Write-Host "`n`nCreating Combo+ Codes for RSBEDM`n"
+    Start-Process -FilePath $gctPath ".\modfolder\ComboMode+\RSBEDM.txt" -RedirectStandardInput $enterFile -NoNewWindow -Wait
+    Write-Host "`n`nCreating Combo+ Codes for BOOST`n"
+    Start-Process -FilePath $gctPath ".\modfolder\ComboMode+\BOOST.txt" -RedirectStandardInput $enterFile -NoNewWindow -Wait
 } else {
     Write-Host "`nError: Cannot find GCTRealMate.exe"
 }
 
-# Path to VDSSync - Will have to replace with your path
-$vdsPath = "..\..\Documents\Smash_Work\Brawl_Work\Tools\VSDsync\VSDSync.exe"
+# Path to VDSSync
+$vdsPath = ".\tools\VSDsync\VSDSync.exe"
 
 if (Test-Path $vdsPath) {
     Write-Host "`n`nSyncing:"

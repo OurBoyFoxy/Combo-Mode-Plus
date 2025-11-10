@@ -1,0 +1,10 @@
+######################################################
+# MOVEDEF.GCT
+######################################################
+# Place all PSA command script injections in this GCT!
+# 
+# Do not include new PSA command ASM, this is just for
+# modifications of Fighter.pac!
+######################################################
+
+.include MoveDef/C-Stick.asm

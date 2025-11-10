@@ -8,10 +8,10 @@ word [128] |                                        # CSS Slot IDs   Names
 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,|    # 0x00 - 0x03 |  Mario, Donkey, Link, Samus
 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,|    # 0x04 - 0x07 |  SZerosuit, Yoshi, Kirby, Fox,
 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,|    # 0x08 - 0x0B |  Pikachu, Luigi, Captain, Ness,
-0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,|    # 0x0C - 0x0F |  Bowser, Peach, Zelda, Sheik
+0xFFFFFFFF, 0xFFFFFFFF, 0x0E0E0F0F, 0x0F0F0E0E,|    # 0x0C - 0x0F |  Bowser, Peach, Zelda, Sheik
 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,|    # 0x10 - 0x13 |  IceClimber, Marth, G&W, Falco
 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,|    # 0x14 - 0x17 |  Ganon, Wario, MetaKnight, Pit
-0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,|    # 0x18 - 0x1B |  Pikmin, Lucas, Diddy, Pokemon Trainer
+0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0x1B1C1D1E,|    # 0x18 - 0x1B |  Pikmin, Lucas, Diddy, Pokemon Trainer
 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,|    # 0x1C - 0x1F |  Charizard, Squirtle, Ivysaur, Dedede
 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,|    # 0x20 - 0x23 |  Lucario, Ike, Robot, Jigglypuff
 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,|    # 0x24 - 0x27 |  ToonLink, Wolf, Snake, Sonic
@@ -19,7 +19,7 @@ word [128] |                                        # CSS Slot IDs   Names
 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,|    # 0x2C - 0x2F |  ????, Roy, Mewtwo, Knuckles
 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,|    # 0x30 - 0x33 |
 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,|    # 0x34 - 0x37 |
-0x38393A3B, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,|    # 0x38 - 0x3B |  ZakoBoy, ZakoGirl, ZakoChild, ZakoBall
+0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,|    # 0x38 - 0x3B |  ZakoBoy, ZakoGirl, ZakoChild, ZakoBall
 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,|    # 0x3C - 0x3F |
 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,|    # 0x40 - 0x43 |  EX Characters
 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,|    # 0x44 - 0x47 |
@@ -239,3 +239,23 @@ exit:
   stw r4, 0x00(r6)                 # Restore Original Instruction
 }
 
+############################################################
+Zelda/Sheik Icon Replacement [DesiacX, GeraRReal, QuickLava]
+############################################################
+# Replaces the CSS Icon for a character with another, aka Brawl Zelda/Sheik behavior.
+.macro Replace(<old>,<new>) # Double Slot cosmetic override
+{
+    cmpwi r23, <old>            # Is this Zelda?
+    bne+ 0x10                   # If not, go to the next one
+    li r3, <new>
+    mulli r3, r3, 10
+    b %END%
+}
+
+HOOK @ $8069010C
+{
+    %Replace(0x0E,0x29) # Zelda/Sheik
+    mulli r3, r3, 10
+}
+op nop @ $806900E4
+op nop @ $806900E8
