@@ -120,4 +120,46 @@ JOJI offset: 360 (was 577)
 game ID: 0x4E
 announcer call: 0x1F60
 cosmetic ID: 0x7F
-suond bank: 0x162
+sound bank: 0x162
+
+~~~ Cloud ~~~
+game ID: 0x4F
+announcer call: 0x1F5E
+cosmetic ID: 0x7D
+sound bank: 0x163
+JOJI offset: 362 ????
+
+~~~ Incineroar ~~~
+game ID: 0x50
+announcer call: 0x1F5E
+cosmetic ID: 0x7D
+sound bank: 0x164
+JOJI offset: 359 ????
+
+~~~ Isabelle ~~~
+game ID: 0x51
+announcer call: 0x1F5E
+cosmetic ID: 0x7D
+sound bank: 0x165
+JOJI offset: 359 ????
+
+~~~ Kumatora ~~~
+game ID: 0x52
+announcer call: 0x1F5E
+cosmetic ID: 0x7D
+sound bank: 0x166
+JOJI offset: 359 ????
+
+~~~ Car ~~~
+game ID: 0x53
+announcer call: 0x1F5E
+cosmetic ID: 0x7D
+sound bank: 0x167
+JOJI offset: 359 ????
+
+~~~ Daisy ~~~
+game ID: 0x54
+announcer call: 0x1F5E
+cosmetic ID: 0x7D
+sound bank: 0x168
+JOJI offset: 359 ????
