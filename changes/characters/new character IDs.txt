@@ -127,7 +127,7 @@ game ID: 0x4F
 announcer call: 0x1F5E
 cosmetic ID: 0x7D
 sound bank: 0x163
-JOJI offset: 362 ????
+JOJI offset: 362 (was 346)
 
 ~~~ Incineroar ~~~
 game ID: 0x50
