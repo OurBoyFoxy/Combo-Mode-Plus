@@ -5,6 +5,7 @@
 op cmplwi r0, 0x30 @ $8018CFC4
 op blt- 0x34	   @ $8018CFC8
 
+.include Source/LegacyTE/AltCostume.asm
 .include Source/LegacyTE/LoadFlags.asm
 
 .include Source/Project+/StageFiles.asm
