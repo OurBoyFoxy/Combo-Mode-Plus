@@ -163,3 +163,10 @@ announcer call: 0x1F5E
 cosmetic ID: 0x7D
 sound bank: 0x168
 JOJI offset: 359 ????
+
+~~~ Melee Fox ~~~
+game ID: 0x55
+announcer call: 0x1F5E
+cosmetic ID: 0x7D
+sound bank: 0x169
+JOJI offset: 359 ????
