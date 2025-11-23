@@ -2116,6 +2116,131 @@ Existing Tag Usage [standardtoaster]
 #####################################
 op mr r19, r3 @ $8069B868
 
+#############################
+CSS Cursor Speed [Dantarion]
+#############################
+float 1.0 @ $806A1014
+
+#########################################
+Use Custom CLR ID on Anchored GFX [Magus]
+#########################################
+HOOK @ $807A3E20
+{
+	lwz r30, 0xD8(r1)
+	cmpwi r14, 0x2329
+	bne+ %END%
+	lwz r30, 0x10(r2)
+}
+
+#################################################################
+#[Legacy TE] Transforming Characters Switch Stocks [PyotrLuzhin]
+#################################################################
+* C20E2090 00000013
+* 38E00000 81810094
+* 7C0802A6 90020000
+* 9421FF80 BC610010
+* 3F608098 637B8E8C
+* 7C0CD800 4082005C
+* 3F609018 8B7BF37F
+* 2C1B0002 4082000C
+* 3B600001 48000008
+* 3B600005 6F5A8000
+* 93820004 93420008
+* 7FBCEB78 807C008C
+* C8220004 EC21E028
+* 3D80800B 618C7900
+* 7D8903A6 4E800421
+* 3B9C0004 3B7BFFFF
+* 2C1B0000 41A1FFD8
+* 80020000 B8610010
+* 80210000 7C0803A6
+* 60000000 00000000
+
+#####################################################################
+[Legacy TE] Team Glow CSS Toggle [PyotrLuzhin, Fracture, Yohan1044] (edited to be only team glow by MarioDox)
+#####################################################################
+op li r0,0 @ $80689b90
+op li r27,0 @ $8069a2e0
+op li r27,0 @ $8069a3f0
+op b 0x58 @ $806974d4
+op li r0,0 @ $80684968
+op nop @ $806d5c28
+
+HOOK @ $8081F4B8                # Address = $(ba + 0x0081F4B8)
+{
+	addi r11, r1, 0x58              # 0x39610058
+	lis r12, 0x9018                 # 0x3D809019
+	lbz r12, 0xb73(r12)             # 0x898CA0E5
+	cmpwi r12, 0x1                  # 0x2C0C0001
+	bne %END%                       # 0x40820070
+	mflr r0                         # 0x7C0802A6
+	stw r0, 0x0(r2)                 # 0x90020000
+	stwu r1, -0x80(r1)              # 0x9421FF80
+	stmw r3, 0x10(r1)               # 0xBC610010
+	lwz r6, 0x28(r31)               # 0x80DF0028
+	lbz r7, 0xa(r31)                # 0x88FF000A
+	cmpwi r7, 0xff                  # 0x2C0700FF
+	bne 0x8                         # 0x40820008
+	li r7, 0x0                      # 0x38E00000
+	mulli r7, r7, 0x8               # 0x1CE70008
+	add r7, r31, r7                 # 0x7CFF3A14
+	lwz r3, 0x34(r7)                # 0x80670034
+	li r5, 0x10                     # 0x38A00010
+	li r4, 0x88                     # 0x38800088
+	lwz r6, 0x14(r6)                # 0x80C60014
+	add r4, r4, r6                  # 0x7C843214
+	lwz r3, 0x60(r3)                # 0x80630060
+	lwz r3, 0xd8(r3)                # 0x806300D8
+	lwz r3, 0x88(r3)                # 0x80630088
+	lwz r12, 0x0(r3)                # 0x81830000
+	lwz r12, 0x54(r12)              # 0x818C0054
+	mtctr r12                       # 0x7D8903A6
+	bctrl                           # 0x4E800421
+	lwz r0, 0x0(r2)                 # 0x80020000
+	lmw r3, 0x10(r1)                # 0xB8610010
+	lwz r1, 0x0(r1)                 # 0x80210000
+	mtlr r0                         # 0x7C0803A6
+}
+
+####################################################################################
+[Legacy TE] CSS keeps character choice for inactive ports between matches [Fracture]
+####################################################################################
+HOOK @ $80689B18
+{
+  	stw r0, -4(r1); mflr r0
+  	stw r0, 4(r1);  mfctr r0
+  	stw r0, -8(r1)
+  	stwu r1, -0x84(r1)
+  	stmw r3, 8(r1)
+  	lwz r5, 0x1B8(r26)
+  	andi. r5, r5, 0xFFFE
+  	cmpwi r5, 0x28; beq- skip
+  	lwz r3, 160(r30)
+  	li r4, 0x0
+  	lis r0, 0x8069;  ori r0, r0, 0xECAC;  mtctr r0;  bctrl 
+  	mr r3, r30
+  	lis r0, 0x8069;  ori r0, r0, 0xD1E8;  mtctr r0;  bctrl 
+  	mr r3, r26
+  	lwz r4, 440(r26)
+  	li r5, 0xC0DE;	 andi. r5, r5, 0xFFFF
+  	lis r0, 0x8069;  ori r0, r0, 0x6F60;  mtctr r0;  bctrl 
+skip:
+  	lmw r3, 8(r1)
+  	addi r1, r1, 0x84
+  	lwz r0, -8(r1);		mtctr r0
+  	lwz r0, 4(r1);		mtlr r0
+  	lwz r0, -4(r1);		mr r3, r24
+}
+HOOK @ $80696F8C
+{
+  	cmplwi r5, 0xC0DE
+  	bne- skip
+  	lwz r29, 0x1BC(r3)
+  	bc 20, 20, %END%
+skip:
+  	li r29, 0x0
+}
+
 ################################################################################
 [Legacy TE] sc_selmap.pac can be 3 times larger because I said so V2 [DukeItOut]
 #
@@ -2134,58 +2259,25 @@ finish:
   lbz r0, 0x1C(r27); rlwinm. r0, r0, 26, 31, 31	# Reset cache condition check
 }
 
-#########################################################################################
-[Legacy TE] Hold L/R to inc/dec 1/4 of a character's costume count on the CSS [DukeItOut]
-#########################################################################################
-op sub r26, r26, r3 	@ $8069A274
-op add r26, r26, r3 	@ $8069A384
-op b 0x8		@ $8069BE34
-HOOK @ $8069BE30
-{
-  	lis r27, 0x8069
-  	ori r27, r27, 0xBE38
-  	lwz r29, 8(r1)
-  	andi. r3, r29, 0x60	// if either L (40) or R (20) are held
-  	li r3, 0x0
-  	beq- notSoFast
-  	li r3, 0x1		// initiate the status to allow rapid scrolling
-notSoFast:
-  	stw r3, 0(r27)		// which is stored at 8069BE38
-  	lwz r29, 20(r1)
-  	and r3, r29, r0
-  	lwz r27, 12(r1)
-  	neg r0, r3
-}
-HOOK @ $8069A37C
-{
-  	lis r6, 0x8069
-  	ori r6, r6, 0xBE38
-  	lwz r6, 0(r6)
-  	cmplwi r6, 1
-  	beq- hastyScroll
-  	subic. r26, r26, 0x1
-  	b %END%
-hastyScroll:
-  	li r6, 0x4	
- 	divw r6, r3, r6		// jump rate = 1/r6 * total
-  	subc. r26, r26, r6
-}
-HOOK @ $8069A268
-{
-  	lis r6, 0x8069
-  	ori r6, r6, 0xBE38
-  	lwz r6, 0(r6)
-  	cmplwi r6, 1
-  	beq- hastyScroll
-  	addi r26, r26, 0x1
-  	b %END%
-hastyScroll:
-  	li r6, 0x4	
-  	divw r6, r3, r6		// jump rate = 1/r6 * total
-  	add r26, r26, r6
-}
+##############################################################
+#[Project+] Timer Displays frames instead of centiseconds [Eon]
+##############################################################
+op fsubs f1, f0, f3 @ $800ddfb0
+op mulli r0, r3, 60 @ $80692874
+op mulli r0, r4, 60 @ $80692a70
 
+op nop @ $8010c880
+op fmr f0, f3 @ $8010c888
+
+.include Source/ProjectM/CSS.asm
+#.include Source/ProjectM/SSS.asm
+.include Source/ProjectM/SSSButtons.asm
+.include Source/ProjectM/Glide.asm
+
+.include Source/P+Ex/HiddenAltSets.asm
 .include Source/LegacyTE/Masquerade.asm
+.include Source/LegacyTE/TagsControls.asm
+
 .include Source/LegacyTE/CSSCustomControls.asm
 
 ###################################
