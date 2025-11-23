@@ -2280,6 +2280,28 @@ op fmr f0, f3 @ $8010c888
 
 .include Source/LegacyTE/CSSCustomControls.asm
 
+#############################################################################
+###################          Visual/Audio Codes          ####################
+#############################################################################
+
+###############################################
+Franklin Badge SFX Modifier V2 [Magus, ds22]
+###############################################
+* C2840824 00000004
+* 2C05001A 41800014
+* 2C05001D 4181000C
+* 38801F86 48000008
+* 3880000B 00000000
+
+##################################
+Team Coloured Shields V2 [ds22]
+##################################
+* C281DEEC 00000003
+* 2C170002 4182000C
+* 7EE4BB78 48000008
+* 38800003 00000000
+* 0481DEF4 7EE4BB78
+
 ###################################
 Team Colour Shade Check Fix (BrawlEx) [ds22, Sammi Husky]
 ###################################
@@ -2294,6 +2316,55 @@ Team Colour Shade Check Fix (BrawlEx) [ds22, Sammi Husky]
 * 7C6B1B78 7C640214
 * 60000000 00000000
 
+##################################
+Team Colour Shade Modifier [ds22]
+##################################
+* 06F9FF64 0000000C
+* 00000080 80808080
+* FFFFFF80 00000000
+
+#######################################
+Phantom Hit SFX & GFX Modifier [ds22]
+#######################################
+op li r4, 21 	@ $8076205C
+op li r4, 0 	@ $8076BCCC
+
+###############################
+Wall Jump GFX Modifier [ds22]
+###############################
+op li r4, 0 @ $80879CBC
+
+########################################################
+SFX Survival -> Choose Your Character [Standardtoaster]
+########################################################
+op li r4, 0x2046 @ $80683998
+op li r4, 0x2046 @ $8068E590
+
+############################################################################
+No Audience SFX on Stage Selection v2 [Standardtoaster, DukeItOut, Kapedani]
+############################################################################
+op NOP @ $806b46d0
+op NOP @ $806b53b8
+
+###################################################################
+#No Swoosh SFX on Character Selection v2 [standardtoaster, Kapedani]
+###################################################################
+op NOP         @ $8068ae54
+op li r4, -1     @ $8068D18C
+
+############################################
+Random has Announcer Call [standardtoaster]
+############################################
+op NOP		@ $8068AFC0
+int 0x1EEC	@ $80455980
+HOOK @ $800AF898
+{
+  	cmpwi r29, 0x29; bne- loc_0x10
+  	lis r3, 0x8045;  ori r3, r3, 0x5978
+loc_0x10:
+  	lwz r3, 8(r3)
+}
+
 #########################################
 SFX Fade Fix PMEXv0.5 [ds22, PyotrLuzhin]
 #########################################
@@ -2303,6 +2374,23 @@ SFX Fade Fix PMEXv0.5 [ds22, PyotrLuzhin]
 * 38000005 901F0000
 * 60000000 00000000
 
+###########################
+On-hit SFX Modifier [ds22]
+###########################
+int 0x3D @ $80AD72F4
+int 0x40 @ $80AD7304
+int 0x4E @ $80AD7364
+
+#############################################
+All Music Available without Unlocking [Magus]
+#############################################
+op li r0, -1 @ $8004FA64
+
+##############################
+Locked Stage Music Fix [Magus]
+##############################
+op li r0, 0xFFF @ $8004FAE4
+
 .include Source/Project+/CSE.asm
 .include Source/Project+/ResultsMusic.asm
 .include Source/Project+/SFXExpand.asm
@@ -2311,12 +2399,114 @@ SFX Fade Fix PMEXv0.5 [ds22, PyotrLuzhin]
 ################          Character-Specific Codes          #################
 #############################################################################
 
+###############################################
+Cape Reversed Control Time [standardtoaster]
+###############################################
+op li r4, 20 @ $8085B814
+
 ###############################################################
 [Legacy TE] Peach costumes no longer use a FitEntry [DukeItOut]
 ###############################################################
 uint8_t 0x0 @ $80AD803C
 
 .include Source/Project+/YoshiEggs.asm
+
+###############################################################
+[Project+] Diddy Kong Flip Base Hold Time 70 > Infinite [Boiko]
+###############################################################
+float Infinite @ $80B88738
+
+#########################################
+Spacies Up-B Air Friction Fix [Magus]
+#########################################
+op fneg	f0,f1 @ $80A1B848
+
+###########################
+Falco Low Laser Fix [Eon]
+###########################
+HOOK @ $80a5d1b4
+{
+  lwz r3, 0xD8(r29)
+  lwz r3, 0x14(r3)
+  lwz r12, 0x0(r3)
+  lwz r12, 0x18(r12)
+  mtctr r12
+  bctrl 
+  cmpwi r3, 2
+  bne orig 
+
+  #getPos
+  addi r3, r1, 0x20 
+  lwz r4, 0xD8(r29)
+  lwz r4, 0xC(r4)
+  lwz r12, 0x0(r4)
+  lwz r12, 0x18(r12)
+  mtctr r12
+  bctrl 
+  #getPrevPos
+  addi r3, r1, 0x2C 
+  lwz r4, 0xD8(r29)
+  lwz r4, 0xC(r4)
+  lwz r12, 0x0(r4)
+  lwz r12, 0x20(r12)
+  mtctr r12
+  bctrl 
+  lfs f1, 0x24(r1) #currY 
+  lfs f2, 0x30(r1) #prevY 
+  fsubs f1, f1, f2 #currY - prevY 
+  lfs f2, 0xC(r1)
+  fsubs f1,f2,f1   #position - changeInPos = newPosition
+  stfs f1, 0xC(r1)
+
+orig:
+  lfs f0, -0x1930(r27)
+}
+
+#########################
+Fox Low Lasers Fix [Eon]
+#########################
+HOOK @ $80A297B4
+{
+  lwz r3, 0xD8(r29)
+  lwz r3, 0x14(r3)
+  lwz r12, 0x0(r3)
+  lwz r12, 0x18(r12)
+  mtctr r12
+  bctrl 
+  cmpwi r3, 2
+  bne orig 
+
+  #getPos
+  addi r3, r1, 0x20 
+  lwz r4, 0xD8(r29)
+  lwz r4, 0xC(r4)
+  lwz r12, 0x0(r4)
+  lwz r12, 0x18(r12)
+  mtctr r12
+  bctrl 
+  #getPrevPos
+  addi r3, r1, 0x2C 
+  lwz r4, 0xD8(r29)
+  lwz r4, 0xC(r4)
+  lwz r12, 0x0(r4)
+  lwz r12, 0x20(r12)
+  mtctr r12
+  bctrl 
+  lfs f1, 0x24(r1) #currY 
+  lfs f2, 0x30(r1) #prevY 
+  fsubs f1, f1, f2 #currY - prevY 
+  lfs f2, 0xC(r1)
+  fsubs f1,f2,f1   #position - changeInPos = newPosition
+  stfs f1, 0xC(r1)
+
+orig:
+  lfs f0, -0x1D40(r27)
+}
+
+#######################################################
+Ignore Ganon Neutral-B Air Mobility Coding [Magus]
+#######################################################
+* 04A60CF8 4E800020
 
 ##################################################################
 Squirtle Side-B Footstool Uses Normal Requirement 0x2713 [Magus]
@@ -2365,13 +2555,13 @@ Independent Pokemon Engine HTP, Classic & MMS [ds22]
 * 2C030021 40A20008
 * 38600022 987D0098
 * 60000000 00000000
-* C26E1178 00000006
-* 2C12001D 40A20008
-* 3A40001E 2C12001F
-* 40A20008 3A400020
-* 2C120021 40A20008
-* 3A400022 9A550098
-* 60000000 00000000
+#* C26E1178 00000006 # scSimple/classic mode portion, unnecessary
+#* 2C12001D 40A20008
+#* 3A40001E 2C12001F
+#* 40A20008 3A400020
+#* 2C120021 40A20008
+#* 3A400022 9A550098
+#* 60000000 00000000
 * C295E184 00000006
 * 2C1F001D 40A20008
 * 3BE0001E 2C1F001F
@@ -2395,11 +2585,137 @@ word[24] 0x1D, 0x1E, 0x1F, 0x1C, 0x1D, -1, -1, -1, |
          0x1F, 0x1D, 0x1E, 0x1C, 0x1F, -1, -1, -1, |
 @ $80AD8428
 
+############################
+Aura Sphere Cancel [ds22]
+############################
+* C2AA658C 00000007
+* 2C1A001A 41820030
+* 2C1A001F 41820028
+* 2C1A0020 41820020
+* 2C1A0021 41820018
+* 2C1A0118 41820010
+* 2C1A011E 41820008
+* 40820004 00000000
+* 04AA6590 40820040
+
+#######################################################################
+[Project+] Aura Sphere Only Pulsates Horizontally v1.2 [DukeItOut, Eon]
+#
+# 1.1: Fixes issue where Kirby's Shadow Ball wouldn't match Mewtwo's
+# 1.2: Improves Kirby check to no longer require LA-Basic[8] to be set
+#######################################################################
+HOOK @ $80AABBA0
+{
+  lis r4, 0x1000		# \ LA-Basic[9] of the projectile, which contains the character ID of who spawned it
+  addi r4, r4, 0x9		# /
+  lwz r3, 0xD8(r28)
+  lwz r3, 0x64(r3)
+  lwz r12, 0(r3)
+  lwz r12, 0x18(r12)
+  mtctr r12
+  bctrl 
+
+  cmplwi r3, 0x26		# \ Mewtwo's ID
+  beq- ShadowBall		# /
+  cmplwi r3, 0x2A		# \ Ridley's ID
+  beq- ShadowBall		# /
+  cmplwi r3, 0x9F		# \ Mega Mewtwo's ID
+  beq- ShadowBall		# /
+  cmplwi r3, 0x21		# \ Lucario's ID
+  beq+ AuraSphere		# /
+  cmplwi r3, 0xA3		# \ Mega Lucario's ID
+  beq+ AuraSphere		# /
+  cmplwi r3, 0x05		# \ Kirby's ID
+  beq+ Kirb				# /
+  b AuraSphere
+
+Kirb:
+  #get link parent[3] (aka shooter)
+  lwz r3, 0xD8(r28)
+  lwz r3, 0x54(r3)
+  li r4, 3
+  lwz r12, 0x0(r3)
+  lwz r12, 0x34(r12)
+  mtctr r12
+  bctrl 
+#get Kirby LA-Basic[72] (hat id)
+  lwz r3, 0x60(r3)
+  lwz r3, 0xD8(r3)
+  lwz r3, 0x64(r3)
+  lis r4, 0x1000
+  addi r4, r4, 72
+  lwz r12, 0x0(r3)
+  lwz r12, 0x18(r12)
+  mtctr r12
+  bctrl 
+  
+  cmplwi r3, 0x26		# \ Mewtwo's ID
+  beq- ShadowBall		# /
+  cmplwi r3, 0x2A		# \ Ridley's ID
+  beq- ShadowBall		# /
+  cmplwi r3, 0x9F		# \ Mega Mewtwo's ID
+  beq- ShadowBall		# /
+  cmplwi r3, 0x21		# \ Lucario's ID
+  beq+ AuraSphere		# /
+  cmplwi r3, 0xA3		# \ Mega Lucario's ID
+  beq+ AuraSphere		# /
+  
+ShadowBall:		
+  fmuls f0, f31, f29		# Waver in both vertical and horizontal directions if Mewtwo's Shadow Ball!
+  b finish
+
+AuraSphere:
+  fsubs f0, f0, f0		# Eliminate vertical wiggle for Aura Sphere!
+
+finish:
+  mr r3, r30
+}
+
+########################################
+[Project+] Lucario Charge Glow Fix [Eon]
+########################################
+op cmpwi r26, 0x112 @ $80aa66c0
+op blt 0x20 @ $80aa66c4
+
+########################################
+Samus Aerial Charge Shot Charging [ds22]
+########################################
+op b -0x230	@ $80A06348
+op b -0x230	@ $80A06210
+op b 0x40	@ $80A07050
+op nop @ $80A06580
+op nop @ $80A065C4
+op nop @ $80A068C0
+op nop @ $80A068C4
+op bge-	0x9C @ $80A06160
+
+########################################
+Samus Bombs account for Shields [DukeItOut]
+########################################
+op rlwinm. r0, r30, 0, 29, 31 @ $809F4B7C
+
 ################################
 ZSS Jumbo Screen Name Fix [ds22]
 ################################
 op li r23, 0x17 @ $80985F44 //0x17 is ZSS ID, instead of the normal 0x3 for Samus
 op li r30, 0x17 @ $8098652C 
+
+########################################################
+[Project+] Kirby Momentum isnt reset by Peanut Gun [Eon]
+########################################################
+#port of a module edit in ft_diddy
+op b 0x90 @ $80A6F11C
+
+####################################################
+[Project+] Mach Tornado Doesn't Ricochet [DukeItOut]
+####################################################
+op NOP @ $80A6467C
+op NOP @ $80A64614
+
+##############################################################
+[Project+] Dedede's Inhale Base Timer Reduction [Boiko]
+##############################################################
+float 200.0 @ $80B88708
 
 #################################
 [Project+] Roy Counter Fix [ds22] 
@@ -2412,6 +2728,47 @@ loc_0x10:
   li r3, 0x1
 }
 
+##############################################################
+#Ice Climber within Range Stores Variable V2 [Magus, DukeItOut]
+##############################################################
+HOOK @ $80903670
+{
+  cror 2, 0, 2
+  lwz r12, 0x1BC(r24)
+  lwz r12, 0x70(r12) # \
+  lwz r12, 0x20(r12) # | Access LA-Bit for Leader IC
+  lwz r12, 0x1C(r12) # /
+  addi r3, r12, 0x2D4 # Simple way to get to it with assumption of LA variable expansion size
+
+  lis r7, 0x2
+  lwz r5, 0xC(r12)
+  lwz r6, 0xC(r3)
+  bne- loc_0x50
+  or r5, r5, r7
+  or r6, r6, r7
+  b loc_0x58
+
+loc_0x50:
+  andc r5, r5, r7
+  andc r6, r6, r7
+
+loc_0x58:
+  stw r5, 0xC(r12)	# \ Store to both Climbers at LA-Bit 113
+  stw r6, 0xC(r3)	# /
+}
+
+##############################################################################
+#[Project+] All ground types but HRC act as basic for Pikmin pull chances [Eon]
+##############################################################################
+HOOK @ $80a6bbdc
+{
+    cmpwi r3, 29
+    beq end
+    li r3, 0
+end:
+    mr r29, r3
+}
+
 #######################################################
 Snake's U-Smash can Have Horizontal Velocity [Magus]
 #######################################################
@@ -2421,10 +2778,24 @@ Snake's U-Smash can Have Horizontal Velocity [Magus]
 * 48000008 C0049560
 * 60000000 00000000
 
-.include Source/Project+/EffectCommands.asm
-.include Source/Project+/Attributes.asm
+##########################################################
+[Project+] Sonic/Knuckles Spin Dash Bucket Brake Fix [Eon]
+##########################################################
+op nop @ $80ac7d2c
 
-.include Source/Project+/CStick.asm
+#############################################
+Alloys Can Shield, Dodge & Grab Ledges [ds22]
+#############################################
+op b 0x88	@ $808A082C
+op b 0x78	@ $808A083C
+op b 0x38	@ $808A087C
+
+.include Source/LegacyTE/CPU.asm		# Don't move this to BOOST, it will fail to function for some reason
+.include Source/ProjectM/ButtonPresses.asm
+#.include Source/Project+/Debug/modifiedDebug.asm
+.include Source/Project+/CStick.asm		# Don't move this to BOOST, it will cause aerial drift for some reason
+.include Source/Project+/Items.asm
+.include Source/P+Ex/ItemEx.asm
 
 .include Source/Community/Syringe.asm
 .include Source/Project+/MultiGCT.asm

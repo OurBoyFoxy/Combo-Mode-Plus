@@ -28,6 +28,8 @@ op blt- 0x34	   @ $8018CFC8
 .include Source/Project+/AnimatedCSS.asm
 .include Source/Project+/Hurtbox.asm
 
+.include Source/Project+/EffectCommands.asm
+.include Source/Project+/Attributes.asm
 .include Source/Project+/PokeTrainer.asm
 
 .include Source/Project+/Items.asm
