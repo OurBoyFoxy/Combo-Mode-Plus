@@ -17,7 +17,7 @@
 ####################################################################
 LA Variables Expansion and Additional Info System [Magus, DukeItOut]
 ####################################################################
-.alias LA_region = 0x92FFDC00
+.alias LA_region = 0x935F0000
 .macro Address(<arg1>)
 {
 .alias temp_Hi = <arg1> / 0x10000

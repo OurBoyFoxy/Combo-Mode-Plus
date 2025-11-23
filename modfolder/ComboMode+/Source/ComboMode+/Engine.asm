@@ -119,11 +119,6 @@ HOOK @ $8076CCD4                # Address = $(ba + 0x0076CCD4) [in "setupDamageS
 }
 
 ###################################
-[ComboMode+] No Challenger Approaching
-###################################
-* 046F5D58 930F0008             # 32-Bit Write @ $(ba + 0x006F5D58):  0x930F0008
-
-###################################
 [ComboMode+] RCO Fix
 ###################################
 * 04858DCC 38830003             # 32-Bit Write @ $(ba + 0x00858DCC):  0x38830003
@@ -213,11 +208,6 @@ loc_0x012:
 * E0000000 80008000             # Full Terminator: ba = 0x80000000, po = 0x80000000
 
 ###################################
-[ComboMode+] Tripping Rate is 0 V2 [ds22, KirbyIsCool] from discord
-###################################
-* 0489E910 FFE0F090             # 32-Bit Write @ $(ba + 0x0089E910):  0xFFE0F090
-
-###################################
 [ComboMode+] Controller Input Lag Fix [Magus] https://smashboards.com/threads/controller-input-lag-fix.331578/
 ###################################
 HOOK @ $8002AD8C                # Address = $(ba + 0x0002AD8C) [in "getGamePadStatus/[gfPadSystem]/gf_pad.o" @ $8002AC54]
@@ -226,99 +216,6 @@ HOOK @ $8002AD8C                # Address = $(ba + 0x0002AD8C) [in "getGamePadSt
 	subi r3, r3, 0x404              # 0x3863FBFC
 	nop                             # 0x60000000
 }
-
-###################################
-[ComboMode+] Default Settings Modifier [Igglyboo, Brkirch, and FMK] https://gamebanana.com/scripts/11460
-###################################
-* 24494A98 80000000             # 32-Bit If Greater: If Val @ $(ba + 0x00494A98) > 0x80000000
-* 20523300 00000000             # 32-Bit If Equal: If Val @ $(ba + 0x00523300) == 0x00000000
-* 04523300 DEADBEEF             # 32-Bit Write @ $(ba + 0x00523300):  0xDEADBEEF
-* 42000000 90000000             # Set Base Address: ba = 0x90000000
-* 0017BE50 00000000             # 8-Bit Write @ $(ba + 0x0017BE50):  0x00
-* 0417BE58 000E0000             # 32-Bit Write @ $(ba + 0x0017BE58):  0x000E0000
-* 0417BE5C 00000000             # 32-Bit Write @ $(ba + 0x0017BE5C):  0x00000000
-* 0417BE74 0420D007             # 32-Bit Write @ $(ba + 0x0017BE74):  0x0420D007
-* 0417BE70 00000000             # 32-Bit Write @ $(ba + 0x0017BE70):  0x00000000
-* 0417F360 00000108             # 32-Bit Write @ $(ba + 0x0017F360):  0x00000108
-* 0417F364 04000A00             # 32-Bit Write @ $(ba + 0x0017F364):  0x04000A00
-* 0417F368 08010100             # 32-Bit Write @ $(ba + 0x0017F368):  0x08010100
-* 0417F36C 01000000             # 32-Bit Write @ $(ba + 0x0017F36C):  0x01000000
-* E0000000 80008000             # Full Terminator: ba = 0x80000000, po = 0x80000000
-
-#############################################################################################################
-Boot Directly to CSS v5.3 (Hold Shield for Training, Z for Target Smash) [PyotrLuzhin, SammiHusky, QuickLava]
-# v5.2 - Added Hold Z to Boot to Target Smash!
-#      - The port which triggers the code now properly controls the CSS upon arrival.
-# v5.3 - Wiimote-based controllers properly get control of CSS when special inputs are activated.
-#      - First comments pass.
-#############################################################################################################
-HOOK @ $806DD5F8
-{
-    li r11, 0                            # Initialize port ID iterator for coming loop.
-    LOOP_START:
-        lis r12, 0x805B                  # \ 
-        ori r12, r12, 0xa684             # / Set up base pointer to input masks.
-                                         
-    GAMECUBE:                          
-    li r10, 0x00                     # Set controller type offset to 0x00, for GCC.       
-        mulli r4, r11, 0x40              # Multiply port ID by 0x40 to index to the desired input data.
-        lwzx r0, r12, r4                 # Load current button mask.
-        rlwinm. r5, r0, 0, 25, 26        # If R or L pressed...
-        bne boot_training                # ... boot to Training.
-        rlwinm. r5, r0, 0, 27, 27        # Otherwise, if Z pressed...
-        bne boot_targets                 # ... boot to Target Smash.
-                                         
-    WIIMOTE_CHECK_SUBTYPE:                          
-    li r10, 0x04                     # Set controller type offset to 0x04, for Wiimote based controllers.                      
-        addi r12, r12, 0x100             # Push forwards to Wii Controller data?
-        lwz r4, 0x3c(r12)                # Grab controller type.
-        cmpwi r4, 3                      # If 3...
-        beq WIICHUCK                     # skip down to Wiimote + Nunchuck section.
-        mulli r4, r11, 0x40              # Otherwise, once again get offset to desired port's inputs...
-        lwzx r0, r12, r4                 # ... and load its button mask.
-        rlwinm. r0, r0, 0, 25, 26        # If R or L pressed...
-        bne boot_training                # ... boot to Training.
-        b LOOP_BACK                      # Otherwise, skip past the WiiChuck bit and prepare to loop again.
-    WIICHUCK:                            
-        mulli r4, r11, 0x40              # Get offset to desired port inputs...
-        lwzx r0, r12, r4                 # ... load its button mask.
-        rlwinm. r0, r0, 0, 27, 27        # If Z is pressed ...
-        bne boot_training                # ... boot to Training.
-    LOOP_BACK:                           
-        addi r11, r11, 1                 # Add 1 to the current port number...
-        cmpwi r11, 4                     # ... compare that against 4...
-        blt LOOP_START                   # ... and if it's less than that there're still controllers to check, continue loop.
-                                         
-    boot_vs:                             # If we've checked every port and found no special mode input...
-        addi r4, r21, 0x1B54             # ... then redirect r4 to "sqVsMelee" @ $80701B54 instead of "sqBoot".
-        li r5, 0                         # Zero r5...
-        b %END%                          # ... and exit.
-                                         
-    boot_training:                       #
-        addi r4, r20, -0x3f0             # Redirect r4 to "sqTraining" @ $80701870 instead of "sqBoot".
-        b set_active_controller          # Skip down to setting active controller.
-        
-    boot_targets:
-        addi r4, r20, -0x418             # Redirect r4 to "sqTargetBreak" @ $80701848 instead of "sqBoot".
-        
-    set_active_controller:
-        lwz r12, -0x4340(r13)            # Get pointer to g_GameGlobal...
-        lwz r12, 0x1C(r12)               # ... then gmSetRule.
-add r10, r11, r10                # Add controller type offset to the current port ID so Wiimote Controller IDs line up correctly...
-        stw r10, 0x24(r12)               # ... then write that ID over the spot read by gmGetMenuDecisionPad so it'll control CSS!
-il r5, 0                         # Zero r5 before exiting.
-}
-HOOK @ $8002D3A0
-{
-  mr r4, r27
-  lis r5, 0x8042;    ori r5, r5, 0xA40
-  cmpw r4, r5;        bne- %END%
-  li r5, 0x3
-  stb r5, 0x2A5(r28);    stb r5, 0x2B1(r28)
-  li r30, 0x0
-}
-op b 0x10 @ $80078E14
-op nop    @ $806DD5FC
 
 #############################################################################################################
 Fast Menus [No idea]
@@ -398,12 +295,6 @@ HOOK @ $80695264                # Address = $(ba + 0x00695264) [in "updateContro
 * 00080000 00000000             # 	0x00, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 * 06FAC5D4 00000008             # String Write (8 characters) @ $(ba + 0x00FAC5D4):
 * 00070100 80585EC0             # 	0x00, 0x07, 0x01, 0x00, 0x80, 0x58, 0x5E, 0xC0
-
-#############################################
-[Combo Mode+] Slopes do not Affect Landing Velocity [Magus]
-#############################################
-op fneg    f2,f2     @ $80794634
-op fmr    f0,f2     @ $8079463C
 
 #############################################
 [Combo Mode+] 25 Frame Tech window [source?]

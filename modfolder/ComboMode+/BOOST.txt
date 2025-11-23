@@ -7,6 +7,19 @@ op blt- 0x34	   @ $8018CFC8
 
 .include Source/LegacyTE/AltCostume.asm
 .include Source/LegacyTE/LoadFlags.asm
+.include Source/LegacyTE/ASLHelper.asm
+.include Source/LegacyTE/UnboundedTeamEngine.asm
+
+.include Source/ProjectM/CustomAI.asm
+.include Source/ProjectM/VariableSet.asm
+
+.include Source/Project+/Articles.asm
+#.include Source/Project+/CodeMenu.asm
+#.include Source/Project+/BigHeadMode.asm
+#.include Source/Project+/RandomAngleMode.asm
+.include Source/Project+/IndependentSub.asm
+.include Source/Project+/TrainingMode.asm
+.include Source/Project+/VictoryCamera.asm
 
 .include Source/Project+/StageFiles.asm
 .include Source/Project+/CustomRequirements.asm
@@ -15,6 +28,8 @@ op blt- 0x34	   @ $8018CFC8
 .include Source/Project+/AnimatedCSS.asm
 .include Source/Project+/Hurtbox.asm
 
+.include Source/Project+/EffectCommands.asm
+.include Source/Project+/Attributes.asm
 .include Source/Project+/PokeTrainer.asm
 
 .include Source/Project+/Items.asm
@@ -48,6 +63,7 @@ op blt- 0x34	   @ $8018CFC8
 .include Source/P+Ex/SoundbankFix.asm
 .include Source/P+Ex/Subspace.asm
 .include Source/P+Ex/VariableParameter.asm
+.include Source/Community/lavaInjectLoader.asm
 
 
 .include Source/ComboMode+/Engine.asm

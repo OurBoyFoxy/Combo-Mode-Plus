@@ -1,7 +1,7 @@
 
-################################################
-ItemEx Clone Engine v2.1 [Sammi Husky, Kapedani]
-################################################
+#################################################
+ItemEx Clone Engine v2.51 [Sammi Husky, Kapedani]
+#################################################
 # Stages can override items
 # Character specific items
 # Variants setup for Pokemon/Assist Trophies
@@ -21,6 +21,7 @@ ItemEx Clone Engine v2.1 [Sammi Husky, Kapedani]
 .alias g_itmParam                           = 0x80B8B800
 .alias g_itManager                          = 0x80B8B7F4
 .alias itManager__preloadItemKindArchive    = 0x809ae960
+.alias itManager__removeItemAll             = 0x809b2750
 .alias itManager__removeItemAllTempArchive  = 0x809b69d8
 .alias itManager__removeItemArchive         = 0x809b6718
 .alias itManager__getRandBasicItemSheet     = 0x809b3a60
@@ -30,7 +31,11 @@ ItemEx Clone Engine v2.1 [Sammi Husky, Kapedani]
 .alias g_itKindVariationNums                = 0x80ADB548
 .alias g_itKindRemovableItKind              = 0x80ADBE58
 .alias g_itKindEmissions                    = 0x80adc120
+.alias g_itNullCustomizer                   = 0x80b8b1f0
 .alias BaseItem__resetDamage                = 0x8099a068
+.alias soExternalValueAccesser__getStatusKind 	= 0x80797608
+.alias soExternalValueAccesser__getPos      = 0x807973e8
+.alias soExternalValueAccesser__getWorkInt  = 0x807976d8
 .alias muProcItemSwitch__init               = 0x806aa5e8
 .alias muProcMenu__setAnimFrame             = 0x806a52d4
 .alias MuMsg__setMsgData                    = 0x800b8c7c
@@ -51,6 +56,7 @@ ItemEx Clone Engine v2.1 [Sammi Husky, Kapedani]
 .alias __memfill                            = 0x8000443c
 .alias memcpy                               = 0x80004338
 .alias __shl2i                              = 0x803f1798
+.alias _float_1_0							= 0x80AD7DCC
 
 .alias ITM_OVERRIDE_STR_ADDR        = 0x80B518F8 
 .alias PKM_OVERRIDE_STR_ADDR        = 0x80B51908
@@ -58,7 +64,7 @@ ItemEx Clone Engine v2.1 [Sammi Husky, Kapedani]
 .alias 076_SOUND_HEAP_LEVEL_ADDR    = 0x80B51918
 .alias ITM_FT_PARAM_ARCHIVES        = 0x80B5191C
 .alias FIGHTER_STR                  = 0x80B08850
-.alias BRAWLEX_FIGHTER_NAMES        = 0x817CD820
+.alias BRAWLEX_FIGHTER_NAMES        = 0x817c38e0 # <- Changed for REX
 .alias ITM_OVERRIDE_SETTINGS        = 0x80B51939
 .alias PKM_OVERRIDE_SETTINGS        = 0x80B518D8
 .alias DEFAULT_PKM_VARIETY_AMOUNT   = 5
@@ -72,6 +78,16 @@ ItemEx Clone Engine v2.1 [Sammi Husky, Kapedani]
 .alias EXTRA_ITSWITCH_POKEMON       = 0x8042C254
 .alias EXTRA_ITSWITCH_ASSIST        = 0x8042C258
 
+
+.macro lf(<freg>, <reg>, <addr>)
+{
+    .alias  temp_Lo = <addr> & 0xFFFF
+    .alias  temp_Hi_ = <addr> / 0x10000
+    .alias  temp_r = temp_Lo / 0x8000
+    .alias  temp_Hi = temp_Hi_ + temp_r
+    lis     <reg>, temp_Hi
+    lfs     <freg>, temp_Lo(<reg>)
+}
 .macro swd(<storeReg>, <addrReg>, <addr>)
 {
     .alias  temp_Lo = <addr> & 0xFFFF
@@ -171,6 +187,10 @@ HOOK @ $809bca84    # itArchive::__ct
 notFighterItem:
     cmpwi r31, 8                # \ Check if stage item group
     beq+ dontUseGlobalItmParam  # /
+    cmpwi r31, 0                # \ Check if Subspace item group
+    beq+ dontUseGlobalItmParam  # /
+    cmpwi r31, 5                # \ Check if Enemy item group
+    beq+ dontUseGlobalItmParam  # /
     cmpwi r12, 0x0      # \ Check if itVariation == 0
     beq+ end            # /
     cmpwi r31, 2                # \ Check if Assist
@@ -264,8 +284,8 @@ noItov:
     %lwd (r12, g_stLoaderManager)       
     li r10, 5   
     lwz r11, 0x28(r12)              # Get g_stLoaderManager->stLoaderPokemonSe
-    lwz r12, 0xc(r1)
-    cmpwi r12, 0x3d
+    lwz r9, 0xc(r1)
+    cmpwi r9, 0x3d
     bne+ notSubspace
     lwz r11, 0x24(r12)              # Get g_stLoaderManager->stLoaderCommonSeAdventure
 notSubspace:
@@ -320,7 +340,7 @@ HOOK @ $806bf8e8    # Store 076.sawnd heap level when loaded in stDecentralizati
 # Passes in extra parameters to stage->getItemPac() of pointer to gfArchive* for itmParam and pointer to itCustomizer* #
 #                                                                                                                      #
 # Allow fighter to set custom itCustomizer                                                                             #
-# Passes in extar parameters to fighter->onStartFinal() of item variant pointer to itCustomizer*                       #           
+# Passes in exta parameters to fighter->onStartFinal() of item variant pointer to itCustomizer*                       #           
 ########################################################################################################################
 
 HOOK @ $809bcaec # itArchive::__ct
@@ -431,7 +451,8 @@ foundSlot:
 fetchItCustomizer:
     lwz r29, 0xc(r1)    # fetch obtained itCustomizer from stage
 skipGettingItCustomizerFromModule:
-    mr r4, r30
+    stw r31, 0x8(r1)    # Store variant to be used later
+    mr r4, r30          # Restore itKind in r4
     mr r3, r29          
     cmpwi r3, 0x0       # check if itCustomizer is null 
     lis	r7, 0x80B9      # \ Original operation
@@ -444,6 +465,17 @@ HOOK @ $808382f0    # Fighter::startFinal
     mtctr r12   # Original operation
     li r4, -1   # \ Pass extra parameters to fighter->onStartFinal
     li r5, 0    # /
+}
+
+HOOK @ $809ac104    # itManager::getCustomizer
+{
+    lis	r3, 0x80B9  # Original operation
+    lwz r12, 0x8(r1)    
+    cmpwi r4, 0x55  # \
+    bne+ %end%      # | check if Double Cherry
+    cmpwi r12, 0    # |
+    bne+ %end%      # /
+    li r4, 0x42 # Use Lighting itCustomizer
 }
 
 #####################################
@@ -831,6 +863,67 @@ HOOK @ $809bcfa4    # itArchive::isRemovable
     li r3, 1            # Remove immediately regardless
 }
 
+op cmpwi r27, -1 @ $809b2fd0    # itManager::getItemNum                     # \
+op li r5, -1 @ $80914830    # aiStat::update                                # |
+op li r5, -1 @ $80914bbc    # aiStat::update                                # | getItemNum itVariation -1 instead of 0
+op li r5, -1 @ $809999ac    # BaseItem::lotCreate                           # |
+op li r5, -1 @ $80a72fa4    # wnDiddyPeanutsStatusUniqProcess::initStatus   # /
+HOOK @ $806d4b90    # scMelee::stopGame
+{
+    li r4, -1   # \
+    li r5, -1   # | Pass extra parameters
+    li r6, -1   # /
+    %call(itManager__removeItemAll)
+}
+HOOK @ $809b276c # itManager::removeItemAll
+{
+    mr r29, r3      # Original operation
+    stw r4, 0x8(r1)     # \ 
+    stw r5, 0xc(r1)     # | Store extra parameters (target itKind , itVariant and creatorTaskId)
+    stw r6, 0x10(r1)    # /
+}
+HOOK @ $809b279c # itManager::removeItemAll
+{
+    lwz r10, 0x8(r1)    # \
+    cmpwi r10, -1       # | check if target itKind is -1 (i.e. remove all items)
+    beq+ end            # /
+    lwz r12, 0(r3)  
+    lwz r11, 0x8C0(r12) # \
+    cmpw r11, r10       # | check if baseItem->itKind == target itKind 
+    bne+ noRemove       # /
+    lwz r10, 0xC(r1)    # \
+    cmpwi r10, -1       # | check if target itVariation is -1 (i.e. remove all variants of item)
+    beq+ allVariants    # /
+    lwz r11, 0x8C4(r12) # \
+    cmpw r11, r10       # | check if baseItem->itVaration == target itVaration
+    bne+ noRemove       # /
+allVariants:
+    lwz r10, 0x10(r1)   # \
+    cmpwi r10, -1       # | check if target creatorTaskId is -1 (i.e. remove all variants of item)
+    beq+ end            # /
+    lwz r11, 0x8C8(r12) # \
+    cmpw r11, r10       # | check if baseItem->creatorTaskId == target creatorTaskId
+    beq+ end            # /
+noRemove:
+    %branch(0x809b27cc) # skip remove
+end:
+    lwz	r12, 0x6D8(r29) # Original operation
+}
+HOOK @ $809b27bc    # itManager::removeItemAll
+{
+    li r5, 0    # Original operation
+    lwz r10, 0x8(r1)    # \
+    cmpwi r10, -1       # | check if target itKind is -1 (i.e. remove all items)
+    beq+ %end%          # /
+    li r5, 2    # Display puff of smoke
+}
+HOOK @ $809b27fc # itManager::removeItemAll
+{
+    lwz r10, 0x8(r1)    # \
+    cmpwi r10, -1       # | check if target itKind is -1 (i.e. remove all items)
+    bne- %end%          # /
+    bctrl       # clear item list
+}
 HOOK @ $809b69f4 # itManager::removeItemAllTempArchive
 {
     mr r29, r3      # Original operation
@@ -839,9 +932,12 @@ HOOK @ $809b69f4 # itManager::removeItemAllTempArchive
 HOOK @ $809b6a24 # itManager::removeItemAllTempArchive
 {
     li r10, 1           # removeItem = true
-    lwz r12, 0x8(r1)    # \ Check if passed in itArchiveType >= 18
-    cmpwi r12, 18       # /
-    blt+ end 
+    lwz r12, 0x8(r1)    # \ 
+    cmpwi r12, 0        # |
+    beq+ end            # | Check if passed in itArchiveType != 0 or != 17
+    cmpwi r12, 17       # |
+    beq+ end            # /
+
     li r10, 0           # removeItem = false
     lwz r11, 0x0(r31)   # \
     lwz r11, 0x8DC(r11) # |
@@ -858,23 +954,79 @@ op bne+ 0x2c @ $809b6a28
 HOOK @ $809b6a44 # itManager::removeItemAllTempArchive
 {
     li r5, 0            # Original operation
-    lwz r12, 0x8(r1)    # \ Check if passed in itArchiveType >= 18
-    cmpwi r12, 18       # /
-    blt+ %end%
+    lwz r12, 0x8(r1)    # \
+    cmpwi r12, 0        # |
+    beq+ %end%          # | Check if passed in itArchiveType != 0 or != 17
+    cmpwi r12, 17       # |
+    beq+ %end%          # /
+    
     lwz r11, 0x8DC(r4)  # \ 
     lwz r11, 0x0(r11)   # | Check if itArchiveType == item->itArchive->itArchiveType
     cmpw r12, r11       # |
     bne+ %end%          # /
-    li r5, 1            # remove item force
+    li r5, 3            # remove item force
 }
 HOOK @ $809b6a84    # itManager::removeItemAllTempArchive
 {
     lwz r12, 0x8(r1)    # \ 
-    cmpwi r12, 18       # | Check if passed in itArchiveType >= 18 (don't clear entire itemArrayList if it is)
-    bge- %end%          # /
+    cmpwi r12, 0        # |
+    beq+ clear          # | Check if passed in itArchiveType == 0 or == 17 (don't clear entire itemArrayList if it is not)
+    cmpwi r12, 17       # | 
+    bne- %end%          # /
+clear:
     bctrl           
 }
 op lwz r4, 0x8(r1) @ $809b6a8c  # clear out archives with type that was passed in
+
+HOOK @ $809b23b0    # itManager::removeItemSub
+{
+    andi. r26, r5, 0x1
+    andi. r0, r5, 0x2
+    beq+ end 
+    mr r30, r4
+
+    mr r3, r4
+    %call(soExternalValueAccesser__getStatusKind)
+    cmpwi r3, 6
+    beq- end
+    stwu r1, -0x20(r1)
+
+    addi r3, r1, 0x8
+    mr r4, r30
+    %call(soExternalValueAccesser__getPos)
+    li r4, 0x22                 # \
+    addi r5, r1, 0x8            # |
+    li r6, 0                    # |
+    li r7, 0                    # |
+    %lf(f1, r12, _float_1_0)    # |
+    lwz r3, 0x60(r30)           # |
+    lwz r3, 0xd8(r3)            # | item->moduleAccesser->moduleEnumeration->soEffectModule->req(0x22, &pos, NULL, 0, -1, 1.0)
+    lwz r3, 0x88(r3)            # |
+    lwz r12, 0x0(r3)            # |
+    lwz r12, 0x20(r12)          # |
+    mtctr r12                   # |
+    bctrl                       # /
+
+    addi r1, r1, 0x20
+    mr r4, r30
+end:
+    lbz	r30, 0x8D5(r4)  # Original operation (pass original itKind)
+}
+
+HOOK @ $8098e3b4    # BaseItem::deactivate
+{
+    bctrl   # Original operation
+    %lwi(r12, g_itNullCustomizer)   # \ set itCustomizer to itNullCustomizer
+    stw r12, 0x8D0(r30)             # / (prevents potential deloaded itCustomizers from fighter module from being called after game end)
+}
+
+# HOOK @ $80a6f680    # ftDiddyStatusUniqProcessSpecialPopGun::execFixPos
+# {
+#     lwz	r3, 0x8(r30)
+#     %lwi(r4, 0x10000049)
+#     %call(soExternalValueAccesser__getWorkInt)  # get ftSlotId
+#     lwz	r3, 0x8(r30)    # Original operation
+# }
 
 ##################
 # Item Clone IDs #
@@ -991,8 +1143,7 @@ op lbz r4, 0x8D5(r29) @ $8098a5c8   # BaseItem::__ct                \
 op lbz r4, 0x8D5(r29) @ $8098d614   # BaseItem::activate            | pass original itKind to itManager::getItemKindArchiveGroup
 op lbz r4, 0x8D5(r21) @ $80990194   # BaseItem::notifyEventAnimCmd  /
 
-op lbz r30, 0x8D5(r4) @ $809b23b0   # itManager::removeItemAfter    # \ pass original itKind to itManager::removeItemAfter
-op lbz r28, 0x8D5(r3) @ $809b2b94   # itManager::createItemInstance # /
+op lbz r28, 0x8D5(r3) @ $809b2b94   # itManager::createItemInstance # pass original itKind
 
 CODE @ $809b1420    # itManager::createBaseItem
 {
@@ -1119,7 +1270,7 @@ HOOK @ $80990004    # BaseItem::notifyEventAnimCmd
     cmpwi r31, 0xFFFF   # \
     ble+ %end%          # /
     lwz r11, 0x8c4(r21) # baseItem->itVariant
-    srawi r11, r11, 20  # ftSlotId = current item variant / 0x100000
+    rlwinm r11,r11,0,8,11  # isolate ftSlotId (variant & 0x00f00000)
     add r31, r31, r11   # variant += ftSlotId
 }
 HOOK @ $80990328    # BaseItem::notifyEventAnimCmd
@@ -1142,6 +1293,10 @@ HOOK @ $809b1324    # itManager::createBaseItem
     mr r3, r15                              # \
     mr r4, r18                              # |
     li r5, 0                                # | Try item variant 0 instead
+    cmplwi r19, 0xFFFF                      # |
+    ble+ notFighterItem                     # | (or variant & 0xFFFF00FF if it's a fighter item)
+    rlwinm r5,r19,0,24,15                   # |
+notFighterItem:                             # |
     li r6, 1                                # |
     %call (itManager__checkCreatableItem)   # |
     cmpwi r3, 0                             # /
@@ -1152,30 +1307,41 @@ HOOK @ $809b137c    # itManager::createBaseItem
     lbz r12, 0x8(r1)    # \
     cmpwi r12, 0x1      # | If desired item variant isn't creatable
     beq+ %end%          # |
-    li r25, 0x0         # /
+    li r25, 0x0         # use variant 0
+    cmplwi r19, 0xFFFF         # \
+    ble+ %end%                 # | variant & 0xFFFF00FF if it's a fighter item)-
+    rlwinm r25,r19,0,24,15     # /
 }
 HOOK @ $809b1540    # itManager::createBaseItem
 {
     andc r28, r19, r0   # Original operation
     lbz r12, 0x8(r1)    # \
-    cmpwi r12, 0x1      # | If desired item variant isn't creatable
-    beq+ %end%          # |
-    li r28, 0x0         # /
+    cmpwi r12, 0x1      # | Check if desired item variant isn't creatable
+    beq+ %end%          # /
+    li r28, 0x0         # use variant 0
+    cmplwi r19, 0xFFFF         # \
+    ble+ %end%                 # | variant & 0xFFFF00FF if it's a fighter item)-
+    rlwinm r28,r19,0,24,15     # /
 }
 HOOK @ $809b0550    # itManager::getItemKindArchive
 {   
     addi r3, r28, 200       # \
     lwz	r12, 0x0014(r12)    # |
     mtctr r12               # | Original operations
-    bctrl	                # | 
-    cmpw r29, r3            # /
+    bctrl	                # / 
+    li r12, 0               # variant = 0
+    cmplwi r31, 0xFFFF      # \ check if fighter item
+    ble+ notFighterItem     # /
+    rlwinm r12,r31,0,24,15  # variant = variant & 0xFFFF00FF
+notFighterItem:             
+    cmpw r29, r3            # Original operation
 }                           
 CODE @ $809b0554    # itManager::getItemKindArchive
 {
-    blt+ -0x4C      # \
-    li r29, 0x0     # |
-    cmpwi r31, 0x0  # | If itArchive with specific variant was not found, look for itArchive with variant 0
-    li r31, 0x0     # |
+    blt+ -0x4C      # Original operation
+    li r29, 0x0     # \
+    cmpw r31, r12   # | If itArchive with specific variant was not found, look for itArchive with default variant
+    mr r31, r12     # |
     bne+ -0x5C      # /
 }
 HOOK @ $809b1cb4    # itManager::removeItemAfter
@@ -1183,15 +1349,20 @@ HOOK @ $809b1cb4    # itManager::removeItemAfter
     addi r3, r24, 200       # \
     lwz	r12, 0x0014(r12)    # |
     mtctr r12               # | Original operations
-    bctrl	                # | 
-    cmpw r23, r3            # /
+    bctrl	                # / 
+    li r12, 0               # variant = 0
+    cmplwi r29, 0xFFFF      # \ check if fighter item
+    ble+ notFighterItem     # /
+    rlwinm r12,r29,0,24,15  # variant = variant & 0xFFFF00FF
+notFighterItem:   
+    cmpw r23, r3            # Original operation
 }
 CODE @ $809b1cb8    # itManager::removeItemAfter
 {
-    blt+ -0x4C      # \
-    li r23, 0x0     # |
-    cmpwi r29, 0x0  # | If itArchive with specific variant was not found, look for itArchive with variant 0
-    li r29, 0x0     # |
+    blt+ -0x4C      # Original operation
+    li r23, 0x0     # \
+    cmpw r29, r12   # | If itArchive with specific variant was not found, look for itArchive with default variant
+    mr r29, r12     # |
     bne+ -0x5C      # /
 }
 HOOK @ $809b1e60    # itManager::removeItemAfter
@@ -1199,15 +1370,20 @@ HOOK @ $809b1e60    # itManager::removeItemAfter
     addi r3, r24, 200       # \
     lwz	r12, 0x0014(r12)    # |
     mtctr r12               # | Original operations
-    bctrl	                # | 
-    cmpw r26, r3            # /
+    bctrl	                # / 
+    li r12, 0               # variant = 0
+    cmplwi r23, 0xFFFF      # \ check if fighter item
+    ble+ notFighterItem     # /
+    rlwinm r12,r23,0,24,15  # variant = variant & 0xFFFF00FF
+notFighterItem:   
+    cmpw r26, r3            # Original operation
 }
 CODE @ $809b1e64    # itManager::removeItemAfter
 {
-    blt+ -0x4C      # \
-    li r26, 0x0     # |
-    cmpwi r23, 0x0  # | If itArchive with specific variant was not found, look for itArchive with variant 0
-    li r23, 0x0     # |
+    blt+ -0x4C      # Original operation
+    li r26, 0x0     # \
+    cmpw r23, r12   # | If itArchive with specific variant was not found, look for itArchive with default variant
+    mr r23, r12     # |
     bne+ -0x5C      # /
 }
 
@@ -1466,6 +1642,7 @@ endOfEmissions:
     cmpwi r11, 14
     blt+ checkEmission
 }
+## TODO: Prevent in single player 4 player since no room to load extra Pokemon sawnds and all fighter sawnds
 
 HOOK @ $809bca68    # itArchive::__ct
 {
@@ -1480,7 +1657,6 @@ HOOK @ $809bca68    # itArchive::__ct
     mr r8, <itKindReg>
     %lwd (r6, g_GameGlobal)     # \ g_GameGlobal->modeMelee
     lwz r6, 0x8(r6)             # /
-    lfs f1, 0x8(<genParamReg>)  # get frequency
     lwz r23, 0x4(<genParamReg>) # get variant id
     li r10, 0x1
     %lwi (r7, ITSWITCH_CHECK_INDICES)   # \
@@ -1616,6 +1792,11 @@ end:
     rlwinm r3, r8, 0, 27, 31   # | Original operation
     lwzx r0, <switchReg>, r0   # /
 }
+HOOK @ $809b39d8    # itManager::getPerBase
+{
+    lfs f1, 0x8(r23)  # get frequency
+    cmpwi r0, 0     # Original operation
+}
 HOOK @ $809b39fc    # itManager::getPerBase
 {
     %checkItemSwitch(r29, r22, r23, r31)
@@ -1626,6 +1807,11 @@ CODE @ $809b3a00
     blt- 0x10
 }
 op nop @ $809b3a14
+HOOK @ $809b4d50    # itManager::getLotOneItemKind
+{
+    lfs f1, 0x8(r23)  # get frequency
+    cmpwi r0, 0     # Original operation
+}
 HOOK @ $809b4d74    # itManager::getLotOneItemKind
 {
     %checkItemSwitch(r31, r22, r23, r20)
@@ -1637,6 +1823,11 @@ CODE @ $809b4d78
 }
 op nop @ $809b4d8c
 op nop @ $809b4dac
+HOOK @ $809b5654    # itManager::safeLotCreateItem
+{
+    lfs f1, 0x8(r19)  # get frequency
+    cmpwi r0, 0     # Original operation
+}
 HOOK @ $809b5678    # itManager::safeLotCreateItem
 {
     %checkItemSwitch(r15, r24, r19, r20)
@@ -2157,13 +2348,20 @@ HOOK @ $8095219c        # stOperatorDropItemMelee::processBegin
 {
     mr r29, r3                                  # \
     li r4, 10001                                # |
-    %call (itManager__getRandBasicItemSheet)    # |
-    stw r3, 0x8(r1)                             # |
-    stw r4, 0xc(r1)                             # |
-    mr r3, r29                                  # |
-    addi r4, r1, 0x8                            # | Get item from 10001 in ItmGen rather than always picking only Bombs
+    %call (itManager__getRandBasicItemSheet)    # | Get item from 10001 in ItmGen rather than always picking only Bombs in Bomb Rain/Sudden Death
+    stw r3, 0x8(r1)                             # | 
+    stw r4, 0xc(r1)                             # /
+    li r12, -1                                  # \           
+    stw r12, 0x30(r1)                           # |
+    stw r12, 0x34(r1)                           # |
+    stw r12, 0x38(r1)                           # | allow all items to be on 
+    stw r12, 0x3C(r1)                           # |
+    stw r12, 0x40(r1)                           # |
+    stw r12, 0x44(r1)                           # /
+    mr r3, r29                                  # \
+    addi r4, r1, 0x8                            # | 
     li r5, 10001                                # |
-    li r6, 0x0                                  # |
+    addi r6, r1, 0x30                           # | pick item
     li r7, 0x0                                  # |
     %call (itManager__getLotOneItemKind)        # |
     mr r5, r3                                   # |
@@ -2180,6 +2378,21 @@ HOOK @ $809521d0    # stOperatorDropItemMelee::processBegin
     addi r5, r1, 32 # /
 }
 op beq+ 0x10 @ $809521d4 # Skip effect if item wasn't created 
+
+HOOK @ $8095217c    # stOperatorDropItemMelee::processBegin
+{
+    lis	r3, 0x80B9      # \
+    lwz	r3, -0x5BD8(r3) # |
+    lwz	r12, 0x3C(r3)   # | g_Stage->getIteamDropStatus()
+    lwz r12, 0x1f0(r12) # |
+    mtctr r12           # |
+    bctrl               # /
+    cmpwi r3, 0x0
+    bne+ end
+    %branch(0x80952208)
+end:
+    lis	r3, 0x80B9  # Original operation
+}
 
 ####################
 # Item Switch Menu #
@@ -2421,7 +2634,7 @@ byte[0x38] 0x35, 0, 0, 28, 28, 8, 0, | # num switch entries per sub category
 0, 0, 0, 0, 0, 0, 0, |
 0, 0, 0, 0, 0, 0, 0, |
 0, 0, 0, 0, 0, 0, 0, |
-0, 0, 0, 0, 0, 0, 0  |
+0, 0, 0, 1, 0, 0, 0  |
 @ $806AD300
 byte[0x38] 0xFE, 0, 0, 1, 1, 3, 0, | # num switch entries per sub category
 0, 0, 0, 0, 0, 0, 0, |
@@ -2438,14 +2651,19 @@ HOOK @ $806aaad0    # muProcItemSwitch::selectProc
 {
     %lwi (r12, NUM_SUB_ITSWITCHES)  # \
     lbz r11, 0x679(r27)             # |
-    lbzx r11, r12, r11              # |
-    subi r11, r11, 5                # | Calculate row and col limit based on num of entries
+    lbzx r11, r12, r11              # | check if only first row
+    li r24, 1                       # |
+    addi r25, r11, 0x1              # |
+    cmpwi r11, 5                    # |
+    ble+ end                        # /
+    subi r11, r11, 5                # \ Calculate row and col limit based on num of entries
     li r12, 7                       # | colLimit = (numEntries - 5) % 7 - 1
     divw r12, r11, r12              # | rowLimit = (numEntries - 5) / 7
     addi r24, r12, 0x2              # |
     mulli r12, r12, 7               # |
     subf r12, r12, r11              # |
     subi r25, r12, 0x1              # /
+end:
     rlwinm.	r0, r4, 0, 31, 31   # Original operation
 }
 op cmplw r0, r25 @ $806aab7c        # \
@@ -2457,11 +2675,42 @@ op mr r0, r24 @ $806aaaf8           # |
 op cmplw r7, r24 @ $806aab5c        # | muProcItemSwitch::selectProc 
 HOOK @ $806aab70                    # | Apply new rol and col limit
 {                                   # |
+    mr r12, r24                     # |
+    cmpwi r12, 1                    # |
+    beq+ oneRow                     # |
     subi r12, r24, 0x1              # |
+oneRow:                             # |
     cmplw r7, r12                   # |
 }                                   # |
 op cmplw r7, r24 @ $806aac84        # |
 op cmplw r7, r24 @ $806aada0        # /
+HOOK @ $806AAAF0
+{
+	lwz r11, 0x670(r3)
+	li r12, 6
+    cmpwi r24, 0x1
+    bne+ notOneRow
+    mr r12, r25
+    li r0, 1
+notOneRow:
+    stw r0, 0x674(r3)	# Original operation: Wrap around to bottom Y column from Item Frequency bar
+    cmpw r11, r12
+	ble+ %END%	
+	stw r12, 0x670(r3)   # Fix X column so it doesn't try to go to the next row by accident
+}
+HOOK @ $806AAB98
+{
+	stw r0, 0x674(r3)	# Original operation: Go down one Y column
+	lwz r11, 0x670(r3)
+	li r12, 6
+    cmpwi r24, 0x1
+    bne+ notOneRow
+    mr r12, r25
+notOneRow:
+    cmpw r11, r12
+	ble+ %END%
+	stw r12, 0x670(r3) # Fix X column so that it doesn't try to go too far to the right
+}
 
 op nop @ $806aa9a8  # muProcItemSwitch::proc        # Remove or normally used for old sticker/cd/trophy bitfield location
 
@@ -2564,7 +2813,7 @@ byte[356] | # Set bitfield order for itSwitch
     0x31, 0x0, | # 0x52 - Enemy Koopa 2
     0xFF, 0x0, | # 0x53 - Snake Carboard Box
     0xFF, 0x0, | # 0x54 - Diddy Kong Peanut
-    0xFF, 0x0, | # 0x55 - Link Bomb
+    0x3D, 0xFE, | # 0x55 - Link Bomb (Double Cherry)
     0xFF, 0x0, | # 0x56 - Peach Turnip
     0xFF, 0x0, | # 0x57 - ROB Gyro
     0x06, 0x0, | # 0x58 - Diddy Kong Peanut Seed
@@ -2669,44 +2918,51 @@ CODE @ $80050bc0    # gmItSwitch::gmCheckItemSwitch
     lbz r0, 0x1(r5)     # /
     cmpwi r0, 0xFF      # \ Check if container
     beq- isContainer    # /
+    cmpwi r0, 0xFE      # \ Check if Ex
+    beq- isEx           # /
     cmpwi r0, 0x2       # \ Check if assist
-    bne+ 0x708          # /
+    bne+ 0x700          # /
 isAssist:
     cmpwi r4, 0x96      # \
-    beq- 0x700          # | check if Hammer Bro
+    beq- 0x6F8          # | check if Hammer Bro
     cmpwi r4, 0x97      # |
-    beq- 0x6F8          # /
+    beq- 0x6F0          # /
     lwz r12, 0x4(r3)            # \
     slwi r10, r9, 1             # |
     and r11, r12, r10           # | 
     neg r10, r11                # | Check if assist is on
     or r10, r10, r11            # |
     rlwinm. r12, r10, 1, 31, 31 # |
-    bne+ 0x6DC                  # /
+    bne+ 0x6D4                  # /
     lwz r12, 0x4(r3)            # \
     slwi r10, r9, 3             # | 
     and r11, r12, r10           # | Check if container is off
     neg r10, r11                # | 
     or r10, r10, r11            # |
     rlwinm. r12, r10, 1, 31, 31 # |
-    beq- 0x6C0                  # /
+    beq- 0x6B8                  # /
     lwz r12, 0x0(r3)            # \
     slwi r10, r9, 22            # | 
     and r11, r12, r10           # | Check if enemies are off
     neg r10, r11                # | 
     or r10, r10, r11            # |
     rlwinm. r12, r10, 1, 31, 31 # |
-    beq- 0x6A4                  # /
+    beq- 0x69C                  # /
     b returnFalse
-isContainer: 
-    li r0, 0x0
-    lwz r12, 0x4(r3)            # \
+isEx:
+    lbz r12, 0x1(r3)            # \
+    slwi r10, r9, 2             # |
+    b checkIfOn
+isContainer:                    # |
+    lwz r12, 0x4(r3)            # |
     slwi r10, r9, 3             # | 
-    and r11, r12, r10           # | Check if container is on
+checkIfOn:
+    and r11, r12, r10           # | Check if container/ex is on
     neg r10, r11                # | 
     or r10, r10, r11            # |
     rlwinm. r12, r10, 1, 31, 31 # |
-    bne+ 0x680                  # /
+    li r0, 0x0
+    bne+ 0x66C                  # /
 returnFalse:
     li r3, 0
     blr          
@@ -2804,6 +3060,8 @@ changePage:
     beq- isPokemonSwitch
     cmpwi r12, 5
     beq- isContainerSwitch
+    cmpwi r12, 52
+    beq- isExSwitch
     stw r9, 0x81c(r7)      # \ Store item switch     
     stw r8, 0x818(r7)      # /     
     b savedItSwitch
@@ -2821,6 +3079,11 @@ isContainerSwitch:
     lwz r8, 0x818(r7)       # \
     rlwimi r8,r9,21,3,10    # | Store in itemSwitch.containerSwitch
     stw r8, 0x818(r7)       # /
+    b savedItSwitch
+isExSwitch:
+    lwz r8, 0x818(r7) 
+    rlwimi r8,r9,29,0,2 #31-29
+    stw r8, 0x818(r7) 
 savedItSwitch:
     stb r11, 0x679(r27)
     lbz r12, 0x678(r27) # \ Store item frequency
@@ -2907,6 +3170,8 @@ HOOK @ $806aa648    # muProcItemSwitch::init
     beq- isAssistSwitch
     cmpwi r12, 5
     beq- isContainerSwitch
+    cmpwi r12, 52
+    beq- isExSwitch
     cmpwi r12, 4
     bne+ %end% 
 isPokemonSwitch:
@@ -2921,6 +3186,10 @@ isAssistSwitch:
     b %end%
 isContainerSwitch:          
     srawi r5,r4,21          # Get from itemSwitch->containerSwitch
+    b %end%
+isExSwitch:
+    srawi r5,r4,29          # Get from itemSwitch->exSwitch
+
 }
     
 .macro applyExtraItemSwitch(<reg>)
@@ -2988,6 +3257,44 @@ CODE @ $80056074
     subi r4, r4, 0x3b48  # /
 }
 op andis. r5,r0,0xffe7 @ $806f1a50 # Set mayhem and passive aggression to false in Training
+op andis. r5,r4,0xffe1 @ $806dddc8 # Set mayhem and passive aggression to false in demo
+
+######################
+# Training Mode Menu #
+######################
+## TODO: Pokemon and Assist, preload ahead of time when on cursor, use R/L to cycle between lists?
+
+CODE @ $80104af4    # IfMinigameTraining::createModel
+{
+    stw r30, 0xEC(r27)  # Store pointer to table of items
+    li r12, 4           # \
+    divw r12, r31, r12  # | store number of items
+    stw r12, 0x2EC(r27) # /
+    b 0x4C
+}
+
+op b 0x2C @ $80105110   # IfMinigameTraining::startMelee   
+CODE @ $801059fc    # IfMinigameTraining::curPosProcItem
+{
+    mr r5, r31
+    b 0x28
+}
+CODE @ $80105a44    # IfMinigameTraining::curPosProcItem
+{
+    lwz r12, 0xEC(r29)  # \
+    mulli r11, r3, 0x4  # | get this->items[index]
+    lwzx r3, r12, r11   # /
+    b 0x20
+}
+
+op lhz r4, 0x132(r20) @ $80962248   # stOperatorInfoTraining::processBegin
+CODE @ $809622d8    # stOperatorInfoTraining::processBegin
+{
+    lhz	r21, 0x132(r20) # get itKind
+    lhz r22, 0x130(r20) # get itVariation
+    b 0x38
+}
+
 
 ## TODO: Infinite health and infinite bullets toggle part of more options
 # HOOK @ $80999fd8  # Infinite bullets
@@ -3009,13 +3316,48 @@ op andis. r5,r0,0xffe7 @ $806f1a50 # Set mayhem and passive aggression to false 
 #     fcmpo cr0,f1,f0   # Original operation
 #     fcmpo cr0,f1,f1
 # }
+## TODO: Disable coin if not in coin mode from item switch? then can have it in crate drop 
 ## TODO: Have clone/customizer item id in ItmParam instead of it being determined based on variant id? Accessible with itValueAccesser::getConstantIntCore. Could also use for common item brres and param id
 ## TODO: Limit rolling crates to 10 otherwise it crashes
 ## TODO: Handle extra options for replays
 ## TODO: For completion sake patch any functions that call gmGetItemSwitchData including net relatedfunctions
 
-## TODO: Have extra page for new items
 ## TODO: Masterball selection in Pokemon switch
+
+#.include Source/Community/DoubleCherry.asm
+
+#######################################################################################
+Dragoon Parts Drops like a Normal Item With Multiplier If Parts Have Dropped [Kapedani] 
+#######################################################################################
+op li r4, 1 @ $809ae498 # Always have Dragoon on
+op b 0xac @ $809b4ac0   # Skip checking if Dragoon is available and just have it be a regular item pull
+
+HOOK @ $809b60c8    # itManager::getLotValue
+{
+    cmpwi r4, 0x14  # \ check if Dragoon
+    bne+ end        # /
+    lwz r12, 0x1494(r3)     # \
+    rlwinm r11,r12,30,31,31 # |
+    rlwinm r10,r12,31,31,31 # | ((flags & 2) >> 1) + ((flags & 4) >> 2) + ((flags & 8) >> 3)
+    add r11,r11,r10         # |
+    rlwinm r10,r12,29,31,31 # |
+    add r12,r11,r10         # /
+    lbz r11, 0x101D(r3)         # this->itemNums[0x14]
+    cmpw r11, r12
+    ble+ notLessThanItemNum
+    mr r12, r11
+notLessThanItemNum:
+    cmpwi r12, 0x3      # \ check if all Dragoons out
+    blt- notMaxDragoons # /
+    fsubs f2, f2, f2    # set to 0
+notMaxDragoons:
+    addi r10, r3, 0x74  # \
+    mulli r11, r12, 0x4 # | get multiplier based on number of dragoons out
+    lfsx f1, r10, r11   # |
+    fmuls f2, f1, f2    # /
+end: 
+    fmr	f1, f2  # Original operation
+}
 
 #############################################
 Team Healer Always Heals Teammates [Kapedani]
@@ -3072,6 +3414,38 @@ notFighter:
 }
 op b 0x30 @ $80844694
 
+####################################################
+Touch Items Notify Outside Event Get Item [Kapedani]
+####################################################
+.alias ftOutsideEventPresenter__notifyOutsideEventGetItem     = 0x80864e54
+
+.macro lwi(<reg>, <val>)
+{
+    .alias  temp_Hi = <val> / 0x10000
+    .alias  temp_Lo = <val> & 0xFFFF
+    lis     <reg>, temp_Hi
+    ori     <reg>, <reg>, temp_Lo
+}
+.macro call(<addr>)
+{
+  %lwi(r12, <addr>)
+  mtctr r12
+  bctrl    
+}
+
+op b 0x2C @ $80844644   # Skip since being called below anyways
+HOOK @ $80844d6c    # Fighter::touchItem
+{
+    addi r3,r25,0x13c   # this->outsideEventPresenter
+    lwz r4, 0x8c0(r29)  # item->kind
+    lwz r5, 0x8c4(r29)  # item->varation
+    lwz r6, 0x3d28(r29) # item->genParamId
+    lwz r7, 0x8bc(r29)  # item->instanceId
+    %call (ftOutsideEventPresenter__notifyOutsideEventGetItem)
+    lwz	r12, 0x3C(r25)  # Original operation
+}
+
+
 ###########################################
 Every Item Can Have Collision v2 [Kapedani]
 ###########################################
@@ -3083,6 +3457,11 @@ HOOK @ $8098f6d0    # BaseItem::reset
     bne+ %end%      # / 
     li r24, 0x0
 }     
+
+######################################
+Every Item Can Have Physics [Kapedani]
+######################################
+op li r3, 0x1 @ $8098d8b8
 
 ######################################################################################
 Item Mayhem Mode (Item Switch Edition) + Butterfingers [MarioDox, DukeItOut, Kapedani]
@@ -3157,11 +3536,14 @@ drop:
 
 HOOK @ $80841160    # Fighter::dropItemCheck
 {
+    cmpwi r22, 2    # \ check if third parameter is 2 (i.e. dead)
+    beq+ dropItem   # /
     %lwd (r11, g_GameGlobal)    # \
     lwz r11, 0x8(r11)           # |
     lbz r11, 0x31(r11)          # | Check if Item Mayhem mode is on
     andi. r11, r11, 0x8         # |
     beq+ end                    # /
+dropItem:
     li r3, 0x0  # guarantee drop item
 end:
     xoris r3, r3, 0x8000    # Original operation

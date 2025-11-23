@@ -1,3 +1,17 @@
+#############################################
+Effects spawn on hitting items [DukeItOut]
+#
+# Brawl disabled hit graphics on all items
+# but the Sandbag due to glitches involving
+# the Blast Box, but these are fixed.
+# As a result, it is safe to re-enable these 
+# for all items again, including crate 
+# enemies, assist trophies and stage hazards.
+#############################################
+op NOP @ $809BDAF4					# Don't only make it apply to just the Sandbag!
+op lfs f4, -0x3348(r3) @ $809BDB00	# Use 80ADCCB8 (0.7) instead of 80ADCC24 (1.0) 
+									# for default hit gfx size!
+
 #######################################
 Max Items Spawnable 8 -> 12 [DukeItOut]
 #######################################
@@ -13,8 +27,6 @@ Additional Item Switch Frequency Settings 'VERY HIGH', 'INTENSE', and 'BOMB RAIN
 #Requires adding PAT animation for MenMainSwitch0002_TopN__0
 #Requires new texture assets "MenMainSwitch04Per05", "MenMainSwitch04Per06", and 
 #	"MenMainSwitch04Per07"
-#
-# TODO: Add Bomb Rain as a 6th option, place Tagout where Bomb Rain is
 ###############################################################################################
 .BA<-FREQUENCY_TABLE
 .BA->$80ADAD5C        # Where the HIGH speed's max speed usually resides
@@ -47,43 +59,30 @@ HOOK @ $806A3F60
 	bctrl					# /
 	lwz r3, 0xC4(r20)	# Original operation
 }
-HOOK @ $806AAB98
+
+HOOK @ $80952120    # stOperatorDropItem::processBegin
 {
-	stw r0, 0x674(r3)	# Original operation: Go down one Y column
-	lwz r0, 0x670(r3)
-	cmpwi r0, 6
-	ble+ %END%
-	li r0, 6			# Fix X column so that it doesn't try to go too far to the right
-	stw r0, 0x670(r3) 
+    lis r31, 0x80AE          # \ Access pointer at 80ADAD5C
+    lwz r31, -0x52A4(r31)    # /
+    addi r3, r31, 0x4   # Access to max of range
 }
-HOOK @ $806AAAF0
+HOOK @ $80952298    # stOperatorDropItem::startOperator
 {
-	stw r0, 0x674(r3)	# Original operation: Wrap around to bottom Y column from Item Frequency bar
-	lwz r0, 0x670(r3)
-	cmpwi r0, 6
-	ble+ %END%
-	li r0, 6			# Fix X column so it doesn't try to go to the next row by accident
-	stw r0, 0x670(r3) 
+    lis r30, 0x80AE          # \ Access pointer at 80ADAD5C
+    lwz r30, -0x52A4(r30)    # /
+    addi r3, r30, 0x4   # Access to max of range
 }
-HOOK @ $80952128
+HOOK @ $806AB200 # Handles item frequency text
 {
-    lis r12, 0x80AE          # \ Access pointer at 80ADAD5C
-    lwz r12, -0x52A4(r12)    # /
-    lfsx f2, r12, r29        #
-    addi r29, r29, 4         # Access to max of range
-    lfsx f0, r12, r29        #
+    cmpwi r5, 3; ble+ Normal
+    addi r5, r5, 75        # Normally in Project M, this message block has 154 entries. 79+76 = 155 to get a new entry #155
+Normal:
+    addi r5, r5, 76        # Normal position for item frequency description
 }
-# HOOK @ $806AB200 # Handles item frequency text
-# {
-#     cmpwi r5, 3; ble+ Normal
-#     addi r5, r5, 75        # Normally in Project M, this message block has 154 entries. 79+76 = 155 to get a new entry #155
-# Normal:
-#     addi r5, r5, 76        # Normal position for item frequency description
-# }
-# HOOK @ $806AB234 # Handles item frequency description
-# {
-#     cmpwi r5, 3; ble+ Normal
-#     addi r5, r5, 25        # Normally in Project M, this message block has 154 entries when including Stamina's additions. 29+129 = 158
-# Normal:
-#     addi r5, r5, 129 # Original operation, gets offset to text index for item frequency description using the item frequency as an offset
-# }
+HOOK @ $806AB234 # Handles item frequency description
+{
+    cmpwi r5, 3; ble+ Normal
+    addi r5, r5, 25        # Normally in Project M, this message block has 154 entries when including Stamina's additions. 29+129 = 158
+Normal:
+    addi r5, r5, 129 # Original operation, gets offset to text index for item frequency description using the item frequency as an offset
+}
