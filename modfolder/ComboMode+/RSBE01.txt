@@ -1634,7 +1634,7 @@ MultiplyHitlag:
 	ori r5, r5, 60000		# | Scalars are really just ints * 60000			
 	divw r4, r4, r5			# / Convert back into an int!
 ModifiedHitlag:
-	cmpw r4, 0			# \
+	cmpwi r4, 0			# \
 	bge- %END%			# / Safety to prevent people trying to force negative hitlag
 NoHitlag:
 	li r4, 0			# No frames of hitlag!
@@ -1656,6 +1656,223 @@ _force:
 _end:
 }
 
+#########################################################
+Knockback during Timer Slo-mo is also slowed down v2.0 [Eon]
+#########################################################
+#Multiply Knockback Decay Rate by current Timer-speed
+HOOK @ $80869c10
+{
+  fmr f30, f1
+
+  #this.slowModule.getRate()
+  lwz r3, 0xD8(r30)
+  lwz r3, 0xB8(r3)
+  lwz r12, 0x8(r3)
+  lwz r12, 0x3C(r12)
+  mtctr r12
+  bctrl 
+
+  fmuls f1, f1, f30 
+  lfs f2, 0x4(r31)
+
+}
+
+#moves knockback to be multiplied by timer, instead of excluded from the calculation
+#knockback is movement ID 2, so changing bitmasks appropriately adds it to normal movement types
+op li r29, 3 @ $8070f0ac #was 1, added 2 to the bitmask 
+op li r30, -12 @ $8070f0d8 #was -10, added 2 to the bitmask 
+
+
+#if isSkip, dont decrement hitstun 
+HOOK @ $80838960
+{
+  #this.slowModule.isSkip()
+  lwz r3, 0xD8(r31)
+  lwz r3, 0xB8(r3)
+  lwz r12, 0x8(r3)
+  lwz r12, 0x40(r12)
+  mtctr r12
+  bctrl 
+  cmpwi r3, 1
+  bne cont
+  lis r12, 0x8083
+  ori r12, r12, 0x8A14
+  mtctr r12
+  bctr 
+cont:
+  lwz r3, 0xD8(r31)
+}
+
+##############################################
+Slow-mo timer Continues even when Linked [Eon]
+##############################################
+HOOK @ $80766B80 
+{
+  bctrl
+  lwz r3, 0x28(r31)
+  cmpwi r3, 0
+  ble skip 
+  subic. r0, r3, 1
+  stw r0, 0x28(r31)
+  bgt skip 
+  li r4, 1
+  stw r0, 0x34(r31)
+  stw r0, 0x24(r31)
+skip:
+  li r3, 1
+}
+
+
+##############################################################
+[Project+] DK Cargo Uses default Grab Hold time reduction per frame [Eon]
+##############################################################
+HOOK @ $8089156c
+{
+  lis r12, 0x80B8
+  ori r12, r12, 0x84A8
+  lfs f2, 0(r12)
+}
+
+###################################################################
+[Project+] Grabbed Opponents face opposite way from grabber [Eon]
+###################################################################
+HOOK @ $8077161c
+{
+#getParentLr
+	lwz r3, 0xD8(r30)
+	lwz r3, 0x54(r3)
+	lwz r12, 0(r3)
+	li r4, 0
+	lwz r12, 0xA8(r12)
+	mtctr r12
+	bctrl
+#invert direction
+	fneg	f1,f1
+#setLr
+	lwz r3, 0x10(r31)
+	lwz r3, 0xD8(r3)
+	lwz r3, 0xC(r3)
+	lwz r12, 0(r3)
+	lwz r12, 0x30(r12)
+	mtctr r12
+	bctrl
+
+	lwz r4, 0x10(r31)
+}
+
+#########################################################
+[Project+] Throws Don't Trip on Grounded Banana 2.0 [Eon]
+#########################################################
+HOOK @ $8076CEB0
+{
+  li r24, 9
+  lwz r3, 0x7C(r18)
+  lhz r3, 0x3A(r3)
+  cmpwi r3, 0x3C
+  bne %end%
+  lis r3, 0x8076
+  ori r3, r3, 0xd61c
+  mtctr r3
+  bctr
+}
+
+##################################################################################
+[Project+] Floating Point Imprecision compensation for Collision tests v1.1 [Eon]
+##################################################################################
+#ECB-Model split at Edge Fix for stationary plats
+op ble 0x280 @ $80125430 
+
+#########################################################
+[Project+] Faux Super Armour Port Priority Fix v1.1 [Eon]
+#########################################################
+HOOK @ $80710840
+{
+
+	lwz r4, 0x70(r3)
+	lwz r4, 0x38(r4)
+
+	cmpwi r4, 0x40
+	beq getHit
+	cmpwi r4, 0x3b
+	beq getHit
+
+armour: #grab armour/what faux super armour did
+	li r4, 1
+	b %end%
+getHit:
+#clear release damage 
+	lwz r3, 0x38(r3)
+	lwz r3, 0x40(r3)
+	li r4, 0
+	lwz r12, 0(r3)
+	lwz r12, 0xC(r12)
+	mtctr r12
+	bctrl
+	li r4, 0
+	stw r4, 0x94(r3)
+
+	lwz r3, 0xD8(r31)
+
+	li r4, 0
+}
+op mr r0, r5 @ $80772238 #in hitlag bit toggle removed
+op nop @ $807722a4 #hitlag frames removal removed
+
+
+#######################################################################
+[Project+] Zair Requires Z press instead of A press while holding shield [Eon]
+#######################################################################
+word 0x30 @ $80faa730
+
+################################################
+[Project+] Moving Platform Landing Fixes [Eon]
+################################################
+HOOK @ $80129A34
+{
+    addi r3, r1, 0x198 #prevPlatLocation
+    mr r4, r29 #prevECB
+    addi r5, r1, 0xE8 #result
+
+    #projectionX/[clSegment2D](prevPlat, prevECB, projectionResult)
+    lis r12, 0x8004
+    ori r12, r12, 0x08C4
+    mtctr r12
+    bctrl
+    cmpwi r3, 0
+    beq dontLand #projection didnt encounter previous frame, dont land
+
+    lfs f1, 0xEC(r1) #ypos of encounter
+    lfs f0, 0x4(r29) #prev ypos of fighter
+
+    lfs f2, -0x6930(r2) # 0.0
+    fsubs f1, f1, f0
+    fcmpo cr0, f1, f2 
+    blt moveECB #if previous ecb was above previous platform position, then do ecb shit
+
+
+dontLand:
+    lis r12, 0x8012
+    ori r12, r12, 0x9ADC
+    mtctr r12
+    bctr
+moveECB:
+    mr r3, r31
+}
+
+########################################
+#[Project+] Spinning Turnaround fix [Eon]
+########################################
+#Note that this code breaks multi-jump character ledgejump bairs and is therefore disabled until further developments are made
+float 0.0 @ $80AD76B4 #set turn to occur first frame of rotation
+HOOK @ $80884250 #cancel turn if entering grab
+{
+    bctrl
+    lwz r3, 0xD8(r31)
+    lwz r3, 0x48(r3)
+    li r0, 0x18
+    stb r0, 0x34(r3)
+}
+
 ####################################################
 Expand Classic mode horde battle costume array [Eon]
 ####################################################
@@ -1669,6 +1886,20 @@ op addi r5, r1, 0xA0 @ $806e0ef0
 op addi r4, r1, 0xA0 @ $806e0f34
 op addi r15, r1, 0xA0 @ $806E0F5C
 op addi r5, r1, 0xA0 @ $806E0FCC
+
+#############################################
+Spring Props don't set X position [DukeitOut]
+#############################################
+CODE @ $80882AC8
+{
+    lfs f1, 4(r4)        # \ Only Y needs to be set
+    stfs f1, 0x10(r3)    # / 
+}
+CODE @ $80882C84
+{
+    lfs f1, 4(r4)        # \ Only Y needs to be set
+    stfs f1, 0x10(r3)    # / 
+}
 
 ########################################################
 Change Subaction Pass Frame also Passes FSM v 1.1 [Eon]
@@ -1690,6 +1921,12 @@ HOOK @ $80724224
     fmr f30, f1
 } 
 
+##################################################
+adjustCeil uses correct offset calculation [Eon]
+##################################################
+op lfs f0, 0x18(r1) @ $8089E6E4 #previously used bottom of ecb in calculation, now uses y position from getPosition
+
+
 ####################################################################
 changeMaterialTex returns if getResTex returned a null pointer [Eon]
 ####################################################################
@@ -1705,15 +1942,147 @@ end:
    stw r3, 0x44(r1)
 }
 
+##################################################
+Melee Invince Mechanics [Eon]
+##################################################
+op b 0x60 @ $80741744 # makes it so you can't "rehit" an opponent if they change from invincible to vulnerable
+
+# Being careful with these
+#.include Source/ProjectM/Damage.asm
+#.include Source/ProjectM/DirectionalInfluence.asm
+#.include Source/ProjectM/DirectionalInput.asm
+.include Source/ProjectM/Elements.asm
+.include Source/ProjectM/Grab.asm
+#.include Source/ProjectM/Knockback.asm
+#.include Source/ProjectM/Ledge.asm
+#.include Source/ProjectM/Modifier/Hitlag.asm
+.include Source/ProjectM/Modifier/Physics.asm
+.include Source/ProjectM/Modifier/Reflect.asm
+# These are custom to the wrong characters, inspect
+#.include Source/ProjectM/Modifier/ThrowRelease.asm
+.include Source/ProjectM/Modifier/VariableSet.asm
+
+################################
+Controller Input Lag Fix [Magus]
+# Included in DirectionalInput
+################################
+HOOK @ $8002AD8C
+{
+  add r3, r3, r0
+  subi r3, r3, 0x404
+}
+
+#############################################################################
+########################          UI Codes          #########################
+#############################################################################
+
 #######################
 Tags in replays [Y.S]
 #######################
 op li r5, 0 @ $8004B140
 
+######################################
+Timer Always Displays 6th Digit [ds22]
+######################################
+op nop @ $800DE17C
+
+.include Source/Extras/Stockless.asm
+
+###################################################################
+KO Star Count Is Number of Match Wins v1.4 [standardtoaster, Eon]
+###################################################################
+op NOP @ $80053AC0
+op NOP @ $80053A7C
+HOOK @ $80836350
+{
+  lwz r8, 0x8(r28)
+  lis r9, 0x8180
+  cmpw r8, r9
+  blt _end
+  lwz r10, 0x1C(r31); lwz r10, 0x28(r10) 
+  lwz r10, 0x10(r10); lbz r10, 0x55(r10)
+  lis r9, 0x9018; ori r9, r9, 0xB4C
+  mulli r10, r10, 0x4
+  lhzx r8, r9, r10
+  addi r8, r8, 0x1
+  sthx r8, r9, r10
+_end:
+  li r4, 0x10F
+}
+HOOK @ $80693A48
+{
+  rlwinm r3, r25, 2, 0, 29
+  addi r3, r3, 0xC
+  lhzx r3, r29, r3
+}
+
 ###################################
 Lagless Character Selection [Magus]
 ###################################
 op fcmpo cr0, f0, f0 @ $8069D424
+
+######################################
+Menu Camera Rotation Modifier [Magus]
+######################################
+float 24.0 @ $805A2034
+
+
+#####################################
+Menu Scroll Speeds Modifier [Magus]
+#####################################
+* 065A2240 00000008
+* 00000E01 041402FF
+
+########################################
+Name Scroll Transition Modifier [Magus]
+########################################
+float[2] 0.5, 3.5 @ $806A1ED8	# Related to upwards scrolling animation pauses
+float[2] 5.5, 8.5 @ $806A1EEC	# Related to downwards scrolling animation pauses (+5.0)
+
+##################################################################
+Faster Name Scrolling with Shoulder Buttons v1.2 [wiiztec, Magus]
+#
+# 1.2: Modified to account for the custom control menu revamp
+##################################################################
+HOOK @ $806A021C
+{
+  	rlwinm. r8, r23, 0, 25, 26;	bne- Fast	# L/R on a GC/CC
+ 	rlwinm. r8, r23, 0, 13, 13;  	beq+ Normal	# C on a Nunchuk
+Fast:
+	
+  	subi r5, r5, 0x4
+  	cmpwi r5, -1;	bge+ Normal
+
+  	li r5, -1
+	lbz r8, 0x60(r26); cmpwi r8, 1; beq+ Normal
+	li r5, 0			# Don't scroll up to "Name Entry" if in a custom control
+
+Normal:
+  	stw r5, 0x44(r26)	# Original operation
+}
+HOOK @ $806A039C
+{
+  	rlwinm. r8, r23, 0, 25, 26;  bne- Fast		# L/R on a GC/CC
+  	rlwinm. r8, r23, 0, 13, 13;  beq+ Normal	# C on a Nunchuk
+Fast:
+  	addi r5, r5, 0x4
+	lbz r8, 0x60(r26); cmpwi r8, 1; bne+ CustomControl
+  	cmpw r5, r29; 		blt+ Normal
+  	subi r5, r29, 0x1
+	b Normal
+CustomControl:
+	lwz r8, 0x6C(r26)		# Get the highest scroll option
+	cmpw r5, r8;		ble+ Normal
+	mr r5, r8			# Use that if it tried to go higher
+	
+Normal:
+  	stw r5, 0x44(r26)	# Original operation
+}
+
+##############################
+Reverse Name Sort [Dantarion]
+##############################
+op sub. r0, r4, r0 @ $8069F600
 
 ###########################################
 Reset Tag when Unplugged [standardtoaster]
