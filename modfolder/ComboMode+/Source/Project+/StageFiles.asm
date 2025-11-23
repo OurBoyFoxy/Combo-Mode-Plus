@@ -399,9 +399,13 @@ HOOK @ $806BE22C
 {
 	lhz r0, 0x1A(r3)		# Original operation. Get stage slot ID
 	cmpwi r0, 0x28			# Is this the results screen? 
-	bne NormalStage
-	#cmpwi r0, 0x3D
-	#bne NormalStage
+	beq noDual
+	################ REX addition, fixes crashes related to classic mode final boss
+	cmpwi r0, 0x3D
+	beq noDual
+	b NormalStage
+	################
+noDual:
 	lis r12, 0x806B
 	ori r12, r12, 0xE24C
 	mtctr r12
@@ -490,8 +494,8 @@ Custom Stage SD File Loader [DukeItOut, Kapedani]
 .alias RSS_EXDATA_BONUS				= 0x806AEE18
 .alias ASL_DATA						= 0x8053F000
 .alias TRACKLIST_DATA				= 0x8053F200
-.alias BRAWLEX_FIGHTER_IDS       	= 0x80AD8258 #0x817C8680
-.alias BRAWLEX_FIGHTER_NAMES        = 0x80B511A0 #0x817CD820
+.alias BRAWLEX_FIGHTER_IDS       	= 0x80AD8258 # <- Changed for REX
+.alias BRAWLEX_FIGHTER_NAMES        = 0x817c38e0 # <- Changed for REX
 
 .macro lbd(<reg>, <addr>)
 {
@@ -573,20 +577,20 @@ Reload:
 	lwz	r8, -0x10(r22)		# ".asl"
 	lwz	r10, -0x10(r22)		# ".asl"
 
-	cmpwi r7, 0x38			# \ check if targetsmash
-	bne+ notSpecialStage	# /
-	%lwi (r7, 0x80B2EC03)	# "tBreak"
-	%lwd (r12, g_GameGlobal)	
-	lwz r12, 0x8(r12)			# \ g_GameGlobal->modeMelee->playerInitData[0].characterKind
-	lbz r9, 0x98(r12)			# /
-    %lwi (r12, BRAWLEX_FIGHTER_IDS)  # Internal BrawlEX fighter slot info 	
-    mulli r9, r9, 0x10      # Offsets are 0x10 apart
-	lwzx r9, r12, r9		# Fighter slot ID
-    %lwi (r12, BRAWLEX_FIGHTER_NAMES)	# Internal BrawlEX internal fighter names
-    mulli r9, r9, 0x10      # Offsets are 0x10 apart
-    add r9, r12, r9         # r4 now contains a pointer to the character filename when using P+EX
-	%lwi (r4, 0x8048EFF0)	# "%s%s%s%s%s%s"
-	addi r8, r5, 0x6		# "/"
+	#cmpwi r7, 0x38			# \ check if targetsmash
+	#bne+ notSpecialStage	# /
+	#%lwi (r7, 0x80B2EC03)	# "tBreak"
+	#%lwd (r12, g_GameGlobal)	
+	#lwz r12, 0x8(r12)			# \ g_GameGlobal->modeMelee->playerInitData[0].characterKind
+	#lbz r9, 0x98(r12)			# /
+    #%lwi (r12, BRAWLEX_FIGHTER_IDS)  # Internal BrawlEX fighter slot info 	
+    #mulli r9, r9, 0x10      # Offsets are 0x10 apart
+	#lwzx r9, r12, r9		# Fighter slot ID
+    #%lwi (r12, BRAWLEX_FIGHTER_NAMES)	# Internal BrawlEX internal fighter names
+    #mulli r9, r9, 0x10      # Offsets are 0x10 apart
+    #add r9, r12, r9         # r4 now contains a pointer to the character filename when using P+EX
+	#%lwi (r4, 0x8048EFF0)	# "%s%s%s%s%s%s"
+	#addi r8, r5, 0x6		# "/"
 notSpecialStage:
 	%call (sprintf)			# Create the filename string
 	mr r5, r22				# Stage files to 8053F000
@@ -1426,9 +1430,9 @@ op lwz r4, 0x5D00(r4)	@ $800AF6E0
 
 .include Source/Project+/StageTable.asm
 
-# ###########################################################
-# SSS Stage Lists and Alt Stage Display [DukeItOut, Kapedani]
-# ###########################################################
+###########################################################
+SSS Stage Lists and Alt Stage Display [DukeItOut, Kapedani]
+###########################################################
 
 .alias muSelectStageSwitch__selectRandom		= 0x806b74f0
 .alias muSelectStageSwitch__dispPreview			= 0x806b6ab4
@@ -1663,15 +1667,15 @@ setFrame:
 checkForSetHazard:
 	lwz r12, 0x4C(r1)
 	andi. r0, r12, 0x0010		# 0x0010 # Gamecube Z
-	bne+ setHazard  
+	#bne+ setHazard  
 	rlwinm. r0, r12, 0, 10, 10	# 0x00200000	# Classic Controller ZL/ZR
 	beq+ dontSetHazard 
 setHazard:
-	lis r8, 0x806B
-	li r11, 0
-	cmpwi r10, 0x2 
-	bne+ dontResetPointerIndex	
-	stw r11, 0x244(r30)		# reset pointer index on custom page so cursors can change colour
+	#lis r8, 0x806B
+	#li r11, 0
+	#cmpwi r10, 0x2 
+	#bne+ dontResetPointerIndex	
+	#stw r11, 0x244(r30)		# reset pointer index on custom page so cursors can change colour
 	b notRandom
 dontResetPointerIndex:
 	cmplwi r9, 0x36
@@ -1683,18 +1687,18 @@ dontResetPointerIndex:
 	cmpwi r11, 0x0
 	beq+ allHazards
 noHazards:	
-	li r11, 0x2
-	ori r4, r8, 0x93B9	# Random
-	b selectedRandomClr
+	#li r11, 0x2
+	#ori r4, r8, 0x93B9	# Random
+	#b selectedRandomClr
 defaultHazards:
-	ori r4, r8, 0x93B0	# MenSelmapRandom
-	b selectedRandomClr
+	#ori r4, r8, 0x93B0	# MenSelmapRandom
+	#b selectedRandomClr
 allHazards:
-	ori r4, r8, 0x93B3	# SelmapRandom
+	#ori r4, r8, 0x93B3	# SelmapRandom
 selectedRandomClr:
-	stb r11, 0x46(r30)
-	lwz r3, 0x1FC(r30)
-	b changeClr
+	#stb r11, 0x46(r30)
+	#lwz r3, 0x1FC(r30)
+	#b changeClr
 notRandom:
 	lwz	r3, 0x204(r30)
 	ori r4, r8, 0x94EF	# SelMapCursorB
@@ -2044,93 +2048,8 @@ isNotBuilderStagelist:
 	stw r11, 0x258(r10)	# /
 }
 
-#####################################################################################
-Stage Builder Files Supports Having JPEG and RGBA8 TEX0 Images [Squidgy, Kapedani]
-# Allows for HD Textures since can't guarantee same JPEG decoding in game and outside
-#####################################################################################
-.alias memcpy 									= 0x80004338
-
-.macro lwi(<reg>, <val>)
-{
-    .alias  temp_Hi = <val> / 0x10000
-    .alias  temp_Lo = <val> & 0xFFFF
-    lis     <reg>, temp_Hi
-    ori     <reg>, <reg>, temp_Lo
-}
-.macro call(<addr>)
-{
-  %lwi(r12, <addr>)
-  mtctr r12
-  bctrl    
-}
-.macro branch(<addr>)
-{
-    %lwi(r12, <addr>)
-    mtctr r12
-    bctr
-}
-
-HOOK @ $806b8a6c	# muSelectStageFileTask::copyFileData
-{
-	lwz	r6, 0x10(r29) # Original operation
-	lwz r12,0x0(r4)		# Get first four bytes
-	%lwi(r11, 0x54455830)	# "TEX0"
-	cmpw r12, r11   # \ check if TEX0
-	bne+ %end%		# /
-	mr r3, r6			# \
-	addi r4, r4, 0x40	# | copy RGBA8
-	mr r5, r7			# |
-	%call(memcpy)		# /
-	%branch(0x806b8a74)
-}
-
-###################################################################################
-Stage Builder Files Supports Having UTF16 or UTF8 Encoded Names [Squidgy, Kapedani]
-# Allows for double the stage name length
-###################################################################################
-.macro lwi(<reg>, <val>)
-{
-    .alias  temp_Hi = <val> / 0x10000
-    .alias  temp_Lo = <val> & 0xFFFF
-    lis     <reg>, temp_Hi
-    ori     <reg>, <reg>, temp_Lo
-}
-.macro branch(<addr>)
-{
-    %lwi(r12, <addr>)
-    mtctr r12
-    bctr
-}
-
-op stb r3, 0xC(r29) @ $806b8a94	# Copy whole preview type byte from summary
-
-op andi. r12, r0, 0x1 @ $806b2bf4 # use only first bit to determine preview pic setting
-HOOK @ $806b2a98	# muSelectStageTask::dispEditLineData
-{
-	mr r4, r3	# Original operation
-	lbz r12, 0xC(r4)		# \
-	andi. r12, r12, 0x80	# | check if should use utf8 encoding
-	beq+ %end%				# /
-	lwz	r3, 0x6064(r25)	# \
-	addi r5, r4, 0x20	# |
-	addi r4, r26, 22	# | skip to printf
-	%branch(0x806b2ab4)	# /
-}
-
-op andi. r12, r0, 0x1 @ $806b6e40 #  use only first bit to determine preview pic setting
-HOOK @ $806b6db8	# muSelectStageTask::dispEditPreview
-{
-	mr r4, r3	# Original operation
-	lbz r12, 0xC(r4)		# \
-	andi. r12, r12, 0x80	# | check if should use utf8 encoding
-	beq+ %end%				# /
-	lwz	r3, 0x6064(r27)	# \
-	addi r5, r4, 0x20	# | skip to printf
-	%branch(0x806b6dd0)	# /
-}
-
-# ## TODO: Classic/All Star Mode ASL from certain range (use all L-alts?)
-# ## TODO: Also investigate random substage handling with replays
-# ## TODO: Song id in results based on costume id?
-# ## TODO: Investigate same song id playing during endless friendlies?
-# ## TODO: Fix Replays always saying Home Run Contest?
+## TODO: Classic/All Star Mode ASL from certain range (use all L-alts?)
+## TODO: Also investigate random substage handling with replays
+## TODO: Song id in results based on costume id?
+## TODO: Investigate same song id playing during endless friendlies?
+## TODO: Fix Replays always saying Home Run Contest?
