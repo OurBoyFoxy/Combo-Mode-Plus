@@ -2796,5 +2796,7 @@ op b 0x38	@ $808A087C
 .include Source/Project+/Items.asm
 .include Source/P+Ex/ItemEx.asm
 
+.include Source/Extras/DebugMode/includeDebug.asm
+
 .include Source/Community/Syringe.asm
 .include Source/Project+/MultiGCT.asm
