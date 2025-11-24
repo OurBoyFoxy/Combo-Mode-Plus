@@ -5,6 +5,22 @@
 * 04FC27E8 00020000             # 32-Bit Write @ $(ba + 0x00FC27E8):  0x00020000
 
 ###################################
+[ComboMode+] Gravity P1-P4
+###################################
+* 4A000000 90180F20             # Set Pointer Offset: po = 0x90180F20
+* 140000E0 3FA00000             # 32-Bit Write @ $(po + 0x000000E0):  0x3FA00000
+* E0000000 80008000             # Full Terminator: ba = 0x80000000, po = 0x80000000
+* 4A000000 90180F7C             # Set Pointer Offset: po = 0x90180F7C
+* 140000E0 3FA00000             # 32-Bit Write @ $(po + 0x000000E0):  0x3FA00000
+* E0000000 80008000             # Full Terminator: ba = 0x80000000, po = 0x80000000
+* 4A000000 90180FD8             # Set Pointer Offset: po = 0x90180FD8
+* 140000E0 3FA00000             # 32-Bit Write @ $(po + 0x000000E0):  0x3FA00000
+* E0000000 80008000             # Full Terminator: ba = 0x80000000, po = 0x80000000
+* 4A000000 90181034             # Set Pointer Offset: po = 0x90181034
+* 140000E0 3FA00000             # 32-Bit Write @ $(po + 0x000000E0):  0x3FA00000
+* E0000000 80008000             # Full Terminator: ba = 0x80000000, po = 0x80000000
+
+###################################
 [ComboMode+] Kill Hitstun Cancel
 ###################################
 * 02B88F48 00030001             # 16-Bit Write @ $(ba + 0x00B88F48):  0x0001 (4 times)
