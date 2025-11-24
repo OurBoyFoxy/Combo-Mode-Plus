@@ -1085,7 +1085,7 @@ Attacker Never has Electric Hitlag [Dantarion, Standardtoaster]
 op b 0x6C @ $8076E228
 
 ######################################################
-Disable Vertical Boost on Tumble KB [Dantarion, Magus]
+!Disable Vertical Boost on Tumble KB [Dantarion, Magus]
 ######################################################
 op lfs	f2, -0x72C0 (r30) @ $8086DBDC
 
