@@ -1,8 +1,8 @@
 # Path to GCTRealMate
 $gctPath = ".\modfolder\ComboMode+\GCTRealMate.exe"
 $enterFile = ".\modfolder\ComboMode+\enter.txt"
-$sourceInjectDir = ".\modfolder\ComboMode+\Source\Community\Injects\fighter"
-$destInjectDir   = ".\modfolder\ComboMode+\rsbe\pf\injects\fighter"
+$sourceInjectDir = ".\modfolder\ComboMode+\Source\Community\Injects"
+$destInjectDir   = ".\modfolder\ComboMode+\rsbe\pf\injects"
 
 # Check if GCTRealMate exists
 if (-not (Test-Path $gctPath)) {
@@ -27,14 +27,14 @@ Start-Process -FilePath $gctPath ".\modfolder\ComboMode+\BOOST.txt" -RedirectSta
 
 Write-Host "`n###################################################################################################`n"
 Write-Host "`n`n`Creating Fighter Inject GCTs`n"
-$asmFiles = Get-ChildItem -Path $sourceInjectDir -Filter "*.asm" -File
+$asmFiles = Get-ChildItem -Path $sourceInjectDir -Filter "*.txt" -File
 
 if ($asmFiles.Count -eq 0) {
-    Write-Host "No .asm files found in $sourceInjectDir" -ForegroundColor Gray
+    Write-Host "No .txt files found in $sourceInjectDir" -ForegroundColor Gray
 } else {
     foreach ($asm in $asmFiles) {
         $baseName = [System.IO.Path]::GetFileNameWithoutExtension($asm.Name)
-        $inputTxt = "$sourceInjectDir\$baseName.asm"
+        $inputTxt = "$sourceInjectDir\$baseName.txt"
         $outputGct = "$baseName.GCT"
 
         Write-Host "  Building: $baseName.GCT" -ForegroundColor White

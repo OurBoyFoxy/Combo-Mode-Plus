@@ -9,8 +9,8 @@ cd /d "%~dp0"
 :: =============================================
 set "GCT=modfolder\ComboMode+\GCTRealMate.exe"
 set "ENTER=modfolder\ComboMode+\enter.txt"
-set "SRC_INJECT=modfolder\ComboMode+\Source\Community\Injects\fighter"
-set "DEST_INJECT=modfolder\ComboMode+\rsbe\pf\injects\fighter"
+set "SRC_INJECT=modfolder\ComboMode+\Source\Community\Injects"
+set "DEST_INJECT=modfolder\ComboMode+\rsbe\pf\injects"
 
 echo.
 echo ╔══════════════════════════════════════════════════╗
@@ -57,7 +57,7 @@ echo [4/4] Building Fighter Inject GCTs...
 echo =====================================
 echo.
 set "count=0"
-for /r "%SRC_INJECT%" %%F in (*.asm) do (
+for /r "%SRC_INJECT%" %%F in (*.txt) do (
     set /a count+=1
     set "fullname=%%F"
     set "basename=%%~nF"
@@ -82,7 +82,7 @@ for /r "%SRC_INJECT%" %%F in (*.asm) do (
 )
 
 if %count%==0 (
-    echo   No .asm files found anywhere under:
+    echo   No .txt files found anywhere under:
     echo   %SRC_INJECT%
     echo.
     echo   (Make sure your files are in subfolders like fighter\, stage\, etc.)

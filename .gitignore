@@ -4,5 +4,5 @@ modfolder/Project+/
 modfolder/ComboMode+/BOOST.GCT
 modfolder/ComboMode+/RSBE01.GCT
 modfolder/ComboMode+/RSBEDM.GCT
-modfolder/ComboMode+/rsbe/pf/injects/fighter/*.GCT
+modfolder/ComboMode+/rsbe/pf/injects/*.GCT
 tools/VSDsync/Config.ini

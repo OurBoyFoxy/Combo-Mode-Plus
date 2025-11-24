@@ -40,7 +40,6 @@ op blt- 0x34	   @ $8018CFC8
 .include Source/Project+/UCF.asm
 
 .include Source/ProjectM/CSS.asm
-.include Source/ProjectM/Glide.asm
 .include Source/ProjectM/TrainingMode.asm
 .include Source/ProjectM/ThrowRelease.asm
 .include Source/ProjectM/Powershield.asm

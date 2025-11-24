@@ -2272,7 +2272,6 @@ op fmr f0, f3 @ $8010c888
 .include Source/ProjectM/CSS.asm
 #.include Source/ProjectM/SSS.asm
 .include Source/ProjectM/SSSButtons.asm
-.include Source/ProjectM/Glide.asm
 
 .include Source/P+Ex/HiddenAltSets.asm
 .include Source/LegacyTE/Masquerade.asm
