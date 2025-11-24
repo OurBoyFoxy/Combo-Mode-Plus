@@ -8,18 +8,24 @@ Jumps Calculate One Frame Earlier [DukeItOut]
 #
 # Also makes jumping out of water easier
 # by increasing jump height in that context
+#
+# Modifies gravity by 1.25
 #############################################
 HOOK @ $8086BD34	# Grounded or Swimming
 {
 	lfs f0, 0x24(r1)	 # Desired movement Y speed. Some branches don't have this set.
     lwz r29, 0xD0(r30)   # \ Retrieve the gravity for the character
     lfs f31, 0x70(r29)   # /
+
+    lis r3, 0x3FA0      # Muliply gravity by 1.25
+    stw r3, -0x8(r1)
+    lfs f2, -0x8(r1)
+    fmuls f31, f31, f2
 	
 	lwz r29, 0x7C(r30)	 # \ Get previous action
 	lhz r29, 0x06(r29)	 # /
 
 	cmpwi r29, 0xBA		 # Check if we are trying to leap out of water
-
 	
     lwz r29, 0x18(r30)   # \
     lfs f1, 0x1C(r29)    # | Simulate one frame of vertical movement
@@ -39,6 +45,11 @@ HOOK @ $8086BE60	# Mid-Air Jump
 {
     lwz r31, 0xD0(r30)   # \ Retrieve the gravity for the character
     lfs f31, 0x70(r31)   # / 
+
+    lis r3, 0x3FA0       # Multiply gravity by 1.25
+    stw r3, -0x8(r1)
+    lfs f2, -0x8(r1)
+    fmuls f31, f31, f2
 
 	lwz r31, 0x18(r30)   # \
     lfs f0, 0x1C(r31)    # | Simulate one frame of vertical movement
