@@ -855,7 +855,7 @@ op b 0x20 	@ $80875164
 int 0x20000	@ $80FC2230
 
 ##############################################################
-Disable Footstool During Paralyze [Dantarion, standardtoaster]
+!Disable Footstool During Paralyze [Dantarion, standardtoaster]
 ##############################################################
 HOOK @ $8083D134
 {
