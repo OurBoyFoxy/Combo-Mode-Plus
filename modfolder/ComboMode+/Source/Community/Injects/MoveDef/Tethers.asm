@@ -117,7 +117,7 @@ CODE @ $80FB6C7C
 	word 0x00070100; word PSA_Off4+0x28
 }
 #############################################################
-Zair Goes into Special Fall and Wavedash endlag v5.3 [Shanus]
+!Zair Goes into Special Fall and Wavedash endlag v5.3 [Shanus]
 #############################################################
 .alias PSA_Off = 0x80545E88
 .alias AGT_Off = 0x80544000 # SYNC WITH CODE BELOW!!!
