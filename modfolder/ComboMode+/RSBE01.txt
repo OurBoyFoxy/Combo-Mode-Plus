@@ -803,7 +803,7 @@ loc_0x10:
 }
 
 ######################################
-Shieldstun Modifier v2.0 [Magus, ds22]
+!Shieldstun Modifier v2.0 [Magus, ds22]
 ######################################
 HOOK @ $808753FC
 {
@@ -824,7 +824,7 @@ HOOK @ $808753FC
 }
 
 ################################
-Defender Shield Pushback [Magus]
+!Defender Shield Pushback [Magus]
 ################################
 HOOK @ $808755AC
 {
