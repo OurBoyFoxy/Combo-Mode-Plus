@@ -184,7 +184,7 @@ CODE @ $80FB34E4
 * 02FB3504 00370002
 
 #####################################################
-Jab Reset Hitstun Linker and Jab Resets v8.4 [Shanus]
+!Jab Reset Hitstun Linker and Jab Resets v8.4 [Shanus]
 #####################################################
 .alias PSA_Off  = 0x805457D0
 .alias PSA_Off2 = 0x80545810
