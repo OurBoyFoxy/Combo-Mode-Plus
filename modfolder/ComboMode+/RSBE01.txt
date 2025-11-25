@@ -1074,13 +1074,13 @@ HOOK @ $8076E0F0
 }
 
 ################################################
-Electric Element Uses Normal Hitlag Type [Magus]
+!Electric Element Uses Normal Hitlag Type [Magus]
 ################################################
 op nop @ $8076D254
 op nop @ $808761C8
 
 ###############################################################
-Attacker Never has Electric Hitlag [Dantarion, Standardtoaster]
+!Attacker Never has Electric Hitlag [Dantarion, Standardtoaster]
 ###############################################################
 op b 0x6C @ $8076E228
 
