@@ -1,6 +1,6 @@
-###################################################################################
-Custom Physics Engine (Actions, Subactions FastFall) V1.3 [Magus, Almas, DukeItOut]
-###################################################################################
+####################################################################################
+Custom Physics Engine (Actions, Subactions FastFall) V1.3a [Magus, Almas, DukeItOut]
+####################################################################################
 HOOK @ $8085765C
 {
   lwz r31, 0x70(r29)
@@ -8,10 +8,10 @@ HOOK @ $8085765C
   lwz r31,0x0C(r31)
   lwz r31,0x2D0(r31)
   lwz r31, 0x08(r31)
-  lis r30, 0x9000; cmpw r31, r30; bgtlr
+  lis r30, 0x9340; cmpw r31, r30; bgtlr
   lwz r31,0x110(r31)
   
-  cmplwi r31, 0xFF    # \ Change this ID if using Brawl EX
+  cmplwi r31, 0x7F    # \ Change this ID if using Brawl EX
   bgtlr
 
   lwz r30, 0x14(r29)
@@ -70,23 +70,30 @@ CODE @ $8058549C
   bgelr
   lwz r27, 0x08(r30)	# \
   lwz r27, 0x110(r27)	# / Access character ID
-  cmplwi r27, 0xFF		# \ Change this ID if using Brawl EX
+  cmplwi r27, 0xFF		# \ Change check if ID is higher than FF, if so exit
   bgtlr
 loc_0x18:
   lwz r30, 0x14(r30)
-  lhz r30, 0x5A(r30);  ori r30, r30, 0x8000
-  lis r25, 0x8058;  ori r25, r25, 0x5270
-  mulli r26, r27, 0x4
-  lwzx r25, r25, r26
-  lis r24, 0x9340;  cmpw r25, r24;  bgelr- 
+  lhz r30, 0x5A(r30);
+  ori r30, r30, 0x8000 # turn on top bit for action ID
+  lis r25, 0x8058;
+  ori r25, r25, 0x5270  # Get pointer to 0x80585270 in memory, where table is
+  mulli r26, r27, 0x4   
+  lwzx r25, r25, r26    # 4 x characterID add to address
+  lis r24, 0x9340;
+  cmpw r25, r24;  bgelr- # Safety check to ensure address is below 93400000
 
 loc_0x44:
-  subi r26, r25, 0x8
+  subi r26, r25, 0x8  # move r26 back 8 bytes from r25
 
 loc_0x48:
-  lwzu r25, 8(r26);  cmpwi r25, 0x0;  blelr- 
+  lwzu r25, 8(r26);   # load 8 byte word at r26
+  cmpwi r25, 0x0;     # if r25 is 0, exit
+  blelr- 
 loc_0x58:
-  srawi. r24, r25, 24;  cmpw r24, r27;  bnelr- 
+  srawi. r24, r25, 24; # bit shift right by 24
+  cmpw r24, r27;       # compare original ID with bit shifted value
+  bnelr-               # exit if not equal
 
 loc_0x68:
   rlwinm r24, r25, 16, 24, 31;  cmpw r24, r29;  bne+ loc_0x48
@@ -249,7 +256,18 @@ Custom Physics Data
 # action 0x0D: Multijump
 # action >0x111: Special move
 # first byte for each block is the character
-# second byte is ???
+# second byte is the IC-Basic to intercept?
+# 0x04 (3004): Friction
+# 0x06 (3006): Dash & Run Accel A
+# 0x08 (3008): Dash & Run Terminal Velocity
+# 0x17 (3023): Gravity
+# 0x18 (3024): Terminal Velocity
+# 0x19 (3025): V Air Friction
+# 0x1A (3026): Aerial Max Fall Speed
+# 0x1B (3027): Air Mobility A
+# 0x1C (3028): Air Mobility B
+# 0x1D (3029): Max H Air Mobility
+# 0x1E (3030): H Air Friction
 # half is the action/subaction
 # float is the value to modify into
 PHYSICS_DATA:
@@ -262,14 +280,14 @@ PHYSICS_DATA:
 	byte[2] 0x06, 0x06; half 4; float 0.58			# Fox
 	
 	byte[2] 0x07, 0x06; half 4; float 0.48			# Pikachu
-	byte[2] 0x07, 0x1B; half 0x81DB; float 0		# \ Quick Attack aerial start physics
-	byte[2] 0x07, 0x1C; half 0x81DB; float 0		# |
-	byte[2] 0x07, 0x1E; half 0x81DB; float 0		# /
-	byte[2] 0x07, 0x1B; half 0x81DA; float 0		# \ Quick Attack grounded end physics
-	byte[2] 0x07, 0x1C; half 0x81DA; float 0		# /
-	byte[2] 0x07, 0x1B; half 0x81DC; float 0		# \ Quick Attack aerial end physics
-	byte[2] 0x07, 0x1C; half 0x81DC; float 0		# /
-	byte[2] 0x07, 0x1E; half 0x0118; float 0		# Quick Attack ending physics
+	# byte[2] 0x07, 0x1B; half 0x81DB; float 0		# \ Quick Attack aerial start physics
+	# byte[2] 0x07, 0x1C; half 0x81DB; float 0		# |
+	# byte[2] 0x07, 0x1E; half 0x81DB; float 0		# /
+	# byte[2] 0x07, 0x1B; half 0x81DA; float 0		# \ Quick Attack grounded end physics
+	# byte[2] 0x07, 0x1C; half 0x81DA; float 0		# /
+	# byte[2] 0x07, 0x1B; half 0x81DC; float 0		# \ Quick Attack aerial end physics
+	# byte[2] 0x07, 0x1C; half 0x81DC; float 0		# /
+	# byte[2] 0x07, 0x1E; half 0x0118; float 0		# Quick Attack ending physics
 	
 	byte[2] 0x08, 0x06; half 4; float 0.38			# Luigi
 	
@@ -369,9 +387,21 @@ PHYSICS_DATA:
 	byte[2] 0x2F, 0x06; half 8; float 0.175			#	Turning around
 	byte[2] 0x2F, 0x08; half 3; float 2.5			#	Dashing
 	
-	byte[2] 0x4D, 0x06; half 4; float 0.28			# Shadow
-	byte[2] 0x4D, 0x06; half 8; float 0.175			#	Turning around
-	byte[2] 0x4D, 0x08; half 3; float 2.5			#	Dashing
+	byte[2] 0x6A, 0x06; half 4; float 0.59			# Red Alloy Ex
+	byte[2] 0x6A, 0x1B; half 0x81D6; float 0.024	# \
+	byte[2] 0x6A, 0x1B; half 0x81D7; float 0.024	# |
+	byte[2] 0x6A, 0x1D; half 0x81D6; float 0.952	# | Falcon Dive physics
+	byte[2] 0x6A, 0x1D; half 0x81D7; float 0.952	# |
+	byte[2] 0x6A, 0x1E; half 0x81D6; float 1.12		# |
+	byte[2] 0x6A, 0x1E; half 0x81D7; float 1.12		# /
+	
+	byte[2] 0x6B, 0x06; half 4; float 0.58			# Blue Alloy Ex
+	
+	byte[2] 0x6C, 0x06; half 4; float 0.38			# Yellow Alloy Ex
+	
+	byte[2] 0x6D, 0x06; half 4; float 0.48			# Green Alloy Ex
+
+  byte[2] 0xFF, 0x17; half 0; float 3      # Gravity for everyone
 	
 Skip:
 .RESET

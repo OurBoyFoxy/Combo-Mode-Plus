@@ -533,7 +533,8 @@ CODE @ $80FBD594
 }
 
 ########################################################
-Shield Button Uses Any Shield Press Requirements [Magus]
+! Shield Button Uses Any Shield Press Requirements [Magus]
+# This causes light shield to perform a full shield action
 ########################################################
 int 0x4F 		@ $80FAC058
 int 0x4F 		@ $80FAC020
