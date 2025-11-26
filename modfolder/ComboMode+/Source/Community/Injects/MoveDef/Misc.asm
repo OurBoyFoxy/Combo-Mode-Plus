@@ -190,11 +190,11 @@ CODE @ $80545000
 	word 6; word 7
 	word 5; IC_Basic 1005
 	word 0; word 5
-	word 1; scalar 3.7
+	word 1; scalar 4.7
 	word 6; word 7
 	word 5; IC_Basic 1005
 	word 0; word 5
-	word 1; scalar 6.7
+	word 1; scalar 6.5
 	word 0; word 0x45
 	word 0; word 0x46
 	word 0; word 0x2A
