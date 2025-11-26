@@ -803,20 +803,31 @@ loc_0x10:
 }
 
 ######################################
-!Shieldstun Modifier v2.0 [Magus, ds22]
+Shieldstun Modifier v3.0 [Magus, ds22, pvstv]
+# Commented what each term does, changed
+# to strict multiplication of damage * 0.25
 ######################################
 HOOK @ $808753FC
 {
   stfd f31, 0x10(r2)
-  fsubs f31, f31, f1
-  lis r4, 0x4036; ori r4, r4, 0xDB70; stw r4, 0x20(r2)	//0x4036D870 = 2.8571434
+  # fsubs f31, f31, f1 # Ignoring shield tilt here
+  
+  # (f31 - f1) × 1.0          ← was 2.8571434 → now 1.0
+  lis r4, 0x3F80; ori r4, r4, 0x0000; stw r4, 0x20(r2)  # 0x3F800000 = 1.0
   lfs f0, 0x20(r2); fmuls f31, f31, f0
-  lis r4, 0x408E; ori r4, r4, 0x6666; stw r4, 0x20(r2)	//0x408E6666 = 4.45
+
+  # + 0.0                     ← was +4.45 → now +0.0
+  lis r4, 0x0000; ori r4, r4, 0x0000; stw r4, 0x20(r2)  # 0x00000000 = 0.0
   lfs f0, 0x20(r2); fadds f31, f31, f0
-  lis r4, 0x3EE5; ori r4, r4, 0x1531; stw r4, 0x20(r2)	//0x3EE51531 = 0.4474273
+
+  # × 0.25                    ← was ×0.4474273 → now ×0.7246377 (0.7246377 * 0.345 = 0.25)
+  lis r4, 0x3F39; ori r4, r4, 0x81DB; stw r4, 0x20(r2)  # 0x3F3981db = 0.7246377
   lfs f0, 0x20(r2); fmuls f31, f31, f0
-  lis r4, 0x4000; stw r4, 0x20(r2)			//0x40000000 = 2.0
+
+  # + 0.0                     ← was +2.0 → now +0.0
+  lis r4, 0x0000; ori r4, r4, 0x0000; stw r4, 0x20(r2)  # 0x00000000 = 0.0
   lfs f0, 0x20(r2); fadds f31, f31, f0
+
   fctiwz f0, f31
   stfd f0, 0x20(r2)
   lwz r28, 0x24(r2)
