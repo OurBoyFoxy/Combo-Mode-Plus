@@ -2503,7 +2503,7 @@ orig:
 }
 
 #######################################################
-Ignore Ganon Neutral-B Air Mobility Coding [Magus]
+!Ignore Ganon Neutral-B Air Mobility Coding [Magus]
 #######################################################
 * 04A60CF8 4E800020
 
