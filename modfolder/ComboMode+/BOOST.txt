@@ -181,6 +181,7 @@ loc_0x12C:
 
 
 .include Source/Community/MusicSelect.asm
+.include Source/Community/ParryTaunts.asm
 
 .include Source/P+Ex/AllStar.asm
 .include Source/P+Ex/Angle.asm
