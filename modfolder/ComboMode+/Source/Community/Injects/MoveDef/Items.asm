@@ -7,7 +7,7 @@
 # 9019E000 -> Common3	Toon Link Bomb Physics
 # 901A1280 -> 80545FA8  WaitItem Subaction Check
 ##########################################
-Naner Tripping is now Techable v4 [Shanus]
+!Naner Tripping is now Techable v4 [Shanus]
 ##########################################
 .alias Item_Off = 0x80545ED8
 CODE @ $80545ED8
