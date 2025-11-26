@@ -152,7 +152,6 @@ loc_0x12C:
 .include Source/ProjectM/ThrowRelease.asm
 .include Source/ProjectM/Powershield.asm
 .include Source/ProjectM/Psa.asm
-.include Source/ProjectM/Misc.asm
 
 .include Source/LegacyTE/AltCostume.asm
 .include Source/LegacyTE/LoadFlags.asm
