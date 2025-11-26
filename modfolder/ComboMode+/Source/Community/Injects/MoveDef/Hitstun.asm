@@ -7,7 +7,7 @@
 # 9019B000 -> 80545810	Jab Resets v8.4
 
 ####################################################
-NonTumble Hitstun Canceling v1.4 [Shanus, DukeItOut, Eon]
+!NonTumble Hitstun Canceling v1.4 [Shanus, DukeItOut, Eon]
 ####################################################
 #
 # 1.2b: 
