@@ -679,13 +679,13 @@ CODE @ $80FB3F4C
 Tech Window Fixes, Floor Hit Delay Fix, & Tech in Certain Actions v1.2 [Magus]
 ##############################################################################
 .alias PSA_Off = 0x80540640
-CODE @ $80540640
-{
-	word 2; word PSA_Off+0x08
-	word 0x00070100; word 0x80FAB0FC
-	word 0x02000300; word 0x80FB4174
-	word 0x00080000; word 0
-}
+# CODE @ $80540640
+# {
+# 	word 2; word PSA_Off+0x08
+# 	word 0x00070100; word 0x80FAB0FC
+# 	word 0x02000300; word 0x80FB4174
+# 	word 0x00080000; word 0
+# }
 * 04FAB000 00005A0C
 * 04FAB080 00005A0C
 * 04FAB308 00005A0C

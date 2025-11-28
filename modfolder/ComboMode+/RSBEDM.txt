@@ -805,7 +805,7 @@ loc_0x10:
 ######################################
 Shieldstun Modifier v3.0 [Magus, ds22, pvstv]
 # Commented what each term does, changed
-# to strict multiplication of damage * 0.25
+# to strict 2 frames
 ######################################
 HOOK @ $808753FC
 {
@@ -820,12 +820,12 @@ HOOK @ $808753FC
   lis r4, 0x0000; ori r4, r4, 0x0000; stw r4, 0x20(r2)  # 0x00000000 = 0.0
   lfs f0, 0x20(r2); fadds f31, f31, f0
 
-  # × 0.25                    ← was ×0.4474273 → now ×0.7246377 (0.7246377 * 0.345 = 0.25)
-  lis r4, 0x3F39; ori r4, r4, 0x81DB; stw r4, 0x20(r2)  # 0x3F3981db = 0.7246377
+  # × 0.0                    ← was ×0.4474273 → now ×0.0
+  lis r4, 0x0000; ori r4, r4, 0x0000; stw r4, 0x20(r2)  #  0x00000000 = 0.0
   lfs f0, 0x20(r2); fmuls f31, f31, f0
 
-  # + 0.0                     ← was +2.0 → now +0.0
-  lis r4, 0x0000; ori r4, r4, 0x0000; stw r4, 0x20(r2)  # 0x00000000 = 0.0
+  # + 2.0                     ← was +2.0 → now +2.0
+  lis r4, 0x4000; ori r4, r4, 0x0000; stw r4, 0x20(r2)  # 0400000000 = 2.0
   lfs f0, 0x20(r2); fadds f31, f31, f0
 
   fctiwz f0, f31
