@@ -173,25 +173,23 @@ loc_0x12C:
 .include Source/Project+/Attributes.asm
 .include Source/Project+/PokeTrainer.asm
 
-.include Source/Project+/Items.asm
 .include Source/Project+/Pause.asm
 .include Source/Project+/Collision.asm
 
-
-
+.include Source/Community/Subspace.asm
+.include Source/Community/SubspaceSwap.asm
 .include Source/Community/MusicSelect.asm
 .include Source/Community/ParryTaunts.asm
+.include Source/Community/PSA/PSA.asm
 
 .include Source/P+Ex/AllStar.asm
 .include Source/P+Ex/Angle.asm
 .include Source/P+Ex/CustomEnding.asm
 .include Source/P+Ex/IC-Basics.asm
-.include Source/P+Ex/ItemEx.asm
 .include Source/P+Ex/Maths.asm
 .include Source/P+Ex/Misc.asm
 .include Source/P+Ex/PassiveAnim.asm
 .include Source/P+Ex/PointerWizardry.asm
-.include Source/P+Ex/PSA.asm
 .include Source/P+Ex/SlotEx.asm
 .include Source/P+Ex/SoundbankFix.asm
 .include Source/P+Ex/Subspace.asm

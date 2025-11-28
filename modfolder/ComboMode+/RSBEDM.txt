@@ -2805,9 +2805,9 @@ op b 0x38	@ $808A087C
 #.include Source/Project+/Debug/modifiedDebug.asm
 .include Source/Project+/CStick.asm		# Don't move this to BOOST, it will cause aerial drift for some reason
 .include Source/Project+/Items.asm
-.include Source/P+Ex/ItemEx.asm
 
 .include Source/Extras/DebugMode/includeDebug.asm
 
+.include Source/Community/ItemEx.asm
 .include Source/Community/Syringe.asm
 .include Source/Project+/MultiGCT.asm

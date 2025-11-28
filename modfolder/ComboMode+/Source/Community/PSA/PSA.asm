@@ -63,6 +63,31 @@ notNull:
     mr r3, r28 #do normal function with raycast
 }
 
+#####################################################################
+Requirement 0 (Thread has ended) returns True if no args passed [Eon]
+#####################################################################
+#made since people incorrectly assumed requirement 0 was "character exists" and was sortof used as a "if True" requirement.
+#this meant anywhere that requirement was used without requirements then its final functionality was based on whatever happened to be next in the file.
+#so this is to make sure that command is consistent
+HOOK @ $807826DC
+{
+    mr r3, r27
+    lwz r12, 0x0(r3)
+    lwz r12, 0x14(r12)
+    mtctr r12 
+    bctrl #getSize()
+    cmpwi r3, 0x2
+    bge cont
+    #not enough args so dont read invalid data
+    li r3, 1
+    lis r12, 0x8078
+    ori r12, r12, 0x54B4
+    mtctr r12 
+    bctr
+cont:
+    mr r3, r27
+}
+
 ###################################################################################
 Concurrent Infinite Loop accepts int types so you can point to arbitrary code [Eon]
 ###################################################################################
@@ -171,40 +196,53 @@ PSA Command 1F080200 (spawn item variant) [Sammi Husky]
 * 047C8674 83A3000C
 
 #################################################################
-On hit Action change through Trip Rate [MarioDox, Eon (refactor)]
+On hit Action change through Trip Rate v1.26 [MarioDox, Eon (refactor)]
 #################################################################
-.macro checkTripRate(<TripRateHalf>, <Action>)
-{
-    lis r6, <TripRateHalf>
-    cmpw r5, r6
-    bne 0xC
-    li r3, <Action>
-    b exit
-}
+v1.2: Automatized, trip rate is decimal action ID change
+v1.25: Added anti-lock behavior, can't change action if it's already in it
+v1.26: Anti-lock behavior works properly
+#################################################################
 HOOK @ $8076BD5C
 {
+    stwu r1, -0x10(r1)
+    mflr r0
+    stw r0, 0x14(r1)
     mr r31, r4
     lwz r5, 0x44(r5)
     lwz r5, 0x40(r5)
-    lwz r5, 0x6C(r5)    
-    %checkTripRate(0x4040, 0x4B)    //3 = floor cripple
-    %checkTripRate(0x4080, 0xBD)    //4 = death
-    %checkTripRate(0x40a0, 0xFF)    //5 = freeze in place
-    %checkTripRate(0x40c0, 0x46)    //6 = speen knockback
-    %checkTripRate(0x40d0, 0x40)    //7 = grab release (horizontal)
-    %checkTripRate(0x40f0, 0x41)    //8 = grab release (vertical)
-	%checkTripRate(0x4330, 0xB0)    //176 = Aerial Screw Attack Jump
-    b %end%
+    lfs f1, 0x6C(r5)
+    fctiw f1,f1
+    stfd f1,0x08(r1)
+    lwz r5,0x0C(r1)
+    cmpwi r5, 0x15     # \ No need forcing these actions,
+    ble+ end         # / saves some room for extra effects.
+    cmpwi r5, 0x112     # \ And Don't access Specials!
+    bge+ end        # /
+    lwz r12, -0x4(r3)     # \ return from moduleAccesser
+    lwz r12, 0x60(r12)  # | 
+    lwz r12, 0x7C(r12)  # | 
+    lwz r12, 0x38(r12)     # / Access action
+    cmpw r5, r12
+    beq- end
+    mr r3, r5
 exit:
+    lwz r0, 0x14(r1)
+    mtlr r0
+    addi r1, r1, 0x10
     lis r12, 0x8076
     ori r12, r12, 0xBDAC
     mtctr r12 
     bctr
+end:
+    lwz r0, 0x14(r1)
+    mtlr r0
+    addi r1, r1, 0x10
 }
 
 #######################################################################
-Char Specific Paralyze Effect [MarioDox]
+!Char Specific Paralyze Effect [MarioDox]
 #######################################################################
+#Currently disabled, as it breaks specific projectile interactions when reflected.
 .macro customParalyze(<ID>, <GFXHi>, <GFXLo>)
 {
 	cmpwi r3, <ID>
@@ -223,7 +261,7 @@ default:
 	addi r4, r4, 0x002D		#Common gfx, dizzy spark
 }
 
-.include Source/P+Ex/CreateAndThrowItem.asm
+.include Source/Community/PSA/CreateAndThrowItem.asm
 
 ##############################################################
 Store hit Task in LA/RA-Basic 6 [MarioDox]
@@ -266,4 +304,58 @@ HOOK @ $808e53cc #notifyEventCollisionAttack/[Weapon]
 HOOK @ $80aa991c #notifyEventCollisionAttack/[wnLucarioAuraBall]
 {
     %storeTaskandCheck(r27,r30)
+}
+
+#############################################################
+Raycast Requirement (0x19) Supports Variables for x,y,z [Eon]
+#############################################################
+.macro getVariable() 
+{
+    addi r3, r1, 1048
+    
+    stw r28, 0x10(r3)
+    lis r12, 0x8077
+    ori r12, r12, 0xE0CC
+    mtctr r12
+    bctrl 
+}
+#get soValueAccesser into place
+#X
+HOOK @ $807838B4 8127ee50
+{
+orig:
+    fdivs f31, f1, f0
+
+    lwz r4, 0x0(r3)
+    cmpwi r4, 0x5
+    bne %end% 
+    li r4, 0
+    %getVariable()
+    fmr f31, f1
+}
+#Y
+HOOK @ $80783918 
+{
+orig:
+    fdivs f30, f1, f0
+
+    lwz r4, 0x0(r3)
+    cmpwi r4, 0x5
+    bne %end%
+    li r4, 1
+    %getVariable()
+    fmr f30, f1
+}
+#Z
+HOOK @ $8078397C 
+{
+orig:
+    fdivs f0, f1, f0
+
+    lwz r4, 0x0(r3)
+    cmpwi r4, 0x5
+    bne %end%
+    li r4, 2
+    %getVariable()
+    fmr f0, f1
 }
