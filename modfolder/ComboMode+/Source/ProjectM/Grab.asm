@@ -104,7 +104,7 @@ loc_0x110:
 }
 
 ####################################################################
-Conditional Grab Mash Multiplier & Paralyze is Mashable v1.2 [Magus]
+!Conditional Grab Mash Multiplier & Paralyze is Mashable v1.2 [Magus]
 ####################################################################
 op NOP @ $80762F10
 CODE @ $80585604

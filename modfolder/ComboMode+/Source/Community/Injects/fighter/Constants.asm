@@ -1,11 +1,11 @@
-2034 - Total Outside Damage in Grab to Cause a Grab Break [10->6]
-	float 6.0   @ $80B87B28
-3120 - Walk Maximum Animation Speed [3->4]
-	float 4.0    @ $80B8827C
+# 2034 - Total Outside Damage in Grab to Cause a Grab Break [10->6]
+# 	float 6.0   @ $80B87B28
+# 3120 - Walk Maximum Animation Speed [3->4]
+# 	float 4.0    @ $80B8827C
 3122 - Dash, Pivot, & F-Smash Sensitivity [0.8->0.73]
 	float 0.73   @ $80B88284
-3125 - Dash Exit Momentum Multiplier [0.3->0.225]
-	float 0.225  @ $80B88290
+# 3125 - Dash Exit Momentum Multiplier [0.3->0.225]
+# 	float 0.225  @ $80B88290
 3126 - Run Sensitivity [0.625->0.62]
 	float 0.62   @ $80B88294
 3133 - Crouch & Tether Drop Sensitivity [-0.66->-0.625]
@@ -22,34 +22,34 @@
 	float  0.73  @ $80B88314
 3160 - D-Smash Sensitivity [-0.6625->-0.73]
 	float -0.73  @ $80B8831C
-3162 - Fully Charged Smash Multiplier [1.4->1.3667]
-	float 1.3666667 @ $80B88324
+# 3162 - Fully Charged Smash Multiplier [1.4->1.3667]
+# 	float 1.3666667 @ $80B88324
 3167 - Fastfall Sensitivity [-0.6625->-0.665]
 	float -0.665 @ $80B88338
 3187 - Platform Drop Sensitivity [-0.6875->-0.71]
 	float -0.71  @ $80B88388
 
-3200 - Base Disabled Time on Shield Break [400->490]
-	float 490.0	 @ $80B883BC
-3232 - Aerial Attack Landing Lag Modifier [0.35->0.1]
-	float 0.1	 @ $80B8843C
-3233 - Max Shield Strength [50->60]
-	float 60.0	 @ $80B88440
-3242 - Shield Pushback Multiplier 1 [1.15->0.35]
-	float 0.35	 @ $80B88464
-3243 - Shield Pushback Addition Constant [2->0.1]
-	float 0.1	 @ $80B88468
-3245 - Maximum Shield Pushback [1.6->70]
-	float 70.0	 @ $80B88470
-3249 - Shield Pushback ratio [0.7->0]
-	float 0.0	 @ $80B88480
+# 3200 - Base Disabled Time on Shield Break [400->490]
+# 	float 490.0	 @ $80B883BC
+# 3232 - Aerial Attack Landing Lag Modifier [0.35->0.1]
+# 	float 0.1	 @ $80B8843C
+# 3233 - Max Shield Strength [50->60]
+# 	float 60.0	 @ $80B88440
+# 3242 - Shield Pushback Multiplier 1 [1.15->0.35]
+# 	float 0.35	 @ $80B88464
+# 3243 - Shield Pushback Addition Constant [2->0.1]
+# 	float 0.1	 @ $80B88468
+# 3245 - Maximum Shield Pushback [1.6->70]
+# 	float 70.0	 @ $80B88470
+# 3249 - Shield Pushback ratio [0.7->0]
+# 	float 0.0	 @ $80B88480
 
-3251 - Powershield Pushback Multiplier [0.15 -> 0.7]
-	float 0.7	 @ $80B88488
-3252 - Attacker Shield Pushback Multiplier [0.04->0.07]
-	float 0.07	 @ $80B8848C
-3253 - Attacker Shield Pushback Minimum [0.025->0.02]
-	float 0.02	 @ $80B88490
+# 3251 - Powershield Pushback Multiplier [0.15 -> 0.7]
+# 	float 0.7	 @ $80B88488
+# 3252 - Attacker Shield Pushback Multiplier [0.04->0.07]
+# 	float 0.07	 @ $80B8848C
+# 3253 - Attacker Shield Pushback Minimum [0.025->0.02]
+# 	float 0.02	 @ $80B88490
 3256 - Franklin Badge Reflected Damage Multiplier [1.3->0.75->1.0] (0.75 in PM, 1.0 in P+)
 	float 1.0 	 @ $80B8849C
 3257 - Franklin Badge Reflected Speed Multiplier [1.3->1.0]
@@ -92,26 +92,26 @@
 3466 - Curry Run Animation Speed Multiplier [2->1]
 	float 1.0	   @ $80B887E4
 
-22001 - Lower Angle Threshold for Meteor Smash Range [230->260]
-	int 260 @ $80B87BE8
-22002 - Upper Angle Threshold for Meteor Smash Range [310->280]
-	int 280 @ $80B87BEC
-23033 - Frames between Consecutive Dashes [15->17]
-	int 17 @ $80B88E6C
+# 22001 - Lower Angle Threshold for Meteor Smash Range [230->260]
+# 	int 260 @ $80B87BE8
+# 22002 - Upper Angle Threshold for Meteor Smash Range [310->280]
+# 	int 280 @ $80B87BEC
+# 23033 - Frames between Consecutive Dashes [15->17]
+# 	int 17 @ $80B88E6C
 23037 - SpotDodge Input Window [4->3]
 	int 3  @ $80B88E7C
 23038 - Roll Input Window [4->3]
 	int 3  @ $80B88E80
 23043 - Reversal Window (B Reversals) [3->4]
 	int 4  @ $80B88E94
-23047 - Ledgesnap Duration [3->0]
-	int 0  @ $80B88EA4
-23050 - Frames between Ledgegrabs [30->29]
-	int 29 @ $80B88EB0
-23051 - Ledge Invincibility [23->31]
-	int 31 @ $80B88EB4
-23052 - Tech Window [16->20]
-	int 20 @ $80B88EB8
+# 23047 - Ledgesnap Duration [3->0]
+# 	int 0  @ $80B88EA4
+# 23050 - Frames between Ledgegrabs [30->29]
+# 	int 29 @ $80B88EB0
+# 23051 - Ledge Invincibility [23->31]
+# 	int 31 @ $80B88EB4
+23052 - Tech Window [16->26]
+	int 26 @ $80B88EB8
 23069 - WallJump Timer [130->20]
 	int 20 @ $80B88EFC
 
@@ -140,8 +140,8 @@ F-Smash Sensitivity uses IC-Basic 3220 [0.8->0.8]
 	int 3220 @ $80FA97F8
 Pivot Sensitivity [0.8->0.475]
 	int[2] 1, 28500 @ $80FAC244 // The latter is divided by 5000
-Dash within Dash Uses Run Sensitivity [0.80->0.62]
-	int 3126 @ $80FAC2B8 // This is divded by 5000
+# Dash within Dash Uses Run Sensitivity [0.80->0.62]
+# 	int 3126 @ $80FAC2B8 // This is divded by 5000
 
 
 Threshold to begin tracking distance vs time on stick movements [0.25->0.35]

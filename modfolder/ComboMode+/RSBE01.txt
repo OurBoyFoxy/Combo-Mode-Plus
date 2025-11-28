@@ -803,20 +803,31 @@ loc_0x10:
 }
 
 ######################################
-Shieldstun Modifier v2.0 [Magus, ds22]
+Shieldstun Modifier v3.0 [Magus, ds22, pvstv]
+# Commented what each term does, changed
+# to strict 2 frames
 ######################################
 HOOK @ $808753FC
 {
   stfd f31, 0x10(r2)
-  fsubs f31, f31, f1
-  lis r4, 0x4036; ori r4, r4, 0xDB70; stw r4, 0x20(r2)	//0x4036D870 = 2.8571434
+  # fsubs f31, f31, f1 # Ignoring shield tilt here
+  
+  # (f31 - f1) × 1.0          ← was 2.8571434 → now 1.0
+  lis r4, 0x3F80; ori r4, r4, 0x0000; stw r4, 0x20(r2)  # 0x3F800000 = 1.0
   lfs f0, 0x20(r2); fmuls f31, f31, f0
-  lis r4, 0x408E; ori r4, r4, 0x6666; stw r4, 0x20(r2)	//0x408E6666 = 4.45
+
+  # + 0.0                     ← was +4.45 → now +0.0
+  lis r4, 0x0000; ori r4, r4, 0x0000; stw r4, 0x20(r2)  # 0x00000000 = 0.0
   lfs f0, 0x20(r2); fadds f31, f31, f0
-  lis r4, 0x3EE5; ori r4, r4, 0x1531; stw r4, 0x20(r2)	//0x3EE51531 = 0.4474273
+
+  # × 0.0                    ← was ×0.4474273 → now ×0.0
+  lis r4, 0x0000; ori r4, r4, 0x0000; stw r4, 0x20(r2)  #  0x00000000 = 0.0
   lfs f0, 0x20(r2); fmuls f31, f31, f0
-  lis r4, 0x4000; stw r4, 0x20(r2)			//0x40000000 = 2.0
+
+  # + 2.0                     ← was +2.0 → now +2.0
+  lis r4, 0x4000; ori r4, r4, 0x0000; stw r4, 0x20(r2)  # 0400000000 = 2.0
   lfs f0, 0x20(r2); fadds f31, f31, f0
+
   fctiwz f0, f31
   stfd f0, 0x20(r2)
   lwz r28, 0x24(r2)
@@ -824,7 +835,7 @@ HOOK @ $808753FC
 }
 
 ################################
-Defender Shield Pushback [Magus]
+!Defender Shield Pushback [Magus]
 ################################
 HOOK @ $808755AC
 {
@@ -855,7 +866,7 @@ op b 0x20 	@ $80875164
 int 0x20000	@ $80FC2230
 
 ##############################################################
-Disable Footstool During Paralyze [Dantarion, standardtoaster]
+!Disable Footstool During Paralyze [Dantarion, standardtoaster]
 ##############################################################
 HOOK @ $8083D134
 {
@@ -869,7 +880,7 @@ fsOkay:
 }
 
 ##########################################################################
-#No Autosweetspot Ledges v1.3&K [spunit262, Dantarion, Magus, DukeItOut]
+!No Autosweetspot Ledges v1.3&K [spunit262, Dantarion, Magus, DukeItOut]
 #
 # v1.2: Cleaned up code
 # v1.3: Made an exception for Knuckles' wall climb so it could grab ledges
@@ -918,7 +929,7 @@ No Air Dodge in tumble [spunit262, Phantom Wings]
 * 39610040 00000000
 
 ######################################
-#Tech Window v0.10 [spunit262, Magus]
+!Tech Window v0.10 [spunit262, Magus]
 ######################################
 * C277F190 00000011
 * 80810010 2C040046
@@ -940,7 +951,7 @@ No Air Dodge in tumble [spunit262, Phantom Wings]
 * 60000000 00000000
 
 #######################################
-#Melee Air Dodge Angle & Scaling [Magus]
+!Melee Air Dodge Angle & Scaling [Magus]
 #######################################
 HOOK @ $8077F77C
 {
@@ -1080,12 +1091,12 @@ op nop @ $8076D254
 op nop @ $808761C8
 
 ###############################################################
-Attacker Never has Electric Hitlag [Dantarion, Standardtoaster]
+!Attacker Never has Electric Hitlag [Dantarion, Standardtoaster]
 ###############################################################
 op b 0x6C @ $8076E228
 
 ######################################################
-Disable Vertical Boost on Tumble KB [Dantarion, Magus]
+!Disable Vertical Boost on Tumble KB [Dantarion, Magus]
 ######################################################
 op lfs	f2, -0x72C0 (r30) @ $8086DBDC
 
@@ -1183,7 +1194,7 @@ loc_0x1C:
 }
 
 #######################
-Melee 361 Angle [Magus]
+!Melee 361 Angle [Magus]
 #######################
 float 44.0 @ $80B87ABC
 float 32.0 @ $80B87AC0
@@ -1349,7 +1360,7 @@ Jump Direction Determined Last Frame of Jump Squat [Magus]
 * 04FADD18 11000006
 
 #########################################
-#Melee Character Pushing Mechanics [Magus]
+!Melee Character Pushing Mechanics [Magus]
 #########################################
 float 0.3 @ $80F9FF0C
 float 0.0 @ $80F9FF10
@@ -1393,7 +1404,7 @@ CODE @ $805A7DD0
 }
 
 ############################################
-#Hitstun Modifier [Phantom Wings, spunit262] 
+!Hitstun Modifier [Phantom Wings, spunit262] 
 ############################################
 * 02B88F48 00030001
 #* 04B87AA8 3ECCCCCD # Hitstun mult written by code menu, so disabled here
@@ -1410,7 +1421,7 @@ Triple Jump Glitch Fix [Phantom Wings, spunit262]
 op addi	r4, r3, 3 @ $80858DCC
 
 ######################################################################
-#[Project+] Wiggle out of Tumble Window extended to 2 frames [Fracture]
+![Project+] Wiggle out of Tumble Window extended to 2 frames [Fracture]
 ######################################################################
 int 2 @ $80B88F64
 
@@ -1490,12 +1501,12 @@ dropItem:
 }
 
 ##################################################
-#[Project+] Rolls Don't Cancel Knockback [Fracture]
+![Project+] Rolls Don't Cancel Knockback [Fracture]
 ##################################################
 op NOP @ $80885020 
 
 ################################################
-#[Project+] Character Ledge Unsnap fix [Fracture]
+![Project+] Character Ledge Unsnap fix [Fracture]
 ################################################
 int 0x20000 @ $80FC2AB0
 int 0x20000 @ $80FC2AB8
@@ -1546,7 +1557,7 @@ forceStarKO:
 }
 
 ######################################
-#[Project+] Melee Tech Rolls [Fracture]
+![Project+] Melee Tech Rolls [Fracture]
 ######################################
 
 float 1.0 @ $80B883B8 #tech roll knockback multiplier (default of 0.1)
@@ -1860,7 +1871,7 @@ moveECB:
 }
 
 ########################################
-#[Project+] Spinning Turnaround fix [Eon]
+![Project+] Spinning Turnaround fix [Eon]
 ########################################
 #Note that this code breaks multi-jump character ledgejump bairs and is therefore disabled until further developments are made
 float 0.0 @ $80AD76B4 #set turn to occur first frame of rotation
@@ -2133,7 +2144,7 @@ HOOK @ $807A3E20
 }
 
 #################################################################
-#[Legacy TE] Transforming Characters Switch Stocks [PyotrLuzhin]
+![Legacy TE] Transforming Characters Switch Stocks [PyotrLuzhin]
 #################################################################
 * C20E2090 00000013
 * 38E00000 81810094
@@ -2260,7 +2271,7 @@ finish:
 }
 
 ##############################################################
-#[Project+] Timer Displays frames instead of centiseconds [Eon]
+[Project+] Timer Displays frames instead of centiseconds [Eon]
 ##############################################################
 op fsubs f1, f0, f3 @ $800ddfb0
 op mulli r0, r3, 60 @ $80692874
@@ -2272,7 +2283,6 @@ op fmr f0, f3 @ $8010c888
 .include Source/ProjectM/CSS.asm
 #.include Source/ProjectM/SSS.asm
 .include Source/ProjectM/SSSButtons.asm
-.include Source/ProjectM/Glide.asm
 
 .include Source/P+Ex/HiddenAltSets.asm
 .include Source/LegacyTE/Masquerade.asm
@@ -2347,7 +2357,7 @@ op NOP @ $806b46d0
 op NOP @ $806b53b8
 
 ###################################################################
-#No Swoosh SFX on Character Selection v2 [standardtoaster, Kapedani]
+!No Swoosh SFX on Character Selection v2 [standardtoaster, Kapedani]
 ###################################################################
 op NOP         @ $8068ae54
 op li r4, -1     @ $8068D18C
@@ -2504,7 +2514,7 @@ orig:
 }
 
 #######################################################
-Ignore Ganon Neutral-B Air Mobility Coding [Magus]
+!Ignore Ganon Neutral-B Air Mobility Coding [Magus]
 #######################################################
 * 04A60CF8 4E800020
 
@@ -2729,7 +2739,7 @@ loc_0x10:
 }
 
 ##############################################################
-#Ice Climber within Range Stores Variable V2 [Magus, DukeItOut]
+!Ice Climber within Range Stores Variable V2 [Magus, DukeItOut]
 ##############################################################
 HOOK @ $80903670
 {
@@ -2758,7 +2768,7 @@ loc_0x58:
 }
 
 ##############################################################################
-#[Project+] All ground types but HRC act as basic for Pikmin pull chances [Eon]
+![Project+] All ground types but HRC act as basic for Pikmin pull chances [Eon]
 ##############################################################################
 HOOK @ $80a6bbdc
 {
@@ -2795,7 +2805,7 @@ op b 0x38	@ $808A087C
 #.include Source/Project+/Debug/modifiedDebug.asm
 .include Source/Project+/CStick.asm		# Don't move this to BOOST, it will cause aerial drift for some reason
 .include Source/Project+/Items.asm
-.include Source/P+Ex/ItemEx.asm
 
+.include Source/Community/ItemEx.asm
 .include Source/Community/Syringe.asm
 .include Source/Project+/MultiGCT.asm
