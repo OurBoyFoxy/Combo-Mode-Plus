@@ -678,7 +678,7 @@ CODE @ $80FB3F4C
 ##############################################################################
 Tech Window Fixes, Floor Hit Delay Fix, & Tech in Certain Actions v1.2 [Magus]
 ##############################################################################
-.alias PSA_Off = 0x80540640
+# .alias PSA_Off = 0x80540640
 # CODE @ $80540640
 # {
 # 	word 2; word PSA_Off+0x08
@@ -702,14 +702,14 @@ Tech Window Fixes, Floor Hit Delay Fix, & Tech in Certain Actions v1.2 [Magus]
 * 120A0100 80FB3704
 * 000F0000 00000000
 * 00000000 00000000
-CODE @ $80FC29E0
-{
-	word 0x00070100; word PSA_Off
-}
-CODE @ $80FB64E4
-{
-	word 0x00070100; word PSA_Off
-}
+# CODE @ $80FC29E0
+# {
+# 	word 0x00070100; word PSA_Off
+# }
+# CODE @ $80FB64E4
+# {
+# 	word 0x00070100; word PSA_Off
+# }
 
 ############################################################
 Action Changes Allowed During Hitlag and Edgeteching [Magus]
