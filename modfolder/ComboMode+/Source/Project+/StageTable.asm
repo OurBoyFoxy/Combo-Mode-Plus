@@ -26,7 +26,7 @@ TABLE_1:
 0x2C, | # Snowman's Land
 0x2D, | # Wario Land
 0x2E, | # Firgate Husk
-0x2F, | # Sky Sanctuary zone
+0x2F, | # Green Hill Zone P+
 0x30, | # Metal Cavern
 0x32  | # Odeo Town
 
@@ -90,7 +90,7 @@ half[51] |	# Stage Count + 2
 0x2F37, 0x3038, 0x3139, 0x323A, | # Rainbow Cruise, Corneria, Big Blue, Brinstar
 0x2E3B, 0xFF64, 0xFF64, 0x373C, | # Pokemon Stadium 2, NOTHING, NOTHING, Training Room
 | # NEW SLOTS
-0x4023, 0x4124, 0x4225, 0x4326, | # Snowman's Land, Wario Land, Firgate Husk, Sky Sanctuary zone
+0x4023, 0x4124, 0x4225, 0x4326, | # Snowman's Land, Wario Land, Firgate Husk, Green Hill Zone P+
 0x4427, 0x4528, 0x4629          | # Metal Cavern, The Pit, Odeo Town
 
 
