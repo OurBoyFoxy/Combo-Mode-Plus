@@ -414,7 +414,7 @@ CODE @ $80FB5984
 }
 
 ###################################################################################################
-WallJumps Require Smash Input Away Only and 0.8 Sensitivity, and WallCling is 0.945 [Magus, Shanus]
+!WallJumps Require Smash Input Away Only and 0.8 Sensitivity, and WallCling is 0.945 [Magus, Shanus]
 ###################################################################################################
 .alias PSA_Off = 0x80545390
 CODE @ $80545390
@@ -840,7 +840,7 @@ CODE @ $80540820
 op word PSA_Off+0x10 @ $80FBFF20
 
 ###########################################################################
-F-Smash During Dash Window is 4 Frames and 1 in DD [Standardtoaster, Magus]
+!F-Smash During Dash Window is 4 Frames and 1 in DD [Standardtoaster, Magus]
 ###########################################################################
 .alias PSA_Off  = 0x80540850
 .alias PSA_Off2 = 0x805408A0

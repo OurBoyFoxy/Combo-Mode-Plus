@@ -2,8 +2,8 @@
 # 	float 6.0   @ $80B87B28
 # 3120 - Walk Maximum Animation Speed [3->4]
 # 	float 4.0    @ $80B8827C
-3122 - Dash, Pivot, & F-Smash Sensitivity [0.8->0.73]
-	float 0.73   @ $80B88284
+3122 - Dash, Pivot, & F-Smash Sensitivity [0.8->0.85]
+	float 0.85   @ $80B88284
 # 3125 - Dash Exit Momentum Multiplier [0.3->0.225]
 # 	float 0.225  @ $80B88290
 3126 - Run Sensitivity [0.625->0.62]
@@ -22,8 +22,8 @@
 	float  0.73  @ $80B88314
 3160 - D-Smash Sensitivity [-0.6625->-0.73]
 	float -0.73  @ $80B8831C
-# 3162 - Fully Charged Smash Multiplier [1.4->1.3667]
-# 	float 1.3666667 @ $80B88324
+# 3162 - Fully Charged Smash Multiplier [1.4->1.8]
+# 	float 1.8 @ $80B88324
 3167 - Fastfall Sensitivity [-0.6625->-0.665]
 	float -0.665 @ $80B88338
 3187 - Platform Drop Sensitivity [-0.6875->-0.71]
@@ -33,8 +33,8 @@
 # 	float 490.0	 @ $80B883BC
 # 3232 - Aerial Attack Landing Lag Modifier [0.35->0.1]
 # 	float 0.1	 @ $80B8843C
-# 3233 - Max Shield Strength [50->60]
-# 	float 60.0	 @ $80B88440
+# 3233 - Max Shield Strength [50->90]
+# 	float 90.0	 @ $80B88440
 # 3242 - Shield Pushback Multiplier 1 [1.15->0.35]
 # 	float 0.35	 @ $80B88464
 # 3243 - Shield Pushback Addition Constant [2->0.1]
@@ -110,16 +110,16 @@
 # 	int 29 @ $80B88EB0
 # 23051 - Ledge Invincibility [23->31]
 # 	int 31 @ $80B88EB4
-23052 - Tech Window [16->26]
-	int 26 @ $80B88EB8
+23052 - Tech Window [16->30]
+	int 30 @ $80B88EB8
 23069 - WallJump Timer [130->20]
-	int 20 @ $80B88EFC
+	int 130 @ $80B88EFC
 
 23075 - Frames Between Consecutive Wallclings [60->n/a]
 	float NaN @ $80B88F14
 
-23078 - Powershield Window [4(3)->6(5)]
-	int 6 @ $80B88F20
+23078 - Powershield Window [4(3)->8(7)]
+	int 8 @ $80B88F20
 23079 - Powershield Drop Window to be Interruptible [4->5]
 	int 5 @ $80B88F24
 23082 - Grab->TurnGrab Window [3->4]

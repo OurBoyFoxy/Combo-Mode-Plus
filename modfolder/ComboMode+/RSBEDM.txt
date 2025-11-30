@@ -918,7 +918,7 @@ normal:
 
 
 ####################################################
-No Air Dodge in tumble [spunit262, Phantom Wings]
+!No Air Dodge in tumble [spunit262, Phantom Wings]
 ####################################################
 * C2781310 00000006
 * 80980000 2C040021
