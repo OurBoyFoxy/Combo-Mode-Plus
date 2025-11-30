@@ -118,8 +118,8 @@
 23075 - Frames Between Consecutive Wallclings [60->n/a]
 	float NaN @ $80B88F14
 
-23078 - Powershield Window [4(3)->3(2)]
-	int 3 @ $80B88F20
+23078 - Powershield Window [4(3)->6(5)]
+	int 6 @ $80B88F20
 23079 - Powershield Drop Window to be Interruptible [4->5]
 	int 5 @ $80B88F24
 23082 - Grab->TurnGrab Window [3->4]
