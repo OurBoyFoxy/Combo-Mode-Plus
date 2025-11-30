@@ -125,48 +125,57 @@ sound bank: 0x162
 ~~~ Cloud ~~~
 game ID: 0x4F
 announcer call: 0x1F5E
-cosmetic ID: 0x7D
+cosmetic ID: 0x80
 sound bank: 0x163
 JOJI offset: 362 (was 346)
 
 ~~~ Incineroar ~~~
 game ID: 0x50
 announcer call: 0x1F5E
-cosmetic ID: 0x7D
+cosmetic ID: 0x81
 sound bank: 0x164
 JOJI offset: 359 ????
 
 ~~~ Isabelle ~~~
 game ID: 0x51
 announcer call: 0x1F5E
-cosmetic ID: 0x7D
+cosmetic ID: 0x82
 sound bank: 0x165
 JOJI offset: 359 ????
 
 ~~~ Kumatora ~~~
 game ID: 0x52
 announcer call: 0x1F5E
-cosmetic ID: 0x7D
+cosmetic ID: 0x83
 sound bank: 0x166
 JOJI offset: 359 ????
 
 ~~~ Car ~~~
 game ID: 0x53
 announcer call: 0x1F5E
-cosmetic ID: 0x7D
+cosmetic ID: 0x84
 sound bank: 0x167
 JOJI offset: 359 ????
 
 ~~~ Daisy ~~~
 game ID: 0x54
 announcer call: 0x1F5E
-cosmetic ID: 0x7D
+cosmetic ID: 0x85
 sound bank: 0x168
 JOJI offset: 359 ????
 
 ~~~ Melee Fox ~~~
 game ID: 0x55
 announcer call: 0x1F5E
-cosmetic ID: 0x7D
+cosmetic ID: 0x86
 sound bank: 0x169
 JOJI offset: 359 ????
+
+~~~ Melee Roy ~~~
+game ID: 0x56
+announcer call: 0x1F48
+cosmetic ID: 0x87
+sound bank: 0x14D
+Sawnd file: 14D
+JOJI offset: 340
+results file: Z50.brstm
