@@ -22,8 +22,8 @@
 	float  0.73  @ $80B88314
 3160 - D-Smash Sensitivity [-0.6625->-0.73]
 	float -0.73  @ $80B8831C
-# 3162 - Fully Charged Smash Multiplier [1.4->1.8]
-# 	float 1.8 @ $80B88324
+# 3162 - Fully Charged Smash Multiplier [1.4->1.5]
+# 	float 1.5 @ $80B88324
 3167 - Fastfall Sensitivity [-0.6625->-0.665]
 	float -0.665 @ $80B88338
 3187 - Platform Drop Sensitivity [-0.6875->-0.71]
