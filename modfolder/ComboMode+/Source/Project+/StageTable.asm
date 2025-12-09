@@ -15,7 +15,7 @@ Stage Select Screen Table Data
 .GOTO->SkipStageTables
 
 TABLE_1:
-	byte[12] |
+	byte[13] |
 0x00, | # Battlefield
 0x01, | # Final Destination
 0x02, | # Delfino Plaza
@@ -26,8 +26,9 @@ TABLE_1:
 0x2C, | # Snowman's Land
 0x2D, | # Wario Land
 0x2E, | # Firgate Husk
-0x2F, | # Sky Sanctuary zone
-0x30  | # Metal Cavern
+0x2F, | # Green Hill Zone P+
+0x30, | # Metal Cavern
+0x32  | # Odeo Town
 
 TABLE_2:
 	byte[14] |
@@ -75,7 +76,7 @@ TABLE_5:	# Unused
 
 TABLE_STAGES:
 # Table of icon<->stage slot associations
-half[50] |	# Stage Count + 2
+half[51] |	# Stage Count + 2
 | # OLD SLOTS
 0x0101, 0x0202, 0x0303, 0x0404, | # Battlefield, Final Destination, Delfino Plaza, Luigi's Mansion
 0x0505, 0x0606, 0x0707, 0x0808, | # Mushroomy Kingdom, Mario Circuit, 75m, Rumble Falls
@@ -89,17 +90,17 @@ half[50] |	# Stage Count + 2
 0x2F37, 0x3038, 0x3139, 0x323A, | # Rainbow Cruise, Corneria, Big Blue, Brinstar
 0x2E3B, 0xFF64, 0xFF64, 0x373C, | # Pokemon Stadium 2, NOTHING, NOTHING, Training Room
 | # NEW SLOTS
-0x4023, 0x4124, 0x4225, 0x4326, | # Snowman's Land, Wario Land, Firgate Husk, Sky Sanctuary zone
-0x4427, 0x4528                  | # Metal Cavern, The Pit
+0x4023, 0x4124, 0x4225, 0x4326, | # Snowman's Land, Wario Land, Firgate Husk, Green Hill Zone P+
+0x4427, 0x4528, 0x4629          | # Metal Cavern, The Pit, Odeo Town
 
 
 
 SkipStageTables:
 .RESET
 
-byte 12 @ $806B929C # Page 1
+byte 13 @ $806B929C # Page 1
 byte 14 @ $806B92A4 # Page 2
 byte 21 @ $80496002 # Page 3
 byte 00 @ $80496003 # Page 4 (Unused)
 byte 00 @ $80496004 # Page 5 (Unused)
-byte 48 @ $800AF673 # Stage Count
+byte 49 @ $800AF673 # Stage Count
