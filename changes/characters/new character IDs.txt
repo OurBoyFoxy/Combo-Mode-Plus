@@ -120,7 +120,7 @@ JOJI offset: 360 (was 577)
 game ID: 0x4E
 announcer call: 0x1F60
 cosmetic ID: 0x7F
-sound bank: 0x162
+sound bank: 0x162 (was 466)
 
 ~~~ Cloud ~~~
 game ID: 0x4F
@@ -133,8 +133,8 @@ JOJI offset: 362 (was 346)
 game ID: 0x50
 announcer call: 0x1F5E
 cosmetic ID: 0x81
-sound bank: 0x164
-JOJI offset: 359 ????
+sound bank: 0x164 (was 514)
+JOJI offset: 363 ????
 
 ~~~ Isabelle ~~~
 game ID: 0x51
