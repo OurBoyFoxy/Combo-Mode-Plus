@@ -140,15 +140,15 @@ JOJI offset: 363 ????
 game ID: 0x51
 announcer call: 0x1F5E
 cosmetic ID: 0x82
-sound bank: 0x165
-JOJI offset: 359 ????
+sound bank: 0x165 (was 562)
+JOJI offset: 364
 
 ~~~ Kumatora ~~~
 game ID: 0x52
 announcer call: 0x1F5E
 cosmetic ID: 0x83
-sound bank: 0x166
-JOJI offset: 359 ????
+sound bank: 0x166 (was 499)
+JOJI offset: 365
 
 ~~~ Car ~~~
 game ID: 0x53
