@@ -34,6 +34,52 @@ HOOK @ $80689A90
   lwz r17, 0x48(r1)
   rlwinm r17, r17, 28, 29, 31
   lwz r0, 0xA4(r30)
+  
+#   # ───────────────────────────────────────
+#   # NEW: If L is held AND current char has sub-slots → cycle poke index
+#   # ───────────────────────────────────────
+#   cmpwi r17, 0x4                # L held?
+#   bne skipCycle                 # No → proceed to original + X/Y hooks
+
+#   %saveGPR()
+#   mr r31, r30                   # Backup
+#   mr r30, r3                    # r3 = muSelCharPlayerArea* (player area struct)
+
+#   lwz r29, 0x1B8(r30)           # Current CSS slot ID (pre-table)
+#   cmpwi r29, 0x29               # Skip if random slot
+#   beq cycleEnd
+
+#   %lwd(r16, 0x806948C8)         # SlotsEX table base
+#   rlwinm r5, r29, 2, 0, 29      # offset = slot * 4
+#   add r16, r16, r5              # r16 = &table_entry
+
+#   lbz r12, 0x3(r16)             # Check byte 3 (or any) for FF → has sub-slots?
+#   cmpwi r12, 0xFF
+#   beq cycleEnd                  # No sub-slots → skip
+
+#   lwz r4, 0x1F0(r30)            # Current poke index
+#   addi r4, r4, 1
+#   %moduloInc(r4, 3)             # Next 0→1→2→3→0
+
+#   # Optional: Skip if this specific sub-slot is FF
+#   lbzx r5, r16, r4
+#   cmpwi r5, 0xFF
+#   beq skipThis                  # Could loop to find next valid, but simple wrap for now
+
+#   stw r4, 0x1F0(r30)            # Update selected sub-slot
+#   %sendSystemCharKind()         # Critical: updates muCharKind from table, refreshes CSS visuals
+#   %setSlotEx()                  # If you need extra SlotEx-specific updates
+#   # %setZeldas()                # Uncomment if PT/Zelda/Sheik swaps needed
+
+# skipThis:
+# cycleEnd:
+#   %loadGPR()
+#   # Optional: Play sound (cursor/scroll)
+#   li r4, 0x23                   # snd_se_system_scroll sound ID
+#   # Add playSE call here if desired
+
+# skipCycle:
+#   # Original continues...
 }
 
 .macro lwd(<reg>, <addr>)
