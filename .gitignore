@@ -6,3 +6,5 @@ modfolder/ComboMode+/RSBE01.GCT
 modfolder/ComboMode+/RSBEDM.GCT
 modfolder/ComboMode+/rsbe/pf/injects/*.GCT
 tools/VSDsync/Config.ini
+modfolder/ComboMode+/NETPLAY.GCT
+modfolder/ComboMode+/NETBOOST.GCT

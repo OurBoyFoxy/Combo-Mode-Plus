@@ -19,11 +19,17 @@ Write-Host "`n##################################################################
 Write-Host "`n`nCreating Combo+ Codes for RSBE01`n"
 Start-Process -FilePath $gctPath ".\modfolder\ComboMode+\RSBE01.txt" -RedirectStandardInput $enterFile -NoNewWindow -Wait
 Write-Host "`n###################################################################################################`n"
+Write-Host "`n`nCreating Combo+ Codes for NETPLAY`n"
+Start-Process -FilePath $gctPath ".\modfolder\ComboMode+\NETPLAY.txt" -RedirectStandardInput $enterFile -NoNewWindow -Wait
+Write-Host "`n###################################################################################################`n"
 Write-Host "`n`nCreating Combo+ Codes for RSBEDM`n"
 Start-Process -FilePath $gctPath ".\modfolder\ComboMode+\RSBEDM.txt" -RedirectStandardInput $enterFile -NoNewWindow -Wait
 Write-Host "`n###################################################################################################`n"
 Write-Host "`n`nCreating Combo+ Codes for BOOST`n"
 Start-Process -FilePath $gctPath ".\modfolder\ComboMode+\BOOST.txt" -RedirectStandardInput $enterFile -NoNewWindow -Wait
+Write-Host "`n###################################################################################################`n"
+Write-Host "`n`nCreating Combo+ Codes for NETBOOST`n"
+Start-Process -FilePath $gctPath ".\modfolder\ComboMode+\NETBOOST.txt" -RedirectStandardInput $enterFile -NoNewWindow -Wait
 
 Write-Host "`n###################################################################################################`n"
 Write-Host "`n`n`Creating Fighter Inject GCTs`n"
