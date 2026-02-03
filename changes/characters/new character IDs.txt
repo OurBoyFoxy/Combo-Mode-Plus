@@ -1,7 +1,7 @@
 ~~~Roy~~~
 
 game ID: 0x3F
-announcer call: 0x1F48
+announcer call: 0xF0292002
 cosmetic ID: 0x70
 sound bank: 0x14D
 Sawnd file: 14D
@@ -10,13 +10,13 @@ results file: Z50.brstm
 
 ~~~Dr. Mario~~~
 game ID: 0x40
-announcer call: 0x1F4A
+announcer call: 0xF02A2002
 cosmetic ID: 0x71
 
 ~~~Ven~~~
 
 game ID: 0x41
-announcer call: 0x1F4B
+announcer call: 0xF02B2002
 cosmetic ID: 0x72
 sound bank: 0x14F
 Sawnd file: 14F
@@ -25,7 +25,7 @@ JOJI offset: 342
 ~~~ Little Mac ~~~
 
 game ID: 0x42
-announcer call: 0x1F4E
+announcer call: 0xF02C2002
 cosmetic ID: 0x73
 sound bank: 0x150
 Sawnd file: 150
@@ -35,7 +35,7 @@ results file: Z51.brstm
 ~~~ Mewtwo ~~~
 
 game ID: 0x43
-announcer call: 0x1F50
+announcer call: 0xF02D2002
 cosmetic ID: 0x74
 sound bank: 0x151
 Sawnd file: 151
@@ -45,7 +45,7 @@ results file: Z52.brstm
 ~~~ Greninja ~~~
 
 game ID: 0x44
-announcer call: 0x1F51
+announcer call: 0xF02E2002
 cosmetic ID: 0x75
 sound bank: 0x152
 JOJI offset: 345
@@ -53,7 +53,7 @@ JOJI offset: 345
 ~~~ Shadow ~~~
 
 game ID: 0x45
-announcer call: 0x1F52
+announcer call: 0xF02F2002
 cosmetic ID: 0x76
 sound bank: 0x153
 JOJI offset: 346
@@ -61,42 +61,42 @@ JOJI offset: 346
 ~~~ Lucina ~~~
 
 game ID: 0x46
-announcer call: 0x1F53
+announcer call: 0xF0302002
 cosmetic ID: 0x77
 sound bank: 0x154 (was 399)
 JOJI offset: 347
 
 ~~~ Knuckles ~~~
-game ID: 0x47
-announcer call: 0x1F55
+game ID: 0x2F
+announcer call: 0xF0312002
 cosmetic ID: 0x78
 sound bank: 0x155 (was 146)
 JOJI offset: 348
 
 ~~~ King K Rool ~~~
 game ID: 0x48
-announcer call: 0x1F56
+announcer call: 0xF0322002
 cosmetic ID: 0x79
 sound bank: 0x156 (was 203)
 JOJI offset: 349
 
 ~~~ Geno ~~~
 game ID: 0x49
-announcer call: 0x1F5A
+announcer call: 0xF0332002
 cosmetic ID: 0x7A
 sound bank: 0x157 (was 18C)
 JOJI offset: 350
 
 ~~~ Sub Zero ~~~
 game ID: 0x4A (was 0x75)
-announcer call: 0x1F5B
+announcer call: 0xF0342002
 cosmetic ID: 0x7B
 sound bank: 0x158 (was 183)
 JOJI offset: 351
 
 ~~~ Dark Samus ~~~
 game ID: 0x4B
-announcer call: 0x1F5C
+announcer call: 0xF0352002
 cosmetic ID: 0x7C
 sound bank: 0x159 (was 183)
 JOJI offset: 352
@@ -104,62 +104,62 @@ https://www.mediafire.com/?y9ijhr4b7832llq
 
 ~~~ Sephiroth ~~~
 game ID: 0x4C
-announcer call: 0x1F5E
+announcer call: 0xF0362002
 cosmetic ID: 0x7D
 sound bank: 0x160
 JOJI offset: 359 ????
 
 ~~~ Pac Man ~~~
 game ID: 0x4D
-announcer call: 0x1F5F
+announcer call: 0xF0372002
 cosmetic ID: 0x7E
 sound bank: 0x161
 JOJI offset: 360 (was 577)
 
 ~~~ Heihachi ~~~
 game ID: 0x4E
-announcer call: 0x1F60
+announcer call: 0xF0382002
 cosmetic ID: 0x7F
 sound bank: 0x162 (was 466)
 
 ~~~ Cloud ~~~
 game ID: 0x4F
-announcer call: 0x1F5E
+announcer call: 0xF0392002
 cosmetic ID: 0x80
 sound bank: 0x163
 JOJI offset: 362 (was 346)
 
 ~~~ Incineroar ~~~
 game ID: 0x50
-announcer call: 0x1F5E
+announcer call: 0xF03A2002
 cosmetic ID: 0x81
 sound bank: 0x164 (was 514)
 JOJI offset: 363 ????
 
 ~~~ Isabelle ~~~
 game ID: 0x51
-announcer call: 0x1F5E
+announcer call: 0xF03B2002
 cosmetic ID: 0x82
 sound bank: 0x165 (was 562)
 JOJI offset: 364
 
 ~~~ Kumatora ~~~
 game ID: 0x52
-announcer call: 0x1F5E
+announcer call: 0xF03C2002
 cosmetic ID: 0x83
 sound bank: 0x166 (was 499)
 JOJI offset: 365
 
 ~~~ Car ~~~
 game ID: 0x53
-announcer call: 0x1F5E
+announcer call: 0xF03D2002
 cosmetic ID: 0x84
 sound bank: 0x167
 JOJI offset: 359 ????
 
 ~~~ Daisy ~~~
 game ID: 0x54
-announcer call: 0x1F5E
+announcer call: 0xF03E2002
 cosmetic ID: 0x85
 sound bank: 0x168
 JOJI offset: 359 ????
@@ -179,3 +179,12 @@ sound bank: 0x14D
 Sawnd file: 14D
 JOJI offset: 340
 results file: Z50.brstm
+
+~~~ Kazuya ~~~
+announcer call: 0xF03F2002
+
+~~ Megaman ~~~
+announcer call: 0xF0402002
+
+~~~ Goemon ~~~
+announcer call: 0xF0412002
