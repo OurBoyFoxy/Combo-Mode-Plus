@@ -1,5 +1,4 @@
 ~~~Roy~~~
-
 game ID: 0x3F
 announcer call: 0xF0292002
 cosmetic ID: 0x70
@@ -14,7 +13,6 @@ announcer call: 0xF02A2002
 cosmetic ID: 0x71
 
 ~~~Ven~~~
-
 game ID: 0x41
 announcer call: 0xF02B2002
 cosmetic ID: 0x72
@@ -23,7 +21,6 @@ Sawnd file: 14F
 JOJI offset: 342
 
 ~~~ Little Mac ~~~
-
 game ID: 0x42
 announcer call: 0xF02C2002
 cosmetic ID: 0x73
@@ -33,7 +30,6 @@ JOJI offset: 343
 results file: Z51.brstm
 
 ~~~ Mewtwo ~~~
-
 game ID: 0x43
 announcer call: 0xF02D2002
 cosmetic ID: 0x74
@@ -43,7 +39,6 @@ JOJI offset: 344
 results file: Z52.brstm
 
 ~~~ Greninja ~~~
-
 game ID: 0x44
 announcer call: 0xF02E2002
 cosmetic ID: 0x75
@@ -51,7 +46,6 @@ sound bank: 0x152
 JOJI offset: 345
 
 ~~~ Shadow ~~~
-
 game ID: 0x45
 announcer call: 0xF02F2002
 cosmetic ID: 0x76
@@ -59,7 +53,6 @@ sound bank: 0x153
 JOJI offset: 346
 
 ~~~ Lucina ~~~
-
 game ID: 0x46
 announcer call: 0xF0302002
 cosmetic ID: 0x77
@@ -68,6 +61,7 @@ JOJI offset: 347
 
 ~~~ Knuckles ~~~
 game ID: 0x2F
+slot ID: 
 announcer call: 0xF0312002
 cosmetic ID: 0x78
 sound bank: 0x155 (was 146)
@@ -155,29 +149,29 @@ game ID: 0x53
 announcer call: 0xF03D2002
 cosmetic ID: 0x84
 sound bank: 0x167
-JOJI offset: 359 ????
+JOJI offset: 366
 
 ~~~ Daisy ~~~
 game ID: 0x54
 announcer call: 0xF03E2002
 cosmetic ID: 0x85
-sound bank: 0x168
-JOJI offset: 359 ????
+sound bank: 0x168 (was 493)
+JOJI offset: 367 (was 500)
 
 ~~~ Melee Fox ~~~
 game ID: 0x55
 announcer call: 0x1F5E
 cosmetic ID: 0x86
 sound bank: 0x169
-JOJI offset: 359 ????
+JOJI offset: 368
 
 ~~~ Melee Roy ~~~
 game ID: 0x56
 announcer call: 0x1F48
 cosmetic ID: 0x87
-sound bank: 0x14D
-Sawnd file: 14D
-JOJI offset: 340
+sound bank: 0x16A
+Sawnd file: 16A
+JOJI offset: 369
 results file: Z50.brstm
 
 ~~~ Kazuya ~~~

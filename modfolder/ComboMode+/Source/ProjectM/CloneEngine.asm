@@ -209,6 +209,7 @@ HOOK @ $80A0AAA8
 	bctrl 						#/
 FighterIDCheck:
     #%GFXFix(0x69, 0x169)		#Samus Clone Test, ef_custom32
+    %GFXFix(0x4B, 0x1F7)        # Ult Dark Samus, ef_customC0 (311 + 0xC0)
     lis r4, 0x04				#If not defined, use ef_samus
 end:
 	lwz r12, 0x0(r30)
