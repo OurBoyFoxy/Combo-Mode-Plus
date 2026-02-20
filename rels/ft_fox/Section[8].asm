@@ -23,6 +23,14 @@ loc_0:
         .4byte 0x00000000         [R_PPC_ADDR32("ft_fox", 8, "loc_110")]
         .4byte 0x00000024
         .4byte 0x00000D8A
+        .4byte 0x00000000         [R_PPC_ADDR32(27, 1, "loc_3117B4")]
+        .4byte 0x00000000         [R_PPC_ADDR32("ft_fox", 8, "loc_140")]
+        .4byte 0x00000010
+        .4byte 0x00000D8A
+        .4byte 0x00000000         [R_PPC_ADDR32(27, 1, "loc_1484BC")]
+        .4byte 0x00000000         [R_PPC_ADDR32("ft_fox", 8, "loc_160")]
+        .4byte 0x00000018
+        .4byte 0x00000D8A
         .4byte 0x00000000
         .4byte 0x00000000         [R_PPC_ADDR32("ft_fox", 8, "loc_E0")]
         .4byte 0x00000009
@@ -82,5 +90,23 @@ loc_110:
         .4byte 0x38800006
         .4byte 0x4BFFFFE0
         .4byte 0xCCCCCCCC
+        .4byte 0xCCCCCCCC
+        .4byte 0xCCCCCCCC
+loc_140:
+        .4byte 0x48000040
+        .4byte 0x2C03002C
+        .4byte 0x41820038
+        .4byte 0x48000034
+        .4byte 0xCCCCCCCC
+        .4byte 0xCCCCCCCC
+        .4byte 0xCCCCCCCC
+        .4byte 0xCCCCCCCC
+loc_160:
+        .4byte 0x80630000
+        .4byte 0x1C84000C
+        .4byte 0x7C63202E
+        .4byte 0x806300A8
+        .4byte 0x4E800020
+        .4byte 0x4BFFFFEC
         .4byte 0xCCCCCCCC
         .4byte 0xCCCCCCCC
