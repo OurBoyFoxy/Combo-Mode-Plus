@@ -92,7 +92,7 @@ JOJI offset: 351
 game ID: 0x4B
 announcer call: 0xF0352002
 cosmetic ID: 0x7C
-sound bank: 0x159 (was 183)
+sound bank: 0x159 (was 205)
 JOJI offset: 352
 https://www.mediafire.com/?y9ijhr4b7832llq
 
@@ -101,7 +101,7 @@ game ID: 0x4C
 announcer call: 0xF0362002
 cosmetic ID: 0x7D
 sound bank: 0x160
-JOJI offset: 359 ????
+JOJI offset: 359
 
 ~~~ Pac Man ~~~
 game ID: 0x4D
@@ -115,6 +115,7 @@ game ID: 0x4E
 announcer call: 0xF0382002
 cosmetic ID: 0x7F
 sound bank: 0x162 (was 466)
+JOJI offset: 362
 
 ~~~ Cloud ~~~
 game ID: 0x4F
