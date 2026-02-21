@@ -40,30 +40,30 @@ loc_0:
         .4byte 0xCCCCCCCC
         .4byte 0xCCCCCCCC
 loc_80:
+        .4byte 0x38800006
         .4byte 0x80630000
         .4byte 0x1C84000C
         .4byte 0x7C63202E
         .4byte 0x8063009C
         .4byte 0x4E800020
-        .4byte 0x4BFFFFEC
         .4byte 0xCCCCCCCC
         .4byte 0xCCCCCCCC
 loc_A0:
+        .4byte 0x38800006
         .4byte 0x80630000
         .4byte 0x1C84000C
         .4byte 0x7C63202E
         .4byte 0x806300A0
         .4byte 0x4E800020
-        .4byte 0x4BFFFFEC
         .4byte 0xCCCCCCCC
         .4byte 0xCCCCCCCC
 loc_C0:
+        .4byte 0x38800006
         .4byte 0x80630000
         .4byte 0x1C84000C
         .4byte 0x7C63202E
         .4byte 0x806300A4
         .4byte 0x4E800020
-        .4byte 0x4BFFFFEC
         .4byte 0xCCCCCCCC
         .4byte 0xCCCCCCCC
 loc_E0:
