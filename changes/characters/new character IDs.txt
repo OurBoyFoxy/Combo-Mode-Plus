@@ -137,7 +137,7 @@ announcer call: 0xF0372002
 cosmetic ID: 0x7E
 sound bank: 0x161
 JOJI offset: 360 (was 577)
-gfx name: ef_custom0B
+gfx name: ef_custom0B (was 64)
 gfx bank: 322
 
 ~~~ Heihachi ~~~
