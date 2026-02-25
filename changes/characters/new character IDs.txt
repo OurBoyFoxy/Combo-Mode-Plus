@@ -6,11 +6,15 @@ sound bank: 0x14D
 Sawnd file: 14D
 JOJI offset: 340
 results file: Z50.brstm
+gfx name: ef_roy
+gfx bank: 40
 
 ~~~Dr. Mario~~~
 game ID: 0x40
 announcer call: 0xF02A2002
 cosmetic ID: 0x71
+gfx name: ef_dr_mario
+gfx bank: 41
 
 ~~~Ven~~~
 game ID: 0x41
@@ -19,6 +23,8 @@ cosmetic ID: 0x72
 sound bank: 0x14F
 Sawnd file: 14F
 JOJI offset: 342
+gfx name: ef_custom00
+gfx bank: 311
 
 ~~~ Little Mac ~~~
 game ID: 0x42
@@ -28,6 +34,8 @@ sound bank: 0x150
 Sawnd file: 150
 JOJI offset: 343
 results file: Z51.brstm
+gfx name: ef_custom01
+gfx bank: 312
 
 ~~~ Mewtwo ~~~
 game ID: 0x43
@@ -37,6 +45,8 @@ sound bank: 0x151
 Sawnd file: 151
 JOJI offset: 344
 results file: Z52.brstm
+gfx name: ef_mewtwo
+gfx bank: 39
 
 ~~~ Greninja ~~~
 game ID: 0x44
@@ -44,6 +54,8 @@ announcer call: 0xF02E2002
 cosmetic ID: 0x75
 sound bank: 0x152
 JOJI offset: 345
+gfx name: ef_custom02
+gfx bank: 313
 
 ~~~ Shadow ~~~
 game ID: 0x45
@@ -51,6 +63,8 @@ announcer call: 0xF02F2002
 cosmetic ID: 0x76
 sound bank: 0x153
 JOJI offset: 346
+gfx name: ef_custom03
+gfx bank: 314
 
 ~~~ Lucina ~~~
 game ID: 0x46
@@ -58,6 +72,8 @@ announcer call: 0xF0302002
 cosmetic ID: 0x77
 sound bank: 0x154 (was 399)
 JOJI offset: 347
+gfx name: ef_custom04
+gfx bank: 315
 
 ~~~ Knuckles ~~~
 game ID: 0x2F
@@ -66,6 +82,8 @@ announcer call: 0xF0312002
 cosmetic ID: 0x78
 sound bank: 0x155 (was 146)
 JOJI offset: 348
+gfx name: ef_custom05
+gfx bank: 316
 
 ~~~ King K Rool ~~~
 game ID: 0x48
@@ -73,6 +91,8 @@ announcer call: 0xF0322002
 cosmetic ID: 0x79
 sound bank: 0x156 (was 203)
 JOJI offset: 349
+gfx name: ef_custom06
+gfx bank: 317
 
 ~~~ Geno ~~~
 game ID: 0x49
@@ -80,6 +100,8 @@ announcer call: 0xF0332002
 cosmetic ID: 0x7A
 sound bank: 0x157 (was 18C)
 JOJI offset: 350
+gfx name: ef_custom07
+gfx bank: 318
 
 ~~~ Sub Zero ~~~
 game ID: 0x4A (was 0x75)
@@ -87,6 +109,8 @@ announcer call: 0xF0342002
 cosmetic ID: 0x7B
 sound bank: 0x158 (was 183)
 JOJI offset: 351
+gfx name: ef_custom08
+gfx bank: 319
 
 ~~~ Dark Samus ~~~
 game ID: 0x4B
@@ -95,6 +119,8 @@ cosmetic ID: 0x7C
 sound bank: 0x159 (was 205)
 JOJI offset: 352
 https://www.mediafire.com/?y9ijhr4b7832llq
+gfx name: ef_custom09
+gfx bank: 320
 
 ~~~ Sephiroth ~~~
 game ID: 0x4C
@@ -102,6 +128,8 @@ announcer call: 0xF0362002
 cosmetic ID: 0x7D
 sound bank: 0x160
 JOJI offset: 359
+gfx name: ef_custom0A
+gfx bank: 321
 
 ~~~ Pac Man ~~~
 game ID: 0x4D
@@ -109,6 +137,8 @@ announcer call: 0xF0372002
 cosmetic ID: 0x7E
 sound bank: 0x161
 JOJI offset: 360 (was 577)
+gfx name: ef_custom0B (was 64)
+gfx bank: 322
 
 ~~~ Heihachi ~~~
 game ID: 0x4E
@@ -116,6 +146,8 @@ announcer call: 0xF0382002
 cosmetic ID: 0x7F
 sound bank: 0x162 (was 466)
 JOJI offset: 362
+gfx name: ef_custom0C
+gfx bank: 323
 
 ~~~ Cloud ~~~
 game ID: 0x4F
@@ -123,6 +155,8 @@ announcer call: 0xF0392002
 cosmetic ID: 0x80
 sound bank: 0x163
 JOJI offset: 362 (was 346)
+gfx name: ef_custom0D
+gfx bank: 324
 
 ~~~ Incineroar ~~~
 game ID: 0x50
@@ -130,6 +164,8 @@ announcer call: 0xF03A2002
 cosmetic ID: 0x81
 sound bank: 0x164 (was 514)
 JOJI offset: 363 ????
+gfx name: ef_custom0E
+gfx bank: 325
 
 ~~~ Isabelle ~~~
 game ID: 0x51
@@ -137,6 +173,8 @@ announcer call: 0xF03B2002
 cosmetic ID: 0x82
 sound bank: 0x165 (was 562)
 JOJI offset: 364
+gfx name: ef_custom0F
+gfx bank: 326
 
 ~~~ Kumatora ~~~
 game ID: 0x52
@@ -144,6 +182,8 @@ announcer call: 0xF03C2002
 cosmetic ID: 0x83
 sound bank: 0x166 (was 499)
 JOJI offset: 365
+gfx name: ef_custom10
+gfx bank: 327
 
 ~~~ Car ~~~
 game ID: 0x53
@@ -151,6 +191,8 @@ announcer call: 0xF03D2002
 cosmetic ID: 0x84
 sound bank: 0x167
 JOJI offset: 366
+gfx name: ef_custom11
+gfx bank: 328
 
 ~~~ Daisy ~~~
 game ID: 0x54
@@ -158,6 +200,8 @@ announcer call: 0xF03E2002
 cosmetic ID: 0x85
 sound bank: 0x168 (was 493)
 JOJI offset: 367 (was 500)
+gfx name: ef_custom12
+gfx bank: 329
 
 ~~~ Melee Fox ~~~
 game ID: 0x55
@@ -165,6 +209,8 @@ announcer call: 0x1F5E
 cosmetic ID: 0x86
 sound bank: 0x169
 JOJI offset: 368
+gfx name: ef_custom13
+gfx bank: 330
 
 ~~~ Melee Roy ~~~
 game ID: 0x56
@@ -174,6 +220,8 @@ sound bank: 0x16A
 Sawnd file: 16A
 JOJI offset: 369
 results file: Z50.brstm
+gfx name: ef_custom14
+gfx bank: 331
 
 ~~~ Kazuya ~~~
 announcer call: 0xF03F2002
