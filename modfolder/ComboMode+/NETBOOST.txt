@@ -206,5 +206,6 @@ loc_0x12C:
 
 .include Source/Extras/More.asm
 
-.include source/Rex/Tags.asm
-.include source/Rex/Rules.asm
+.include Source/Rex/UITouchups.asm
+.include Source/Rex/Tags.asm
+.include Source/Rex/Rules.asm
