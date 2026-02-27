@@ -74,7 +74,7 @@ sound bank: 0x154 (was 399)
 JOJI offset: 347
 gfx name: ef_custom04
 gfx bank: 315
-trace ID: 0x0B5
+trace IDs: [0x0B5, 0xB6, 0xB7, 0xB8, 0xB9]
 
 ~~~ Knuckles ~~~
 game ID: 0x2F
