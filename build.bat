@@ -31,29 +31,43 @@ if not exist "%DEST_INJECT%" mkdir "%DEST_INJECT%"
 :: 1. Main codes
 echo .
 echo ========================
-echo [1/4] Building RSBE01...
+echo [1/6] Building ComboMode+ RSBE01...
 echo ========================
 "%GCT%" "modfolder\ComboMode+\RSBE01.txt" < "%ENTER%"
 echo.
 
 echo .
 echo ========================
-echo [2/4] Building RSBEDM...
+echo [2/6] Building RSBEDM...
 echo ========================
 "%GCT%" "modfolder\ComboMode+\RSBEDM.txt" < "%ENTER%"
 echo.
 
 echo .
 echo =======================
-echo [3/4] Building BOOST...
+echo [3/6] Building ComboMode+ BOOST...
 echo =======================
 "%GCT%" "modfolder\ComboMode+\BOOST.txt" < "%ENTER%"
+echo.
+
+echo .
+echo ========================
+echo [4/6] Building ComboMode+ RSBE01...
+echo ========================
+"%GCT%" "modfolder\codes\RSBE01.txt" < "%ENTER%"
+echo.
+
+echo .
+echo =======================
+echo [5/6] Building ComboMode+ BOOST...
+echo =======================
+"%GCT%" "modfolder\codes\BOOST.txt" < "%ENTER%"
 echo.
 
 :: 2. Injects
 echo .
 echo =====================================
-echo [4/4] Building Fighter Inject GCTs...
+echo [6/6] Building Fighter Inject GCTs...
 echo =====================================
 echo.
 set "count=0"
