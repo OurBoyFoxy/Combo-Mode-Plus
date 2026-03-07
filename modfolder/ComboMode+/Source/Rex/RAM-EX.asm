@@ -263,6 +263,8 @@ HOOK @ $800EDD9C
 
 ################################################################
 Costume Decompression Now In FighterXResource Heaps [Exul Anima]
+# NOTE! - This forces a requirement for wario and bowser to have
+# the same number of pacs as wario man and gigabowser
 ################################################################
 
 HOOK @ $8082AFB0
