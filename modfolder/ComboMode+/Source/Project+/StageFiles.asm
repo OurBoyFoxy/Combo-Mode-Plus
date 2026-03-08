@@ -1643,6 +1643,21 @@ isR:
 isL:
 	li r28, 0x4c
 setFrame:
+	lis r11, 0x8049
+	lbz r0, 0x6006(r11)		# load previous L/R state
+	cmpwi r28, 0				# is L or R pressed now?
+	stb r28, 0x6006(r11)		# store current state for next frame
+	beq- noScrollSound			# not pressed → skip sound, latch already cleared
+	cmpwi r0, 0				# was it already pressed last frame?
+	bne- noScrollSound			# yes (held, not a new press) → skip
+	li r4, 0x24
+	%lwd (r3, g_sndSystem)
+	li r5, -1
+	li r6, 0
+	li r7, 0
+	li r8, -1
+	%call (sndSystem__playSE)
+noScrollSound:
 	lis r0, 0x4330			# \
 	stw r0, 0x40(r1)		# |
 	xoris r0, r12, 0x8000	# | 
@@ -1667,7 +1682,7 @@ setFrame:
 checkForSetHazard:
 	lwz r12, 0x4C(r1)
 	andi. r0, r12, 0x0010		# 0x0010 # Gamecube Z
-	#bne+ setHazard  
+	bne+ setHazard
 	rlwinm. r0, r12, 0, 10, 10	# 0x00200000	# Classic Controller ZL/ZR
 	beq+ dontSetHazard 
 setHazard:
