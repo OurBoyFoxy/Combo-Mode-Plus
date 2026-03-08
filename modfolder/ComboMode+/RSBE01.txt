@@ -2252,6 +2252,75 @@ skip:
   	li r29, 0x0
 }
 
+#######################################################
+Melee Random Rewrite (CSS Expansion) [Sammi Husky, Eon]
+#######################################################
+op nop @ $8068ae20
+HOOK @ $8068AE24
+{
+  cmpwi r27, 0x28
+  bne end
+  lhz r3, 0x43A(r31)
+  lis r12, 0x8003
+  ori r12, r12, 0xFC7C
+  mtctr r12 
+  bctrl 
+  addi r4, r3, 0x4A4
+  lbzx r4, r31, r4
+  mr r3, r28
+  lis r12, 0x8069
+  ori r12, r12, 0x48D4
+  mtctr r12 
+  bctrl 
+  mr r4, r3
+  mr r3, r28
+  lis r12, 0x8069
+  ori r12, r12, 0x6F60
+  mtctr r12 
+  bctrl
+  lwz r4, 0x1B8(r28)
+  mr r3, r28
+  lis r12, 0x8069
+  ori r12, r12, 0x39BC
+  mtctr r12 
+  bctrl 
+  #getNumCharColour
+  #randi(numOfColours), then increment costume by that number
+  lis r12, 0x8003
+  ori r12, r12, 0xFC7C
+  mtctr r12 
+  bctrl 
+  mr r27, r3
+loop:
+  cmpwi r27, 0
+  beq endLoop 
+  mr r3, r28    # Changed this line so costume gets incremented for correct player
+  lis r12, 0x8069
+  ori r12, r12, 0xA22C
+  mtctr r12 
+  bctrl #incCostume
+  subi r27, r27, 1
+  b loop
+endLoop:
+  lwz r27, 0x1B8(r28)
+
+  #tell the game to properly highlight the new char
+  mr r3, r29 
+  lis r12, 0x8069
+  ori r12, r12, 0xECA4
+  mtctr r12 
+  bctrl 
+  mr r5, r3
+  mr r3, r31
+  mr r4, r27 
+  lis r12, 0x8069
+  ori r12, r12, 0x17E8
+  mtctr r12 
+  bctrl 
+end:
+  mr r3, r29
+}
+
 ################################################################################
 [Legacy TE] sc_selmap.pac can be 3 times larger because I said so V2 [DukeItOut]
 #

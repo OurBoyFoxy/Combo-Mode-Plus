@@ -4,6 +4,7 @@ Extra Fighters on Random Select [GeraRReal]
 
 # The code relies on having the code on Project+Ex due to
 # depending on a number of codes added to the build.
+# like Melee Random Rewrite (CSS Expansion) [Sammi Husky, Eon]
 
 # You can store up to 32 extra characters on Random Select.
 # Hold L and press X or Y to swap.
@@ -15,7 +16,7 @@ Extra Fighters on Random Select [GeraRReal]
 
 ExtraFighterData:
 	byte[32] |
-0x29, 0xFF, 0xFF, 0xFF,  | # Random, Empty, Empty, Empty
+0x29, 0x10, 0x18, 0xFF,  | # Random, Icies, Olimar, Empty
 0xFF, 0xFF, 0xFF, 0xFF,  | # Empty, Empty, Empty, Empty
 0xFF, 0xFF, 0xFF, 0xFF,  | # Empty, Empty, Empty, Empty
 0xFF, 0xFF, 0xFF, 0xFF,  | # Empty, Empty, Empty, Empty
