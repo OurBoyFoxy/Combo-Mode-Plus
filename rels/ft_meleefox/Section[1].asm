@@ -99,7 +99,6 @@ loc_168:
     /* 0000016C: */    mr r6,r28
     /* 00000170: */    mr r7,r26
     /* 00000174: */    mr r8,r25
-loc_178:
     /* 00000178: */    li r9,0x0
     /* 0000017C: */    lwz r10,0x60(r24)
     /* 00000180: */    bl __unresolved                          [R_PPC_REL24(27, 1, "loc_192D4C")]
@@ -15988,6 +15987,7 @@ ftClassInfoImpl_6_5ftFox_____ct:
     /* 0000E720: */    addi r0,r3,0x8
     /* 0000E724: */    stw r0,0x0(r31)
     /* 0000E728: */    mr r3,r31
+loc_E72C:
     /* 0000E72C: */    li r4,0x6
     /* 0000E730: */    mr r5,r31
     /* 0000E734: */    bl __unresolved                          [R_PPC_REL24(27, 1, "loc_125644")]
@@ -16012,6 +16012,7 @@ ftClassInfoImpl_6_5ftFox_____dt:
     /* 0000E77C: */    stw r4,0x8(r3)
     /* 0000E780: */    addi r0,r4,0x8
     /* 0000E784: */    stw r0,0x0(r3)
+loc_E788:
     /* 0000E788: */    li r4,0x6
     /* 0000E78C: */    lis r5,0x0                               [R_PPC_ADDR16_HA(27, 6, "loc_312C")]
     /* 0000E790: */    addi r5,r5,0x0                           [R_PPC_ADDR16_LO(27, 6, "loc_312C")]
