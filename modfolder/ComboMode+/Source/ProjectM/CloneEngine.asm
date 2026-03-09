@@ -253,19 +253,24 @@ end:
 ###################################################
 Fox Clone Blaster Bullet GFX Fix [djpvstv]
 ###################################################
-# Redirects ef_fox blaster effectID to ef_custom13 for MeleeFox clones.
+# Redirects ef_fox blaster effectID to ef_custom* for fox clones.
 # effectID format: (bank<<16)|local_index. Fox blaster = 0x0007000A (bank=7, local=0xA).
-# ef_custom13 bank = 0x14A (formula: 0x137 + 0x13). lis+ori constructs r4 from scratch.
 # r25 = weapon StageObject throughout activate/[wnFoxBlasterBullet]; r25+0xC8 = founderKind.
+# GFXFixOri uses r0=founderKind (lis+ori, for effectIDs with local index).
+.macro GFXFixOri(<FighterID>, <Bank>, <LocalIdx>)
+{
+    cmpwi r0, <FighterID>
+    bne 0x10
+    lis r4, <Bank>
+    ori r4, r4, <LocalIdx>
+    b end
+}
 HOOK @ $80A2E138
 {
-    lwz r0, 0xC8(r25)      # founderKind of blaster's owner
-    cmpwi r0, 0x55         # is MeleeFox (kind 0x55)?
-    bne end                # no: keep original effectID in r4
-    lis r4, 0x014A         # yes: upper 16 bits = ef_custom13 bank
-    ori r4, r4, 0xA        # yes: r4 = 0x014A000A (bank=0x14A, local=0xA)
+    lwz r0, 0xC8(r25)              # founderKind of blaster's owner
+    %GFXFixOri(0x55, 0x014A, 0xA)  # MeleeFox → ef_custom13 (bank=0x14A, local=0xA)
 end:
-    mtctr r12         # displaced original instruction
+    mtctr r12                      # displaced original instruction
 }
 
 ##################################################
