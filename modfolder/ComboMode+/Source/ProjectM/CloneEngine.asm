@@ -250,6 +250,24 @@ end:
 	lwz r12, 0x0(r30)
 }
 
+###################################################
+Fox Clone Blaster Bullet GFX Fix [djpvstv]
+###################################################
+# Redirects ef_fox blaster effectID to ef_custom13 for MeleeFox clones.
+# effectID format: (bank<<16)|local_index. Fox blaster = 0x0007000A (bank=7, local=0xA).
+# ef_custom13 bank = 0x14A (formula: 0x137 + 0x13). lis+ori constructs r4 from scratch.
+# r25 = weapon StageObject throughout activate/[wnFoxBlasterBullet]; r25+0xC8 = founderKind.
+HOOK @ $80A2E138
+{
+    lwz r0, 0xC8(r25)      # founderKind of blaster's owner
+    cmpwi r0, 0x55         # is MeleeFox (kind 0x55)?
+    bne end                # no: keep original effectID in r4
+    lis r4, 0x014A         # yes: upper 16 bits = ef_custom13 bank
+    ori r4, r4, 0xA        # yes: r4 = 0x014A000A (bank=0x14A, local=0xA)
+end:
+    mtctr r12         # displaced original instruction
+}
+
 ##################################################
 Jigglypuff Clone Rollout Bone Fix [codes, DesiacX]
 ##################################################
