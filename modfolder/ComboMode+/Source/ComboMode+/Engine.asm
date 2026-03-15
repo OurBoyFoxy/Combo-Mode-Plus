@@ -277,12 +277,20 @@ HOOK @ $80695264                # Address = $(ba + 0x00695264) [in "updateContro
 
 
 ###################################
-[ComboMode+] CSS Fix [bleamix] https://www.youtube.com/watch?v=DDR5Qh949G4
+[ComboMode+] CSS Fix [Phantom Wings] https://www.youtube.com/watch?v=DDR5Qh949G4
 ###################################
-* 046A0C68 C2000000             # 32-Bit Write @ $(ba + 0x006A0C68):  0xC2000000
-* 0469DC18 40820030             # 32-Bit Write @ $(ba + 0x0069DC18):  0x40820030
-* 0469DC40 2C030000             # 32-Bit Write @ $(ba + 0x0069DC40):  0x2C030000
-* 04689E88 60000000             # 32-Bit Write @ $(ba + 0x00689E88):  0x60000000
+# mu_select_character_list.o: replaces original float instruction with lfs f16, 0(r0)
+op lfs f16, 0(r0)      @ $806A0C68
+
+# MuSelctChrList_scrollStart: branch over the original limit check when prior condition != 0
+op bne 0x30            @ $8069DC18
+
+# MuSelctChrList_scrollStart: ← BOUNDARY VALUE — change 0 to restrict the left boundary
+# Increasing this value raises the minimum acceptable index (tightens the left limit)
+op cmpwi r3, 0         @ $8069DC40
+
+# muSelCharTask_pointedProc: removes a gating instruction that fails for clone slots
+op nop                 @ $80689E88
 
 ###################################
 [Combo Mode+] Shield during Dash 3.0 [Yeroc, Wind Owl]
