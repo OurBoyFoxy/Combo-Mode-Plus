@@ -1715,6 +1715,7 @@ selectedRandomClr:
 	#lwz r3, 0x1FC(r30)
 	#b changeClr
 notRandom:
+	lis r8, 0x806B
 	lwz	r3, 0x204(r30)
 	ori r4, r8, 0x94EF	# SelMapCursorB
 	lbz r12, 0x45(r30)
