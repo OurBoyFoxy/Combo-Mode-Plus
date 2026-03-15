@@ -6,6 +6,9 @@ Extra Fighters on Random Select [GeraRReal]
 # depending on a number of codes added to the build.
 # like Melee Random Rewrite (CSS Expansion) [Sammi Husky, Eon]
 
+# Change the number of avaliable characters for this by
+# changing the MaxChar alias on line 33.
+
 # You can store up to 32 extra characters on Random Select.
 # Hold L and press X or Y to swap.
 # Allows L+X, L+Y, AND touching to work on SlotEx fighters
@@ -16,7 +19,7 @@ Extra Fighters on Random Select [GeraRReal]
 
 ExtraFighterData:
 	byte[32] |
-0x29, 0x10, 0x18, 0xFF,  | # Random, Icies, Olimar, Empty
+0x29, 0x10, 0x18, 0x44,  | # Random, Icies, Olimar, Empty
 0xFF, 0xFF, 0xFF, 0xFF,  | # Empty, Empty, Empty, Empty
 0xFF, 0xFF, 0xFF, 0xFF,  | # Empty, Empty, Empty, Empty
 0xFF, 0xFF, 0xFF, 0xFF,  | # Empty, Empty, Empty, Empty
@@ -27,7 +30,7 @@ ExtraFighterData:
 
 MyCode:
 .RESET
-.alias MaxChar = 1
+.alias MaxChar = 3
 .alias Write = 0x804ECFC0
 // Grab L, R and Z input from previous getSysPadStatus
 HOOK @ $80689A90
